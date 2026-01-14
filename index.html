@@ -1,286 +1,221 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="UTF-8" />
-<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-<title>Rajeshkumar K | DevOps & Observability Engineer</title>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Rajeshkumar K | DevOps & Observability Engineer</title>
 
-<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&display=swap" rel="stylesheet">
+  <!-- Fonts & Icons -->
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&display=swap" rel="stylesheet">
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" rel="stylesheet">
 
-<style>
-:root {
-  --bg: #0b1220;
-  --card: #111a2e;
-  --text: #e5e7eb;
-  --muted: #9ca3af;
-  --accent: #3b82f6;
-  --accent2: #22c55e;
-}
+  <style>
+    :root {
+      --bg: #0f172a;
+      --card: #111827;
+      --text: #e5e7eb;
+      --muted: #9ca3af;
+      --accent: #38bdf8;
+      --badge: #1e293b;
+    }
 
-* { box-sizing: border-box; }
+    body.light {
+      --bg: #f8fafc;
+      --card: #ffffff;
+      --text: #0f172a;
+      --muted: #475569;
+      --badge: #e2e8f0;
+    }
 
-body {
-  margin: 0;
-  font-family: 'Inter', sans-serif;
-  background: linear-gradient(120deg, #020617, #0b1220);
-  color: var(--text);
-}
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
 
-.container {
-  max-width: 1100px;
-  margin: auto;
-  padding: 40px 20px;
-}
+    body {
+      font-family: 'Inter', sans-serif;
+      background: var(--bg);
+      color: var(--text);
+      line-height: 1.6;
+    }
 
-/* HEADER */
-.header {
-  display: grid;
-  grid-template-columns: 1fr 2fr;
-  gap: 30px;
-  align-items: center;
-}
+    header {
+      padding: 4rem 2rem;
+      text-align: center;
+    }
 
-.profile {
-  background: var(--card);
-  border-radius: 16px;
-  padding: 30px;
-  box-shadow: 0 20px 40px rgba(0,0,0,0.4);
-}
+    header h1 {
+      font-size: 3rem;
+      font-weight: 700;
+    }
 
-.profile h1 {
-  margin: 0;
-  font-size: 2.2rem;
-}
+    header p {
+      margin-top: 1rem;
+      color: var(--muted);
+      max-width: 800px;
+      margin-inline: auto;
+    }
 
-.profile h2 {
-  margin: 10px 0;
-  font-weight: 400;
-  color: var(--accent);
-}
+    .toggle {
+      position: fixed;
+      top: 20px;
+      right: 20px;
+      background: var(--card);
+      border: 1px solid var(--badge);
+      padding: 0.6rem 1rem;
+      border-radius: 20px;
+      cursor: pointer;
+      font-size: 0.9rem;
+    }
 
-.profile p {
-  color: var(--muted);
-  line-height: 1.6;
-}
+    section {
+      max-width: 1200px;
+      margin: auto;
+      padding: 2rem;
+    }
 
-.badges {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 10px;
-  margin-top: 20px;
-}
+    .grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+      gap: 1.5rem;
+    }
 
-.badge {
-  background: rgba(59,130,246,0.15);
-  border: 1px solid rgba(59,130,246,0.4);
-  padding: 6px 12px;
-  border-radius: 999px;
-  font-size: 0.85rem;
-}
+    .card {
+      background: var(--card);
+      border-radius: 14px;
+      padding: 1.5rem;
+      border: 1px solid var(--badge);
+      transition: transform 0.2s ease;
+    }
 
-/* HERO CARD */
-.hero {
-  background: linear-gradient(135deg, #1e293b, #020617);
-  border-radius: 18px;
-  padding: 40px;
-  box-shadow: 0 30px 60px rgba(0,0,0,0.5);
-}
+    .card:hover {
+      transform: translateY(-5px);
+    }
 
-.hero h3 {
-  font-size: 1.6rem;
-  margin-bottom: 15px;
-}
+    h2 {
+      margin-bottom: 1rem;
+      font-size: 1.8rem;
+    }
 
-.hero p {
-  color: var(--muted);
-  line-height: 1.7;
-}
+    h3 {
+      margin-bottom: 0.5rem;
+    }
 
-/* SECTIONS */
-.section {
-  margin-top: 60px;
-}
+    .badges span {
+      display: inline-block;
+      background: var(--badge);
+      padding: 0.4rem 0.7rem;
+      border-radius: 8px;
+      font-size: 0.85rem;
+      margin: 0.3rem;
+    }
 
-.section h3 {
-  font-size: 1.6rem;
-  margin-bottom: 25px;
-  border-left: 5px solid var(--accent);
-  padding-left: 15px;
-}
+    .icon {
+      font-size: 2rem;
+      color: var(--accent);
+      margin-bottom: 0.8rem;
+    }
 
-/* GRID */
-.grid {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(250px,1fr));
-  gap: 25px;
-}
-
-.card {
-  background: var(--card);
-  border-radius: 16px;
-  padding: 25px;
-  transition: transform 0.3s, box-shadow 0.3s;
-}
-
-.card:hover {
-  transform: translateY(-6px);
-  box-shadow: 0 25px 45px rgba(0,0,0,0.5);
-}
-
-.card h4 {
-  margin-top: 0;
-  color: var(--accent2);
-}
-
-.card p {
-  color: var(--muted);
-  line-height: 1.6;
-}
-
-/* CERTIFICATIONS */
-.cert {
-  display: flex;
-  align-items: center;
-  gap: 15px;
-}
-
-.cert span {
-  font-size: 1.8rem;
-}
-
-/* FOOTER */
-.footer {
-  text-align: center;
-  margin-top: 80px;
-  color: var(--muted);
-  font-size: 0.9rem;
-  padding-bottom: 20px;
-}
-</style>
+    footer {
+      text-align: center;
+      padding: 2rem;
+      color: var(--muted);
+      font-size: 0.9rem;
+    }
+  </style>
 </head>
 
 <body>
 
-<div class="container">
+<button class="toggle" onclick="toggleTheme()">🌙 / ☀️</button>
 
-  <!-- HEADER -->
-  <div class="header">
-    <div class="profile">
-      <h1>Rajeshkumar K</h1>
-      <h2>Associate DevOps Engineer · TAC</h2>
-      <p>
-        DevOps & Observability Engineer with strong hands-on experience in 
-        monitoring production systems, Azure cloud operations, and Kubernetes-based workloads.
-        Specialized in building reliable, actionable observability platforms.
-      </p>
+<header>
+  <h1>Rajeshkumar K</h1>
+  <p>
+    Associate DevOps Engineer working in a Technical Assistance Center (TAC), specializing in
+    <strong>observability, monitoring, uptime, and Azure cloud operations</strong>.
+    Passionate about building reliable, well-monitored production systems.
+  </p>
+</header>
 
-      <div class="badges">
-        <div class="badge">Prometheus</div>
-        <div class="badge">Grafana</div>
-        <div class="badge">ELK Stack</div>
-        <div class="badge">Uptime Kuma</div>
-        <div class="badge">Azure</div>
-        <div class="badge">Kubernetes</div>
-        <div class="badge">TAC Support</div>
-      </div>
+<section>
+  <h2>Core Expertise</h2>
+  <div class="grid">
+    <div class="card">
+      <div class="icon"><i class="fas fa-chart-line"></i></div>
+      <h3>Prometheus</h3>
+      <p>Metric collection, exporters, PromQL optimization, alert rules for Kubernetes & infrastructure.</p>
     </div>
 
-    <div class="hero">
-      <h3>Professional Summary</h3>
-      <p>
-        I work in a Technical Assistance Center (TAC), ensuring system uptime, 
-        observability, and operational excellence across production environments.
-        My daily work includes Kubernetes monitoring, Azure infrastructure support,
-        Grafana dashboard design, PromQL optimization, and incident troubleshooting
-        using centralized logging platforms.
-      </p>
+    <div class="card">
+      <div class="icon"><i class="fas fa-chart-pie"></i></div>
+      <h3>Grafana</h3>
+      <p>Advanced dashboards for infra, applications, SLA/SLO tracking and alert visualization.</p>
+    </div>
+
+    <div class="card">
+      <div class="icon"><i class="fas fa-database"></i></div>
+      <h3>ELK Stack</h3>
+      <p>Centralized logging, index lifecycle, parsing, and root-cause analysis.</p>
+    </div>
+
+    <div class="card">
+      <div class="icon"><i class="fas fa-heartbeat"></i></div>
+      <h3>Uptime Kuma</h3>
+      <p>Service availability checks, endpoint health monitoring and uptime reporting.</p>
     </div>
   </div>
+</section>
 
-  <!-- OBSERVABILITY -->
-  <div class="section">
-    <h3>Observability & Monitoring Expertise</h3>
+<section>
+  <h2>Cloud & Platform</h2>
+  <div class="badges">
+    <span>Azure</span>
+    <span>Kubernetes</span>
+    <span>Linux</span>
+    <span>Monitoring & Observability</span>
+    <span>TAC Support</span>
+  </div>
+</section>
 
-    <div class="grid">
-      <div class="card">
-        <h4>Prometheus</h4>
-        <p>
-          Metric collection strategy design, exporter management, 
-          efficient PromQL queries, and alert rule configuration 
-          for Kubernetes and infrastructure monitoring.
-        </p>
-      </div>
-
-      <div class="card">
-        <h4>Grafana</h4>
-        <p>
-          Building clean, actionable dashboards for infrastructure metrics,
-          application performance, SLA/SLO tracking, and alert visualization.
-        </p>
-      </div>
-
-      <div class="card">
-        <h4>ELK Stack</h4>
-        <p>
-          Centralized logging, index lifecycle management, log parsing,
-          and root cause analysis for production incidents.
-        </p>
-      </div>
-
-      <div class="card">
-        <h4>Uptime Kuma</h4>
-        <p>
-          Service availability monitoring, endpoint health checks,
-          uptime tracking, and proactive alerting.
-        </p>
-      </div>
+<section>
+  <h2>Azure Certifications</h2>
+  <div class="grid">
+    <div class="card">
+      <h3>AZ-104</h3>
+      <p>Azure Administrator Associate – compute, networking, identity, monitoring.</p>
+    </div>
+    <div class="card">
+      <h3>AZ-900</h3>
+      <p>Azure Fundamentals – cloud concepts, services, governance.</p>
     </div>
   </div>
+</section>
 
-  <!-- AZURE -->
-  <div class="section">
-    <h3>Azure Cloud & Certifications</h3>
-
-    <div class="grid">
-      <div class="card cert">
-        <span>☁️</span>
-        <div>
-          <h4>AZ-104 · Azure Administrator Associate</h4>
-          <p>Compute, networking, identity, monitoring, and operations.</p>
-        </div>
-      </div>
-
-      <div class="card cert">
-        <span>📘</span>
-        <div>
-          <h4>AZ-900 · Azure Fundamentals</h4>
-          <p>Cloud concepts, Azure services, governance, and pricing.</p>
-        </div>
-      </div>
-    </div>
+<section>
+  <h2>Current Role</h2>
+  <div class="card">
+    <h3>Associate DevOps Engineer – TAC</h3>
+    <ul>
+      <li>Proactive monitoring & alerting for production systems</li>
+      <li>Incident triage and root cause analysis</li>
+      <li>Azure infrastructure and Kubernetes support</li>
+      <li>Maintaining observability platforms across applications</li>
+      <li>Collaboration with development teams to improve reliability</li>
+    </ul>
   </div>
+</section>
 
-  <!-- ROLE -->
-  <div class="section">
-    <h3>Current Role – TAC</h3>
+<footer>
+  © 2026 Rajeshkumar K · DevOps & Observability Engineer · Hosted on GitHub Pages
+</footer>
 
-    <div class="grid">
-      <div class="card">
-        <p>
-          ✔ Proactive monitoring and alerting for production systems<br><br>
-          ✔ Incident triage and root cause analysis<br><br>
-          ✔ Azure infrastructure and service support<br><br>
-          ✔ Maintaining observability platforms across applications<br><br>
-          ✔ Collaboration with development teams to improve reliability
-        </p>
-      </div>
-    </div>
-  </div>
+<script>
+  function toggleTheme() {
+    document.body.classList.toggle("light");
+  }
+</script>
 
-  <div class="footer">
-    © 2026 Rajeshkumar K · DevOps & Observability Engineer · GitHub Pages
-  </div>
-
-</div>
 </body>
 </html>
