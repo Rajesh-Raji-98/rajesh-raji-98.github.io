@@ -251,7 +251,7 @@ footer{
   <div class="card glass glow">
     <img src="https://cdn.worldvectorlogo.com/logos/prometheus-1.svg" alt="Prometheus" class="service-logo">
     <h3>Prometheus</h3>
-    <p>Metrics collection, exporters, PromQL optimization, alerts for Kubernetes & VMs.</p>
+    <p>Metrics collection, exporters including Node and Windows, PromQL optimization, alerts for Kubernetes & VMs.</p>
   </div>
   <div class="card glass glow">
     <img src="https://cdn.worldvectorlogo.com/logos/grafana.svg" alt="Grafana" class="service-logo">
@@ -264,9 +264,29 @@ footer{
     <p>Cloud VMs, networking, monitoring, identity, and TAC support.</p>
   </div>
   <div class="card glass glow">
-    <img src="https://cdn.worldvectorlogo.com/logos/jenkins-2.svg" alt="Jenkins" class="service-logo">
-    <h3>Jenkins / ArgoCD</h3>
-    <p>CI/CD pipelines, GitOps automation, deployments to Kubernetes clusters.</p>
+    <img src="https://cdn.worldvectorlogo.com/logos/argocd.svg" alt="ArgoCD" class="service-logo">
+    <h3>ArgoCD</h3>
+    <p>GitOps automation, deployments to Kubernetes clusters.</p>
+  </div>
+  <div class="card glass glow">
+    <img src="https://raw.githubusercontent.com/louislam/uptime-kuma/master/public/icon.svg" alt="Uptime Kuma" class="service-logo">
+    <h3>Uptime Kuma</h3>
+    <p>Monitoring and uptime tracking for services and applications.</p>
+  </div>
+  <div class="card glass glow">
+    <img src="https://cdn.worldvectorlogo.com/logos/elastic-stack.svg" alt="ELK Stack" class="service-logo">
+    <h3>ELK Stack</h3>
+    <p>Created API and ESB analytics dashboards in Kibana.</p>
+  </div>
+  <div class="card glass glow">
+    <img src="https://www.svgrepo.com/download/448282/alertmanager.svg" alt="Alert Manager" class="service-logo">
+    <h3>Alert Manager</h3>
+    <p>Configure alerts for email and Telegram.</p>
+  </div>
+  <div class="card glass glow">
+    <img src="https://upload.wikimedia.org/wikipedia/commons/e/e1/GitLab_logo.svg" alt="GitLab" class="service-logo">
+    <h3>GitLab</h3>
+    <p>Store Helm charts and codes.</p>
   </div>
 </div>
 </section>
@@ -286,29 +306,24 @@ footer{
 </section>
 <!-- FOOTER -->
 <footer id="contact">
-  © 2026 Rajeshkumar K · DevOps & Observability Engineer ·
+  © 2026 Rajeshkumar K · DevOps & Observability Engineer · Hosted on GitHub Pages
 </footer>
 <script>
 document.addEventListener("DOMContentLoaded", () => {
-
   /* ===== Theme Toggle ===== */
   const themeToggle = document.getElementById("themeToggle");
   themeToggle.addEventListener("click", () =>
     document.body.classList.toggle("light")
   );
-
   /* ===== Animated Counters (FIXED & STABLE) ===== */
   const counters = document.querySelectorAll(".count");
-
   counters.forEach(counter => {
     const target = parseFloat(counter.dataset.target);
     let current = 0;
     const speed = 100; // lower = faster
     const increment = target / speed;
-
     function updateCounter() {
       current += increment;
-
       if (current < target) {
         counter.textContent =
           target % 1 !== 0
@@ -319,15 +334,12 @@ document.addEventListener("DOMContentLoaded", () => {
         counter.textContent = target;
       }
     }
-
     updateCounter();
   });
-
   /* ===== Typing Animation ===== */
-  const skills = ["Prometheus", "Grafana", "Azure AKS", "ArgoCD", "Jenkins"];
+  const skills = ["Prometheus", "Grafana", "Azure AKS", "ArgoCD", "Uptime Kuma", "ELK Stack", "Alert Manager", "GitLab"];
   const typing = document.getElementById("typing");
   let i = 0, j = 0;
-
   function typeSkill() {
     if (j < skills[i].length) {
       typing.textContent += skills[i][j];
@@ -337,7 +349,6 @@ document.addEventListener("DOMContentLoaded", () => {
       setTimeout(eraseSkill, 1200);
     }
   }
-
   function eraseSkill() {
     if (j > 0) {
       typing.textContent = skills[i].substring(0, j - 1);
@@ -348,12 +359,9 @@ document.addEventListener("DOMContentLoaded", () => {
       setTimeout(typeSkill, 300);
     }
   }
-
   typeSkill();
-
   /* ===== Neon Glow on Scroll ===== */
   const glowCards = document.querySelectorAll(".card.glow");
-
   function revealGlow() {
     const trigger = window.innerHeight * 0.85;
     glowCards.forEach(card => {
@@ -362,11 +370,9 @@ document.addEventListener("DOMContentLoaded", () => {
       }
     });
   }
-
   window.addEventListener("scroll", revealGlow);
   revealGlow();
 });
 </script>
 </body>
 </html>
- 
