@@ -1,0 +1,299 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Rajeshkumar K | Associate DevOps Engineer</title>
+
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+
+<style>
+:root{
+  --bg:#f9fafb;
+  --card:#ffffff;
+  --text:#0f172a;
+  --muted:#475569;
+  --accent:#2563eb;
+  --border:#e5e7eb;
+}
+
+body{
+  margin:0;
+  font-family:'Inter',sans-serif;
+  background:var(--bg);
+  color:var(--text);
+  line-height:1.7;
+}
+
+.container{
+  max-width:1100px;
+  margin:auto;
+  padding:70px 20px;
+}
+
+/* HEADER */
+.header{
+  display:grid;
+  grid-template-columns:1fr;
+  gap:18px;
+  margin-bottom:60px;
+}
+
+.header h1{
+  font-size:2.8rem;
+  margin:0;
+}
+
+.header h1 span{
+  color:var(--accent);
+}
+
+.header p{
+  font-size:1.1rem;
+  color:var(--muted);
+  max-width:800px;
+}
+
+.tags{
+  display:flex;
+  flex-wrap:wrap;
+  gap:10px;
+}
+
+.tag{
+  padding:8px 14px;
+  background:#eef2ff;
+  color:#1e40af;
+  border-radius:20px;
+  font-size:.9rem;
+  font-weight:500;
+}
+
+/* SECTION */
+.section{
+  margin-top:70px;
+}
+
+.section h2{
+  font-size:1.9rem;
+  margin-bottom:30px;
+}
+
+/* CARDS */
+.grid{
+  display:grid;
+  grid-template-columns:repeat(auto-fit,minmax(260px,1fr));
+  gap:25px;
+}
+
+.card{
+  background:var(--card);
+  padding:30px;
+  border-radius:14px;
+  border:1px solid var(--border);
+}
+
+.card i{
+  font-size:2.2rem;
+  color:var(--accent);
+  margin-bottom:15px;
+}
+
+.card h3{
+  margin-bottom:8px;
+}
+
+.card p{
+  color:var(--muted);
+  font-size:.95rem;
+}
+
+/* CERTS */
+.certs{
+  display:grid;
+  grid-template-columns:repeat(auto-fit,minmax(300px,1fr));
+  gap:30px;
+}
+
+.cert{
+  display:flex;
+  gap:20px;
+  align-items:center;
+  background:var(--card);
+  padding:25px;
+  border-radius:14px;
+  border:1px solid var(--border);
+}
+
+.cert img{
+  height:60px;
+}
+
+/* EXPERIENCE */
+.experience{
+  background:var(--card);
+  border-radius:14px;
+  padding:40px;
+  border:1px solid var(--border);
+}
+
+.experience h3{
+  margin-bottom:10px;
+}
+
+.experience ul{
+  padding-left:20px;
+}
+
+.experience li{
+  margin-bottom:8px;
+  color:var(--muted);
+}
+
+/* FOOTER */
+footer{
+  margin-top:80px;
+  padding-top:25px;
+  border-top:1px solid var(--border);
+  text-align:center;
+  color:var(--muted);
+  font-size:.9rem;
+}
+</style>
+</head>
+
+<body>
+
+<div class="container">
+
+<!-- HEADER -->
+<div class="header">
+  <h1>Rajeshkumar <span>K</span></h1>
+  <p>
+    Associate DevOps Engineer working in a Technical Assistance Center (TAC),
+    with strong hands-on experience in observability, monitoring, and Azure cloud operations.
+    I specialize in ensuring system reliability, uptime, and actionable monitoring
+    for production environments.
+  </p>
+
+  <div class="tags">
+    <div class="tag">Prometheus</div>
+    <div class="tag">Grafana</div>
+    <div class="tag">ELK Stack</div>
+    <div class="tag">Uptime Kuma</div>
+    <div class="tag">Azure</div>
+    <div class="tag">Kubernetes</div>
+    <div class="tag">TAC Support</div>
+  </div>
+</div>
+
+<!-- SUMMARY -->
+<div class="section">
+  <h2>Professional Summary</h2>
+  <div class="card">
+    <p>
+      I am an Associate DevOps Engineer focused on observability and cloud support,
+      working closely with development and operations teams to maintain stable,
+      scalable, and well-monitored systems.
+    </p>
+    <p>
+      My day-to-day responsibilities include monitoring Kubernetes and VM-based workloads,
+      creating and maintaining Grafana dashboards, writing PromQL queries, managing alerting
+      strategies, and troubleshooting production issues using centralized logging platforms.
+    </p>
+  </div>
+</div>
+
+<!-- OBSERVABILITY -->
+<div class="section">
+  <h2>Observability & Monitoring Expertise</h2>
+  <div class="grid">
+
+    <div class="card">
+      <i class="fas fa-chart-line"></i>
+      <h3>Prometheus</h3>
+      <p>
+        Designing metric collection strategies, managing exporters,
+        writing efficient PromQL queries, and configuring alert rules
+        for Kubernetes and infrastructure monitoring.
+      </p>
+    </div>
+
+    <div class="card">
+      <i class="fas fa-chart-pie"></i>
+      <h3>Grafana</h3>
+      <p>
+        Building clean, actionable dashboards for infrastructure,
+        application metrics, SLA/SLO tracking, and alert visualization
+        for engineering and support teams.
+      </p>
+    </div>
+
+    <div class="card">
+      <i class="fas fa-database"></i>
+      <h3>ELK Stack</h3>
+      <p>
+        Centralized logging, index management, log parsing,
+        and root cause analysis for production incidents.
+      </p>
+    </div>
+
+    <div class="card">
+      <i class="fas fa-heartbeat"></i>
+      <h3>Uptime Kuma</h3>
+      <p>
+        Service availability monitoring, endpoint health checks,
+        and uptime tracking to ensure continuous service reliability.
+      </p>
+    </div>
+
+  </div>
+</div>
+
+<!-- CLOUD -->
+<div class="section">
+  <h2>Azure Cloud & Certifications</h2>
+
+  <div class="certs">
+    <div class="cert">
+      <img src="https://learn.microsoft.com/media/learn/certification/badges/microsoft-certified-associate-badge.svg">
+      <div>
+        <h3>Azure Administrator Associate</h3>
+        <p>AZ-104 – Azure compute, networking, identity, monitoring</p>
+      </div>
+    </div>
+
+    <div class="cert">
+      <img src="https://learn.microsoft.com/media/learn/certification/badges/microsoft-certified-fundamentals-badge.svg">
+      <div>
+        <h3>Azure Fundamentals</h3>
+        <p>AZ-900 – Cloud concepts, services, governance</p>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- ROLE -->
+<div class="section">
+  <h2>Current Role – TAC</h2>
+  <div class="experience">
+    <h3>Associate DevOps Engineer | Technical Assistance Center</h3>
+    <ul>
+      <li>Proactive monitoring and alerting for production systems</li>
+      <li>Incident triage and root cause analysis</li>
+      <li>Supporting Azure infrastructure and services</li>
+      <li>Maintaining observability platforms for multiple applications</li>
+      <li>Collaborating with development teams to improve reliability</li>
+    </ul>
+  </div>
+</div>
+
+<footer>
+  © 2026 Rajeshkumar K · DevOps & Observability Engineer · Hosted on Nginx
+</footer>
+
+</div>
+
+</body>
+</html>
