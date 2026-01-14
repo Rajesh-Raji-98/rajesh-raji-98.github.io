@@ -4,11 +4,9 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Rajeshkumar K | DevOps & Observability Engineer</title>
-
 <!-- Fonts & Icons -->
 <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
 <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" rel="stylesheet">
-
 <style>
 :root{
   --bg:#020617;
@@ -29,8 +27,14 @@ body{
   background:var(--bg);
   color:var(--text);
   transition:background var(--transition), color var(--transition);
+  scroll-behavior:smooth;
 }
-body.light{background:var(--bg-light);color:var(--text-light)}
+body.light{
+  background:var(--bg-light);
+  color:var(--text-light);
+}
+body.light .glass{background:var(--card-light);border-color:rgba(56,189,248,.25);}
+body.light .muted{color:var(--muted-light);}
 .container{max-width:1200px;margin:auto;padding:3rem 1.5rem;}
 .glass{
   background:var(--card);
@@ -38,9 +42,9 @@ body.light{background:var(--bg-light);color:var(--text-light)}
   border-radius:24px;
   border:1px solid rgba(56,189,248,.25);
   box-shadow:0 0 40px rgba(56,189,248,.15);
+  transition:background var(--transition), border var(--transition), box-shadow var(--transition);
 }
-
-/* NAV */
+/* Navbar */
 nav{
   display:flex;
   justify-content:space-between;
@@ -49,92 +53,167 @@ nav{
   position:sticky;
   top:0;
   z-index:100;
+  backdrop-filter:var(--glass);
   background:var(--card);
 }
 nav h2{color:var(--accent)}
-nav a{color:var(--muted);margin-left:1.2rem;text-decoration:none}
+nav a{
+  color:var(--muted);
+  margin-left:1.2rem;
+  text-decoration:none;
+  transition:color var(--transition);
+}
 nav a:hover{color:var(--accent)}
-.theme-toggle{cursor:pointer;color:var(--accent);margin-left:1rem}
-
-/* HERO */
+.theme-toggle{
+  cursor:pointer;
+  font-size:1.2rem;
+  margin-left:1rem;
+  color:var(--accent);
+}
+/* Hero */
 .hero{
   display:grid;
   grid-template-columns:1fr 1.3fr;
   gap:3rem;
+  padding:3rem 0;
   align-items:center;
 }
 .hero img{
   width:100%;
   border-radius:20px;
   box-shadow:0 0 30px rgba(56,189,248,.4);
+  animation:float 4s ease-in-out infinite;
+}
+@keyframes float{
+  0%,100%{transform:translateY(0);}
+  50%{transform:translateY(-15px);}
 }
 .hero h1{font-size:2.8rem}
 .hero span{color:var(--accent)}
-.hero p{margin:1rem 0;color:var(--muted)}
+.hero p{margin:1rem 0;color:var(--muted); line-height: 1.2; display: flex; align-items: center;}
 .btn{
+  display:inline-block;
   padding:.7rem 1.5rem;
   border-radius:30px;
   background:var(--accent);
   color:#020617;
+  font-weight:600;
   text-decoration:none;
   margin-right:1rem;
-  display:inline-block;
+  transition:transform var(--transition);
 }
-.btn.outline{background:none;border:1px solid var(--accent);color:var(--accent)}
-
-/* Typing */
-#typing{border-right:2px solid var(--accent);padding-right:4px}
-
-/* STATS */
+.btn:hover{transform:translateY(-3px);}
+.btn.outline{
+  background:none;
+  border:1px solid var(--accent);
+  color:var(--accent);
+}
+/* Typing effect */
+#typing{
+  display:inline-block;
+  border-right:2px solid var(--accent);
+  padding-right:3px;
+  white-space:nowrap;
+  overflow:hidden;
+  font-weight:600;
+  color:var(--accent);
+  margin-left:5px;
+  vertical-align: bottom;
+}
+/* Stats */
 .stats{
   display:grid;
   grid-template-columns:repeat(auto-fit,minmax(150px,1fr));
   text-align:center;
-  margin-top:2rem;
+  padding:2rem 0;
 }
-.count{font-size:2rem;font-weight:600;color:var(--accent)}
-
-/* SECTIONS */
+.stats h3{color:var(--accent);font-size:1.8rem}
+/* Section */
 section{margin-top:4rem}
-section h2{text-align:center;font-size:2.2rem;margin-bottom:2rem}
+section h2{
+  text-align:center;
+  margin-bottom:2rem;
+  font-size:2.2rem;
+}
 section h2 span{color:var(--accent)}
-
-/* CARDS */
+/* Cards */
 .grid{
   display:grid;
   grid-template-columns:repeat(auto-fit,minmax(250px,1fr));
   gap:1.5rem;
 }
-.card{padding:1.8rem;border-radius:18px}
-.card.glow{opacity:0;transform:translateY(20px)}
-.card.glow.show{opacity:1;transform:translateY(0);box-shadow:0 0 25px var(--accent)}
-.service-logo{width:40px;margin-bottom:1rem}
-
-/* BADGES (3D CLICK EFFECT) */
-.badges{display:flex;justify-content:center;gap:2rem;flex-wrap:wrap}
-.badge-item{perspective:1000px}
-.badge-card{
-  width:160px;
-  transition:.8s;
-  transform-style:preserve-3d;
-  cursor:pointer;
+.card{
+  padding:1.8rem;
+  border-radius:18px;
+  transition:transform var(--transition), box-shadow var(--transition);
 }
-.badge-card.active{
-  transform:rotateY(360deg) scale(1.25);
+.card:hover{
+  transform:translateY(-8px);
   box-shadow:0 0 40px var(--accent);
-  z-index:10;
 }
-.badge-card img{width:100%}
-.badge-card p{text-align:center;margin-top:.5rem}
-
-/* FOOTER */
-footer{text-align:center;margin:3rem 0;color:var(--muted)}
+.card i, .card img{
+  font-size:2rem;
+  color:var(--accent);
+  margin-bottom:1rem;
+  width:40px;
+  height:40px;
+}
+/* Badges */
+.badges {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-wrap: wrap;
+  padding: 1rem;
+}
+.badge-item {
+  text-align: center;
+  margin: 1rem;
+}
+.badge-item img {
+  width: 150px;
+  height: auto;
+}
+.badge-item p {
+  margin-top: 0.5rem;
+  color: var(--text);
+  font-size: 1rem;
+}
+/* Footer */
+footer{
+  text-align:center;
+  margin-top:4rem;
+  color:var(--muted);
+  font-size:.9rem;
+}
+/* Smooth counter animation */
+.count{
+  display:block;
+  font-size:2rem;
+  font-weight:600;
+}
+/* Neon glow animation for services */
+.card.glow{
+  opacity:0;
+  transform:translateY(20px);
+  transition:all 0.6s ease-out;
+}
+.card.glow.show{
+  opacity:1;
+  transform:translateY(0);
+  box-shadow:0 0 20px var(--accent);
+}
+/* Logo images */
+.service-logo{
+  width:40px;
+  height:40px;
+  margin-bottom:1rem;
+}
 </style>
 </head>
-
 <body>
-
 <div class="container glass">
+<!-- NAV -->
 <nav>
   <h2>Portfolio</h2>
   <div>
@@ -142,111 +221,152 @@ footer{text-align:center;margin:3rem 0;color:var(--muted)}
     <a href="#services">Expertise</a>
     <a href="#certs">Certifications</a>
     <a href="#contact">Contact</a>
-    <i class="fas fa-sun theme-toggle" id="themeToggle"></i>
+    <i class="fas fa-sun theme-toggle" id="themeToggle" title="Toggle Light/Dark"></i>
   </div>
 </nav>
-
+<!-- HERO -->
 <div class="hero" id="about">
-  <img src="https://thumbs.dreamstime.com/b/architect-portrait-indian-man-city-smile-experience-pride-urban-development-happy-career-site-planner-town-confidence-428920393.jpg">
+  <img src="https://thumbs.dreamstime.com/b/architect-portrait-indian-man-city-smile-experience-pride-urban-development-happy-career-site-planner-town-confidence-428920393.jpg" alt="DevOps Engineer">
   <div>
     <p>Hello, I’m</p>
     <h1><span>Rajeshkumar K</span></h1>
     <h3>Associate DevOps & Observability Engineer</h3>
     <p>Skills: <span id="typing"></span></p>
-    <a class="btn">Download CV</a>
+    <a class="btn" href="#">Download CV</a>
     <a class="btn outline" href="#contact">Contact Me</a>
   </div>
 </div>
-
+<!-- STATS -->
 <div class="stats">
-  <div><span class="count" data-target="1.5">0</span><p>Years of Experience</p></div>
-  <div><span class="count" data-target="75">0</span><p>Dashboards Built</p></div>
+  <div><span class="count" data-target="1.5">0</span><p>Years Of Experience</p></div>
+  <div><span class="count" data-target="75">0</span><p>Grafana/Kibana Dashboards Built</p></div>
   <div><span class="count" data-target="23">0</span><p>Prod Systems Monitored</p></div>
   <div><span class="count" data-target="99.99">0</span><p>Uptime Focus (%)</p></div>
 </div>
 </div>
-
+<!-- SERVICES -->
 <section id="services" class="container">
 <h2>My <span>Expertise</span></h2>
 <div class="grid">
-  <div class="card glass glow"><img class="service-logo" src="https://cdn.worldvectorlogo.com/logos/prometheus-1.svg"><h3>Prometheus</h3></div>
-  <div class="card glass glow"><img class="service-logo" src="https://cdn.worldvectorlogo.com/logos/grafana.svg"><h3>Grafana</h3></div>
-  <div class="card glass glow"><img class="service-logo" src="https://cdn.worldvectorlogo.com/logos/microsoft-azure-1.svg"><h3>Azure AKS</h3></div>
-  <div class="card glass glow"><img class="service-logo" src="https://cdn.worldvectorlogo.com/logos/jenkins-2.svg"><h3>Jenkins / ArgoCD</h3></div>
+  <div class="card glass glow">
+    <img src="https://cdn.worldvectorlogo.com/logos/prometheus-1.svg" alt="Prometheus" class="service-logo">
+    <h3>Prometheus</h3>
+    <p>Metrics collection, exporters, PromQL optimization, alerts for Kubernetes & VMs.</p>
+  </div>
+  <div class="card glass glow">
+    <img src="https://cdn.worldvectorlogo.com/logos/grafana.svg" alt="Grafana" class="service-logo">
+    <h3>Grafana</h3>
+    <p>Dashboards, SLA/SLO tracking, alerts visualization.</p>
+  </div>
+  <div class="card glass glow">
+    <img src="https://cdn.worldvectorlogo.com/logos/microsoft-azure-1.svg" alt="Azure" class="service-logo">
+    <h3>Azure AKS</h3>
+    <p>Cloud VMs, networking, monitoring, identity, and TAC support.</p>
+  </div>
+  <div class="card glass glow">
+    <img src="https://cdn.worldvectorlogo.com/logos/jenkins-2.svg" alt="Jenkins" class="service-logo">
+    <h3>Jenkins / ArgoCD</h3>
+    <p>CI/CD pipelines, GitOps automation, deployments to Kubernetes clusters.</p>
+  </div>
 </div>
 </section>
-
+<!-- CERTIFICATIONS -->
 <section id="certs" class="container">
 <h2>Azure <span>Certifications</span></h2>
 <div class="glass card badges">
   <div class="badge-item">
-    <div class="badge-card">
-      <img src="https://images.credly.com/images/be8fcaeb-c769-4858-b567-ffaaa73ce8cf/linkedin_thumb_image.png">
-      <p>AZ-900</p>
-    </div>
+    <img src="https://images.credly.com/images/be8fcaeb-c769-4858-b567-ffaaa73ce8cf/linkedin_thumb_image.png" alt="AZ-900 Azure Fundamentals">
+    <p>AZ-900 Azure Fundamentals</p>
   </div>
   <div class="badge-item">
-    <div class="badge-card">
-      <img src="https://images.credly.com/images/336eebfc-0ac3-4553-9a67-b402f491f185/linkedin_thumb_azure-administrator-associate-600x600.png">
-      <p>AZ-104</p>
-    </div>
+    <img src="https://images.credly.com/images/336eebfc-0ac3-4553-9a67-b402f491f185/linkedin_thumb_azure-administrator-associate-600x600.png" alt="AZ-104 Azure Administrator Associate">
+    <p>AZ-104 Azure Administrator Associate</p>
   </div>
 </div>
 </section>
-
-<footer id="contact">© 2026 Rajeshkumar K</footer>
-
+<!-- FOOTER -->
+<footer id="contact">
+  © 2026 Rajeshkumar K · DevOps & Observability Engineer ·
+</footer>
 <script>
-/* Theme */
-themeToggle.onclick=()=>document.body.classList.toggle("light");
+document.addEventListener("DOMContentLoaded", () => {
 
-/* COUNTERS */
-document.querySelectorAll(".count").forEach(counter=>{
-  const target=parseFloat(counter.dataset.target);
-  let value=0;
-  const step=target/100;
-  function run(){
-    value+=step;
-    if(value<target){
-      counter.textContent=target%1?value.toFixed(2):Math.floor(value);
-      requestAnimationFrame(run);
-    }else counter.textContent=target;
-  }
-  run();
-});
+  /* ===== Theme Toggle ===== */
+  const themeToggle = document.getElementById("themeToggle");
+  themeToggle.addEventListener("click", () =>
+    document.body.classList.toggle("light")
+  );
 
-/* TYPING */
-const skills=["Prometheus","Grafana","Azure AKS","ArgoCD","Jenkins"];
-let i=0,j=0;
-const typing=document.getElementById("typing");
-function type(){
-  if(j<skills[i].length){typing.textContent+=skills[i][j++];setTimeout(type,120);}
-  else setTimeout(erase,1000);
-}
-function erase(){
-  if(j>0){typing.textContent=skills[i].slice(0,--j);setTimeout(erase,60);}
-  else{i=(i+1)%skills.length;setTimeout(type,300);}
-}
-type();
+  /* ===== Animated Counters (FIXED & STABLE) ===== */
+  const counters = document.querySelectorAll(".count");
 
-/* GLOW */
-window.addEventListener("scroll",()=>{
-  document.querySelectorAll(".glow").forEach(c=>{
-    if(c.getBoundingClientRect().top<window.innerHeight*0.85)c.classList.add("show");
+  counters.forEach(counter => {
+    const target = parseFloat(counter.dataset.target);
+    let current = 0;
+    const speed = 100; // lower = faster
+    const increment = target / speed;
+
+    function updateCounter() {
+      current += increment;
+
+      if (current < target) {
+        counter.textContent =
+          target % 1 !== 0
+            ? current.toFixed(2)
+            : Math.floor(current);
+        requestAnimationFrame(updateCounter);
+      } else {
+        counter.textContent = target;
+      }
+    }
+
+    updateCounter();
   });
-});
 
-/* BADGE CLICK */
-document.querySelectorAll(".badge-card").forEach(card=>{
-  card.onclick=()=>{
-    document.querySelectorAll(".badge-card").forEach(c=>c.classList.remove("active"));
-    card.classList.add("active");
-  };
-});
-document.addEventListener("click",e=>{
-  if(!e.target.closest(".badge-card"))
-    document.querySelectorAll(".badge-card").forEach(c=>c.classList.remove("active"));
+  /* ===== Typing Animation ===== */
+  const skills = ["Prometheus", "Grafana", "Azure AKS", "ArgoCD", "Jenkins"];
+  const typing = document.getElementById("typing");
+  let i = 0, j = 0;
+
+  function typeSkill() {
+    if (j < skills[i].length) {
+      typing.textContent += skills[i][j];
+      j++;
+      setTimeout(typeSkill, 120);
+    } else {
+      setTimeout(eraseSkill, 1200);
+    }
+  }
+
+  function eraseSkill() {
+    if (j > 0) {
+      typing.textContent = skills[i].substring(0, j - 1);
+      j--;
+      setTimeout(eraseSkill, 60);
+    } else {
+      i = (i + 1) % skills.length;
+      setTimeout(typeSkill, 300);
+    }
+  }
+
+  typeSkill();
+
+  /* ===== Neon Glow on Scroll ===== */
+  const glowCards = document.querySelectorAll(".card.glow");
+
+  function revealGlow() {
+    const trigger = window.innerHeight * 0.85;
+    glowCards.forEach(card => {
+      if (card.getBoundingClientRect().top < trigger) {
+        card.classList.add("show");
+      }
+    });
+  }
+
+  window.addEventListener("scroll", revealGlow);
+  revealGlow();
 });
 </script>
 </body>
 </html>
+ 
