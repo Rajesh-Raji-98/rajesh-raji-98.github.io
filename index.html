@@ -286,65 +286,86 @@ footer{
 </section>
 <!-- FOOTER -->
 <footer id="contact">
-  © 2026 Rajeshkumar K · DevOps & Observability Engineer · Hosted on GitHub Pages
+  © 2026 Rajeshkumar K · DevOps & Observability Engineer ·
 </footer>
 <script>
-// Light/Dark Theme Toggle
-const themeToggle = document.getElementById('themeToggle');
-themeToggle.addEventListener('click', () => document.body.classList.toggle('light'));
-// Animated counters
-const counters = document.querySelectorAll('.count');
-counters.forEach(counter => {
-  const updateCount = () => {
-    const target = +counter.getAttribute('data-target');
-    const count = +counter.innerText;
-    const increment = target / 100;
-    if(count < target){
-      counter.innerText = (count + increment).toFixed(target % 1 ? 1 : 0);
-      setTimeout(updateCount, 30);
-    } else {
-      counter.innerText = (target === 1 && counter.nextElementSibling.textContent.includes('Experience')) ? '1+' : target;
+document.addEventListener("DOMContentLoaded", () => {
+
+  /* ===== Theme Toggle ===== */
+  const themeToggle = document.getElementById("themeToggle");
+  themeToggle.addEventListener("click", () =>
+    document.body.classList.toggle("light")
+  );
+
+  /* ===== Animated Counters (FIXED & STABLE) ===== */
+  const counters = document.querySelectorAll(".count");
+
+  counters.forEach(counter => {
+    const target = parseFloat(counter.dataset.target);
+    let current = 0;
+    const speed = 100; // lower = faster
+    const increment = target / speed;
+
+    function updateCounter() {
+      current += increment;
+
+      if (current < target) {
+        counter.textContent =
+          target % 1 !== 0
+            ? current.toFixed(2)
+            : Math.floor(current);
+        requestAnimationFrame(updateCounter);
+      } else {
+        counter.textContent = target;
+      }
     }
-  };
-  updateCount();
-});
-// Typing animation for hero skills
-const skills = ["Prometheus","Grafana","Azure AKS","ArgoCD","Jenkins"];
-const typing = document.getElementById("typing");
-let i=0,j=0;
-function typeSkill(){
-  if(i<skills.length){
-    if(j<skills[i].length){
-      typing.innerHTML += skills[i][j];
-      j++;
-      setTimeout(typeSkill,150);
-    } else {
-      setTimeout(()=>{eraseSkill();},1000);
-    }
-  }
-}
-function eraseSkill(){
-  if(j>0){
-    typing.innerHTML = skills[i].substring(0,j-1);
-    j--;
-    setTimeout(eraseSkill,50);
-  } else {
-    i = (i+1)%skills.length;
-    setTimeout(typeSkill,200);
-  }
-}
-typeSkill();
-// Neon glow effect on scroll
-const glowCards = document.querySelectorAll('.card.glow');
-function checkGlow(){
-  const triggerBottom = window.innerHeight * 0.85;
-  glowCards.forEach(card=>{
-    const cardTop = card.getBoundingClientRect().top;
-    if(cardTop < triggerBottom){card.classList.add('show');}
+
+    updateCounter();
   });
-}
-window.addEventListener('scroll',checkGlow);
-checkGlow();
+
+  /* ===== Typing Animation ===== */
+  const skills = ["Prometheus", "Grafana", "Azure AKS", "ArgoCD", "Jenkins"];
+  const typing = document.getElementById("typing");
+  let i = 0, j = 0;
+
+  function typeSkill() {
+    if (j < skills[i].length) {
+      typing.textContent += skills[i][j];
+      j++;
+      setTimeout(typeSkill, 120);
+    } else {
+      setTimeout(eraseSkill, 1200);
+    }
+  }
+
+  function eraseSkill() {
+    if (j > 0) {
+      typing.textContent = skills[i].substring(0, j - 1);
+      j--;
+      setTimeout(eraseSkill, 60);
+    } else {
+      i = (i + 1) % skills.length;
+      setTimeout(typeSkill, 300);
+    }
+  }
+
+  typeSkill();
+
+  /* ===== Neon Glow on Scroll ===== */
+  const glowCards = document.querySelectorAll(".card.glow");
+
+  function revealGlow() {
+    const trigger = window.innerHeight * 0.85;
+    glowCards.forEach(card => {
+      if (card.getBoundingClientRect().top < trigger) {
+        card.classList.add("show");
+      }
+    });
+  }
+
+  window.addEventListener("scroll", revealGlow);
+  revealGlow();
+});
 </script>
 </body>
 </html>
