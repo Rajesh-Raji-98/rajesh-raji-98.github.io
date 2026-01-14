@@ -124,6 +124,7 @@ nav a:hover{color:var(--accent)}
   overflow:hidden;
   font-weight:600;
   color:var(--accent);
+  margin-left:5px;
 }
 
 /* Stats */
@@ -175,7 +176,7 @@ section h2 span{color:var(--accent)}
   border-radius:20px;
   background:rgba(56,189,248,.15);
   color:var(--accent);
-  font-size:.85rem;
+  font-size:.95rem;
 }
 
 /* Footer */
@@ -231,14 +232,12 @@ footer{
 
 <!-- HERO -->
 <div class="hero" id="about">
-  <img src="https://images.unsplash.com/photo-1603415526960-f9e74b78f7d1?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&q=80&w=400" alt="Rajeshkumar K">
+  <img src="https://cdn.dribbble.com/users/49738/screenshots/6430822/media/da31aa0387e3d81c25d5f6ef9f0f153b.png" alt="DevOps Engineer Animated">
   <div>
     <p>Hello, I’m</p>
     <h1><span>Rajeshkumar K</span></h1>
     <h3>Associate DevOps & Observability Engineer</h3>
-    <p>
-      Skills: <span id="typing"></span>
-    </p>
+    <p>Skills:<span id="typing"></span></p>
     <a class="btn" href="#">Download CV</a>
     <a class="btn outline" href="#contact">Contact Me</a>
   </div>
@@ -246,9 +245,9 @@ footer{
 
 <!-- STATS -->
 <div class="stats">
-  <div><span class="count" data-target="4">0</span><p>Years Experience</p></div>
-  <div><span class="count" data-target="20">0</span><p>Dashboards Built</p></div>
-  <div><span class="count" data-target="10">0</span><p>Prod Systems Monitored</p></div>
+  <div><span class="count" data-target="1">0</span><p>Years Experience</p></div>
+  <div><span class="count" data-target="12">0</span><p>Dashboards Built</p></div>
+  <div><span class="count" data-target="5">0</span><p>Prod Systems Monitored</p></div>
   <div><span class="count" data-target="99.9">0</span><p>Uptime Focus (%)</p></div>
 </div>
 
@@ -269,14 +268,9 @@ footer{
     <p>Dashboards, SLA/SLO tracking, alerts visualization.</p>
   </div>
   <div class="card glass glow">
-    <img src="https://cdn.worldvectorlogo.com/logos/elk-stack.svg" alt="ELK Stack" class="service-logo">
-    <h3>ELK Stack</h3>
-    <p>Centralized logging, index lifecycle, parsing, RCA.</p>
-  </div>
-  <div class="card glass glow">
     <img src="https://cdn.worldvectorlogo.com/logos/microsoft-azure-1.svg" alt="Azure" class="service-logo">
     <h3>Azure AKS</h3>
-    <p>Cloud VMs, networking, monitoring, identity and TAC support.</p>
+    <p>Cloud VMs, networking, monitoring, identity, and TAC support.</p>
   </div>
   <div class="card glass glow">
     <img src="https://cdn.worldvectorlogo.com/logos/jenkins-2.svg" alt="Jenkins" class="service-logo">
@@ -290,10 +284,8 @@ footer{
 <section id="certs" class="container">
 <h2>Azure <span>Certifications</span></h2>
 <div class="glass card badges">
-  <span>AZ-104 Azure Administrator Associate</span>
-  <span>AZ-900 Azure Fundamentals</span>
-  <span>Kubernetes Monitoring</span>
-  <span>Observability & SRE</span>
+  <span><i class="fab fa-microsoft"></i> AZ-900 Azure Fundamentals</span>
+  <span><i class="fab fa-microsoft"></i> AZ-104 Azure Administrator Associate</span>
 </div>
 </section>
 
@@ -323,7 +315,7 @@ counters.forEach(counter => {
 });
 
 // Typing animation for hero skills
-const skills = ["Prometheus","Grafana","Azure AKS","ArgoCD","Jenkins","ELK Stack"];
+const skills = ["Prometheus","Grafana","Azure AKS","ArgoCD","Jenkins"];
 const typing = document.getElementById("typing");
 let i=0,j=0;
 function typeSkill(){
@@ -333,9 +325,7 @@ function typeSkill(){
       j++;
       setTimeout(typeSkill,150);
     } else {
-      setTimeout(()=>{
-        eraseSkill();
-      },800);
+      setTimeout(()=>{eraseSkill();},1000);
     }
   }
 }
@@ -343,7 +333,7 @@ function eraseSkill(){
   if(j>0){
     typing.innerHTML = skills[i].substring(0,j-1);
     j--;
-    setTimeout(eraseSkill,100);
+    setTimeout(eraseSkill,50);
   } else {
     i = (i+1)%skills.length;
     setTimeout(typeSkill,200);
@@ -357,9 +347,7 @@ function checkGlow(){
   const triggerBottom = window.innerHeight * 0.85;
   glowCards.forEach(card=>{
     const cardTop = card.getBoundingClientRect().top;
-    if(cardTop < triggerBottom){
-      card.classList.add('show');
-    }
+    if(cardTop < triggerBottom){card.classList.add('show');}
   });
 }
 window.addEventListener('scroll',checkGlow);
