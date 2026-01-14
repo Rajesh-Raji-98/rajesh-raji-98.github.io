@@ -154,28 +154,98 @@ section h2 span{color:var(--accent)}
   height:40px;
   margin-bottom:1rem;
 }
-/* Badges */
+/* Badges - Larger */
 .badges {
   display: flex;
   justify-content: center;
   align-items: center;
   flex-wrap: wrap;
-  padding: 1rem;
+  padding: 2rem;
+  gap: 3rem;
 }
 .badge-item {
   text-align: center;
-  margin: 1rem;
+  cursor: pointer;
+  transition: transform 0.4s ease;
+}
+.badge-item:hover {
+  transform: scale(1.08) translateY(-8px);
 }
 .badge-item img {
-  width: 150px;
+  width: 220px;
   height: auto;
+  border-radius: 16px;
+  box-shadow: 0 8px 30px rgba(56,189,248,.4);
+  transition: box-shadow 0.4s ease;
+}
+.badge-item:hover img {
+  box-shadow: 0 12px 40px rgba(56,189,248,.6);
 }
 .badge-item p {
-  margin-top: 0.5rem;
+  margin-top: 1rem;
   color: var(--text);
-  font-size: 1rem;
+  font-size: 1.1rem;
+  font-weight: 500;
 }
-/* Enhanced Footer / Contact */
+/* Modal */
+.badge-modal {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0,0,0,0.9);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  z-index: 1000;
+  cursor: pointer;
+  animation: fadeIn 0.4s ease-out;
+}
+@keyframes fadeIn {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+.badge-modal .enlarged-wrapper {
+  display: block;
+  max-width: 95%;
+  max-height: 80vh;
+}
+.badge-modal img {
+  width: 100%;
+  height: auto;
+  border-radius: 20px;
+  box-shadow: 0 0 80px var(--accent);
+}
+.badge-modal p {
+  margin-top: 2rem;
+  font-size: 1.8rem;
+  color: var(--accent);
+  font-weight: 600;
+}
+.badge-modal .credly-note {
+  margin-top: 1rem;
+  font-size: 1.2rem;
+  color: #aaa;
+}
+@keyframes popSpin {
+  0% {
+    transform: scale(0.4) rotate(-180deg);
+    opacity: 0;
+  }
+  60% {
+    transform: scale(1.05) rotate(10deg);
+  }
+  100% {
+    transform: scale(1) rotate(0deg);
+    opacity: 1;
+  }
+}
+.badge-modal img {
+  animation: popSpin 1s cubic-bezier(0.25, 0.46, 0.45, 0.94) forwards;
+}
+/* Footer */
 footer{
   text-align:center;
   margin-top:5rem;
@@ -217,124 +287,111 @@ footer{
   font-size:0.9rem;
   color:var(--muted);
 }
-/* Smooth counter animation */
-.count{
-  display:block;
-  font-size:2rem;
-  font-weight:600;
-}
-/* Neon glow animation for services */
-.card.glow{
-  opacity:0;
-  transform:translateY(20px);
-  transition:all 0.6s ease-out;
-}
-.card.glow.show{
-  opacity:1;
-  transform:translateY(0);
-  box-shadow:0 0 20px var(--accent);
-}
+/* Animations */
+.count{display:block;font-size:2rem;font-weight:600;}
+.card.glow{opacity:0;transform:translateY(20px);transition:all 0.6s ease-out;}
+.card.glow.show{opacity:1;transform:translateY(0);box-shadow:0 0 20px var(--accent);}
 </style>
 </head>
 <body>
 <div class="container glass">
-<!-- NAV -->
-<nav>
-  <h2>Portfolio</h2>
-  <div>
-    <a href="#about">About</a>
-    <a href="#services">Expertise</a>
-    <a href="#certs">Certifications</a>
-    <a href="#contact">Contact</a>
-    <i class="fas fa-sun theme-toggle" id="themeToggle" title="Toggle Light/Dark"></i>
+  <nav>
+    <h2>Portfolio</h2>
+    <div>
+      <a href="#about">About</a>
+      <a href="#services">Expertise</a>
+      <a href="#certs">Certifications</a>
+      <a href="#contact">Contact</a>
+      <i class="fas fa-sun theme-toggle" id="themeToggle" title="Toggle Light/Dark"></i>
+    </div>
+  </nav>
+
+  <div class="hero" id="about">
+    <img src="https://thumbs.dreamstime.com/b/architect-portrait-indian-man-city-smile-experience-pride-urban-development-happy-career-site-planner-town-confidence-428920393.jpg" alt="DevOps Engineer">
+    <div>
+      <p>Hello, I’m</p>
+      <h1><span>Rajeshkumar K</span></h1>
+      <h3>Associate DevOps & Observability Engineer</h3>
+      <p>Skills: <span id="typing"></span></p>
+      <a class="btn" href="#">Download CV</a>
+      <a class="btn outline" href="#contact">Contact Me</a>
+    </div>
   </div>
-</nav>
-<!-- HERO -->
-<div class="hero" id="about">
-  <img src="https://thumbs.dreamstime.com/b/architect-portrait-indian-man-city-smile-experience-pride-urban-development-happy-career-site-planner-town-confidence-428920393.jpg" alt="DevOps Engineer">
-  <div>
-    <p>Hello, I’m</p>
-    <h1><span>Rajeshkumar K</span></h1>
-    <h3>Associate DevOps & Observability Engineer</h3>
-    <p>Skills: <span id="typing"></span></p>
-    <a class="btn" href="#">Download CV</a>
-    <a class="btn outline" href="#contact">Contact Me</a>
+
+  <div class="stats">
+    <div><span class="count" data-target="1.5">0</span><p>Years Of Experience</p></div>
+    <div><span class="count" data-target="75">0</span><p>Grafana/Kibana Dashboards Built</p></div>
+    <div><span class="count" data-target="23">0</span><p>Prod Systems Monitored</p></div>
+    <div><span class="count" data-target="99.99">0</span><p>Uptime Focus (%)</p></div>
   </div>
 </div>
-<!-- STATS -->
-<div class="stats">
-  <div><span class="count" data-target="1.5">0</span><p>Years Of Experience</p></div>
-  <div><span class="count" data-target="75">0</span><p>Grafana/Kibana Dashboards Built</p></div>
-  <div><span class="count" data-target="23">0</span><p>Prod Systems Monitored</p></div>
-  <div><span class="count" data-target="99.99">0</span><p>Uptime Focus (%)</p></div>
-</div>
-</div>
-<!-- SERVICES -->
+
 <section id="services" class="container">
-<h2>My <span>Expertise</span></h2>
-<div class="grid">
-  <div class="card glass glow">
-    <img src="https://cdn.worldvectorlogo.com/logos/prometheus-1.svg" alt="Prometheus" class="service-logo">
-    <h3>Prometheus</h3>
-    <p>Node/Windows exporters, PromQL optimization, alerting for VMs & databases.</p>
+  <h2>My <span>Expertise</span></h2>
+  <div class="grid">
+    <div class="card glass glow">
+      <img src="https://cdn.worldvectorlogo.com/logos/prometheus-1.svg" alt="Prometheus" class="service-logo">
+      <h3>Prometheus</h3>
+      <p>Node/Windows exporters, PromQL optimization, alerting for VMs & databases.</p>
+    </div>
+    <div class="card glass glow">
+      <img src="https://cdn.worldvectorlogo.com/logos/grafana.svg" alt="Grafana" class="service-logo">
+      <h3>Grafana</h3>
+      <p>Dashboards for alerts, microservices (Graphite), pods, VMs, DBs, performance, uptime & API/ESB.</p>
+    </div>
+    <div class="card glass glow">
+      <img src="https://cdn.worldvectorlogo.com/logos/microsoft-azure-1.svg" alt="Azure" class="service-logo">
+      <h3>Azure AKS</h3>
+      <p>AKS management, VMs, networking, monitoring, IAM & technical support.</p>
+    </div>
+    <div class="card glass glow">
+      <img src="https://cdn.worldvectorlogo.com/logos/argocd.svg" alt="ArgoCD" class="service-logo">
+      <h3>ArgoCD</h3>
+      <p>GitOps for automated deployments across environments.</p>
+    </div>
+    <div class="card glass glow">
+      <img src="https://raw.githubusercontent.com/louislam/uptime-kuma/master/public/icon.svg" alt="Uptime Kuma" class="service-logo">
+      <h3>Uptime Kuma</h3>
+      <p>Uptime & service availability monitoring.</p>
+    </div>
+    <div class="card glass glow">
+      <img src="https://cdn.worldvectorlogo.com/logos/elastic-stack.svg" alt="ELK Stack" class="service-logo">
+      <h3>ELK Stack</h3>
+      <p>Filebeat → Logstash → Elasticsearch → Kibana; API/ESB analytics dashboards.</p>
+    </div>
+    <div class="card glass glow">
+      <img src="https://www.svgrepo.com/download/448282/alertmanager.svg" alt="Alert Manager" class="service-logo">
+      <h3>Alertmanager</h3>
+      <p>Alert routing to email & Telegram.</p>
+    </div>
+    <div class="card glass glow">
+      <img src="https://cdn.worldvectorlogo.com/logos/kubernetes.svg" alt="Kubernetes" class="service-logo">
+      <h3>Kubernetes</h3>
+      <p>Cluster management in on-prem & cloud.</p>
+    </div>
+    <div class="card glass glow">
+      <img src="https://cdn.worldvectorlogo.com/logos/nginx.svg" alt="Nginx" class="service-logo">
+      <h3>Nginx</h3>
+      <p>Reverse proxy, load balancing & ingress controller.</p>
+    </div>
   </div>
-  <div class="card glass glow">
-    <img src="https://cdn.worldvectorlogo.com/logos/grafana.svg" alt="Grafana" class="service-logo">
-    <h3>Grafana</h3>
-    <p>Dashboards for alerts, microservices (Graphite), pods, VMs, DBs, performance, uptime & API/ESB.</p>
-  </div>
-  <div class="card glass glow">
-    <img src="https://cdn.worldvectorlogo.com/logos/microsoft-azure-1.svg" alt="Azure" class="service-logo">
-    <h3>Azure AKS</h3>
-    <p>AKS management, VMs, networking, monitoring, IAM & technical support.</p>
-  </div>
-  <div class="card glass glow">
-    <img src="https://cdn.worldvectorlogo.com/logos/argocd.svg" alt="ArgoCD" class="service-logo">
-    <h3>ArgoCD</h3>
-    <p>GitOps for automated deployments across environments.</p>
-  </div>
-  <div class="card glass glow">
-    <img src="https://raw.githubusercontent.com/louislam/uptime-kuma/master/public/icon.svg" alt="Uptime Kuma" class="service-logo">
-    <h3>Uptime Kuma</h3>
-    <p>Uptime & service availability monitoring.</p>
-  </div>
-  <div class="card glass glow">
-    <img src="https://cdn.worldvectorlogo.com/logos/elastic-stack.svg" alt="ELK Stack" class="service-logo">
-    <h3>ELK Stack</h3>
-    <p>Filebeat → Logstash → Elasticsearch → Kibana; API/ESB analytics dashboards.</p>
-  </div>
-  <div class="card glass glow">
-    <img src="https://www.svgrepo.com/download/448282/alertmanager.svg" alt="Alert Manager" class="service-logo">
-    <h3>Alertmanager</h3>
-    <p>Alert routing to email & Telegram.</p>
-  </div>
-  <div class="card glass glow">
-    <img src="https://cdn.worldvectorlogo.com/logos/kubernetes.svg" alt="Kubernetes" class="service-logo">
-    <h3>Kubernetes</h3>
-    <p>Cluster management in on-prem & cloud.</p>
-  </div>
-  <div class="card glass glow">
-    <img src="https://cdn.worldvectorlogo.com/logos/nginx.svg" alt="Nginx" class="service-logo">
-    <h3>Nginx</h3>
-    <p>Reverse proxy, load balancing & ingress controller.</p>
-  </div>
-</div>
 </section>
-<!-- CERTIFICATIONS -->
+
 <section id="certs" class="container">
-<h2>Azure <span>Certifications</span></h2>
-<div class="glass card badges">
-  <div class="badge-item">
-    <img src="https://images.credly.com/images/be8fcaeb-c769-4858-b567-ffaaa73ce8cf/linkedin_thumb_image.png" alt="AZ-900 Azure Fundamentals">
-    <p>AZ-900 Azure Fundamentals</p>
+  <h2>Azure <span>Certifications</span></h2>
+  <div class="glass card badges">
+    <!-- Replace data-credly with your actual Credly badge verification URLs -->
+    <div class="badge-item" data-credly="https://www.credly.com/badges/YOUR_AZ900_BADGE_ID">
+      <img src="https://images.credly.com/images/be8fcaeb-c769-4858-b567-ffaaa73ce8cf/linkedin_thumb_image.png" alt="AZ-900 Azure Fundamentals">
+      <p>AZ-900 Azure Fundamentals</p>
+    </div>
+    <div class="badge-item" data-credly="https://www.credly.com/badges/YOUR_AZ104_BADGE_ID">
+      <img src="https://images.credly.com/images/336eebfc-0ac3-4553-9a67-b402f491f185/linkedin_thumb_azure-administrator-associate-600x600.png" alt="AZ-104 Azure Administrator Associate">
+      <p>AZ-104 Azure Administrator Associate</p>
+    </div>
   </div>
-  <div class="badge-item">
-    <img src="https://images.credly.com/images/336eebfc-0ac3-4553-9a67-b402f491f185/linkedin_thumb_azure-administrator-associate-600x600.png" alt="AZ-104 Azure Administrator Associate">
-    <p>AZ-104 Azure Administrator Associate</p>
-  </div>
-</div>
 </section>
-<!-- FOOTER / CONTACT -->
+
 <footer id="contact">
   <div class="contact-container">
     <h2>Get in Touch</h2>
@@ -352,12 +409,14 @@ footer{
   </div>
   <div class="copyright">© 2026 Rajeshkumar K · DevOps & Observability Engineer · Hosted on GitHub Pages</div>
 </footer>
+
 <script>
 document.addEventListener("DOMContentLoaded", () => {
-  const themeToggle = document.getElementById("themeToggle");
-  themeToggle.addEventListener("click", () => document.body.classList.toggle("light"));
+  // Theme Toggle
+  document.getElementById('themeToggle').addEventListener('click', () => document.body.classList.toggle('light'));
 
-  const counters = document.querySelectorAll(".count");
+  // Counters
+  const counters = document.querySelectorAll('.count');
   counters.forEach(counter => {
     const target = parseFloat(counter.dataset.target);
     let current = 0;
@@ -375,6 +434,7 @@ document.addEventListener("DOMContentLoaded", () => {
     update();
   });
 
+  // Typing Animation
   const skills = ["Prometheus", "Grafana", "Azure AKS", "ArgoCD", "Uptime Kuma", "ELK Stack", "Alertmanager", "Kubernetes", "Nginx"];
   const typing = document.getElementById("typing");
   let i = 0, j = 0;
@@ -397,15 +457,60 @@ document.addEventListener("DOMContentLoaded", () => {
   }
   typeSkill();
 
-  const glowCards = document.querySelectorAll(".card.glow");
+  // Glow on scroll
+  const glowCards = document.querySelectorAll('.card.glow');
   function revealGlow() {
     const trigger = window.innerHeight * 0.85;
     glowCards.forEach(card => {
-      if (card.getBoundingClientRect().top < trigger) card.classList.add("show");
+      if (card.getBoundingClientRect().top < trigger) card.classList.add('show');
     });
   }
-  window.addEventListener("scroll", revealGlow);
+  window.addEventListener('scroll', revealGlow);
   revealGlow();
+
+  // Badge click → modal with animation + clickable to Credly
+  const badgeItems = document.querySelectorAll('.badge-item');
+  badgeItems.forEach(item => {
+    item.addEventListener('click', (e) => {
+      e.stopPropagation();
+      const imgSrc = item.querySelector('img').src;
+      const certName = item.querySelector('p').textContent;
+      const credlyUrl = item.dataset.credly || '#';
+
+      const modal = document.createElement('div');
+      modal.classList.add('badge-modal');
+
+      const link = document.createElement('a');
+      link.href = credlyUrl;
+      link.target = '_blank';
+      link.classList.add('enlarged-wrapper');
+      link.style.display = 'block';
+
+      const enlargedImg = document.createElement('img');
+      enlargedImg.src = imgSrc;
+
+      link.appendChild(enlargedImg);
+      link.addEventListener('click', (ev) => ev.stopPropagation()); // Prevent modal close when clicking image
+
+      const caption = document.createElement('p');
+      caption.textContent = certName;
+
+      const note = document.createElement('p');
+      note.classList.add('credly-note');
+      note.textContent = 'Click badge to verify on Credly';
+
+      modal.appendChild(link);
+      modal.appendChild(caption);
+      modal.appendChild(note);
+
+      modal.addEventListener('click', () => {
+        modal.style.animation = 'fadeIn 0.4s reverse';
+        setTimeout(() => document.body.removeChild(modal), 400);
+      });
+
+      document.body.appendChild(modal);
+    });
+  });
 });
 </script>
 </body>
