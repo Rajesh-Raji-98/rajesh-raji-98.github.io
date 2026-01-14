@@ -187,47 +187,47 @@ section h2 span{color:var(--accent)}
   font-size: 1.1rem;
   font-weight: 500;
 }
-/* Modal */
+/* More Interactive Modal */
 .badge-modal {
   position: fixed;
   top: 0;
   left: 0;
   width: 100%;
   height: 100%;
-  background: rgba(0,0,0,0.9);
+  background: rgba(0,0,0,0.92);
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: center;
   z-index: 1000;
-  cursor: pointer;
-  animation: fadeIn 0.4s ease-out;
+  animation: fadeIn 0.5s ease-out;
 }
 @keyframes fadeIn {
   from { opacity: 0; }
   to { opacity: 1; }
 }
-.badge-modal .enlarged-wrapper {
-  display: block;
-  max-width: 95%;
-  max-height: 80vh;
+.badge-modal .close-btn {
+  position: absolute;
+  top: 30px;
+  right: 40px;
+  font-size: 2.5rem;
+  color: var(--accent);
+  cursor: pointer;
+  transition: color 0.3s;
+}
+.badge-modal .close-btn:hover {
+  color: #fff;
 }
 .badge-modal img {
-  width: 100%;
-  height: auto;
+  max-width: 95%;
+  max-height: 75vh;
   border-radius: 20px;
   box-shadow: 0 0 80px var(--accent);
+  cursor: pointer;
+  transition: transform 0.3s ease;
 }
-.badge-modal p {
-  margin-top: 2rem;
-  font-size: 1.8rem;
-  color: var(--accent);
-  font-weight: 600;
-}
-.badge-modal .credly-note {
-  margin-top: 1rem;
-  font-size: 1.2rem;
-  color: #aaa;
+.badge-modal img:hover {
+  transform: scale(1.03);
 }
 @keyframes popSpin {
   0% {
@@ -243,7 +243,34 @@ section h2 span{color:var(--accent)}
   }
 }
 .badge-modal img {
-  animation: popSpin 1s cubic-bezier(0.25, 0.46, 0.45, 0.94) forwards;
+  animation: popSpin 1.2s cubic-bezier(0.25, 0.46, 0.45, 0.94) forwards;
+}
+.badge-modal p {
+  margin-top: 2rem;
+  font-size: 1.8rem;
+  color: var(--accent);
+  font-weight: 600;
+}
+.badge-modal .credly-btn {
+  margin-top: 1.5rem;
+  padding: 0.9rem 2rem;
+  background: var(--accent);
+  color: #020617;
+  font-weight: 600;
+  border-radius: 30px;
+  text-decoration: none;
+  font-size: 1.2rem;
+  transition: all 0.3s;
+}
+.badge-modal .credly-btn:hover {
+  background: #fff;
+  transform: translateY(-3px);
+  box-shadow: 0 10px 30px rgba(56,189,248,.4);
+}
+.badge-modal .credly-note {
+  margin-top: 1rem;
+  font-size: 1.1rem;
+  color: #aaa;
 }
 /* Footer */
 footer{
@@ -380,12 +407,12 @@ footer{
 <section id="certs" class="container">
   <h2>Azure <span>Certifications</span></h2>
   <div class="glass card badges">
-    <!-- Replace data-credly with your actual Credly badge verification URLs -->
-    <div class="badge-item" data-credly="https://www.credly.com/badges/YOUR_AZ900_BADGE_ID">
+    <!-- Replace data-credly with your actual Credly public URLs -->
+    <div class="badge-item" data-credly="https://www.credly.com/badges/YOUR_AZ900_ID/public_url">
       <img src="https://images.credly.com/images/be8fcaeb-c769-4858-b567-ffaaa73ce8cf/linkedin_thumb_image.png" alt="AZ-900 Azure Fundamentals">
       <p>AZ-900 Azure Fundamentals</p>
     </div>
-    <div class="badge-item" data-credly="https://www.credly.com/badges/YOUR_AZ104_BADGE_ID">
+    <div class="badge-item" data-credly="https://www.credly.com/badges/YOUR_AZ104_ID/public_url">
       <img src="https://images.credly.com/images/336eebfc-0ac3-4553-9a67-b402f491f185/linkedin_thumb_azure-administrator-associate-600x600.png" alt="AZ-104 Azure Administrator Associate">
       <p>AZ-104 Azure Administrator Associate</p>
     </div>
@@ -468,7 +495,7 @@ document.addEventListener("DOMContentLoaded", () => {
   window.addEventListener('scroll', revealGlow);
   revealGlow();
 
-  // Badge click → modal with animation + clickable to Credly
+  // More Interactive Badge Modal
   const badgeItems = document.querySelectorAll('.badge-item');
   badgeItems.forEach(item => {
     item.addEventListener('click', (e) => {
@@ -480,37 +507,50 @@ document.addEventListener("DOMContentLoaded", () => {
       const modal = document.createElement('div');
       modal.classList.add('badge-modal');
 
-      const link = document.createElement('a');
-      link.href = credlyUrl;
-      link.target = '_blank';
-      link.classList.add('enlarged-wrapper');
-      link.style.display = 'block';
+      const closeBtn = document.createElement('div');
+      closeBtn.classList.add('close-btn');
+      closeBtn.innerHTML = '&times;';
+      closeBtn.addEventListener('click', (ev) => {
+        ev.stopPropagation();
+        closeModal(modal);
+      });
 
       const enlargedImg = document.createElement('img');
       enlargedImg.src = imgSrc;
-
-      link.appendChild(enlargedImg);
-      link.addEventListener('click', (ev) => ev.stopPropagation()); // Prevent modal close when clicking image
+      enlargedImg.addEventListener('click', (ev) => {
+        ev.stopPropagation();
+        window.open(credlyUrl, '_blank');
+      });
 
       const caption = document.createElement('p');
       caption.textContent = certName;
 
+      const credlyBtn = document.createElement('a');
+      credlyBtn.href = credlyUrl;
+      credlyBtn.target = '_blank';
+      credlyBtn.classList.add('credly-btn');
+      credlyBtn.textContent = 'Verify on Credly';
+
       const note = document.createElement('p');
       note.classList.add('credly-note');
-      note.textContent = 'Click badge to verify on Credly';
+      note.textContent = '(Click badge or button to verify)';
 
-      modal.appendChild(link);
+      modal.appendChild(closeBtn);
+      modal.appendChild(enlargedImg);
       modal.appendChild(caption);
+      modal.appendChild(credlyBtn);
       modal.appendChild(note);
 
-      modal.addEventListener('click', () => {
-        modal.style.animation = 'fadeIn 0.4s reverse';
-        setTimeout(() => document.body.removeChild(modal), 400);
-      });
+      modal.addEventListener('click', () => closeModal(modal));
 
       document.body.appendChild(modal);
     });
   });
+
+  function closeModal(modal) {
+    modal.style.animation = 'fadeIn 0.5s reverse';
+    setTimeout(() => document.body.removeChild(modal), 500);
+  }
 });
 </script>
 </body>
