@@ -275,6 +275,29 @@ section h2 span{color:var(--accent)}
   font-size:1.05rem;
   line-height:1.6;
 }
+  <section id="projects" class="container">
+  <h2>Featured <span>Projects</span></h2>
+  <div class="grid">
+    <!-- LnM Project Card -->
+    <div class="card glass glow">
+      <img src="your-ln-m-architecture-diagram.png" alt="LnM Observability Architecture" style="width:100%; border-radius:12px; margin-bottom:1.5rem; box-shadow:0 8px 24px rgba(56,189,248,0.3);">
+      <h3>Production LnM Observability Platform</h3>
+      <p>Centralized Logs + Metrics monitoring for 20+ critical production systems using Prometheus, Grafana, ELK Stack, and Alertmanager on Azure AKS.</p>
+      <ul style="text-align:left; color:var(--muted); margin:1rem 0; padding-left:1.5rem; line-height:1.6;">
+        <li>Deployed scalable Prometheus + Thanos for metrics collection & long-term storage</li>
+        <li>ELK pipeline for structured logs from containers, VMs, databases & APIs</li>
+        <li>75+ custom Grafana dashboards for pods, nodes, DBs, APIs & business KPIs</li>
+        <li>Alertmanager routing to Telegram/email → reduced alert fatigue</li>
+        <li>GitOps via ArgoCD – zero-downtime updates</li>
+      </ul>
+      <p style="color:var(--accent); font-weight:600;">Impact: 99.99% uptime visibility • Faster MTTD • Adopted across teams</p>
+      <!-- Optional links -->
+      <a href="https://github.com/yourusername/lnm-observability" class="btn outline" style="margin-top:1rem;">View on GitHub</a>
+    </div>
+
+    <!-- Add 1-2 more project cards later -->
+  </div>
+</section>
 /* Certifications */
 .certs-badges {
   display: grid;
