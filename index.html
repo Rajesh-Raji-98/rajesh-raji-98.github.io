@@ -7,569 +7,399 @@
 <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
 <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" rel="stylesheet">
 <style>
-:root{
-  --bg:#020617;
-  --bg-light:#f4f7f9;
-  --card:rgba(15,23,42,.85);
-  --card-light:rgba(255,255,255,.85);
-  --accent:#38bdf8;
-  --text:#e5e7eb;
-  --text-light:#1f2937;
-  --muted:#94a3b8;
-  --muted-light:#64748b;
-  --glass:blur(18px);
-  --transition:.3s;
+:root {
+  --bg: #0a192f;
+  --card-bg: rgba(15, 30, 60, 0.85);
+  --accent: #64ffda;
+  --accent-glow: rgba(100, 255, 218, 0.4);
+  --text: #e6f1ff;
+  --text-muted: #8892b0;
+  --transition: 0.4s;
 }
-*{margin:0;padding:0;box-sizing:border-box}
-body{
-  font-family:Poppins,sans-serif;
-  background:var(--bg);
-  color:var(--text);
-  transition:background var(--transition), color var(--transition);
-  scroll-behavior:smooth;
+* { margin: 0; padding: 0; box-sizing: border-box; }
+body {
+  font-family: 'Poppins', sans-serif;
+  background: var(--bg);
+  color: var(--text);
+  line-height: 1.6;
+  overflow-x: hidden;
 }
-body.light{
-  background:var(--bg-light);
-  color:var(--text-light);
-}
-body.light .glass{background:var(--card-light);border-color:rgba(56,189,248,.25);}
-body.light .muted{color:var(--muted-light);}
-.container{max-width:1200px;margin:auto;padding:3rem 1.5rem;}
-.glass{
-  background:var(--card);
-  backdrop-filter:var(--glass);
-  border-radius:24px;
-  border:1px solid rgba(56,189,248,.25);
-  box-shadow:0 0 40px rgba(56,189,248,.15);
-  transition:background var(--transition), border var(--transition), box-shadow var(--transition);
+.container {
+  max-width: 1400px;
+  margin: auto;
+  padding: 0 2rem;
 }
 /* Navbar */
-nav{
-  display:flex;
-  justify-content:space-between;
-  align-items:center;
-  padding:1.5rem 2rem;
-  position:sticky;
-  top:0;
-  z-index:100;
-  backdrop-filter:var(--glass);
-  background:var(--card);
+nav {
+  padding: 2rem 0;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
 }
-nav h2{color:var(--accent)}
-nav a{
-  color:var(--muted);
-  margin-left:1.2rem;
-  text-decoration:none;
-  transition:color var(--transition);
+nav h2 {
+  font-size: 1.8rem;
+  color: var(--accent);
 }
-nav a:hover{color:var(--accent)}
-.theme-toggle{
-  cursor:pointer;
-  font-size:1.2rem;
-  margin-left:1rem;
-  color:var(--accent);
+nav ul {
+  display: flex;
+  list-style: none;
+  gap: 2rem;
+}
+nav ul a {
+  color: var(--text-muted);
+  text-decoration: none;
+  font-weight: 500;
+  transition: color var(--transition);
+}
+nav ul a:hover {
+  color: var(--accent);
+}
+nav .download-cv {
+  background: var(--accent);
+  color: #0a192f;
+  padding: 0.8rem 1.5rem;
+  border-radius: 30px;
+  text-decoration: none;
+  font-weight: 600;
+}
+nav .download-cv:hover {
+  background: #fff;
 }
 /* Hero */
-.hero{
-  display:grid;
-  grid-template-columns:1fr 1.3fr;
-  gap:3rem;
-  padding:3rem 0;
-  align-items:center;
+.hero {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 4rem;
+  align-items: center;
+  min-height: 90vh;
+  padding: 4rem 0;
 }
-.hero img{
-  width:100%;
-  border-radius:20px;
-  box-shadow:0 0 30px rgba(56,189,248,.4);
-  animation:float 4s ease-in-out infinite;
+.hero-photo {
+  position: relative;
 }
-@keyframes float{
-  0%,100%{transform:translateY(0);}
-  50%{transform:translateY(-15px);}
+.hero-photo img {
+  width: 400px;
+  border-radius: 50%;
+  box-shadow: 0 0 60px var(--accent-glow);
 }
-.hero h1{font-size:2.8rem}
-.hero span{color:var(--accent)}
-.hero p{margin:1rem 0;color:var(--muted); line-height: 1.2; display: flex; align-items: center;}
-.btn{
-  display:inline-block;
-  padding:.7rem 1.5rem;
-  border-radius:30px;
-  background:var(--accent);
-  color:#020617;
-  font-weight:600;
-  text-decoration:none;
-  margin-right:1rem;
-  transition:transform var(--transition);
+.hero-photo::before {
+  content: '';
+  position: absolute;
+  width: 450px;
+  height: 450px;
+  border-radius: 50%;
+  background: var(--accent-glow);
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  z-index: -1;
+  animation: pulse 4s infinite;
 }
-.btn:hover{transform:translateY(-3px);}
-.btn.outline{
-  background:none;
-  border:1px solid var(--accent);
-  color:var(--accent);
+@keyframes pulse {
+  0% { opacity: 0.4; transform: translate(-50%, -50%) scale(1); }
+  50% { opacity: 0.2; transform: translate(-50%, -50%) scale(1.15); }
+  100% { opacity: 0.4; transform: translate(-50%, -50%) scale(1); }
 }
-/* Typing effect */
-#typing{
-  display:inline-block;
-  border-right:2px solid var(--accent);
-  padding-right:3px;
-  white-space:nowrap;
-  overflow:hidden;
-  font-weight:600;
-  color:var(--accent);
-  margin-left:5px;
-  vertical-align: bottom;
+.hero-content h3 {
+  color: var(--accent);
+  font-size: 1.2rem;
+  margin-bottom: 1rem;
+}
+.hero-content h1 {
+  font-size: 3.5rem;
+  margin-bottom: 1rem;
+}
+.hero-content h1 span {
+  color: var(--accent);
+}
+.hero-content p {
+  font-size: 1.2rem;
+  color: var(--text-muted);
+  max-width: 500px;
+  margin-bottom: 2rem;
+}
+.hero-buttons {
+  display: flex;
+  gap: 1.5rem;
+}
+.hero-buttons a {
+  padding: 0.9rem 2rem;
+  border-radius: 30px;
+  text-decoration: none;
+  font-weight: 600;
+  transition: var(--transition);
+}
+.hero-buttons .hire {
+  background: var(--accent);
+  color: #0a192f;
+}
+.hero-buttons .hire:hover {
+  background: #fff;
+}
+.hero-buttons .contact {
+  border: 2px solid var(--accent);
+  color: var(--accent);
+}
+.hero-buttons .contact:hover {
+  background: var(--accent);
+  color: #0a192f;
 }
 /* Stats */
-.stats{
-  display:grid;
-  grid-template-columns:repeat(auto-fit,minmax(150px,1fr));
-  text-align:center;
-  padding:2rem 0;
-}
-/* Section */
-section{margin-top:4rem}
-section h2{
-  text-align:center;
-  margin-bottom:2rem;
-  font-size:2.2rem;
-}
-section h2 span{color:var(--accent)}
-/* Cards */
-.grid{
-  display:grid;
-  grid-template-columns:repeat(auto-fit,minmax(250px,1fr));
-  gap:1.5rem;
-}
-.card{
-  padding:1.8rem;
-  border-radius:18px;
-  transition:transform var(--transition), box-shadow var(--transition);
-}
-.card:hover{
-  transform:translateY(-8px);
-  box-shadow:0 0 40px var(--accent);
-}
-.service-logo{
-  width:40px;
-  height:40px;
-  margin-bottom:1rem;
-}
-/* Badges - Larger */
-.badges {
+.stats {
   display: flex;
   justify-content: center;
-  align-items: center;
-  flex-wrap: wrap;
+  gap: 4rem;
+  margin-top: 4rem;
   padding: 2rem;
-  gap: 3rem;
+  background: var(--card-bg);
+  border-radius: 20px;
 }
-.badge-item {
+.stat-item {
   text-align: center;
-  cursor: pointer;
-  transition: transform 0.4s ease;
 }
-.badge-item:hover {
-  transform: scale(1.08) translateY(-8px);
+.stat-item h3 {
+  font-size: 2.5rem;
+  color: var(--accent);
 }
-.badge-item img {
-  width: 220px;
-  height: auto;
-  border-radius: 16px;
-  box-shadow: 0 8px 30px rgba(56,189,248,.4);
-  transition: box-shadow 0.4s ease;
+.stat-item p {
+  color: var(--text-muted);
 }
-.badge-item:hover img {
-  box-shadow: 0 12px 40px rgba(56,189,248,.6);
+/* Expertise / Services */
+section {
+  padding: 6rem 0;
 }
-.badge-item p {
-  margin-top: 1rem;
-  color: var(--text);
-  font-size: 1.1rem;
-  font-weight: 500;
+section h2 {
+  text-align: center;
+  font-size: 2.8rem;
+  margin-bottom: 4rem;
+  color: var(--accent);
 }
-/* Even More Interactive Modal */
-.badge-modal {
-  position: fixed;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  background: rgba(0,0,0,0.92);
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  z-index: 1000;
-  animation: fadeIn 0.5s ease-out;
+.expertise-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 2rem;
 }
-@keyframes fadeIn {
-  from { opacity: 0; }
-  to { opacity: 1; }
+.expertise-card {
+  background: var(--card-bg);
+  padding: 2.5rem;
+  border-radius: 20px;
+  text-align: center;
+  transition: var(--transition);
 }
-.badge-modal .close-btn {
-  position: absolute;
-  top: 30px;
-  right: 40px;
+.expertise-card:hover {
+  transform: translateY(-15px);
+  box-shadow: 0 20px 50px rgba(100, 255, 218, 0.2);
+}
+.expertise-card i {
   font-size: 3rem;
   color: var(--accent);
-  cursor: pointer;
-  transition: all 0.3s;
-  text-shadow: 0 0 20px var(--accent);
+  margin-bottom: 1.5rem;
 }
-.badge-modal .close-btn:hover {
-  color: #fff;
-  transform: scale(1.2) rotate(90deg);
+.expertise-card h3 {
+  font-size: 1.6rem;
+  margin-bottom: 1rem;
 }
-.badge-modal .enlarged-img-wrapper {
-  position: relative;
-  max-width: 95%;
-  max-height: 75vh;
-  overflow: hidden;
-  border-radius: 20px;
-  box-shadow: 0 0 100px var(--accent);
-  cursor: zoom-in;
-  transition: transform 0.4s ease;
+.expertise-card p {
+  color: var(--text-muted);
+  font-size: 1rem;
 }
-.badge-modal .enlarged-img-wrapper:hover {
-  transform: scale(1.03);
-}
-.badge-modal img {
-  width: 100%;
-  height: auto;
-  border-radius: 20px;
-  transition: transform 0.6s cubic-bezier(0.25, 0.46, 0.45, 0.94);
-}
-.badge-modal .enlarged-img-wrapper:hover img {
-  transform: scale(1.15); /* Strong zoom on hover */
-}
-@keyframes popSpin {
-  0% {
-    transform: scale(0.3) rotate(-180deg);
-    opacity: 0;
-  }
-  60% {
-    transform: scale(1.08) rotate(15deg);
-  }
-  100% {
-    transform: scale(1) rotate(0deg);
-    opacity: 1;
-  }
-}
-.badge-modal .enlarged-img-wrapper {
-  animation: popSpin 1.3s cubic-bezier(0.25, 0.46, 0.45, 0.94) forwards;
-}
-.badge-modal p {
-  margin-top: 2.5rem;
-  font-size: 2rem;
+.expertise-card a {
+  display: inline-block;
+  margin-top: 1.5rem;
   color: var(--accent);
-  font-weight: 600;
-  text-shadow: 0 0 20px var(--accent);
-}
-.badge-modal .credly-btn {
-  margin-top: 2rem;
-  padding: 1rem 2.5rem;
-  background: var(--accent);
-  color: #020617;
-  font-weight: 600;
-  font-size: 1.3rem;
-  border-radius: 50px;
   text-decoration: none;
-  transition: all 0.4s;
-  box-shadow: 0 8px 30px rgba(56,189,248,.4);
+  font-weight: 600;
 }
-.badge-modal .credly-btn:hover {
+.expertise-card a:hover {
+  text-decoration: underline;
+}
+/* Certifications */
+.certs-grid {
+  display: flex;
+  justify-content: center;
+  gap: 4rem;
+  flex-wrap: wrap;
+}
+/* Contact */
+.contact-form {
+  max-width: 800px;
+  margin: auto;
+  background: var(--card-bg);
+  padding: 3rem;
+  border-radius: 20px;
+}
+.contact-form h2 {
+  text-align: center;
+  margin-bottom: 2rem;
+}
+.contact-form form {
+  display: grid;
+  gap: 1.5rem;
+}
+.contact-form input, .contact-form textarea {
+  width: 100%;
+  padding: 1rem;
+  background: rgba(255,255,255,0.05);
+  border: 1px solid var(--accent-glow);
+  border-radius: 10px;
+  color: var(--text);
+}
+.contact-form button {
+  padding: 1rem 3rem;
+  background: var(--accent);
+  color: #0a192f;
+  border: none;
+  border-radius: 30px;
+  font-weight: 600;
+  cursor: pointer;
+  align-self: center;
+}
+.contact-form button:hover {
   background: #fff;
-  transform: translateY(-5px) scale(1.05);
-  box-shadow: 0 15px 40px rgba(56,189,248,.6);
 }
-.badge-modal .credly-note {
-  margin-top: 1.2rem;
-  font-size: 1.1rem;
-  color: #ccc;
-}
-/* Footer */
-footer{
-  text-align:center;
-  margin-top:5rem;
-  padding:3rem 1rem;
-  background:var(--card);
-  border-top:1px solid rgba(56,189,248,.2);
-}
-.contact-container{margin-bottom:2rem;}
-.contact-links{
-  display:flex;
-  justify-content:center;
-  flex-wrap:wrap;
-  gap:1.5rem 2rem;
-}
-.contact-item{
-  display:flex;
-  align-items:center;
-  background:rgba(56,189,248,.08);
-  border:1px solid rgba(56,189,248,.3);
-  border-radius:50px;
-  padding:0.9rem 1.8rem;
-  color:var(--accent);
-  text-decoration:none;
-  font-weight:500;
-  transition:all var(--transition);
-}
-.contact-item:hover{
-  background:var(--accent);
-  color:#020617;
-  transform:translateY(-3px);
-  box-shadow:0 8px 25px rgba(56,189,248,.25);
-}
-.contact-item i{
-  font-size:1.4rem;
-  margin-right:0.8rem;
-}
-.copyright{
-  margin-top:1.5rem;
-  font-size:0.9rem;
-  color:var(--muted);
-}
-/* Animations */
-.count{display:block;font-size:2rem;font-weight:600;}
-.card.glow{opacity:0;transform:translateY(20px);transition:all 0.6s ease-out;}
-.card.glow.show{opacity:1;transform:translateY(0);box-shadow:0 0 20px var(--accent);}
 </style>
 </head>
 <body>
-<div class="container glass">
+<div class="container">
+  <!-- Navbar -->
   <nav>
     <h2>Portfolio</h2>
     <div>
-      <a href="#about">About</a>
-      <a href="#services">Expertise</a>
-      <a href="#certs">Certifications</a>
-      <a href="#contact">Contact</a>
-      <i class="fas fa-sun theme-toggle" id="themeToggle" title="Toggle Light/Dark"></i>
+      <ul>
+        <li><a href="#home">Home</a></li>
+        <li><a href="#about">About</a></li>
+        <li><a href="#expertise">Expertise</a></li>
+        <li><a href="#certs">Certifications</a></li>
+        <li><a href="#contact">Contact</a></li>
+      </ul>
+      <a href="#" class="download-cv">Download CV</a>
     </div>
   </nav>
 
-  <div class="hero" id="about">
-    <img src="https://thumbs.dreamstime.com/b/architect-portrait-indian-man-city-smile-experience-pride-urban-development-happy-career-site-planner-town-confidence-428920393.jpg" alt="DevOps Engineer">
-    <div>
-      <p>Hello, I’m</p>
-      <h1><span>Rajeshkumar K</span></h1>
-      <h3>Associate DevOps & Observability Engineer</h3>
-      <p>Skills: <span id="typing"></span></p>
-      <a class="btn" href="#">Download CV</a>
-      <a class="btn outline" href="#contact">Contact Me</a>
+  <!-- Hero -->
+  <section class="hero" id="home">
+    <div class="hero-photo">
+      <img src="https://thumbs.dreamstime.com/b/architect-portrait-indian-man-city-smile-experience-pride-urban-development-happy-career-site-planner-town-confidence-428920393.jpg" alt="Rajeshkumar K">
+    </div>
+    <div class="hero-content">
+      <h3>Hello, I'm</h3>
+      <h1>Rajeshkumar <span>K</span></h1>
+      <h3>And I'm a DevOps & Observability Engineer</h3>
+      <p>Passionate about building reliable, scalable systems with modern monitoring and automation tools. Experienced in Prometheus, Grafana, Azure AKS, Kubernetes, and more.</p>
+      <div class="hero-buttons">
+        <a href="#contact" class="hire">Hire Me</a>
+        <a href="#contact" class="contact">Contact Me</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- Stats -->
+  <div class="stats">
+    <div class="stat-item">
+      <h3>1.5+</h3>
+      <p>Years of Experience</p>
+    </div>
+    <div class="stat-item">
+      <h3>75+</h3>
+      <p>Dashboards Built</p>
+    </div>
+    <div class="stat-item">
+      <h3>23+</h3>
+      <p>Systems Monitored</p>
+    </div>
+    <div class="stat-item">
+      <h3>99.99%</h3>
+      <p>Uptime Focus</p>
     </div>
   </div>
 
-  <div class="stats">
-    <div><span class="count" data-target="1.5">0</span><p>Years Of Experience</p></div>
-    <div><span class="count" data-target="75">0</span><p>Grafana/Kibana Dashboards Built</p></div>
-    <div><span class="count" data-target="23">0</span><p>Prod Systems Monitored</p></div>
-    <div><span class="count" data-target="99.99">0</span><p>Uptime Focus (%)</p></div>
-  </div>
+  <!-- Expertise -->
+  <section id="expertise">
+    <h2>My <span>Expertise</span></h2>
+    <div class="expertise-grid">
+      <div class="expertise-card">
+        <i class="fas fa-chart-line"></i>
+        <h3>Prometheus</h3>
+        <p>Node/Windows exporters, PromQL optimization, alerting for VMs & databases.</p>
+      </div>
+      <div class="expertise-card">
+        <i class="fas fa-tachometer-alt"></i>
+        <h3>Grafana</h3>
+        <p>Dashboards for alerts, microservices, pods, VMs, DBs, performance & API/ESB.</p>
+      </div>
+      <div class="expertise-card">
+        <i class="fab fa-microsoft"></i>
+        <h3>Azure AKS</h3>
+        <p>AKS management, VMs, networking, monitoring, IAM & technical support.</p>
+      </div>
+      <div class="expertise-card">
+        <i class="fas fa-code-branch"></i>
+        <h3>ArgoCD</h3>
+        <p>GitOps for automated deployments across environments.</p>
+      </div>
+      <div class="expertise-card">
+        <i class="fas fa-heartbeat"></i>
+        <h3>Uptime Kuma</h3>
+        <p>Uptime & service availability monitoring.</p>
+      </div>
+      <div class="expertise-card">
+        <i class="fas fa-search"></i>
+        <h3>ELK Stack</h3>
+        <p>Filebeat → Logstash → Elasticsearch → Kibana; API/ESB analytics dashboards.</p>
+      </div>
+      <div class="expertise-card">
+        <i class="fas fa-bell"></i>
+        <h3>Alertmanager</h3>
+        <p>Alert routing to email & Telegram.</p>
+      </div>
+      <div class="expertise-card">
+        <i class="fas fa-cubes"></i>
+        <h3>Kubernetes</h3>
+        <p>Cluster management in on-prem & cloud.</p>
+      </div>
+      <div class="expertise-card">
+        <i class="fas fa-server"></i>
+        <h3>Nginx</h3>
+        <p>Reverse proxy, load balancing & ingress controller.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- Certifications -->
+  <section id="certs">
+    <h2>Azure <span>Certifications</span></h2>
+    <div class="certs-grid">
+      <div class="badge-item" data-verify="https://learn.microsoft.com/api/credentials/share/en-gb/RajeshKumarK-3290/5E8E02F430E698BE?sharingId=9D1D9ACCF6BE6917">
+        <img src="https://images.credly.com/images/be8fcaeb-c769-4858-b567-ffaaa73ce8cf/linkedin_thumb_image.png" alt="AZ-900">
+        <p>AZ-900 Azure Fundamentals</p>
+      </div>
+      <div class="badge-item" data-verify="#">
+        <img src="https://images.credly.com/images/336eebfc-0ac3-4553-9a67-b402f491f185/linkedin_thumb_azure-administrator-associate-600x600.png" alt="AZ-104">
+        <p>AZ-104 Azure Administrator Associate</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- Contact -->
+  <section id="contact">
+    <h2>Contact <span>Me!</span></h2>
+    <div class="contact-form">
+      <form>
+        <input type="text" placeholder="Your Name" required>
+        <input type="email" placeholder="Your Email" required>
+        <input type="text" placeholder="Subject" required>
+        <textarea rows="6" placeholder="Message" required></textarea>
+        <button type="submit">Send Message</button>
+      </form>
+    </div>
+  </section>
 </div>
 
-<section id="services" class="container">
-  <h2>My <span>Expertise</span></h2>
-  <div class="grid">
-    <div class="card glass glow">
-      <img src="https://cdn.worldvectorlogo.com/logos/prometheus-1.svg" alt="Prometheus" class="service-logo">
-      <h3>Prometheus</h3>
-      <p>Node/Windows exporters, PromQL optimization, alerting for VMs & databases.</p>
-    </div>
-    <div class="card glass glow">
-      <img src="https://cdn.worldvectorlogo.com/logos/grafana.svg" alt="Grafana" class="service-logo">
-      <h3>Grafana</h3>
-      <p>Dashboards for alerts, microservices (Graphite), pods, VMs, DBs, performance, uptime & API/ESB.</p>
-    </div>
-    <div class="card glass glow">
-      <img src="https://cdn.worldvectorlogo.com/logos/microsoft-azure-1.svg" alt="Azure" class="service-logo">
-      <h3>Azure AKS</h3>
-      <p>AKS management, VMs, networking, monitoring, IAM & technical support.</p>
-    </div>
-    <div class="card glass glow">
-      <img src="https://cdn.worldvectorlogo.com/logos/argocd.svg" alt="ArgoCD" class="service-logo">
-      <h3>ArgoCD</h3>
-      <p>GitOps for automated deployments across environments.</p>
-    </div>
-    <div class="card glass glow">
-      <img src="https://raw.githubusercontent.com/louislam/uptime-kuma/master/public/icon.svg" alt="Uptime Kuma" class="service-logo">
-      <h3>Uptime Kuma</h3>
-      <p>Uptime & service availability monitoring.</p>
-    </div>
-    <div class="card glass glow">
-      <img src="https://cdn.worldvectorlogo.com/logos/elastic-stack.svg" alt="ELK Stack" class="service-logo">
-      <h3>ELK Stack</h3>
-      <p>Filebeat → Logstash → Elasticsearch → Kibana; API/ESB analytics dashboards.</p>
-    </div>
-    <div class="card glass glow">
-      <img src="https://www.svgrepo.com/download/448282/alertmanager.svg" alt="Alert Manager" class="service-logo">
-      <h3>Alertmanager</h3>
-      <p>Alert routing to email & Telegram.</p>
-    </div>
-    <div class="card glass glow">
-      <img src="https://cdn.worldvectorlogo.com/logos/kubernetes.svg" alt="Kubernetes" class="service-logo">
-      <h3>Kubernetes</h3>
-      <p>Cluster management in on-prem & cloud.</p>
-    </div>
-    <div class="card glass glow">
-      <img src="https://cdn.worldvectorlogo.com/logos/nginx.svg" alt="Nginx" class="service-logo">
-      <h3>Nginx</h3>
-      <p>Reverse proxy, load balancing & ingress controller.</p>
-    </div>
-  </div>
-</section>
-
-<section id="certs" class="container">
-  <h2>Azure <span>Certifications</span></h2>
-  <div class="glass card badges">
-    <div class="badge-item" data-credly="https://www.credly.com/badges/YOUR_AZ900_ID/public_url">
-      <img src="https://images.credly.com/images/be8fcaeb-c769-4858-b567-ffaaa73ce8cf/linkedin_thumb_image.png" alt="AZ-900 Azure Fundamentals">
-      <p>AZ-900 Azure Fundamentals</p>
-    </div>
-    <div class="badge-item" data-credly="https://www.credly.com/badges/YOUR_AZ104_ID/public_url">
-      <img src="https://images.credly.com/images/336eebfc-0ac3-4553-9a67-b402f491f185/linkedin_thumb_azure-administrator-associate-600x600.png" alt="AZ-104 Azure Administrator Associate">
-      <p>AZ-104 Azure Administrator Associate</p>
-    </div>
-  </div>
-</section>
-
-<footer id="contact">
-  <div class="contact-container">
-    <h2>Get in Touch</h2>
-    <div class="contact-links">
-      <a href="tel:+911234567890" class="contact-item">
-        <i class="fas fa-phone"></i> +91 123 456 7890
-      </a>
-      <a href="mailto:rajesh.devops@example.com" class="contact-item">
-        <i class="fas fa-envelope"></i> rajesh.devops@example.com
-      </a>
-      <a href="https://www.linkedin.com/in/rajeshkumar-k" target="_blank" class="contact-item">
-        <i class="fab fa-linkedin-in"></i> LinkedIn Profile
-      </a>
-    </div>
-  </div>
-  <div class="copyright">© 2026 Rajeshkumar K · DevOps & Observability Engineer · Hosted on GitHub Pages</div>
-</footer>
-
 <script>
-document.addEventListener("DOMContentLoaded", () => {
-  // Theme Toggle
-  document.getElementById('themeToggle').addEventListener('click', () => document.body.classList.toggle('light'));
-
-  // Counters
-  const counters = document.querySelectorAll('.count');
-  counters.forEach(counter => {
-    const target = parseFloat(counter.dataset.target);
-    let current = 0;
-    const speed = 100;
-    const increment = target / speed;
-    function update() {
-      current += increment;
-      if (current < target) {
-        counter.textContent = target % 1 !== 0 ? current.toFixed(2) : Math.floor(current);
-        requestAnimationFrame(update);
-      } else {
-        counter.textContent = target;
-      }
-    }
-    update();
-  });
-
-  // Typing Animation
-  const skills = ["Prometheus", "Grafana", "Azure AKS", "ArgoCD", "Uptime Kuma", "ELK Stack", "Alertmanager", "Kubernetes", "Nginx"];
-  const typing = document.getElementById("typing");
-  let i = 0, j = 0;
-  function typeSkill() {
-    if (j < skills[i].length) {
-      typing.textContent += skills[i][j++];
-      setTimeout(typeSkill, 120);
-    } else {
-      setTimeout(eraseSkill, 1200);
-    }
-  }
-  function eraseSkill() {
-    if (j > 0) {
-      typing.textContent = skills[i].substring(0, --j);
-      setTimeout(eraseSkill, 60);
-    } else {
-      i = (i + 1) % skills.length;
-      setTimeout(typeSkill, 300);
-    }
-  }
-  typeSkill();
-
-  // Glow on scroll
-  const glowCards = document.querySelectorAll('.card.glow');
-  function revealGlow() {
-    const trigger = window.innerHeight * 0.85;
-    glowCards.forEach(card => {
-      if (card.getBoundingClientRect().top < trigger) card.classList.add('show');
-    });
-  }
-  window.addEventListener('scroll', revealGlow);
-  revealGlow();
-
-  // Super Interactive Badge Modal
-  const badgeItems = document.querySelectorAll('.badge-item');
-  badgeItems.forEach(item => {
-    item.addEventListener('click', (e) => {
-      e.stopPropagation();
-      const imgSrc = item.querySelector('img').src;
-      const certName = item.querySelector('p').textContent;
-      const credlyUrl = item.dataset.credly || '#';
-
-      const modal = document.createElement('div');
-      modal.classList.add('badge-modal');
-
-      const closeBtn = document.createElement('div');
-      closeBtn.classList.add('close-btn');
-      closeBtn.innerHTML = '&times;';
-      closeBtn.addEventListener('click', (ev) => {
-        ev.stopPropagation();
-        closeModal(modal);
-      });
-
-      const wrapper = document.createElement('div');
-      wrapper.classList.add('enlarged-img-wrapper');
-
-      const enlargedImg = document.createElement('img');
-      enlargedImg.src = imgSrc;
-      enlargedImg.addEventListener('click', (ev) => {
-        ev.stopPropagation();
-        window.open(credlyUrl, '_blank');
-      });
-
-      wrapper.appendChild(enlargedImg);
-
-      const caption = document.createElement('p');
-      caption.textContent = certName;
-
-      const credlyBtn = document.createElement('a');
-      credlyBtn.href = credlyUrl;
-      credlyBtn.target = '_blank';
-      credlyBtn.classList.add('credly-btn');
-      credlyBtn.textContent = 'Verify on Credly →';
-
-      const note = document.createElement('p');
-      note.classList.add('credly-note');
-      note.textContent = '(Click badge or button to verify)';
-
-      modal.appendChild(closeBtn);
-      modal.appendChild(wrapper);
-      modal.appendChild(caption);
-      modal.appendChild(credlyBtn);
-      modal.appendChild(note);
-
-      modal.addEventListener('click', () => closeModal(modal));
-
-      document.body.appendChild(modal);
-    });
-  });
-
-  function closeModal(modal) {
-    modal.style.animation = 'fadeIn 0.5s reverse';
-    setTimeout(() => document.body.removeChild(modal), 500);
-  }
+// Simple form submission alert (replace with real backend later)
+document.querySelector('form').addEventListener('submit', (e) => {
+  e.preventDefault();
+  alert('Message sent! (This is a demo - connect to real backend for production)');
 });
 </script>
 </body>
