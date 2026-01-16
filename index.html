@@ -45,6 +45,7 @@ body.light .muted{color:var(--muted-light);}
   box-shadow:0 0 40px rgba(56,189,248,.15);
   transition:background var(--transition), border var(--transition), box-shadow var(--transition);
 }
+
 /* Navbar */
 nav{
   display:flex;
@@ -71,6 +72,7 @@ nav a:hover{color:var(--accent)}
   margin-left:1rem;
   color:var(--accent);
 }
+
 /* Hero */
 .hero{
   display:grid;
@@ -144,6 +146,7 @@ nav a:hover{color:var(--accent)}
   background:var(--accent);
   color:#020617;
 }
+
 /* Typing effect */
 #typing{
   display:inline-block;
@@ -156,7 +159,8 @@ nav a:hover{color:var(--accent)}
   margin-left:5px;
   vertical-align: bottom;
 }
-/* Stats */
+
+/* Stats - calmer, more elegant version */
 .stats {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
@@ -168,16 +172,60 @@ nav a:hover{color:var(--accent)}
   text-align: center;
   border: 1px solid rgba(56, 189, 248, 0.12);
 }
+
+.stats > div {
+  padding: 1.4rem 1rem;
+  border-radius: 16px;
+  transition: all 0.4s ease;
+  background: linear-gradient(145deg, rgba(56,189,248,0.04), rgba(15,23,42,0.4));
+}
+
 .stats .count {
   display: block;
-  font-size: 2.9rem;
+  font-size: 2.9rem;                  /* ← reduced from 3.6rem */
   font-weight: 800;
+  line-height: 1.05;
+  letter-spacing: -0.5px;
   background: linear-gradient(90deg, #38bdf8, #64ffda);
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
   text-shadow: 0 0 18px rgba(56,189,248,0.45);
+  transition: all 0.4s cubic-bezier(0.34, 1.56, 0.64, 1);
 }
-.stats p { color: #94a3b8; font-size: 0.98rem; margin-top: 0.9rem; }
+
+.stats .count.complete {
+  animation: gentlePulse 3s ease-in-out infinite;
+}
+
+.stats > div:hover .count {
+  transform: scale(1.12) translateY(-4px);     /* much smaller movement */
+  text-shadow: 
+    0 0 28px #38bdf8,
+    0 0 48px rgba(100,255,218,0.55);
+  filter: brightness(1.15);
+}
+
+.stats p {
+  color: #94a3b8;
+  font-size: 0.98rem;
+  font-weight: 400;
+  margin-top: 0.9rem;
+  letter-spacing: 0.3px;
+  opacity: 0.92;
+  transition: all 0.4s ease;
+}
+
+.stats > div:hover {
+  background: linear-gradient(145deg, rgba(56,189,248,0.09), rgba(15,23,42,0.55));
+  box-shadow: 0 8px 32px rgba(56,189,248,0.18);
+  transform: translateY(-3px);
+}
+
+/* Softer pulsing animation */
+@keyframes gentlePulse {
+  0%, 100% { text-shadow: 0 0 18px rgba(56,189,248,0.45); }
+  50%      { text-shadow: 0 0 32px rgba(56,189,248,0.75); }
+}
 /* Section */
 section{margin-top:4rem}
 section h2{
@@ -186,6 +234,7 @@ section h2{
   font-size:2.4rem;
 }
 section h2 span{color:var(--accent)}
+
 /* Expertise Cards */
 .grid{
   display:grid;
@@ -202,63 +251,90 @@ section h2 span{color:var(--accent)}
   position:relative;
   overflow:hidden;
 }
+.card::before {
+  content:'';
+  position:absolute;
+  inset:0;
+  border-radius:24px;
+  padding:3px;
+  background:linear-gradient(45deg,var(--accent),transparent,var(--accent));
+  mask:linear-gradient(#fff 0 0) padding-box, linear-gradient(#fff 0 0);
+  mask-composite:exclude;
+  opacity:0;
+  transition:opacity var(--transition);
+}
+.card:hover::before {
+  opacity:1;
+}
 .card:hover{
   transform:translateY(-30px) scale(1.1);
   background:#16213e;
   box-shadow:0 30px 80px var(--accent-glow);
+  z-index:30;
 }
-.card i {font-size:4rem;color:var(--accent);margin-bottom:2rem;transition:transform var(--transition);}
-.card:hover i {transform:scale(1.3);}
-.card h3{font-size:1.6rem;margin-bottom:1rem;color:var(--text);}
-.card p{color:var(--muted);font-size:1.05rem;line-height:1.6;}
-/* Certifications – Final Moderate Size with Reduced Square Area */
+.card i {
+  font-size:4rem;
+  color:var(--accent);
+  margin-bottom:2rem;
+  transition:transform var(--transition);
+}
+.card:hover i {
+  transform:scale(1.3);
+}
+.card h3{
+  font-size:1.6rem;
+  margin-bottom:1rem;
+  color:var(--text);
+}
+.card p{
+  color:var(--muted);
+  font-size:1.05rem;
+  line-height:1.6;
+}
+
+/* Certifications */
 .certs-badges {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-  gap: 2rem 3rem;
+  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+  gap: 2.5rem;
   padding: 2rem 0;
   justify-items: center;
 }
-
 .badge-item.card {
-  padding: 1.5rem 1rem 2.5rem;
-  max-width: 280px;                      /* Reduced overall card size */
-  background: transparent;               /* No square background */
-  border: none;
-  box-shadow: none;
-  transition: all 0.5s ease;
+  padding: 2rem 1.5rem;
+  max-width: 320px;
+  cursor: pointer;
+  transition: all 0.5s cubic-bezier(0.175, 0.885, 0.32, 1.275);
   position: relative;
   z-index: 1;
-  text-align: center;
 }
-
 .badge-item.card img {
-  width: 220px;                          /* Moderate perfect size */
-  height: 220px;
+  width: 180px;
+  height: 180px;
   object-fit: contain;
-  border-radius: 30px;                   /* Soft rounded – no sharp square */
+  margin-bottom: 1.2rem;
+  border-radius: 20px;
   box-shadow: 0 10px 30px rgba(56,189,248,0.3);
-  transition: all 0.5s ease;
-  background: linear-gradient(145deg, rgba(15,23,42,0.3), rgba(30,41,59,0.2)); /* Very subtle bg */
+  transition: transform 0.4s ease, box-shadow 0.4s ease;
 }
-
 .badge-item.card p {
-  font-size: 1.2rem;
-  margin-top: 1rem;
+  font-size: 1.15rem;
+  margin: 0.6rem 0 0;
   color: var(--accent);
   font-weight: 600;
 }
-
 .badge-item.card:hover {
-  transform: translateY(-25px) scale(1.08);   /* Comes forward nicely */
-  z-index: 50;
+  transform: translateY(-18px) scale(1.08);
+  z-index: 20;
+  box-shadow: 0 30px 70px var(--accent-glow), 0 0 60px rgba(100,255,218,0.4);
 }
-
 .badge-item.card:hover img {
   transform: scale(1.1);
-  box-shadow: 0 25px 60px rgba(100,255,218,0.5);
+  box-shadow: 0 15px 40px rgba(56,189,248,0.5);
 }
-
+.badge-item.card * {
+  pointer-events: auto;
+}
 .certs-note {
   text-align:center;
   margin-top:2rem;
@@ -266,7 +342,8 @@ section h2 span{color:var(--accent)}
   color:var(--accent);
   font-weight:600;
 }
-/* Modal – unchanged */
+
+/* Modal */
 .badge-modal {
   position: fixed;
   inset:0;
@@ -278,7 +355,10 @@ section h2 span{color:var(--accent)}
   z-index: 1000;
   animation: fadeIn 0.5s ease-out;
 }
-@keyframes fadeIn { from { opacity: 0; } to { opacity: 1; } }
+@keyframes fadeIn {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
 .badge-modal .close-btn {
   position: absolute;
   top: 40px;
@@ -286,6 +366,11 @@ section h2 span{color:var(--accent)}
   font-size: 3.5rem;
   color:var(--accent);
   cursor:pointer;
+  transition:all 0.4s;
+}
+.badge-modal .close-btn:hover {
+  color:#fff;
+  transform:scale(1.3);
 }
 .badge-modal .enlarged-img-wrapper {
   max-width:95%;
@@ -293,9 +378,32 @@ section h2 span{color:var(--accent)}
   overflow:hidden;
   border-radius:24px;
   box-shadow:0 0 120px var(--accent);
+  cursor:zoom-in;
+  transition:transform 0.5s ease;
+  animation:scaleFade 1s ease-out forwards;
 }
-.badge-modal img { width:100%; height:auto; border-radius:24px; }
-.badge-modal p { margin-top:2.5rem; font-size:2.2rem; color:var(--accent); font-weight:700; }
+@keyframes scaleFade {
+  0% { transform:scale(0.7); opacity:0; }
+  100% { transform:scale(1); opacity:1; }
+}
+.badge-modal .enlarged-img-wrapper:hover {
+  transform:scale(1.04);
+}
+.badge-modal img {
+  width:100%;
+  height:auto;
+  border-radius:24px;
+  transition:transform 0.7s ease;
+}
+.badge-modal .enlarged-img-wrapper:hover img {
+  transform:scale(1.2);
+}
+.badge-modal p {
+  margin-top:2.5rem;
+  font-size:2.2rem;
+  color:var(--accent);
+  font-weight:700;
+}
 .badge-modal .verify-btn {
   margin-top: 2.8rem;
   padding: 1.3rem 3.2rem;
@@ -305,13 +413,47 @@ section h2 span{color:var(--accent)}
   font-size: 1.45rem;
   border-radius: 50px;
   text-decoration: none;
+  position: relative;
+  overflow: hidden;
+  transition: all 0.4s ease;
+  box-shadow: 0 8px 25px rgba(56,189,248,0.5);
 }
+.badge-modal .verify-btn:hover {
+  background: #ffffff;
+  transform: translateY(-6px) scale(1.06);
+  box-shadow: 0 15px 40px rgba(100,255,218,0.7);
+}
+.badge-modal .verify-btn::before {
+  content: '';
+  position: absolute;
+  top: -50%;
+  left: -100%;
+  width: 50%;
+  height: 200%;
+  background: linear-gradient(120deg, transparent, rgba(255,255,255,0.7), transparent);
+  transform: skewX(-25deg);
+  transition: left 0.7s ease;
+}
+.badge-modal .verify-btn:hover::before {
+  left: 120%;
+}
+.badge-modal .note {
+  margin-top:1.8rem;
+  font-size:1.1rem;
+  color:#ccc;
+  opacity:0.8;
+}
+
 /* Footer */
 footer{
   padding:4rem 0 2rem;
   text-align:center;
 }
-footer h2{color:var(--accent);font-size:2rem;margin-bottom:2.5rem;}
+footer h2{
+  color:var(--accent);
+  font-size:2rem;
+  margin-bottom:2.5rem;
+}
 .contact-links{
   display:flex;
   justify-content:center;
@@ -330,13 +472,30 @@ footer h2{color:var(--accent);font-size:2rem;margin-bottom:2.5rem;}
   text-decoration:none;
   font-weight:500;
   transition:all var(--transition);
+  font-size:1.1rem;
 }
-.contact-item:hover{background:var(--accent);color:#020617;transform:scale(1.05);}
-.copyright{color:var(--muted);font-size:0.9rem;}
+.contact-item:hover{
+  background:var(--accent);
+  color:#020617;
+  transform:scale(1.05);
+}
+.contact-item i{
+  font-size:1.6rem;
+  margin-right:1rem;
+}
+.copyright{
+  color:var(--muted);
+  font-size:0.9rem;
+}
+
 /* Animations */
 .count{display:block;font-size:3.6rem;font-weight:900;background:linear-gradient(135deg,var(--accent),var(--accent-bright));-webkit-background-clip:text;-webkit-text-fill-color:transparent;text-shadow:0 0 35px var(--accent-glow);}
 .card.glow{opacity:0;transform:translateY(20px);transition:all 0.6s ease-out;}
 .card.glow.show{opacity:1;transform:translateY(0);box-shadow:0 0 20px var(--accent);}
+@keyframes pulseGlow {
+  from { text-shadow:0 0 40px var(--accent-glow); }
+  to { text-shadow:0 0 80px var(--accent-glow); }
+}
 </style>
 </head>
 <body>
@@ -364,26 +523,76 @@ footer h2{color:var(--accent);font-size:2rem;margin-bottom:2.5rem;}
     </div>
   </div>
   <div class="stats">
-    <div><span class="count" data-target="1.5">0</span><p>Years Of Experience</p></div>
-    <div><span class="count" data-target="75">0</span><p>Grafana/Kibana Dashboards Built</p></div>
-    <div><span class="count" data-target="23">0</span><p>Prod Systems Monitored</p></div>
-    <div><span class="count" data-target="99.99">0</span><p>Uptime Focus (%)</p></div>
+    <div>
+      <span class="count" data-target="1.5">0</span>
+      <p>Years Of Experience</p>
+    </div>
+    <div>
+      <span class="count" data-target="75">0</span>
+      <p>Grafana/Kibana Dashboards Built</p>
+    </div>
+    <div>
+      <span class="count" data-target="23">0</span>
+      <p>Prod Systems Monitored</p>
+    </div>
+    <div>
+      <span class="count" data-target="99.99">0</span>
+      <p>Uptime Focus (%)</p>
+    </div>
   </div>
 </div>
+
 <section id="services" class="container">
   <h2>My <span>Expertise</span></h2>
   <div class="grid">
-    <div class="card glass glow"><i class="fas fa-chart-line"></i><h3>Prometheus</h3><p>Node/Windows exporters, PromQL optimization, alerting for VMs & databases.</p></div>
-    <div class="card glass glow"><i class="fas fa-tachometer-alt"></i><h3>Grafana</h3><p>Dashboards for alerts, microservices (Graphite), pods, VMs, DBs, performance, uptime & API/ESB.</p></div>
-    <div class="card glass glow"><i class="fas fa-window-restore"></i><h3>Azure AKS</h3><p>AKS management, VMs, networking, monitoring, IAM & technical support.</p></div>
-    <div class="card glass glow"><i class="fas fa-code-branch"></i><h3>ArgoCD</h3><p>GitOps for automated deployments across environments.</p></div>
-    <div class="card glass glow"><i class="fas fa-heartbeat"></i><h3>Uptime Kuma</h3><p>Uptime & service availability monitoring.</p></div>
-    <div class="card glass glow"><i class="fas fa-search"></i><h3>ELK Stack</h3><p>Filebeat → Logstash → Elasticsearch → Kibana; API/ESB analytics dashboards.</p></div>
-    <div class="card glass glow"><i class="fas fa-bell"></i><h3>Alertmanager</h3><p>Alert routing to email & Telegram.</p></div>
-    <div class="card glass glow"><i class="fas fa-cubes"></i><h3>Kubernetes</h3><p>Cluster management in on-prem & cloud.</p></div>
-    <div class="card glass glow"><i class="fas fa-server"></i><h3>Nginx</h3><p>Reverse proxy, load balancing & ingress controller.</p></div>
+    <div class="card glass glow">
+      <i class="fas fa-chart-line"></i>
+      <h3>Prometheus</h3>
+      <p>Node/Windows exporters, PromQL optimization, alerting for VMs & databases.</p>
+    </div>
+    <div class="card glass glow">
+      <i class="fas fa-tachometer-alt"></i>
+      <h3>Grafana</h3>
+      <p>Dashboards for alerts, microservices (Graphite), pods, VMs, DBs, performance, uptime & API/ESB.</p>
+    </div>
+    <div class="card glass glow">
+      <i class="fas fa-window-restore"></i>
+      <h3>Azure AKS</h3>
+      <p>AKS management, VMs, networking, monitoring, IAM & technical support.</p>
+    </div>
+    <div class="card glass glow">
+      <i class="fas fa-code-branch"></i>
+      <h3>ArgoCD</h3>
+      <p>GitOps for automated deployments across environments.</p>
+    </div>
+    <div class="card glass glow">
+      <i class="fas fa-heartbeat"></i>
+      <h3>Uptime Kuma</h3>
+      <p>Uptime & service availability monitoring.</p>
+    </div>
+    <div class="card glass glow">
+      <i class="fas fa-search"></i>
+      <h3>ELK Stack</h3>
+      <p>Filebeat → Logstash → Elasticsearch → Kibana; API/ESB analytics dashboards.</p>
+    </div>
+    <div class="card glass glow">
+      <i class="fas fa-bell"></i>
+      <h3>Alertmanager</h3>
+      <p>Alert routing to email & Telegram.</p>
+    </div>
+    <div class="card glass glow">
+      <i class="fas fa-cubes"></i>
+      <h3>Kubernetes</h3>
+      <p>Cluster management in on-prem & cloud.</p>
+    </div>
+    <div class="card glass glow">
+      <i class="fas fa-server"></i>
+      <h3>Nginx</h3>
+      <p>Reverse proxy, load balancing & ingress controller.</p>
+    </div>
   </div>
 </section>
+
 <section id="certs" class="container">
   <h2>Azure <span>Certifications</span></h2>
   <div class="glass">
@@ -400,19 +609,29 @@ footer h2{color:var(--accent);font-size:2rem;margin-bottom:2.5rem;}
   </div>
   <p class="certs-note">Click any badge to view & verify certificate</p>
 </section>
+
 <footer id="contact">
   <h2>Get in Touch</h2>
   <div class="contact-links">
-    <a href="tel:+919894648632" class="contact-item"><i class="fas fa-phone"></i> +91 9894648632</a>
-    <a href="mailto:rajeshkumar.k5445@gmail.com" class="contact-item"><i class="fas fa-envelope"></i> rajeshkumar.k5445@gmail.com</a>
-    <a href="https://www.linkedin.com/in/rajeshkumark65" target="_blank" class="contact-item"><i class="fab fa-linkedin-in"></i> LinkedIn Profile</a>
+    <a href="tel:+919894648632" class="contact-item">
+      <i class="fas fa-phone"></i> +91 9894648632
+    </a>
+    <a href="mailto:rajeshkumar.k5445@gmail.com" class="contact-item">
+      <i class="fas fa-envelope"></i> rajeshkumar.k5445@gmail.com
+    </a>
+    <a href="https://www.linkedin.com/in/rajeshkumark65" target="_blank" class="contact-item">
+      <i class="fab fa-linkedin-in"></i> LinkedIn Profile
+    </a>
   </div>
   <div class="copyright">© 2026 Rajeshkumar K · DevOps & Observability Engineer · Hosted on GitHub Pages</div>
 </footer>
+
 <script>
-// Your original JavaScript (unchanged)
 document.addEventListener("DOMContentLoaded", () => {
+  // Theme Toggle
   document.getElementById('themeToggle').addEventListener('click', () => document.body.classList.toggle('light'));
+
+  // Counters - Animate from 0 with pulse on complete
   const counters = document.querySelectorAll('.count');
   counters.forEach(counter => {
     const target = parseFloat(counter.dataset.target);
@@ -431,6 +650,8 @@ document.addEventListener("DOMContentLoaded", () => {
     }
     update();
   });
+
+  // Typing Animation - Continuous
   const skills = ["Prometheus", "Grafana", "Azure AKS", "ArgoCD", "Uptime Kuma", "ELK Stack", "Alertmanager", "Kubernetes", "Nginx"];
   const typing = document.getElementById("typing");
   let i = 0, j = 0;
@@ -452,6 +673,8 @@ document.addEventListener("DOMContentLoaded", () => {
     }
   }
   typeSkill();
+
+  // Glow on scroll for expertise cards
   const glowCards = document.querySelectorAll('.card.glow');
   function revealGlow() {
     const trigger = window.innerHeight * 0.85;
@@ -461,34 +684,52 @@ document.addEventListener("DOMContentLoaded", () => {
   }
   window.addEventListener('scroll', revealGlow);
   revealGlow();
+
+  // Badge Modal
   const badgeItems = document.querySelectorAll('.badge-item');
   badgeItems.forEach(item => {
     item.addEventListener('click', function(e) {
       if (e.target.closest('a')) return;
+
       e.preventDefault();
       e.stopPropagation();
-      const imgSrc = item.querySelector('img').src;
-      const certName = item.querySelector('p').textContent.trim();
+
+      const imgSrc    = item.querySelector('img').src;
+      const certName  = item.querySelector('p').textContent.trim();
       const verifyUrl = item.dataset.verify || '#';
+
       const modal = document.createElement('div');
       modal.classList.add('badge-modal');
+
       const closeBtn = document.createElement('div');
       closeBtn.classList.add('close-btn');
       closeBtn.innerHTML = '&times;';
-      closeBtn.onclick = () => modal.remove();
+      closeBtn.onclick = (ev) => {
+        ev.stopPropagation();
+        closeModal(modal);
+      };
+
       const wrapper = document.createElement('div');
       wrapper.classList.add('enlarged-img-wrapper');
+
       const enlargedImg = document.createElement('img');
       enlargedImg.src = imgSrc;
       enlargedImg.alt = certName;
+
       if (verifyUrl !== '#') {
         enlargedImg.style.cursor = 'pointer';
         enlargedImg.title = 'Click to verify on Microsoft Learn';
-        enlargedImg.onclick = () => window.open(verifyUrl, '_blank');
+        enlargedImg.onclick = (ev) => {
+          ev.stopPropagation();
+          window.open(verifyUrl, '_blank');
+        };
       }
+
       wrapper.appendChild(enlargedImg);
+
       const caption = document.createElement('p');
       caption.textContent = certName;
+
       let verifyBtn = null;
       if (verifyUrl !== '#') {
         verifyBtn = document.createElement('a');
@@ -497,14 +738,29 @@ document.addEventListener("DOMContentLoaded", () => {
         verifyBtn.classList.add('verify-btn');
         verifyBtn.textContent = 'Verify on Microsoft Learn →';
       }
+
+      const note = document.createElement('p');
+      note.classList.add('note');
+      note.textContent = 'Official Microsoft verification';
+
       modal.appendChild(closeBtn);
       modal.appendChild(wrapper);
       modal.appendChild(caption);
       if (verifyBtn) modal.appendChild(verifyBtn);
-      modal.onclick = (ev) => { if (ev.target === modal) modal.remove(); };
+      modal.appendChild(note);
+
+      modal.onclick = (ev) => {
+        if (ev.target === modal) closeModal(modal);
+      };
+
       document.body.appendChild(modal);
     });
   });
+
+  function closeModal(modal) {
+    modal.style.animation = 'fadeIn 0.5s reverse';
+    setTimeout(() => modal.remove(), 480);
+  }
 });
 </script>
 </body>
