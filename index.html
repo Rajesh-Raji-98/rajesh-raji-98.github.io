@@ -187,7 +187,7 @@ section h2 span{color:var(--accent)}
   font-size: 1.1rem;
   font-weight: 500;
 }
-/* Even More Interactive Modal */
+/* Interactive Modal */
 .badge-modal {
   position: fixed;
   top: 0;
@@ -240,7 +240,7 @@ section h2 span{color:var(--accent)}
   transition: transform 0.6s cubic-bezier(0.25, 0.46, 0.45, 0.94);
 }
 .badge-modal .enlarged-img-wrapper:hover img {
-  transform: scale(1.15); /* Strong zoom on hover */
+  transform: scale(1.15);
 }
 @keyframes popSpin {
   0% {
@@ -265,7 +265,7 @@ section h2 span{color:var(--accent)}
   font-weight: 600;
   text-shadow: 0 0 20px var(--accent);
 }
-.badge-modal .credly-btn {
+.badge-modal .verify-btn {
   margin-top: 2rem;
   padding: 1rem 2.5rem;
   background: var(--accent);
@@ -277,12 +277,12 @@ section h2 span{color:var(--accent)}
   transition: all 0.4s;
   box-shadow: 0 8px 30px rgba(56,189,248,.4);
 }
-.badge-modal .credly-btn:hover {
+.badge-modal .verify-btn:hover {
   background: #fff;
   transform: translateY(-5px) scale(1.05);
   box-shadow: 0 15px 40px rgba(56,189,248,.6);
 }
-.badge-modal .credly-note {
+.badge-modal .note {
   margin-top: 1.2rem;
   font-size: 1.1rem;
   color: #ccc;
@@ -422,11 +422,11 @@ footer{
 <section id="certs" class="container">
   <h2>Azure <span>Certifications</span></h2>
   <div class="glass card badges">
-    <div class="badge-item" data-credly="https://www.credly.com/badges/YOUR_AZ900_ID/public_url">
+    <div class="badge-item" data-verify="https://learn.microsoft.com/api/credentials/share/en-gb/RajeshKumarK-3290/5E8E02F430E698BE?sharingId=9D1D9ACCF6BE6917">
       <img src="https://images.credly.com/images/be8fcaeb-c769-4858-b567-ffaaa73ce8cf/linkedin_thumb_image.png" alt="AZ-900 Azure Fundamentals">
       <p>AZ-900 Azure Fundamentals</p>
     </div>
-    <div class="badge-item" data-credly="https://www.credly.com/badges/YOUR_AZ104_ID/public_url">
+    <div class="badge-item" data-verify="#">
       <img src="https://images.credly.com/images/336eebfc-0ac3-4553-9a67-b402f491f185/linkedin_thumb_azure-administrator-associate-600x600.png" alt="AZ-104 Azure Administrator Associate">
       <p>AZ-104 Azure Administrator Associate</p>
     </div>
@@ -437,13 +437,13 @@ footer{
   <div class="contact-container">
     <h2>Get in Touch</h2>
     <div class="contact-links">
-      <a href="tel:+911234567890" class="contact-item">
-        <i class="fas fa-phone"></i> +91 123 456 7890
+      <a href="tel:+919894648632" class="contact-item">
+        <i class="fas fa-phone"></i> +91 9894648632
       </a>
-      <a href="mailto:rajesh.devops@example.com" class="contact-item">
-        <i class="fas fa-envelope"></i> rajesh.devops@example.com
+      <a href="mailto:rajeshkumar.k5445@gmail.com" class="contact-item">
+        <i class="fas fa-envelope"></i> rajeshkumar.k5445@gmail.com
       </a>
-      <a href="https://www.linkedin.com/in/rajeshkumar-k" target="_blank" class="contact-item">
+      <a href="https://www.linkedin.com/in/rajeshkumark65" target="_blank" class="contact-item">
         <i class="fab fa-linkedin-in"></i> LinkedIn Profile
       </a>
     </div>
@@ -509,14 +509,14 @@ document.addEventListener("DOMContentLoaded", () => {
   window.addEventListener('scroll', revealGlow);
   revealGlow();
 
-  // Super Interactive Badge Modal
+  // Interactive Badge Modal
   const badgeItems = document.querySelectorAll('.badge-item');
   badgeItems.forEach(item => {
     item.addEventListener('click', (e) => {
       e.stopPropagation();
       const imgSrc = item.querySelector('img').src;
       const certName = item.querySelector('p').textContent;
-      const credlyUrl = item.dataset.credly || '#';
+      const verifyUrl = item.dataset.verify || '#';
 
       const modal = document.createElement('div');
       modal.classList.add('badge-modal');
@@ -534,30 +534,35 @@ document.addEventListener("DOMContentLoaded", () => {
 
       const enlargedImg = document.createElement('img');
       enlargedImg.src = imgSrc;
-      enlargedImg.addEventListener('click', (ev) => {
-        ev.stopPropagation();
-        window.open(credlyUrl, '_blank');
-      });
+      if (verifyUrl !== '#') {
+        enlargedImg.addEventListener('click', (ev) => {
+          ev.stopPropagation();
+          window.open(verifyUrl, '_blank');
+        });
+      }
 
       wrapper.appendChild(enlargedImg);
 
       const caption = document.createElement('p');
       caption.textContent = certName;
 
-      const credlyBtn = document.createElement('a');
-      credlyBtn.href = credlyUrl;
-      credlyBtn.target = '_blank';
-      credlyBtn.classList.add('credly-btn');
-      credlyBtn.textContent = 'Verify on Credly →';
+      if (verifyUrl !== '#') {
+        const verifyBtn = document.createElement('a');
+        verifyBtn.href = verifyUrl;
+        verifyBtn.target = '_blank';
+        verifyBtn.classList.add('verify-btn');
+        verifyBtn.textContent = 'Verify on Microsoft Learn →';
+
+        modal.appendChild(verifyBtn);
+      }
 
       const note = document.createElement('p');
-      note.classList.add('credly-note');
-      note.textContent = '(Click badge or button to verify)';
+      note.classList.add('note');
+      note.textContent = verifyUrl !== '#' ? '(Click badge or button for official verification)' : '(Verification URL coming soon)';
 
       modal.appendChild(closeBtn);
       modal.appendChild(wrapper);
       modal.appendChild(caption);
-      modal.appendChild(credlyBtn);
       modal.appendChild(note);
 
       modal.addEventListener('click', () => closeModal(modal));
