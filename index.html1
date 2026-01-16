@@ -1,0 +1,724 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Rajeshkumar K | DevOps & Observability Engineer</title>
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
+<link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" rel="stylesheet">
+<style>
+:root{
+  --bg:#020617;
+  --bg-light:#f4f7f9;
+  --card:rgba(15,23,42,.85);
+  --card-light:rgba(255,255,255,.85);
+  --accent:#38bdf8;
+  --accent-bright:#64ffda;
+  --accent-glow:rgba(56,189,248,.8);
+  --text:#e5e7eb;
+  --text-light:#1f2937;
+  --muted:#94a3b8;
+  --muted-light:#64748b;
+  --glass:blur(18px);
+  --transition:.4s;
+}
+*{margin:0;padding:0;box-sizing:border-box}
+body{
+  font-family:Poppins,sans-serif;
+  background:var(--bg);
+  color:var(--text);
+  transition:background var(--transition), color var(--transition);
+  scroll-behavior:smooth;
+}
+body.light{
+  background:var(--bg-light);
+  color:var(--text-light);
+}
+body.light .glass{background:var(--card-light);border-color:rgba(56,189,248,.25);}
+body.light .muted{color:var(--muted-light);}
+.container{max-width:1200px;margin:auto;padding:3rem 1.5rem;}
+.glass{
+  background:var(--card);
+  backdrop-filter:var(--glass);
+  border-radius:24px;
+  border:1px solid rgba(56,189,248,.25);
+  box-shadow:0 0 40px rgba(56,189,248,.15);
+  transition:background var(--transition), border var(--transition), box-shadow var(--transition);
+}
+/* Navbar */
+nav{
+  display:flex;
+  justify-content:space-between;
+  align-items:center;
+  padding:1.5rem 2rem;
+  position:sticky;
+  top:0;
+  z-index:100;
+  backdrop-filter:var(--glass);
+  background:var(--card);
+}
+nav h2{color:var(--accent)}
+nav a{
+  color:var(--muted);
+  margin-left:1.2rem;
+  text-decoration:none;
+  transition:color var(--transition);
+}
+nav a:hover{color:var(--accent)}
+.theme-toggle{
+  cursor:pointer;
+  font-size:1.2rem;
+  margin-left:1rem;
+  color:var(--accent);
+}
+/* Hero */
+.hero{
+  display:grid;
+  grid-template-columns:1fr 1.3fr;
+  gap:3rem;
+  padding:2rem 0;
+  align-items:center;
+}
+.hero img{
+  width:100%;
+  border-radius:20px;
+  box-shadow:0 0 30px rgba(56,189,248,.4);
+  animation:float 4s ease-in-out infinite;
+}
+@keyframes float{
+  0%,100%{transform:translateY(0);}
+  50%{transform:translateY(-15px);}
+}
+.hero h1{font-size:2.8rem}
+.hero span{color:var(--accent)}
+.hero .description {
+  margin:1.5rem 0 1.5rem;
+  color:var(--muted);
+  line-height:1.6;
+  font-size:1.1rem;
+}
+.hero .skills-line {
+  font-size:1.2rem;
+  color:var(--muted);
+  margin-bottom:1.5rem;
+}
+.hero .skills-line span {
+  color:var(--accent);
+  font-weight:600;
+}
+.btn{
+  display:inline-block;
+  padding:.8rem 1.6rem;
+  border-radius:30px;
+  background:var(--accent);
+  color:#020617;
+  font-weight:600;
+  text-decoration:none;
+  margin-right:1rem;
+  transition:all var(--transition);
+  position:relative;
+  overflow:hidden;
+}
+.btn::before {
+  content:'';
+  position:absolute;
+  top:0;left:-100%;
+  width:100%;
+  height:100%;
+  background:linear-gradient(90deg,transparent,var(--accent-glow),transparent);
+  transition:left var(--transition);
+}
+.btn:hover::before {
+  left:100%;
+}
+.btn:hover{
+  transform:translateY(-6px) scale(1.05);
+  box-shadow:0 10px 30px var(--accent-glow);
+}
+.btn.outline{
+  background:none;
+  border:2px solid var(--accent);
+  color:var(--accent);
+}
+.btn.outline:hover{
+  background:var(--accent);
+  color:#020617;
+}
+/* Typing effect */
+#typing{
+  display:inline-block;
+  border-right:2px solid var(--accent);
+  padding-right:3px;
+  white-space:nowrap;
+  overflow:hidden;
+  font-weight:600;
+  color:var(--accent);
+  margin-left:5px;
+  vertical-align: bottom;
+}
+/* Stats */
+.stats {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  gap: 1.8rem 1.4rem;
+  padding: 2.2rem 1.8rem;
+  background: rgba(15, 23, 42, 0.75);
+  border-radius: 20px;
+  margin: 1.8rem 0 2.5rem;
+  text-align: center;
+  border: 1px solid rgba(56, 189, 248, 0.12);
+}
+.stats > div {
+  padding: 1.4rem 1rem;
+  border-radius: 16px;
+  transition: all 0.4s ease;
+  background: linear-gradient(145deg, rgba(56,189,248,0.04), rgba(15,23,42,0.4));
+}
+.stats .count {
+  display: block;
+  font-size: 2.9rem;
+  font-weight: 800;
+  line-height: 1.05;
+  letter-spacing: -0.5px;
+  background: linear-gradient(90deg, #38bdf8, #64ffda);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  text-shadow: 0 0 18px rgba(56,189,248,0.45);
+  transition: all 0.4s cubic-bezier(0.34, 1.56, 0.64, 1);
+}
+.stats .count.complete {
+  animation: gentlePulse 3s ease-in-out infinite;
+}
+.stats > div:hover .count {
+  transform: scale(1.12) translateY(-4px);
+  text-shadow: 0 0 28px #38bdf8, 0 0 48px rgba(100,255,218,0.55);
+  filter: brightness(1.15);
+}
+.stats p {
+  color: #94a3b8;
+  font-size: 0.98rem;
+  font-weight: 400;
+  margin-top: 0.9rem;
+  letter-spacing: 0.3px;
+  opacity: 0.92;
+}
+.stats > div:hover {
+  background: linear-gradient(145deg, rgba(56,189,248,0.09), rgba(15,23,42,0.55));
+  box-shadow: 0 8px 32px rgba(56,189,248,0.18);
+  transform: translateY(-3px);
+}
+@keyframes gentlePulse {
+  0%, 100% { text-shadow: 0 0 18px rgba(56,189,248,0.45); }
+  50% { text-shadow: 0 0 32px rgba(56,189,248,0.75); }
+}
+/* Section */
+section{margin-top:4rem}
+section h2{
+  text-align:center;
+  margin-bottom:3rem;
+  font-size:2.4rem;
+}
+section h2 span{color:var(--accent)}
+/* Expertise Cards */
+.grid{
+  display:grid;
+  grid-template-columns:repeat(auto-fit,minmax(300px,1fr));
+  gap:2rem;
+}
+.card{
+  background:var(--card);
+  padding:3rem 2rem;
+  border-radius:24px;
+  text-align:center;
+  transition:all var(--transition) cubic-bezier(0.175, 0.885, 0.32, 1.275);
+  box-shadow:0 10px 30px rgba(0,0,0,.4);
+  position:relative;
+  overflow:hidden;
+}
+.card::before {
+  content:'';
+  position:absolute;
+  inset:0;
+  border-radius:24px;
+  padding:3px;
+  background:linear-gradient(45deg,var(--accent),transparent,var(--accent));
+  mask:linear-gradient(#fff 0 0) padding-box, linear-gradient(#fff 0 0);
+  mask-composite:exclude;
+  opacity:0;
+  transition:opacity var(--transition);
+}
+.card:hover::before {
+  opacity:1;
+}
+.card:hover{
+  transform:translateY(-30px) scale(1.1);
+  background:#16213e;
+  box-shadow:0 30px 80px var(--accent-glow);
+  z-index:30;
+}
+.card i {
+  font-size:4rem;
+  color:var(--accent);
+  margin-bottom:2rem;
+  transition:transform var(--transition);
+}
+.card:hover i {
+  transform:scale(1.3);
+}
+.card h3{
+  font-size:1.6rem;
+  margin-bottom:1rem;
+  color:var(--text);
+}
+.card p{
+  color:var(--muted);
+  font-size:1.05rem;
+  line-height:1.6;
+}
+/* Certifications */
+.certs-badges {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+  gap: 2.5rem;
+  padding: 2rem 0;
+  justify-items: center;
+}
+.badge-item.card {
+  padding: 2.2rem 1.8rem;
+  max-width: 300px;
+  cursor: pointer;
+  transition: all 0.5s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+  position: relative;
+  z-index: 1;
+}
+.badge-item.card img {
+  width: 180px;               /* bigger size */
+  height: 180px;              /* perfect square */
+  object-fit: cover;          /* fills the square nicely, crops if needed */
+  margin-bottom: 1.2rem;
+  border-radius: 12px;        /* slightly softer corners, or set to 0 for perfect square */
+  box-shadow: 0 8px 28px rgba(56,189,248,0.3);
+  transition: transform 0.4s ease, box-shadow 0.4s ease;
+}
+.badge-item.card p {
+  font-size: 1.1rem;
+  margin: 0.4rem 0 0;
+  color: var(--accent);
+  font-weight: 600;
+}
+.badge-item.card:hover {
+  transform: translateY(-18px) scale(1.07);
+  z-index: 20;
+  box-shadow: 0 30px 70px var(--accent-glow), 0 0 60px rgba(100,255,218,0.35);
+}
+.badge-item.card:hover img {
+  transform: scale(1.12);
+  box-shadow: 0 12px 36px rgba(56,189,248,0.45);
+}
+.badge-item.card * {
+  pointer-events: auto;
+}
+.certs-note {
+  text-align:center;
+  margin-top:2rem;
+  font-size:1.2rem;
+  color:var(--accent);
+  font-weight:600;
+}
+/* Modal */
+.badge-modal {
+  position: fixed;
+  inset:0;
+  background: rgba(0,0,0,0.92);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  z-index: 1000;
+  animation: fadeIn 0.5s ease-out;
+}
+@keyframes fadeIn {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+.badge-modal .close-btn {
+  position: absolute;
+  top: 40px;
+  right: 50px;
+  font-size: 3.5rem;
+  color:var(--accent);
+  cursor:pointer;
+  transition:all 0.4s;
+}
+.badge-modal .close-btn:hover {
+  color:#fff;
+  transform:scale(1.3);
+}
+.badge-modal .enlarged-img-wrapper {
+  max-width:95%;
+  max-height:75vh;
+  overflow:hidden;
+  border-radius:24px;
+  box-shadow:0 0 120px var(--accent);
+  cursor:zoom-in;
+  transition:transform 0.5s ease;
+  animation:scaleFade 1s ease-out forwards;
+}
+@keyframes scaleFade {
+  0% { transform:scale(0.7); opacity:0; }
+  100% { transform:scale(1); opacity:1; }
+}
+.badge-modal .enlarged-img-wrapper:hover {
+  transform:scale(1.04);
+}
+.badge-modal img {
+  width:100%;
+  height:auto;
+  border-radius:24px;
+  transition:transform 0.7s ease;
+}
+.badge-modal .enlarged-img-wrapper:hover img {
+  transform:scale(1.2);
+}
+.badge-modal p {
+  margin-top:2.5rem;
+  font-size:2.2rem;
+  color:var(--accent);
+  font-weight:700;
+}
+.badge-modal .verify-btn {
+  margin-top: 2.8rem;
+  padding: 1.3rem 3.2rem;
+  background: var(--accent);
+  color: #020617;
+  font-weight: 700;
+  font-size: 1.45rem;
+  border-radius: 50px;
+  text-decoration: none;
+  position: relative;
+  overflow: hidden;
+  transition: all 0.4s ease;
+  box-shadow: 0 8px 25px rgba(56,189,248,0.5);
+}
+.badge-modal .verify-btn:hover {
+  background: #ffffff;
+  transform: translateY(-6px) scale(1.06);
+  box-shadow: 0 15px 40px rgba(100,255,218,0.7);
+}
+.badge-modal .verify-btn::before {
+  content: '';
+  position: absolute;
+  top: -50%;
+  left: -100%;
+  width: 50%;
+  height: 200%;
+  background: linear-gradient(120deg, transparent, rgba(255,255,255,0.7), transparent);
+  transform: skewX(-25deg);
+  transition: left 0.7s ease;
+}
+.badge-modal .verify-btn:hover::before {
+  left: 120%;
+}
+.badge-modal .note {
+  margin-top:1.8rem;
+  font-size:1.1rem;
+  color:#ccc;
+  opacity:0.8;
+}
+/* Footer */
+footer{
+  padding:4rem 0 2rem;
+  text-align:center;
+}
+footer h2{
+  color:var(--accent);
+  font-size:2rem;
+  margin-bottom:2.5rem;
+}
+.contact-links{
+  display:flex;
+  justify-content:center;
+  gap:2.5rem;
+  flex-wrap:wrap;
+  margin-bottom:3rem;
+}
+.contact-item{
+  display:flex;
+  align-items:center;
+  background:rgba(56,189,248,.15);
+  border:1px solid var(--accent-glow);
+  border-radius:50px;
+  padding:1rem 2.5rem;
+  color:var(--accent);
+  text-decoration:none;
+  font-weight:500;
+  transition:all var(--transition);
+  font-size:1.1rem;
+}
+.contact-item:hover{
+  background:var(--accent);
+  color:#020617;
+  transform:scale(1.05);
+}
+.contact-item i{
+  font-size:1.6rem;
+  margin-right:1rem;
+}
+.copyright{
+  color:var(--muted);
+  font-size:0.9rem;
+}
+/* Animations */
+.count{display:block;font-size:3.6rem;font-weight:900;background:linear-gradient(135deg,var(--accent),var(--accent-bright));-webkit-background-clip:text;-webkit-text-fill-color:transparent;text-shadow:0 0 35px var(--accent-glow);}
+.card.glow{opacity:0;transform:translateY(20px);transition:all 0.6s ease-out;}
+.card.glow.show{opacity:1;transform:translateY(0);box-shadow:0 0 20px var(--accent);}
+@keyframes pulseGlow {
+  from { text-shadow:0 0 40px var(--accent-glow); }
+  to { text-shadow:0 0 80px var(--accent-glow); }
+}
+</style>
+</head>
+<body>
+<div class="container glass">
+  <nav>
+    <h2>Portfolio</h2>
+    <div>
+      <a href="#about">About</a>
+      <a href="#services">Expertise</a>
+      <a href="#certs">Certifications</a>
+      <a href="#contact">Contact</a>
+      <i class="fas fa-sun theme-toggle" id="themeToggle" title="Toggle Light/Dark"></i>
+    </div>
+  </nav>
+  <div class="hero" id="about">
+    <img src="https://thumbs.dreamstime.com/b/architect-portrait-indian-man-city-smile-experience-pride-urban-development-happy-career-site-planner-town-confidence-428920393.jpg" alt="DevOps Engineer">
+    <div>
+      <p>Hello, I’m</p>
+      <h1><span>Rajeshkumar K</span></h1>
+      <h3>Associate DevOps & Observability Engineer</h3>
+      <p class="skills-line">Skills: <span id="typing"></span></p>
+      <p class="description">Passionate about building reliable, scalable systems with modern monitoring and automation tools. Experienced in Prometheus, Grafana, Azure AKS, Kubernetes, and more.</p>
+      <a class="btn" href="#">Download CV</a>
+      <a class="btn outline" href="#contact">Contact Me</a>
+    </div>
+  </div>
+  <div class="stats">
+    <div>
+      <span class="count" data-target="1.5">0</span>
+      <p>Years Of Experience</p>
+    </div>
+    <div>
+      <span class="count" data-target="75">0</span>
+      <p>Grafana/Kibana Dashboards Built</p>
+    </div>
+    <div>
+      <span class="count" data-target="23">0</span>
+      <p>Prod Systems Monitored</p>
+    </div>
+    <div>
+      <span class="count" data-target="99.99">0</span>
+      <p>Uptime Focus (%)</p>
+    </div>
+  </div>
+</div>
+<section id="services" class="container">
+  <h2>My <span>Expertise</span></h2>
+  <div class="grid">
+    <div class="card glass glow">
+      <i class="fas fa-chart-line"></i>
+      <h3>Prometheus</h3>
+      <p>Node/Windows exporters, PromQL optimization, alerting for VMs & databases.</p>
+    </div>
+    <div class="card glass glow">
+      <i class="fas fa-tachometer-alt"></i>
+      <h3>Grafana</h3>
+      <p>Dashboards for alerts, microservices (Graphite), pods, VMs, DBs, performance, uptime & API/ESB.</p>
+    </div>
+    <div class="card glass glow">
+      <i class="fas fa-window-restore"></i>
+      <h3>Azure AKS</h3>
+      <p>AKS management, VMs, networking, monitoring, IAM & technical support.</p>
+    </div>
+    <div class="card glass glow">
+      <i class="fas fa-code-branch"></i>
+      <h3>ArgoCD</h3>
+      <p>GitOps for automated deployments across environments.</p>
+    </div>
+    <div class="card glass glow">
+      <i class="fas fa-heartbeat"></i>
+      <h3>Uptime Kuma</h3>
+      <p>Uptime & service availability monitoring.</p>
+    </div>
+    <div class="card glass glow">
+      <i class="fas fa-search"></i>
+      <h3>ELK Stack</h3>
+      <p>Filebeat → Logstash → Elasticsearch → Kibana; API/ESB analytics dashboards.</p>
+    </div>
+    <div class="card glass glow">
+      <i class="fas fa-bell"></i>
+      <h3>Alertmanager</h3>
+      <p>Alert routing to email & Telegram.</p>
+    </div>
+    <div class="card glass glow">
+      <i class="fas fa-cubes"></i>
+      <h3>Kubernetes</h3>
+      <p>Cluster management in on-prem & cloud.</p>
+    </div>
+    <div class="card glass glow">
+      <i class="fas fa-server"></i>
+      <h3>Nginx</h3>
+      <p>Reverse proxy, load balancing & ingress controller.</p>
+    </div>
+  </div>
+</section>
+<section id="certs" class="container">
+  <h2>Azure <span>Certifications</span></h2>
+  <div class="glass">
+    <div class="certs-badges">
+      <div class="badge-item card glass glow" data-verify="https://learn.microsoft.com/api/credentials/share/en-gb/RajeshKumarK-3290/5E8E02F430E698BE?sharingId=9D1D9ACCF6BE6917">
+        <img src="https://images.credly.com/images/be8fcaeb-c769-4858-b567-ffaaa73ce8cf/linkedin_thumb_image.png" alt="AZ-900 Azure Fundamentals">
+        <p>AZ-900 Azure Fundamentals</p>
+      </div>
+      <div class="badge-item card glass glow" data-verify="#">
+        <img src="https://images.credly.com/images/336eebfc-0ac3-4553-9a67-b402f491f185/linkedin_thumb_azure-administrator-associate-600x600.png" alt="AZ-104 Azure Administrator Associate">
+        <p>AZ-104 Azure Administrator Associate</p>
+      </div>
+    </div>
+  </div>
+  <p class="certs-note">Click any badge to view & verify certificate</p>
+</section>
+<footer id="contact">
+  <h2>Get in Touch</h2>
+  <div class="contact-links">
+    <a href="tel:+919894648632" class="contact-item">
+      <i class="fas fa-phone"></i> +91 9894648632
+    </a>
+    <a href="mailto:rajeshkumar.k5445@gmail.com" class="contact-item">
+      <i class="fas fa-envelope"></i> rajeshkumar.k5445@gmail.com
+    </a>
+    <a href="https://www.linkedin.com/in/rajeshkumark65" target="_blank" class="contact-item">
+      <i class="fab fa-linkedin-in"></i> LinkedIn Profile
+    </a>
+  </div>
+  <div class="copyright">© 2026 Rajeshkumar K · DevOps & Observability Engineer · Hosted on GitHub Pages</div>
+</footer>
+<script>
+// JavaScript remains exactly the same - no changes needed
+document.addEventListener("DOMContentLoaded", () => {
+  document.getElementById('themeToggle').addEventListener('click', () => document.body.classList.toggle('light'));
+
+  const counters = document.querySelectorAll('.count');
+  counters.forEach(counter => {
+    const target = parseFloat(counter.dataset.target);
+    let current = 0;
+    const speed = 80;
+    const increment = target / speed;
+    function update() {
+      current += increment;
+      if (current < target) {
+        counter.textContent = target % 1 !== 0 ? current.toFixed(2) : Math.floor(current);
+        requestAnimationFrame(update);
+      } else {
+        counter.textContent = target.toFixed(target % 1 ? 2 : 0) + (target % 1 ? '' : (target === 99.99 ? '%' : '+'));
+        counter.classList.add('complete');
+      }
+    }
+    update();
+  });
+
+  const skills = ["Prometheus", "Grafana", "Azure AKS", "ArgoCD", "Uptime Kuma", "ELK Stack", "Alertmanager", "Kubernetes", "Nginx"];
+  const typing = document.getElementById("typing");
+  let i = 0, j = 0;
+  function typeSkill() {
+    if (j < skills[i].length) {
+      typing.textContent += skills[i][j++];
+      setTimeout(typeSkill, 120);
+    } else {
+      setTimeout(eraseSkill, 1500);
+    }
+  }
+  function eraseSkill() {
+    if (j > 0) {
+      typing.textContent = skills[i].substring(0, --j);
+      setTimeout(eraseSkill, 60);
+    } else {
+      i = (i + 1) % skills.length;
+      setTimeout(typeSkill, 500);
+    }
+  }
+  typeSkill();
+
+  const glowCards = document.querySelectorAll('.card.glow');
+  function revealGlow() {
+    const trigger = window.innerHeight * 0.85;
+    glowCards.forEach(card => {
+      if (card.getBoundingClientRect().top < trigger) card.classList.add('show');
+    });
+  }
+  window.addEventListener('scroll', revealGlow);
+  revealGlow();
+
+  const badgeItems = document.querySelectorAll('.badge-item');
+  badgeItems.forEach(item => {
+    item.addEventListener('click', function(e) {
+      if (e.target.closest('a')) return;
+      e.preventDefault();
+      e.stopPropagation();
+      const imgSrc = item.querySelector('img').src;
+      const certName = item.querySelector('p').textContent.trim();
+      const verifyUrl = item.dataset.verify || '#';
+      const modal = document.createElement('div');
+      modal.classList.add('badge-modal');
+      const closeBtn = document.createElement('div');
+      closeBtn.classList.add('close-btn');
+      closeBtn.innerHTML = '×';
+      closeBtn.onclick = (ev) => {
+        ev.stopPropagation();
+        closeModal(modal);
+      };
+      const wrapper = document.createElement('div');
+      wrapper.classList.add('enlarged-img-wrapper');
+      const enlargedImg = document.createElement('img');
+      enlargedImg.src = imgSrc;
+      enlargedImg.alt = certName;
+      if (verifyUrl !== '#') {
+        enlargedImg.style.cursor = 'pointer';
+        enlargedImg.title = 'Click to verify on Microsoft Learn';
+        enlargedImg.onclick = (ev) => {
+          ev.stopPropagation();
+          window.open(verifyUrl, '_blank');
+        };
+      }
+      wrapper.appendChild(enlargedImg);
+      const caption = document.createElement('p');
+      caption.textContent = certName;
+      let verifyBtn = null;
+      if (verifyUrl !== '#') {
+        verifyBtn = document.createElement('a');
+        verifyBtn.href = verifyUrl;
+        verifyBtn.target = '_blank';
+        verifyBtn.classList.add('verify-btn');
+        verifyBtn.textContent = 'Verify on Microsoft Learn →';
+      }
+      const note = document.createElement('p');
+      note.classList.add('note');
+      note.textContent = 'Official Microsoft verification';
+      modal.appendChild(closeBtn);
+      modal.appendChild(wrapper);
+      modal.appendChild(caption);
+      if (verifyBtn) modal.appendChild(verifyBtn);
+      modal.appendChild(note);
+      modal.onclick = (ev) => {
+        if (ev.target === modal) closeModal(modal);
+      };
+      document.body.appendChild(modal);
+    });
+  });
+  function closeModal(modal) {
+    modal.style.animation = 'fadeIn 0.5s reverse';
+    setTimeout(() => modal.remove(), 480);
+  }
+});
+</script>
+</body>
+</html>
