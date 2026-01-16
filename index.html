@@ -219,7 +219,7 @@ section h2{
   font-size:2.4rem;
 }
 section h2 span{color:var(--accent)}
-/* Expertise Cards */
+/* Expertise & Projects Grid */
 .grid{
   display:grid;
   grid-template-columns:repeat(auto-fit,minmax(300px,1fr));
@@ -234,6 +234,12 @@ section h2 span{color:var(--accent)}
   box-shadow:0 10px 30px rgba(0,0,0,.4);
   position:relative;
   overflow:hidden;
+}
+.card img{
+  width:100%;
+  border-radius:12px;
+  margin-bottom:1.5rem;
+  box-shadow:0 8px 24px rgba(56,189,248,0.3);
 }
 .card::before {
   content:'';
@@ -275,6 +281,19 @@ section h2 span{color:var(--accent)}
   font-size:1.05rem;
   line-height:1.6;
 }
+.card ul {
+  text-align:left;
+  color:var(--muted);
+  margin:1rem 0;
+  padding-left:1.5rem;
+  line-height:1.6;
+  list-style-type:disc;
+}
+.card .impact {
+  color:var(--accent);
+  font-weight:600;
+  margin-top:1rem;
+}
 /* Certifications */
 .certs-badges {
   display: grid;
@@ -292,11 +311,11 @@ section h2 span{color:var(--accent)}
   z-index: 1;
 }
 .badge-item.card img {
-  width: 180px;               /* bigger size */
-  height: 180px;              /* perfect square */
-  object-fit: cover;          /* fills the square nicely, crops if needed */
+  width: 180px;
+  height: 180px;
+  object-fit: cover;
   margin-bottom: 1.2rem;
-  border-radius: 12px;        /* slightly softer corners, or set to 0 for perfect square */
+  border-radius: 12px;
   box-shadow: 0 8px 28px rgba(56,189,248,0.3);
   transition: transform 0.4s ease, box-shadow 0.4s ease;
 }
@@ -485,11 +504,13 @@ footer h2{
     <div>
       <a href="#about">About</a>
       <a href="#services">Expertise</a>
+      <a href="#projects">Projects</a>
       <a href="#certs">Certifications</a>
       <a href="#contact">Contact</a>
       <i class="fas fa-sun theme-toggle" id="themeToggle" title="Toggle Light/Dark"></i>
     </div>
   </nav>
+
   <div class="hero" id="about">
     <img src="https://thumbs.dreamstime.com/b/architect-portrait-indian-man-city-smile-experience-pride-urban-development-happy-career-site-planner-town-confidence-428920393.jpg" alt="DevOps Engineer">
     <div>
@@ -502,6 +523,7 @@ footer h2{
       <a class="btn outline" href="#contact">Contact Me</a>
     </div>
   </div>
+
   <div class="stats">
     <div>
       <span class="count" data-target="1.5">0</span>
@@ -521,6 +543,7 @@ footer h2{
     </div>
   </div>
 </div>
+
 <section id="services" class="container">
   <h2>My <span>Expertise</span></h2>
   <div class="grid">
@@ -542,7 +565,7 @@ footer h2{
     <div class="card glass glow">
       <i class="fas fa-code-branch"></i>
       <h3>ArgoCD</h3>
-      <p>GitOps for automated deployments across environments.</p>
+      <p>Automated deployments across environments.</p>
     </div>
     <div class="card glass glow">
       <i class="fas fa-heartbeat"></i>
@@ -571,6 +594,33 @@ footer h2{
     </div>
   </div>
 </section>
+
+<!-- ──────────────────────────────────────────────── -->
+<!--               NEW PROJECTS SECTION               -->
+<!-- ──────────────────────────────────────────────── -->
+<section id="projects" class="container">
+  <h2>Featured <span>Projects</span></h2>
+  <div class="grid">
+    <div class="card glass glow">
+      <img src="https://via.placeholder.com/600x340/0f172a/38bdf8?text=LnM+Observability+Architecture" alt="LnM Monitoring Architecture Diagram">
+      <h3>Production LnM Observability Platform</h3>
+      <p>Centralized Logs + Metrics monitoring platform built for 20+ critical production systems on Azure AKS and Kubernetes clusters.</p>
+      <ul>
+        <li>Prometheus + Node/Windows exporters collecting 1000+ metrics</li>
+        <li>ELK Stack (Filebeat → Logstash → Elasticsearch → Kibana) for centralized structured logs</li>
+        <li>75+ custom Grafana dashboards covering pods, nodes, DBs, APIs, ESB & business KPIs</li>
+        <li>Alertmanager integrated with Telegram & email routing</li>
+        <li>Deployments using ArgoCD for zero-downtime updates</li>
+        <li>Nginx ingress monitoring & reverse proxy observability</li>
+      </ul>
+      <p class="impact">Impact: 99.99%+ uptime visibility • Reduced MTTD from hours to minutes • Adopted by dev & ops teams</p>
+      <a href="https://github.com/your-username/lnm-observability" target="_blank" class="btn outline" style="margin-top:1.2rem;">View on GitHub</a>
+    </div>
+
+    <!-- You can duplicate the above <div class="card glass glow"> block for more projects later -->
+  </div>
+</section>
+
 <section id="certs" class="container">
   <h2>Azure <span>Certifications</span></h2>
   <div class="glass">
@@ -587,6 +637,7 @@ footer h2{
   </div>
   <p class="certs-note">Click any badge to view & verify certificate</p>
 </section>
+
 <footer id="contact">
   <h2>Get in Touch</h2>
   <div class="contact-links">
@@ -600,10 +651,10 @@ footer h2{
       <i class="fab fa-linkedin-in"></i> LinkedIn Profile
     </a>
   </div>
-  <div class="copyright">© 2026 Rajeshkumar K · DevOps & Observability Engineer · Hosted on GitHub Pages</div>
+  <div class="copyright">© 2026 Rajeshkumar K · DevOps & Observability Engineer </div>
 </footer>
+
 <script>
-// JavaScript remains exactly the same - no changes needed
 document.addEventListener("DOMContentLoaded", () => {
   document.getElementById('themeToggle').addEventListener('click', () => document.body.classList.toggle('light'));
 
