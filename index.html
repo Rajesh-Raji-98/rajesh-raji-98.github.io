@@ -509,6 +509,8 @@ footer h2{
 #projects .card{padding:1.6rem 1.4rem 2rem;}
 #projects .card:hover{transform:translateY(-10px) scale(1.03);}
 #projects .card img{aspect-ratio:600/340;object-fit:cover;background:#0b1222;}
+#projects .card img.shot{aspect-ratio:auto;object-fit:contain;margin-bottom:.8rem;}
+#projects .card a:hover img.shot{box-shadow:0 8px 28px rgba(56,189,248,.55);}
 .hero img{aspect-ratio:4/5;object-fit:cover;max-width:420px;justify-self:center;}
 .cert-plain{padding:2.2rem 1.8rem;max-width:300px;width:100%;}
 .cert-plain i{font-size:4rem;margin-bottom:1.2rem;}
@@ -647,7 +649,7 @@ body.light .card h3{color:var(--text-light);}
     </div>
 
     <div class="card glass glow">
-      <img src="img/dlh.svg" alt="OSS Engine Overview service health" loading="lazy">
+      <a href="img/shot-dlh-overview.jpg" target="_blank" rel="noopener"><img class="shot" src="img/shot-dlh-overview.jpg" alt="OSS Engine Overview dashboard in Grafana" loading="lazy"></a>
       <h3>DLH Service Overview Dashboards</h3>
       <p>The OSS Engine Overview plus 13 per-service Grafana dashboards for the Data Lake House.</p>
       <ul>
@@ -671,7 +673,8 @@ body.light .card h3{color:var(--text-light);}
     </div>
 
     <div class="card glass glow">
-      <img src="img/genai.svg" alt="Gen AI observability flow" loading="lazy">
+      <a href="img/shot-livekit.jpg" target="_blank" rel="noopener"><img class="shot" src="img/shot-livekit.jpg" alt="LiveKit voice AI monitoring dashboard" loading="lazy"></a>
+      <a href="img/shot-gpu.jpg" target="_blank" rel="noopener"><img class="shot" src="img/shot-gpu.jpg" alt="NVIDIA H200 GPU monitoring dashboard" loading="lazy"></a>
       <h3>Gen AI Observability</h3>
       <p>Brought AI workloads into the same observability platform.</p>
       <ul>
@@ -679,7 +682,7 @@ body.light .card h3{color:var(--text-light);}
         <li>n8n agent traces sent to both Langfuse and OpenObserve with model, token and cost details</li>
         <li>LiteLLM model gateway tracked by provider, model and error type</li>
         <li>LiveKit voice AI dashboard: rooms, SIP calls, jitter, packet loss, RTT, call-setup latency</li>
-        <li>NVIDIA GPU monitoring: utilisation, memory, temperature, power, clocks, throttling</li>
+        <li>NVIDIA H200 NVL GPU monitoring: utilisation, memory, temperature, power, clocks, throttling</li>
         <li>n8n health: workflows, event-loop latency, heap and GC</li>
       </ul>
       <p class="impact">Impact: AI agents monitored like any other production service</p>
