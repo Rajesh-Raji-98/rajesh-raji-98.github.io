@@ -1,0 +1,27 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 960 540" font-family="Inter,Segoe UI,Arial,sans-serif">
+  <rect width="960" height="540" rx="18" fill="#f8fafc"/>
+  <text x="40" y="58" fill="#0f172a" font-size="26" font-weight="700">One emergency call, one trace</text>
+  <text x="40" y="90" fill="#475569" font-size="17">Each bar is one hop of the I999 incident call, with its own timing</text>
+  <g stroke="#e2e8f0"><line x1="300" y1="118" x2="300" y2="470"/><line x1="450" y1="118" x2="450" y2="470"/><line x1="600" y1="118" x2="600" y2="470"/><line x1="750" y1="118" x2="750" y2="470"/><line x1="900" y1="118" x2="900" y2="470"/></g>
+  <g font-size="17" fill="#0f172a">
+    <text x="40" y="146">API gateway</text>
+    <text x="56" y="188">WSO2 ESB</text>
+    <text x="72" y="230">Vault config</text>
+    <text x="72" y="272">IoT ops + Redis</text>
+    <text x="72" y="314">Command centre</text>
+    <text x="56" y="356" fill="#b45309" font-weight="600">Reply to caller</text>
+    <text x="56" y="414" fill="#6d28d9">Recommendation</text>
+    <text x="72" y="456" fill="#6d28d9">GIS + workforce</text>
+  </g>
+  <rect x="300" y="128" width="600" height="24" rx="6" fill="#2563eb"/>
+  <rect x="324" y="170" width="380" height="24" rx="6" fill="#3b82f6"/>
+  <rect x="344" y="212" width="52" height="24" rx="6" fill="#10b981"/>
+  <rect x="400" y="254" width="70" height="24" rx="6" fill="#10b981"/>
+  <rect x="476" y="296" width="180" height="24" rx="6" fill="#10b981"/>
+  <rect x="662" y="338" width="34" height="24" rx="6" fill="#f59e0b"/>
+  <line x1="40" y1="378" x2="920" y2="378" stroke="#cbd5e1" stroke-dasharray="6 6"/>
+  <rect x="490" y="396" width="380" height="24" rx="6" fill="#8b5cf6"/>
+  <rect x="550" y="438" width="260" height="24" rx="6" fill="#a78bfa"/>
+  <rect x="40" y="484" width="880" height="38" rx="10" fill="#ede9fe"/>
+  <text x="480" y="509" text-anchor="middle" fill="#5b21b6" font-size="17" font-weight="600">Caller's path above the line · background fire-station recommendation below · same trace_id</text>
+</svg>

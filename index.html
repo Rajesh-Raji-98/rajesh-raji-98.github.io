@@ -4,885 +4,423 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Rajeshkumar K | DevOps & Observability Engineer</title>
-<meta name="description" content="Associate DevOps Engineer focused on observability: OpenObserve, OpenTelemetry, Grafana, Prometheus, ELK, Kubernetes, Helm and Gen AI monitoring (LiveKit, NVIDIA GPU, Langfuse).">
+<meta name="description" content="Associate DevOps Engineer focused on observability: OpenObserve, OpenTelemetry, Grafana, Prometheus, ELK, Kubernetes and Gen AI monitoring (LiveKit, NVIDIA H200 GPU, Langfuse).">
 <meta property="og:type" content="website">
 <meta property="og:url" content="https://rajesh-raji-98.github.io/">
 <meta property="og:title" content="Rajeshkumar K &#8211; DevOps &amp; Observability Engineer">
-<meta property="og:description" content="OpenObserve + OpenTelemetry platform, DLH service dashboards, I999 end-to-end tracing and Gen AI observability. Portfolio and resume.">
+<meta property="og:description" content="I make production problems visible before users feel them. OpenObserve + OpenTelemetry platform, Data Lake House dashboards, I999 end-to-end tracing and Gen AI observability.">
 <meta property="og:image" content="https://rajesh-raji-98.github.io/og-card.png">
 <meta property="og:image:width" content="1200">
 <meta property="og:image:height" content="627">
 <meta name="twitter:card" content="summary_large_image">
-<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Plus+Jakarta+Sans:wght@600;700;800&display=swap" rel="stylesheet">
 <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" rel="stylesheet">
 <style>
 :root{
-  --bg:#020617;
-  --bg-light:#f4f7f9;
-  --card:rgba(15,23,42,.85);
-  --card-light:rgba(255,255,255,.85);
-  --accent:#38bdf8;
-  --accent-bright:#64ffda;
-  --accent-glow:rgba(56,189,248,.8);
-  --text:#e5e7eb;
-  --text-light:#1f2937;
-  --muted:#94a3b8;
-  --muted-light:#64748b;
-  --glass:blur(18px);
-  --transition:.4s;
-}
-*{margin:0;padding:0;box-sizing:border-box}
-body{
-  font-family:Poppins,sans-serif;
-  background:var(--bg);
-  color:var(--text);
-  transition:background var(--transition), color var(--transition);
-  scroll-behavior:smooth;
-}
-body.light{
-  background:var(--bg-light);
-  color:var(--text-light);
-}
-body.light .glass{background:var(--card-light);border-color:rgba(56,189,248,.25);}
-body.light .muted{color:var(--muted-light);}
-.container{max-width:1200px;margin:auto;padding:3rem 1.5rem;}
-.glass{
-  background:var(--card);
-  backdrop-filter:var(--glass);
-  border-radius:24px;
-  border:1px solid rgba(56,189,248,.25);
-  box-shadow:0 0 40px rgba(56,189,248,.15);
-  transition:background var(--transition), border var(--transition), box-shadow var(--transition);
-}
-/* Navbar */
-nav{
-  display:flex;
-  justify-content:space-between;
-  align-items:center;
-  padding:1.5rem 2rem;
-  position:sticky;
-  top:0;
-  z-index:100;
-  backdrop-filter:var(--glass);
-  background:var(--card);
-}
-nav h2{color:var(--accent)}
-nav a{
-  color:var(--muted);
-  margin-left:1.2rem;
-  text-decoration:none;
-  transition:color var(--transition);
-}
-nav a:hover{color:var(--accent)}
-.theme-toggle{
-  cursor:pointer;
-  font-size:1.2rem;
-  margin-left:1rem;
-  color:var(--accent);
-}
-/* Hero */
-.hero{
-  display:grid;
-  grid-template-columns:1fr 1.3fr;
-  gap:3rem;
-  padding:2rem 0;
-  align-items:center;
-}
-.hero img{
-  width:100%;
-  border-radius:20px;
-  box-shadow:0 0 30px rgba(56,189,248,.4);
-  animation:float 4s ease-in-out infinite;
-}
-@keyframes float{
-  0%,100%{transform:translateY(0);}
-  50%{transform:translateY(-15px);}
-}
-.hero h1{font-size:2.8rem}
-.hero span{color:var(--accent)}
-.hero .description {
-  margin:1.5rem 0 1.5rem;
-  color:var(--muted);
-  line-height:1.6;
-  font-size:1.1rem;
-}
-.hero .skills-line {
-  font-size:1.2rem;
-  color:var(--muted);
-  margin-bottom:1.5rem;
-}
-.hero .skills-line span {
-  color:var(--accent);
-  font-weight:600;
-}
-.btn{
-  display:inline-block;
-  padding:.8rem 1.6rem;
-  border-radius:30px;
-  background:var(--accent);
-  color:#020617;
-  font-weight:600;
-  text-decoration:none;
-  margin-right:1rem;
-  transition:all var(--transition);
-  position:relative;
-  overflow:hidden;
-}
-.btn::before {
-  content:'';
-  position:absolute;
-  top:0;left:-100%;
-  width:100%;
-  height:100%;
-  background:linear-gradient(90deg,transparent,var(--accent-glow),transparent);
-  transition:left var(--transition);
-}
-.btn:hover::before {
-  left:100%;
-}
-.btn:hover{
-  transform:translateY(-6px) scale(1.05);
-  box-shadow:0 10px 30px var(--accent-glow);
-}
-.btn.outline{
-  background:none;
-  border:2px solid var(--accent);
-  color:var(--accent);
-}
-.btn.outline:hover{
-  background:var(--accent);
-  color:#020617;
-}
-/* Typing effect */
-#typing{
-  display:inline-block;
-  border-right:2px solid var(--accent);
-  padding-right:3px;
-  white-space:nowrap;
-  overflow:hidden;
-  font-weight:600;
-  color:var(--accent);
-  margin-left:5px;
-  vertical-align: bottom;
-}
-/* Stats */
-.stats {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-  gap: 1.8rem 1.4rem;
-  padding: 2.2rem 1.8rem;
-  background: rgba(15, 23, 42, 0.75);
-  border-radius: 20px;
-  margin: 1.8rem 0 2.5rem;
-  text-align: center;
-  border: 1px solid rgba(56, 189, 248, 0.12);
-}
-.stats > div {
-  padding: 1.4rem 1rem;
-  border-radius: 16px;
-  transition: all 0.4s ease;
-  background: linear-gradient(145deg, rgba(56,189,248,0.04), rgba(15,23,42,0.4));
-}
-.stats .count {
-  display: block;
-  font-size: 2.9rem;
-  font-weight: 800;
-  line-height: 1.05;
-  letter-spacing: -0.5px;
-  background: linear-gradient(90deg, #38bdf8, #64ffda);
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
-  text-shadow: 0 0 18px rgba(56,189,248,0.45);
-  transition: all 0.4s cubic-bezier(0.34, 1.56, 0.64, 1);
-}
-.stats .count.complete {
-  animation: gentlePulse 3s ease-in-out infinite;
-}
-.stats > div:hover .count {
-  transform: scale(1.12) translateY(-4px);
-  text-shadow: 0 0 28px #38bdf8, 0 0 48px rgba(100,255,218,0.55);
-  filter: brightness(1.15);
-}
-.stats p {
-  color: #94a3b8;
-  font-size: 0.98rem;
-  font-weight: 400;
-  margin-top: 0.9rem;
-  letter-spacing: 0.3px;
-  opacity: 0.92;
-}
-.stats > div:hover {
-  background: linear-gradient(145deg, rgba(56,189,248,0.09), rgba(15,23,42,0.55));
-  box-shadow: 0 8px 32px rgba(56,189,248,0.18);
-  transform: translateY(-3px);
-}
-@keyframes gentlePulse {
-  0%, 100% { text-shadow: 0 0 18px rgba(56,189,248,0.45); }
-  50% { text-shadow: 0 0 32px rgba(56,189,248,0.75); }
-}
-/* Section */
-section{margin-top:4rem}
-section h2{
-  text-align:center;
-  margin-bottom:3rem;
-  font-size:2.4rem;
-}
-section h2 span{color:var(--accent)}
-/* Expertise & Projects Grid */
-.grid{
-  display:grid;
-  grid-template-columns:repeat(auto-fit,minmax(300px,1fr));
-  gap:2rem;
-}
-.card{
-  background:var(--card);
-  padding:3rem 2rem;
-  border-radius:24px;
-  text-align:center;
-  transition:all var(--transition) cubic-bezier(0.175, 0.885, 0.32, 1.275);
-  box-shadow:0 10px 30px rgba(0,0,0,.4);
-  position:relative;
-  overflow:hidden;
-}
-.card img{
-  width:100%;
-  border-radius:12px;
-  margin-bottom:1.5rem;
-  box-shadow:0 8px 24px rgba(56,189,248,0.3);
-}
-.card::before {
-  content:'';
-  position:absolute;
-  inset:0;
-  border-radius:24px;
-  padding:3px;
-  background:linear-gradient(45deg,var(--accent),transparent,var(--accent));
-  mask:linear-gradient(#fff 0 0) padding-box, linear-gradient(#fff 0 0);
-  mask-composite:exclude;
-  opacity:0;
-  transition:opacity var(--transition);
-}
-.card:hover::before {
-  opacity:1;
-}
-.card:hover{
-  transform:translateY(-30px) scale(1.1);
-  background:#16213e;
-  box-shadow:0 30px 80px var(--accent-glow);
-  z-index:30;
-}
-.card i {
-  font-size:4rem;
-  color:var(--accent);
-  margin-bottom:2rem;
-  transition:transform var(--transition);
-}
-.card:hover i {
-  transform:scale(1.3);
-}
-.card h3{
-  font-size:1.6rem;
-  margin-bottom:1rem;
-  color:var(--text);
-}
-.card p{
-  color:var(--muted);
-  font-size:1.05rem;
-  line-height:1.6;
-}
-.card ul {
-  text-align:left;
-  color:var(--muted);
-  margin:1rem 0;
-  padding-left:1.5rem;
-  line-height:1.6;
-  list-style-type:disc;
-}
-.card .impact {
-  color:var(--accent);
-  font-weight:600;
-  margin-top:1rem;
-}
-/* Certifications */
-.certs-badges {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
-  gap: 2.5rem;
-  padding: 2rem 0;
-  justify-items: center;
-}
-.badge-item.card {
-  padding: 2.2rem 1.8rem;
-  max-width: 300px;
-  cursor: pointer;
-  transition: all 0.5s cubic-bezier(0.175, 0.885, 0.32, 1.275);
-  position: relative;
-  z-index: 1;
-}
-.badge-item.card img {
-  width: 180px;
-  height: 180px;
-  object-fit: cover;
-  margin-bottom: 1.2rem;
-  border-radius: 12px;
-  box-shadow: 0 8px 28px rgba(56,189,248,0.3);
-  transition: transform 0.4s ease, box-shadow 0.4s ease;
-}
-.badge-item.card p {
-  font-size: 1.1rem;
-  margin: 0.4rem 0 0;
-  color: var(--accent);
-  font-weight: 600;
-}
-.badge-item.card:hover {
-  transform: translateY(-18px) scale(1.07);
-  z-index: 20;
-  box-shadow: 0 30px 70px var(--accent-glow), 0 0 60px rgba(100,255,218,0.35);
-}
-.badge-item.card:hover img {
-  transform: scale(1.12);
-  box-shadow: 0 12px 36px rgba(56,189,248,0.45);
-}
-.badge-item.card * {
-  pointer-events: auto;
-}
-.certs-note {
-  text-align:center;
-  margin-top:2rem;
-  font-size:1.2rem;
-  color:var(--accent);
-  font-weight:600;
-}
-/* Modal */
-.badge-modal {
-  position: fixed;
-  inset:0;
-  background: rgba(0,0,0,0.92);
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  z-index: 1000;
-  animation: fadeIn 0.5s ease-out;
-}
-@keyframes fadeIn {
-  from { opacity: 0; }
-  to { opacity: 1; }
-}
-.badge-modal .close-btn {
-  position: absolute;
-  top: 40px;
-  right: 50px;
-  font-size: 3.5rem;
-  color:var(--accent);
-  cursor:pointer;
-  transition:all 0.4s;
-}
-.badge-modal .close-btn:hover {
-  color:#fff;
-  transform:scale(1.3);
-}
-.badge-modal .enlarged-img-wrapper {
-  max-width:95%;
-  max-height:75vh;
-  overflow:hidden;
-  border-radius:24px;
-  box-shadow:0 0 120px var(--accent);
-  cursor:zoom-in;
-  transition:transform 0.5s ease;
-  animation:scaleFade 1s ease-out forwards;
-}
-@keyframes scaleFade {
-  0% { transform:scale(0.7); opacity:0; }
-  100% { transform:scale(1); opacity:1; }
-}
-.badge-modal .enlarged-img-wrapper:hover {
-  transform:scale(1.04);
-}
-.badge-modal img {
-  width:100%;
-  height:auto;
-  border-radius:24px;
-  transition:transform 0.7s ease;
-}
-.badge-modal .enlarged-img-wrapper:hover img {
-  transform:scale(1.2);
-}
-.badge-modal p {
-  margin-top:2.5rem;
-  font-size:2.2rem;
-  color:var(--accent);
-  font-weight:700;
-}
-.badge-modal .verify-btn {
-  margin-top: 2.8rem;
-  padding: 1.3rem 3.2rem;
-  background: var(--accent);
-  color: #020617;
-  font-weight: 700;
-  font-size: 1.45rem;
-  border-radius: 50px;
-  text-decoration: none;
-  position: relative;
-  overflow: hidden;
-  transition: all 0.4s ease;
-  box-shadow: 0 8px 25px rgba(56,189,248,0.5);
-}
-.badge-modal .verify-btn:hover {
-  background: #ffffff;
-  transform: translateY(-6px) scale(1.06);
-  box-shadow: 0 15px 40px rgba(100,255,218,0.7);
-}
-.badge-modal .verify-btn::before {
-  content: '';
-  position: absolute;
-  top: -50%;
-  left: -100%;
-  width: 50%;
-  height: 200%;
-  background: linear-gradient(120deg, transparent, rgba(255,255,255,0.7), transparent);
-  transform: skewX(-25deg);
-  transition: left 0.7s ease;
-}
-.badge-modal .verify-btn:hover::before {
-  left: 120%;
-}
-.badge-modal .note {
-  margin-top:1.8rem;
-  font-size:1.1rem;
-  color:#ccc;
-  opacity:0.8;
-}
-/* Footer */
-footer{
-  padding:4rem 0 2rem;
-  text-align:center;
-}
-footer h2{
-  color:var(--accent);
-  font-size:2rem;
-  margin-bottom:2.5rem;
-}
-.contact-links{
-  display:flex;
-  justify-content:center;
-  gap:2.5rem;
-  flex-wrap:wrap;
-  margin-bottom:3rem;
-}
-.contact-item{
-  display:flex;
-  align-items:center;
-  background:rgba(56,189,248,.15);
-  border:1px solid var(--accent-glow);
-  border-radius:50px;
-  padding:1rem 2.5rem;
-  color:var(--accent);
-  text-decoration:none;
-  font-weight:500;
-  transition:all var(--transition);
-  font-size:1.1rem;
-}
-.contact-item:hover{
-  background:var(--accent);
-  color:#020617;
-  transform:scale(1.05);
-}
-.contact-item i{
-  font-size:1.6rem;
-  margin-right:1rem;
-}
-.copyright{
-  color:var(--muted);
-  font-size:0.9rem;
-}
-/* Animations */
-.count{display:block;font-size:3.6rem;font-weight:900;background:linear-gradient(135deg,var(--accent),var(--accent-bright));-webkit-background-clip:text;-webkit-text-fill-color:transparent;text-shadow:0 0 35px var(--accent-glow);}
-.card.glow{opacity:0;transform:translateY(20px);transition:all 0.6s ease-out;}
-.card.glow.show{opacity:1;transform:translateY(0);box-shadow:0 0 20px var(--accent);}
-@keyframes pulseGlow {
-  from { text-shadow:0 0 40px var(--accent-glow); }
-  to { text-shadow:0 0 80px var(--accent-glow); }
-}
-/* Added: photo, plain cert cards, mobile layout */
-img.zoomable{cursor:zoom-in;}
-.gal-note{text-align:center;color:var(--muted);margin:-2rem 0 2rem;}
-.gal{margin:0 0 2.2rem;padding:1rem;border-radius:18px;}
-.gal img{width:auto;max-width:100%;height:auto;display:block;margin:0 auto;border-radius:10px;}
-.gal figcaption{margin-top:.8rem;color:var(--muted);font-size:1rem;text-align:center;}
-.gal figcaption b{color:var(--accent);}
-.lightbox{position:fixed;inset:0;background:rgba(2,6,23,.94);display:flex;align-items:center;justify-content:center;z-index:2000;padding:2vh 2vw;cursor:zoom-out;}
-.lightbox img{max-width:96vw;max-height:94vh;border-radius:10px;box-shadow:0 0 60px rgba(56,189,248,.35);}
-#projects .grid{grid-template-columns:repeat(auto-fit,minmax(340px,1fr));}
-#projects .card{padding:1.6rem 1.4rem 2rem;}
-#projects .card:hover{transform:translateY(-10px) scale(1.03);}
-#projects .card img{aspect-ratio:600/340;object-fit:cover;background:#0b1222;}
-#projects .card img.shot{aspect-ratio:auto;object-fit:contain;margin-bottom:.8rem;}
-#projects .card a:hover img.shot{box-shadow:0 8px 28px rgba(56,189,248,.55);}
-.hero img{aspect-ratio:4/5;object-fit:cover;max-width:420px;justify-self:center;}
-.cert-plain{padding:2.2rem 1.8rem;max-width:300px;width:100%;}
-.cert-plain i{font-size:4rem;margin-bottom:1.2rem;}
-.cert-plain p{font-size:1.1rem;color:var(--accent);font-weight:600;}
-.cert-plain small{color:var(--muted);}
-body.light .card h3{color:var(--text-light);}
-@media (max-width:760px){
-  nav{flex-direction:column;gap:.8rem;padding:1rem;}
-  nav div{display:flex;flex-wrap:wrap;justify-content:center;gap:.4rem .9rem;}
-  nav a{margin-left:0;}
-  .container{padding:2rem 1rem;}
-  .hero{grid-template-columns:1fr;gap:1.5rem;text-align:center;}
-  .hero img{max-width:260px;}
-  .hero h1{font-size:2.1rem;}
-  .btn{margin:.4rem;}
-  .grid{grid-template-columns:1fr;}
-  .card:hover{transform:translateY(-6px);}
-  section h2{font-size:1.9rem;}
-  .contact-item{padding:.8rem 1.4rem;font-size:1rem;word-break:break-all;}
-}
+  --bg:#ffffff; --bg-soft:#f4f7fb; --card:#ffffff; --line:#e3e8f0;
+  --text:#0f172a; --muted:#516075; --accent:#2563eb; --accent-2:#0ea5e9; --accent-soft:#eaf1ff;
+  --good:#059669; --warn:#d97706; --shadow:0 10px 30px rgba(15,23,42,.07);
+}
+@media (prefers-color-scheme: dark){
+  :root:not([data-theme="light"]){
+    --bg:#0b1120; --bg-soft:#0f172a; --card:#111a2e; --line:#1f2a44;
+    --text:#e6edf7; --muted:#9aa8bf; --accent:#60a5fa; --accent-2:#38bdf8; --accent-soft:#16233f; --shadow:0 10px 30px rgba(0,0,0,.35);
+  }
+}
+:root[data-theme="dark"]{
+  --bg:#0b1120; --bg-soft:#0f172a; --card:#111a2e; --line:#1f2a44;
+  --text:#e6edf7; --muted:#9aa8bf; --accent:#60a5fa; --accent-2:#38bdf8; --accent-soft:#16233f; --shadow:0 10px 30px rgba(0,0,0,.35);
+}
+*{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth}
+body{font-family:Inter,"Segoe UI",Arial,sans-serif;background:var(--bg);color:var(--text);line-height:1.6;font-size:16.5px}
+h1,h2,h3{font-family:"Plus Jakarta Sans",Inter,sans-serif;line-height:1.2;letter-spacing:-.01em}
+a{color:var(--accent);text-decoration:none}
+.wrap{max-width:1160px;margin:0 auto;padding:0 24px}
+section{padding:84px 0}
+.alt{background:var(--bg-soft)}
+.eyebrow{display:inline-block;font-size:.8rem;font-weight:600;letter-spacing:.12em;text-transform:uppercase;color:var(--accent);margin-bottom:12px}
+.sec-head{max-width:760px;margin-bottom:44px}
+.sec-head h2{font-size:clamp(1.8rem,3.2vw,2.5rem);margin-bottom:12px}
+.sec-head p{color:var(--muted);font-size:1.08rem}
+
+/* nav */
+nav{position:sticky;top:0;z-index:50;background:color-mix(in srgb,var(--bg) 88%,transparent);backdrop-filter:blur(10px);border-bottom:1px solid var(--line)}
+nav .wrap{display:flex;align-items:center;justify-content:space-between;height:68px}
+.logo{font-family:"Plus Jakarta Sans",sans-serif;font-weight:800;font-size:1.25rem;color:var(--text)}
+.logo span{color:var(--accent)}
+.links{display:flex;align-items:center;gap:26px}
+.links a{color:var(--muted);font-weight:500;font-size:.95rem}
+.links a:hover{color:var(--text)}
+.btn{display:inline-flex;align-items:center;gap:8px;padding:12px 22px;border-radius:10px;font-weight:600;font-size:.97rem;border:1px solid transparent;transition:transform .15s,box-shadow .15s}
+.btn:hover{transform:translateY(-1px)}
+.btn-primary{background:var(--accent);color:#fff;box-shadow:0 6px 18px color-mix(in srgb,var(--accent) 35%,transparent)}
+.btn-ghost{border-color:var(--line);color:var(--text);background:var(--card)}
+.btn-sm{padding:8px 14px;font-size:.88rem}
+.links a.btn-primary{color:#fff}
+.theme{background:none;border:1px solid var(--line);color:var(--muted);width:38px;height:38px;border-radius:10px;cursor:pointer}
+
+/* hero */
+.hero{padding:72px 0 64px}
+.hero .wrap{display:grid;grid-template-columns:1.25fr .85fr;gap:56px;align-items:center}
+.hero h1{font-size:clamp(2.2rem,4.6vw,3.5rem);font-weight:800;margin:10px 0 18px}
+.hero h1 em{font-style:normal;background:linear-gradient(90deg,var(--accent),var(--accent-2));-webkit-background-clip:text;background-clip:text;color:transparent}
+.hero .lead{font-size:1.15rem;color:var(--muted);max-width:620px;margin-bottom:28px}
+.hero .cta{display:flex;gap:12px;flex-wrap:wrap;margin-bottom:28px}
+.chips{display:flex;flex-wrap:wrap;gap:8px}
+.chip{font-size:.85rem;font-weight:500;padding:6px 12px;border-radius:999px;background:var(--accent-soft);color:var(--accent)}
+.chip.plain{background:var(--bg-soft);color:var(--muted);border:1px solid var(--line)}
+.photo{position:relative;justify-self:center;width:min(380px,100%)}
+.photo img{width:100%;aspect-ratio:4/5;object-fit:cover;border-radius:24px;box-shadow:var(--shadow);border:1px solid var(--line)}
+.float{position:absolute;background:var(--card);border:1px solid var(--line);box-shadow:var(--shadow);border-radius:14px;padding:10px 14px;font-size:.85rem;color:var(--muted);line-height:1.3}
+.float b{display:block;color:var(--text);font-size:1.15rem;font-family:"Plus Jakarta Sans",sans-serif}
+.f1{left:-34px;top:38px}.f2{right:-28px;bottom:54px}
+.f1 b{color:var(--good)}
+
+/* metrics */
+.hero .wrap.mrow{display:block;margin-top:40px}
+.metrics{display:grid;grid-template-columns:repeat(4,1fr);gap:16px;margin-top:8px}
+.metric{background:var(--card);border:1px solid var(--line);border-radius:16px;padding:22px}
+.metric b{display:block;font-family:"Plus Jakarta Sans",sans-serif;font-size:2rem;color:var(--text)}
+.metric span{color:var(--muted);font-size:.95rem}
+
+/* pillars */
+.pillars{display:grid;grid-template-columns:repeat(3,1fr);gap:20px}
+.pillar{background:var(--card);border:1px solid var(--line);border-radius:18px;padding:28px;box-shadow:var(--shadow)}
+.pillar i{font-size:1.4rem;color:var(--accent);background:var(--accent-soft);width:48px;height:48px;display:grid;place-items:center;border-radius:12px;margin-bottom:16px}
+.pillar h3{font-size:1.25rem;margin-bottom:8px}
+.pillar p{color:var(--muted);margin-bottom:12px}
+.pillar ul{list-style:none;display:grid;gap:6px}
+.pillar li{padding-left:22px;position:relative;font-size:.96rem}
+.pillar li:before{content:"\f00c";font-family:"Font Awesome 6 Free";font-weight:900;position:absolute;left:0;color:var(--good);font-size:.8rem;top:4px}
+
+/* case studies */
+.case{display:grid;grid-template-columns:1fr 1.15fr;gap:48px;align-items:center;padding:44px 0;border-top:1px solid var(--line)}
+.case:first-of-type{border-top:0}
+.case.flip .text{order:2}
+.case.wide{grid-template-columns:1fr;gap:28px}
+.case.wide .text{display:grid;grid-template-columns:.9fr 1.1fr;column-gap:48px;align-items:start}
+.case.wide .text .head{grid-column:1}
+.case.wide .text .pbr{grid-column:2;grid-row:1 / span 2}
+.case.wide .text .chips{grid-column:1}
+.case.wide .visual figure{padding:12px}
+.case.wide .visual img{width:auto;max-width:100%;margin:0 auto}
+.case .tag{font-size:.8rem;font-weight:600;color:var(--accent);letter-spacing:.08em;text-transform:uppercase}
+.case h3{font-size:1.65rem;margin:8px 0 10px}
+.case .strength{font-size:1.08rem;font-weight:500;color:var(--text);margin-bottom:18px}
+.pbr{display:grid;gap:12px;margin-bottom:18px}
+.pbr div{padding-left:16px;border-left:3px solid var(--line)}
+.pbr div.r{border-left-color:var(--good)}
+.pbr b{font-size:.78rem;letter-spacing:.1em;text-transform:uppercase;color:var(--muted);display:block}
+.pbr p{font-size:.98rem}
+.visual{display:grid;gap:14px}
+.visual figure{background:var(--card);border:1px solid var(--line);border-radius:16px;padding:10px;box-shadow:var(--shadow)}
+.visual img{width:100%;height:auto;display:block;border-radius:10px;cursor:zoom-in}
+.visual figcaption{font-size:.85rem;color:var(--muted);padding:8px 4px 2px;display:flex;justify-content:space-between;gap:10px}
+.visual figcaption i{color:var(--accent)}
+
+/* experience */
+.exp{display:grid;grid-template-columns:260px 1fr;gap:40px;background:var(--card);border:1px solid var(--line);border-radius:18px;padding:32px;box-shadow:var(--shadow)}
+.exp .when{color:var(--muted)}
+.exp .when b{display:block;color:var(--text);font-size:1.1rem;font-family:"Plus Jakarta Sans",sans-serif}
+.exp ul{display:grid;gap:10px;padding-left:18px}
+.exp li::marker{color:var(--accent)}
+
+/* skills */
+.skills{display:grid;grid-template-columns:repeat(3,1fr);gap:18px}
+.skill{background:var(--card);border:1px solid var(--line);border-radius:16px;padding:22px}
+.skill h3{font-size:1.02rem;margin-bottom:12px;display:flex;gap:10px;align-items:center}
+.skill h3 i{color:var(--accent)}
+
+/* certs + contact */
+.certs{display:grid;grid-template-columns:repeat(3,1fr);gap:18px}
+.cert{display:flex;gap:16px;align-items:center;background:var(--card);border:1px solid var(--line);border-radius:16px;padding:18px}
+.cert img{width:64px;height:64px;object-fit:contain}
+.cert i{font-size:1.8rem;color:var(--accent);width:64px;text-align:center}
+.cert b{display:block}
+.cert span{color:var(--muted);font-size:.9rem}
+.contact{text-align:center;background:linear-gradient(135deg,#1e3a8a,#2563eb 55%,#0ea5e9);color:#fff;border-radius:24px;padding:56px 24px}
+.contact h2{font-size:clamp(1.8rem,3vw,2.4rem);margin-bottom:10px}
+.contact p{opacity:.9;margin-bottom:26px}
+.contact .row{display:flex;gap:12px;justify-content:center;flex-wrap:wrap}
+.contact .btn{background:#fff;color:#1e3a8a}
+.contact .btn.o{background:transparent;color:#fff;border-color:rgba(255,255,255,.6)}
+footer{padding:28px 0;color:var(--muted);font-size:.9rem;text-align:center}
+
+/* lightbox */
+.lightbox{position:fixed;inset:0;background:rgba(2,6,23,.92);display:flex;align-items:center;justify-content:center;z-index:200;padding:2vh 2vw;cursor:zoom-out}
+.lightbox img{max-width:96vw;max-height:94vh;border-radius:10px;background:#fff}
+
+@media (max-width:900px){
+  .case.wide .text{grid-template-columns:1fr}
+  .case.wide .text .pbr{grid-column:1;grid-row:auto}
+  .links a.hide-m{display:none}
+  .hero .wrap,.case,.exp{grid-template-columns:1fr}
+  .case.flip .text{order:0}
+  .metrics{grid-template-columns:repeat(2,1fr)}
+  .pillars,.skills,.certs{grid-template-columns:1fr}
+  .f1{left:-6px}.f2{right:-6px}
+  section{padding:60px 0}
+}
+@media (max-width:560px){ .links{gap:14px} .links a.hide-s{display:none} }
 </style>
 </head>
 <body>
-<div class="container glass">
-  <nav>
-    <h2>Portfolio</h2>
-    <div>
-      <a href="#about">About</a>
-      <a href="#services">Expertise</a>
-      <a href="#projects">Projects</a>
-      <a href="#dashboards">Dashboards</a>
-      <a href="#certs">Certifications</a>
-      <a href="#contact">Contact</a>
-      <i class="fas fa-sun theme-toggle" id="themeToggle" title="Toggle Light/Dark"></i>
-    </div>
-  </nav>
 
-  <div class="hero" id="about">
-    <img src="photo.jpg" alt="Rajeshkumar K" onerror="this.onerror=null;this.src='avatar.svg'">
-    <div>
-      <p>Hello, I’m</p>
-      <h1><span>Rajeshkumar K</span></h1>
-      <h3>Associate DevOps Engineer · Observability (Logging &amp; Monitoring)</h3>
-      <p class="skills-line">Skills: <span id="typing"></span></p>
-      <p class="description">I work in the Technical Assistance Center at Trinity Mobility, where I own logging and monitoring for 20–25 live smart-city and IoT projects and fix problems at the warning stage, before they reach production users. I am currently leading R&amp;D to bring logs, metrics and traces for the whole platform into one place with OpenObserve and OpenTelemetry, including Gen AI workloads.</p>
-      <a class="btn" href="Rajeshkumar-K-Resume.pdf" download>Download CV</a>
-      <a class="btn outline" href="#contact">Contact Me</a>
+<nav>
+  <div class="wrap">
+    <a class="logo" href="#top">Rajeshkumar<span>.</span>K</a>
+    <div class="links">
+      <a class="hide-m" href="#work">What I do</a>
+      <a class="hide-s" href="#cases">Case studies</a>
+      <a class="hide-m" href="#skills">Skills</a>
+      <a class="hide-m" href="#contact">Contact</a>
+      <a class="btn btn-primary btn-sm" href="Rajeshkumar-K-Resume.pdf" download><i class="fa-solid fa-download"></i> Resume</a>
+      <button class="theme" id="theme" title="Light / dark" aria-label="Toggle light or dark theme"><i class="fa-solid fa-circle-half-stroke"></i></button>
     </div>
   </div>
+</nav>
 
-  <div class="stats">
+<header class="hero" id="top">
+  <div class="wrap">
     <div>
-      <span class="count" data-target="1.5" data-suffix="+">0</span>
-      <p>Years in DevOps &amp; Observability</p>
-    </div>
-    <div>
-      <span class="count" data-target="20" data-suffix="+">0</span>
-      <p>Production Projects Monitored</p>
-    </div>
-    <div>
-      <span class="count" data-target="14">0</span>
-      <p>DLH Service Dashboards Built</p>
-    </div>
-    <div>
-      <span class="count" data-target="83">0</span>
-      <p>Real-time Alerts Designed</p>
-    </div>
-  </div>
-</div>
-
-<section id="services" class="container">
-  <h2>My <span>Expertise</span></h2>
-  <div class="grid">
-    <div class="card glass glow">
-      <i class="fas fa-eye"></i>
-      <h3>OpenObserve</h3>
-      <p>End-to-end install and build on Kubernetes: logs, metrics and traces in one place, with alert pipelines and dashboards.</p>
-    </div>
-    <div class="card glass glow">
-      <i class="fas fa-project-diagram"></i>
-      <h3>OpenTelemetry</h3>
-      <p>Agent and gateway collectors, OTLP logs, distributed tracing and trace–log correlation for Java, WSO2 ESB/APIM, NiFi and data-lake services.</p>
-    </div>
-    <div class="card glass glow">
-      <i class="fas fa-tachometer-alt"></i>
-      <h3>Grafana</h3>
-      <p>Service-health dashboards for the Data Lake House, microservices (JVM, Python), Airflow, ports, pods, nodes and databases.</p>
-    </div>
-    <div class="card glass glow">
-      <i class="fas fa-chart-line"></i>
-      <h3>Prometheus &amp; Exporters</h3>
-      <p>Prometheus, VictoriaMetrics, node, kube-state, JMX, Actuator, Kafka, Postgres, MSSQL and MQTT exporters.</p>
-    </div>
-    <div class="card glass glow">
-      <i class="fas fa-search"></i>
-      <h3>ELK Stack</h3>
-      <p>Filebeat → Logstash → Elasticsearch → Kibana. Centralised, searchable production logs with API and ESB analytics.</p>
-    </div>
-    <div class="card glass glow">
-      <i class="fas fa-bell"></i>
-      <h3>Alerting &amp; Incidents</h3>
-      <p>Warning 70%, Critical 80% and Disaster 90%+ severities, routed to Telegram, email and Jira so issues are fixed before they hit the SLO.</p>
-    </div>
-    <div class="card glass glow">
-      <i class="fas fa-cubes"></i>
-      <h3>Kubernetes</h3>
-      <p>On-prem and Azure AKS clusters running the monitoring services, with ArgoCD (GitOps) deployments.</p>
-    </div>
-    <div class="card glass glow">
-      <i class="fas fa-robot"></i>
-      <h3>Gen AI Observability</h3>
-      <p>NVIDIA GPU monitoring, LiveKit voice AI call quality, Langfuse, LiteLLM and n8n agent tracing with model, token and cost tracking.</p>
-    </div>
-    <div class="card glass glow">
-      <i class="fas fa-server"></i>
-      <h3>Nginx &amp; Linux</h3>
-      <p>Reverse proxy, load balancing, ingress and day-to-day Linux operations.</p>
-    </div>
-  </div>
-</section>
-
-<section id="projects" class="container">
-  <h2>Featured <span>Projects</span></h2>
-  <div class="grid">
-    <div class="card glass glow">
-      <img src="img/openobserve.svg" alt="OpenObserve unified observability pipeline" loading="lazy">
-      <h3>OpenObserve Unified Observability Platform</h3>
-      <p>An R&amp;D build of a complete OpenObserve stack, so every production issue can be investigated in one place.</p>
-      <ul>
-        <li>OpenTelemetry agent and gateway collectors (push and pull split)</li>
-        <li>Kubernetes events, node and container metrics, OTLP logs</li>
-        <li>Distributed tracing with trace_id in logs: 50/50 end-to-end trace checks passed</li>
-        <li>Trace-level dashboards: rate, errors and latency per service, with drill-down to traces and logs</li>
-        <li>45 alert pipelines and 83 real-time alerts across 9 categories</li>
-      </ul>
-      <p class="impact">Impact: one screen for logs, metrics and traces across the platform</p>
-    </div>
-
-    <div class="card glass glow">
-      <img class="shot zoomable" src="img/thumb-dlh.jpg" data-full="img/shot-dlh-overview.jpg" alt="OSS Engine Overview dashboard in Grafana (click to enlarge)" loading="lazy">
-      <h3>DLH Service Overview Dashboards</h3>
-      <p>The OSS Engine Overview plus 13 per-service Grafana dashboards for the Data Lake House.</p>
-      <ul>
-        <li>Airflow, Trino, Spark, Livy, Kafka, Druid, MinIO, Ranger, OpenMetadata, Hasura, InfluxDB, MobilityDB</li>
-        <li>UP / DOWN / UNREACHABLE health, latency, JVM and pod health</li>
-        <li>Added missing scrape jobs and exporter fixes to feed every panel</li>
-      </ul>
-      <p class="impact">Impact: health of the whole data platform on a single screen</p>
-    </div>
-
-    <div class="card glass glow">
-      <img src="img/i999.svg" alt="I999 end-to-end trace timeline" loading="lazy">
-      <h3>I999 Vendor API End-to-End Trace</h3>
-      <p>Full distributed trace of the I999 emergency-incident API call.</p>
-      <ul>
-        <li>API gateway → WSO2 ESB → Vault → IoT operations service and Redis → command-centre application</li>
-        <li>Background fire-station recommendation flow in the same trace</li>
-        <li>Per-hop timing used to find delays and validate an earlier caller reply</li>
-      </ul>
-      <p class="impact">Impact: every hop of a critical vendor call is visible and measurable</p>
-    </div>
-
-    <div class="card glass glow">
-      <img class="shot zoomable" src="img/thumb-livekit.jpg" data-full="img/shot-livekit.jpg" alt="LiveKit voice AI monitoring dashboard (click to enlarge)" loading="lazy">
-      <img class="shot zoomable" src="img/thumb-gpu.jpg" data-full="img/shot-gpu.jpg" alt="NVIDIA H200 GPU monitoring dashboard (click to enlarge)" loading="lazy">
-      <h3>Gen AI Observability</h3>
-      <p>Brought AI workloads into the same observability platform.</p>
-      <ul>
-        <li>Self-hosted Langfuse behind SSO for the agentic AI, voice AI and guardrails projects</li>
-        <li>n8n agent traces sent to both Langfuse and OpenObserve with model, token and cost details</li>
-        <li>LiteLLM model gateway tracked by provider, model and error type</li>
-        <li>LiveKit voice AI dashboard: rooms, SIP calls, jitter, packet loss, RTT, call-setup latency</li>
-        <li>NVIDIA H200 NVL GPU monitoring: utilisation, memory, temperature, power, clocks, throttling</li>
-        <li>n8n health: workflows, event-loop latency, heap and GC</li>
-      </ul>
-      <p class="impact">Impact: AI agents monitored like any other production service</p>
-    </div>
-
-    <div class="card glass glow">
-      <img src="img/lnm.svg" alt="Production LnM monitoring services" loading="lazy">
-      <h3>Production LnM Platform (TAC)</h3>
-      <p>Logging and monitoring for 20–25 go-live smart-city and IoT projects.</p>
-      <ul>
-        <li>Monitoring services: Prometheus, VictoriaMetrics, Grafana, ELK, InfluxDB, Uptime Kuma, Alertmanager, OpenTelemetry</li>
-        <li>Alerts raise Jira tickets, which are resolved or assigned, followed up and closed</li>
-        <li>Centralised logs in ELK, metrics in Prometheus and VictoriaMetrics</li>
-      </ul>
-      <p class="impact">Impact: issues fixed at warning level, before they affect the SLO</p>
-    </div>
-  </div>
-</section>
-
-<section id="dashboards" class="container">
-  <h2>Dashboards <span>in Action</span></h2>
-  <p class="gal-note">Real Grafana dashboards I built (server names and addresses removed). Click any image to view it full size.</p>
-  <figure class="gal glass"><img class="zoomable" src="img/shot-dlh-overview.jpg" alt="OSS Engine Overview" loading="lazy"><figcaption><b>OSS Engine Overview</b> &middot; health of every Data Lake House service, from ingestion to query, on one screen</figcaption></figure>
-  <figure class="gal glass"><img class="zoomable" src="img/shot-livekit.jpg" alt="LiveKit voice AI monitoring" loading="lazy"><figcaption><b>LiveKit voice AI monitoring</b> &middot; rooms, SIP calls, media quality, call-setup latency and jitter</figcaption></figure>
-  <figure class="gal glass"><img class="zoomable" src="img/shot-gpu.jpg" alt="NVIDIA H200 GPU monitoring" loading="lazy"><figcaption><b>NVIDIA H200 NVL GPU monitoring</b> &middot; power, memory, temperature and clock history for the GenAI servers</figcaption></figure>
-</section>
-
-<section id="certs" class="container">
-  <h2><span>Certifications</span></h2>
-  <div class="glass">
-    <div class="certs-badges">
-      <div class="badge-item card glass glow" data-verify="https://learn.microsoft.com/api/credentials/share/en-gb/RajeshKumarK-3290/5E8E02F430E698BE?sharingId=9D1D9ACCF6BE6917">
-        <img src="https://images.credly.com/images/be8fcaeb-c769-4858-b567-ffaaa73ce8cf/linkedin_thumb_image.png" alt="AZ-900 Azure Fundamentals">
-        <p>AZ-900 Azure Fundamentals</p>
+      <span class="eyebrow">Associate DevOps Engineer · Observability</span>
+      <h1>I make production problems <em>visible before users feel them.</em></h1>
+      <p class="lead">I run logging and monitoring for <b>20–25 live smart-city and IoT projects</b> at Trinity Mobility, and I'm building the company's next observability platform on <b>OpenObserve</b> and <b>OpenTelemetry</b>, from Kubernetes to data-lake engines to Gen AI workloads.</p>
+      <div class="cta">
+        <a class="btn btn-primary" href="#cases"><i class="fa-solid fa-layer-group"></i> See my work</a>
+        <a class="btn btn-ghost" href="Rajeshkumar-K-Resume.pdf" download><i class="fa-solid fa-file-arrow-down"></i> Download resume</a>
       </div>
-      <div class="card glass glow cert-plain">
-        <i class="fas fa-certificate"></i>
-        <p>DevOps Engineer Internship</p>
-        <small>IBM with StarAgile · 2024</small>
+      <div class="chips">
+        <span class="chip">OpenObserve</span><span class="chip">OpenTelemetry</span><span class="chip">Grafana</span><span class="chip">Prometheus</span><span class="chip">ELK</span><span class="chip">Kubernetes</span><span class="chip">Langfuse</span>
       </div>
-      <div class="card glass glow cert-plain">
-        <i class="fas fa-medal"></i>
-        <p>NCC "C" Certificate</p>
-        <small>Cadet Under Officer · 2019</small>
+    </div>
+    <div class="photo">
+      <img src="photo.jpg" alt="Rajeshkumar K">
+      <div class="float f1"><b>50 / 50</b>end-to-end trace checks passed</div>
+      <div class="float f2"><b>83</b>real-time alerts designed</div>
+    </div>
+  </div>
+  <div class="wrap mrow">
+    <div class="metrics">
+      <div class="metric"><b>20–25</b><span>live projects I monitor</span></div>
+      <div class="metric"><b>14</b><span>Data Lake House dashboards built</span></div>
+      <div class="metric"><b>70 / 80 / 90%</b><span>warning · critical · disaster levels</span></div>
+      <div class="metric"><b>1.5+ yrs</b><span>production DevOps &amp; observability</span></div>
+    </div>
+  </div>
+</header>
+
+<section class="alt" id="work">
+  <div class="wrap">
+    <div class="sec-head">
+      <span class="eyebrow">What I do</span>
+      <h2>Three things I'm good at</h2>
+      <p>Keeping live platforms healthy, seeing every request end to end, and bringing new AI workloads under the same watch.</p>
+    </div>
+    <div class="pillars">
+      <div class="pillar">
+        <i class="fa-solid fa-shield-heart"></i>
+        <h3>Keep production healthy</h3>
+        <p>Technical Assistance Center (TAC) for go-live projects.</p>
+        <ul><li>Alerts at 70 / 80 / 90% severity</li><li>Every alert becomes a Jira ticket, followed to closure</li><li>Root-cause fixes, not just restarts</li></ul>
+      </div>
+      <div class="pillar">
+        <i class="fa-solid fa-eye"></i>
+        <h3>See everything in one place</h3>
+        <p>OpenObserve + OpenTelemetry, built end to end.</p>
+        <ul><li>Logs, metrics and traces together</li><li>trace_id in every log line</li><li>Trace dashboards and real-time alerts</li></ul>
+      </div>
+      <div class="pillar">
+        <i class="fa-solid fa-microchip"></i>
+        <h3>Watch AI workloads too</h3>
+        <p>Gen AI observability alongside the rest of the platform.</p>
+        <ul><li>LiveKit voice AI call quality</li><li>NVIDIA H200 GPU health</li><li>Langfuse, n8n and LiteLLM tracing</li></ul>
       </div>
     </div>
   </div>
-  <p class="certs-note">Click the Azure badge to view and verify the certificate</p>
 </section>
 
-<footer id="contact">
-  <h2>Get in Touch</h2>
-  <div class="contact-links">
-    <a href="tel:+919894648632" class="contact-item">
-      <i class="fas fa-phone"></i> +91 9894648632
-    </a>
-    <a href="mailto:rajeshkumar.k5445@gmail.com" class="contact-item">
-      <i class="fas fa-envelope"></i> rajeshkumar.k5445@gmail.com
-    </a>
-    <a href="https://www.linkedin.com/in/rajeshkumark65" target="_blank" class="contact-item">
-      <i class="fab fa-linkedin-in"></i> LinkedIn Profile
-    </a>
+<section id="cases">
+  <div class="wrap">
+    <div class="sec-head">
+      <span class="eyebrow">Case studies</span>
+      <h2>Real problems, what I built, and what changed</h2>
+      <p>Click any image to see it full size. Dashboards are real; server names and addresses are removed.</p>
+    </div>
+
+    <article class="case">
+      <div class="text">
+        <span class="tag">R&amp;D · OpenObserve</span>
+        <h3>Unified observability platform</h3>
+        <p class="strength">Built from zero: one screen to go from an alert to its root cause.</p>
+        <div class="pbr">
+          <div><b>Problem</b><p>Logs, metrics and traces lived in different tools, so finding the cause of an issue meant jumping between them.</p></div>
+          <div><b>What I built</b><p>OpenObserve on Kubernetes with OpenTelemetry agent and gateway collectors; trace_id in every log line across Java services, WSO2 ESB/APIM, NiFi and data-lake engines; trace dashboards; 45 alert pipelines and 83 real-time alerts.</p></div>
+          <div class="r"><b>Result</b><p>All 50 of 50 end-to-end trace checks passed, and one place to investigate any production issue.</p></div>
+        </div>
+        <div class="chips"><span class="chip plain">OpenObserve</span><span class="chip plain">OpenTelemetry</span><span class="chip plain">Kubernetes</span><span class="chip plain">Distributed tracing</span></div>
+      </div>
+      <div class="visual">
+        <figure><img class="zoom" src="img/d-openobserve.svg" alt="OpenObserve architecture"><figcaption><span>Architecture</span><i class="fa-solid fa-magnifying-glass-plus"></i></figcaption></figure>
+      </div>
+    </article>
+
+    <article class="case wide">
+      <div class="text">
+        <div class="head">
+        <span class="tag">Grafana · Data Lake House</span>
+        <h3>DLH service overview dashboards</h3>
+        <p class="strength">The health of a 13-service data platform, on a single screen.</p>
+        </div>
+        <div class="pbr">
+          <div><b>Problem</b><p>Airflow, Trino, Spark, Kafka, Druid, MinIO and the rest had no shared health view, and some dashboards had no data at all.</p></div>
+          <div><b>What I built</b><p>The OSS Engine Overview plus 13 per-service dashboards showing UP / DOWN / UNREACHABLE, latency, JVM and pod health; added the missing scrape jobs and fixed broken exporters (Kafka, Solr).</p></div>
+          <div class="r"><b>Result</b><p>Every service's state is visible at a glance, from ingestion through storage and processing to query.</p></div>
+        </div>
+        <div class="chips"><span class="chip plain">Grafana</span><span class="chip plain">Prometheus</span><span class="chip plain">Kafka</span><span class="chip plain">Trino</span><span class="chip plain">Airflow</span></div>
+      </div>
+      <div class="visual">
+        <figure><img class="zoom" src="img/shot-dlh-overview.jpg" alt="OSS Engine Overview dashboard"><figcaption><span>OSS Engine Overview (live dashboard)</span><i class="fa-solid fa-magnifying-glass-plus"></i></figcaption></figure>
+      </div>
+    </article>
+
+    <article class="case">
+      <div class="text">
+        <span class="tag">Distributed tracing · Vendor API</span>
+        <h3>I999 emergency call, end to end</h3>
+        <p class="strength">Followed one emergency call across six systems in a single trace.</p>
+        <div class="pbr">
+          <div><b>Problem</b><p>An incident call from the I999 vendor passed through the API gateway, ESB, Vault, IoT services and the command centre, and delays between them were invisible.</p></div>
+          <div><b>What I built</b><p>One trace covering every hop, including the background fire-station recommendation, plus a step-by-step guide so the team can read any call in OpenObserve.</p></div>
+          <div class="r"><b>Result</b><p>Per-hop timings showed where time went, and confirmed the impact of replying to the caller earlier.</p></div>
+        </div>
+        <div class="chips"><span class="chip plain">OpenTelemetry</span><span class="chip plain">WSO2 ESB</span><span class="chip plain">API gateway</span><span class="chip plain">Redis</span></div>
+      </div>
+      <div class="visual">
+        <figure><img class="zoom" src="img/d-i999.svg" alt="I999 trace timeline"><figcaption><span>Trace timeline</span><i class="fa-solid fa-magnifying-glass-plus"></i></figcaption></figure>
+      </div>
+    </article>
+
+    <article class="case wide">
+      <div class="text">
+        <div class="head">
+        <span class="tag">Gen AI observability</span>
+        <h3>LiveKit voice AI &amp; NVIDIA H200 GPUs</h3>
+        <p class="strength">AI agents, voice calls and GPUs, monitored like any other production service.</p>
+        </div>
+        <div class="pbr">
+          <div><b>Problem</b><p>The new Gen AI stack (voice AI, LLM gateway, agent workflows, GPU servers) had no monitoring.</p></div>
+          <div><b>What I built</b><p>A 28-panel LiveKit dashboard (rooms, SIP calls, call-setup latency, jitter, packet loss, RTT); NVIDIA H200 GPU monitoring (utilisation, memory, temperature, power, throttling); Langfuse, n8n and LiteLLM tracing with model, token and cost data.</p></div>
+          <div class="r"><b>Result</b><p>Call quality, GPU health and LLM cost visible next to the rest of the platform.</p></div>
+        </div>
+        <div class="chips"><span class="chip plain">LiveKit</span><span class="chip plain">NVIDIA H200</span><span class="chip plain">Langfuse</span><span class="chip plain">n8n</span><span class="chip plain">LiteLLM</span></div>
+      </div>
+      <div class="visual">
+        <figure><img class="zoom" src="img/shot-livekit.jpg" alt="LiveKit voice AI dashboard"><figcaption><span>LiveKit voice AI (live dashboard)</span><i class="fa-solid fa-magnifying-glass-plus"></i></figcaption></figure>
+        <figure><img class="zoom" src="img/shot-gpu.jpg" alt="NVIDIA H200 GPU dashboard"><figcaption><span>NVIDIA H200 NVL GPU (live dashboard)</span><i class="fa-solid fa-magnifying-glass-plus"></i></figcaption></figure>
+      </div>
+    </article>
+
+    <article class="case">
+      <div class="text">
+        <span class="tag">Production support · TAC</span>
+        <h3>Logging &amp; monitoring for 20–25 live projects</h3>
+        <p class="strength">Problems fixed at the warning stage, before they reach users.</p>
+        <div class="pbr">
+          <div><b>Problem</b><p>Many go-live projects, each with its own servers, databases and services, and a company SLO to protect.</p></div>
+          <div><b>What I built</b><p>A clear severity model (70 / 80 / 90%) on Prometheus, VictoriaMetrics, Grafana, ELK, InfluxDB, Alertmanager and Uptime Kuma, with every alert raising a Jira ticket. Root-caused issues such as a Kafka exporter failing on 4,900+ topics and an SSL failure after a partner changed certificate authority.</p></div>
+          <div class="r"><b>Result</b><p>Disk, memory, CPU and service problems caught early and closed with an owner.</p></div>
+        </div>
+        <div class="chips"><span class="chip plain">Prometheus</span><span class="chip plain">Grafana</span><span class="chip plain">ELK</span><span class="chip plain">Alertmanager</span><span class="chip plain">Jira</span></div>
+      </div>
+      <div class="visual">
+        <figure><img class="zoom" src="img/d-lnm.svg" alt="Alert flow"><figcaption><span>Alert flow</span><i class="fa-solid fa-magnifying-glass-plus"></i></figcaption></figure>
+      </div>
+    </article>
   </div>
-  <div class="copyright">© 2026 Rajeshkumar K · DevOps &amp; Observability Engineer</div>
-</footer>
+</section>
+
+<section class="alt" id="experience">
+  <div class="wrap">
+    <div class="sec-head"><span class="eyebrow">Experience</span><h2>Where I do this work</h2></div>
+    <div class="exp">
+      <div class="when"><b>Trinity Mobility Pvt Ltd</b>Associate DevOps Engineer<br>Mar 2025 – Present · Bengaluru</div>
+      <ul>
+        <li>Own logging and monitoring for 20–25 live smart-city and IoT projects in the Technical Assistance Center.</li>
+        <li>Lead R&amp;D on a unified observability platform with OpenObserve and OpenTelemetry.</li>
+        <li>Built the OSS Engine Overview and 13 Data Lake House service dashboards in Grafana.</li>
+        <li>Brought Gen AI workloads (LiveKit, NVIDIA H200 GPUs, Langfuse, n8n, LiteLLM) under monitoring.</li>
+        <li>Wrote 20+ study guides and runbooks the team uses for training and incidents.</li>
+      </ul>
+    </div>
+  </div>
+</section>
+
+<section id="skills">
+  <div class="wrap">
+    <div class="sec-head"><span class="eyebrow">Skills</span><h2>Tools I use every day</h2></div>
+    <div class="skills">
+      <div class="skill"><h3><i class="fa-solid fa-chart-line"></i>Observability</h3><div class="chips"><span class="chip plain">OpenObserve</span><span class="chip plain">OpenTelemetry</span><span class="chip plain">Grafana</span><span class="chip plain">Prometheus</span><span class="chip plain">VictoriaMetrics</span><span class="chip plain">InfluxDB</span><span class="chip plain">Uptime Kuma</span></div></div>
+      <div class="skill"><h3><i class="fa-solid fa-file-lines"></i>Logs &amp; alerting</h3><div class="chips"><span class="chip plain">ELK Stack</span><span class="chip plain">Alertmanager</span><span class="chip plain">Telegram / email</span><span class="chip plain">Jira</span><span class="chip plain">SLO-based alerting</span></div></div>
+      <div class="skill"><h3><i class="fa-solid fa-route"></i>Tracing</h3><div class="chips"><span class="chip plain">Distributed tracing</span><span class="chip plain">trace–log correlation</span><span class="chip plain">OTLP</span><span class="chip plain">JMX / Actuator</span></div></div>
+      <div class="skill"><h3><i class="fa-solid fa-cubes"></i>Platform</h3><div class="chips"><span class="chip plain">Kubernetes</span><span class="chip plain">Azure AKS</span><span class="chip plain">ArgoCD</span><span class="chip plain">Helm</span><span class="chip plain">Docker</span><span class="chip plain">Nginx</span><span class="chip plain">Linux</span></div></div>
+      <div class="skill"><h3><i class="fa-solid fa-robot"></i>Gen AI</h3><div class="chips"><span class="chip plain">LiveKit</span><span class="chip plain">NVIDIA GPU</span><span class="chip plain">Langfuse</span><span class="chip plain">LiteLLM</span><span class="chip plain">n8n</span></div></div>
+      <div class="skill"><h3><i class="fa-solid fa-terminal"></i>Scripting &amp; query</h3><div class="chips"><span class="chip plain">Bash</span><span class="chip plain">PowerShell</span><span class="chip plain">Python</span><span class="chip plain">SQL</span><span class="chip plain">PromQL</span></div></div>
+    </div>
+  </div>
+</section>
+
+<section class="alt" id="certs">
+  <div class="wrap">
+    <div class="sec-head"><span class="eyebrow">Education &amp; certifications</span><h2>Learning that backs the work</h2></div>
+    <div class="certs">
+      <a class="cert" href="https://learn.microsoft.com/api/credentials/share/en-gb/RajeshKumarK-3290/5E8E02F430E698BE?sharingId=9D1D9ACCF6BE6917" target="_blank" rel="noopener">
+        <img src="https://images.credly.com/images/be8fcaeb-c769-4858-b567-ffaaa73ce8cf/linkedin_thumb_image.png" alt="AZ-900">
+        <div><b>Azure Fundamentals (AZ-900)</b><span>Microsoft · verify credential</span></div>
+      </a>
+      <div class="cert"><i class="fa-solid fa-certificate"></i><div><b>DevOps Engineer Internship</b><span>IBM with StarAgile · 2024</span></div></div>
+      <div class="cert"><i class="fa-solid fa-graduation-cap"></i><div><b>B.E. Mechanical Engineering</b><span>Kongu Engineering College · CGPA 9.01</span></div></div>
+    </div>
+  </div>
+</section>
+
+<section id="contact">
+  <div class="wrap">
+    <div class="contact">
+      <h2>Let's talk observability</h2>
+      <p>Open to DevOps, SRE and observability roles across India.</p>
+      <div class="row">
+        <a class="btn" href="mailto:rajeshkumar.k5445@gmail.com"><i class="fa-solid fa-envelope"></i> rajeshkumar.k5445@gmail.com</a>
+        <a class="btn o" href="https://www.linkedin.com/in/rajeshkumark65" target="_blank" rel="noopener"><i class="fa-brands fa-linkedin"></i> LinkedIn</a>
+        <a class="btn o" href="tel:+919894648632"><i class="fa-solid fa-phone"></i> +91 98946 48632</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<footer>© 2026 Rajeshkumar K · DevOps &amp; Observability Engineer</footer>
 
 <script>
-document.addEventListener("DOMContentLoaded", () => {
-  document.getElementById('themeToggle').addEventListener('click', () => document.body.classList.toggle('light'));
-
-  const counters = document.querySelectorAll('.count');
-  counters.forEach(counter => {
-    const target = parseFloat(counter.dataset.target);
-    let current = 0;
-    const speed = 80;
-    const increment = target / speed;
-    function update() {
-      current += increment;
-      if (current < target) {
-        counter.textContent = target % 1 !== 0 ? current.toFixed(1) : Math.floor(current);
-        requestAnimationFrame(update);
-      } else {
-        counter.textContent = (target % 1 ? target.toFixed(1) : target) + (counter.dataset.suffix || '');
-        counter.classList.add('complete');
-      }
-    }
-    update();
+(function(){
+  const root = document.documentElement, key = "theme";
+  try { const t = localStorage.getItem(key); if (t) root.dataset.theme = t; } catch (e) {}
+  document.getElementById("theme").addEventListener("click", function(){
+    const dark = root.dataset.theme ? root.dataset.theme === "dark" : matchMedia("(prefers-color-scheme: dark)").matches;
+    root.dataset.theme = dark ? "light" : "dark";
+    try { localStorage.setItem(key, root.dataset.theme); } catch (e) {}
   });
-
-  const skills = ["OpenObserve", "OpenTelemetry", "Grafana", "Prometheus", "ELK Stack", "Kubernetes", "Helm", "ArgoCD", "Langfuse", "Gen AI Observability"];
-  const typing = document.getElementById("typing");
-  let i = 0, j = 0;
-  function typeSkill() {
-    if (j < skills[i].length) {
-      typing.textContent += skills[i][j++];
-      setTimeout(typeSkill, 120);
-    } else {
-      setTimeout(eraseSkill, 1500);
-    }
-  }
-  function eraseSkill() {
-    if (j > 0) {
-      typing.textContent = skills[i].substring(0, --j);
-      setTimeout(eraseSkill, 60);
-    } else {
-      i = (i + 1) % skills.length;
-      setTimeout(typeSkill, 500);
-    }
-  }
-  typeSkill();
-
-  const glowCards = document.querySelectorAll('.card.glow');
-  function revealGlow() {
-    const trigger = window.innerHeight * 0.85;
-    glowCards.forEach(card => {
-      if (card.getBoundingClientRect().top < trigger) card.classList.add('show');
-    });
-  }
-  window.addEventListener('scroll', revealGlow);
-  revealGlow();
-
-  const badgeItems = document.querySelectorAll('.badge-item');
-  badgeItems.forEach(item => {
-    item.addEventListener('click', function(e) {
-      if (e.target.closest('a')) return;
-      e.preventDefault();
-      e.stopPropagation();
-      const imgSrc = item.querySelector('img').src;
-      const certName = item.querySelector('p').textContent.trim();
-      const verifyUrl = item.dataset.verify || '#';
-      const modal = document.createElement('div');
-      modal.classList.add('badge-modal');
-      const closeBtn = document.createElement('div');
-      closeBtn.classList.add('close-btn');
-      closeBtn.innerHTML = '×';
-      closeBtn.onclick = (ev) => {
-        ev.stopPropagation();
-        closeModal(modal);
-      };
-      const wrapper = document.createElement('div');
-      wrapper.classList.add('enlarged-img-wrapper');
-      const enlargedImg = document.createElement('img');
-      enlargedImg.src = imgSrc;
-      enlargedImg.alt = certName;
-      if (verifyUrl !== '#') {
-        enlargedImg.style.cursor = 'pointer';
-        enlargedImg.title = 'Click to verify on Microsoft Learn';
-        enlargedImg.onclick = (ev) => {
-          ev.stopPropagation();
-          window.open(verifyUrl, '_blank');
-        };
-      }
-      wrapper.appendChild(enlargedImg);
-      const caption = document.createElement('p');
-      caption.textContent = certName;
-      let verifyBtn = null;
-      if (verifyUrl !== '#') {
-        verifyBtn = document.createElement('a');
-        verifyBtn.href = verifyUrl;
-        verifyBtn.target = '_blank';
-        verifyBtn.classList.add('verify-btn');
-        verifyBtn.textContent = 'Verify on Microsoft Learn →';
-      }
-      const note = document.createElement('p');
-      note.classList.add('note');
-      note.textContent = 'Official Microsoft verification';
-      modal.appendChild(closeBtn);
-      modal.appendChild(wrapper);
-      modal.appendChild(caption);
-      if (verifyBtn) modal.appendChild(verifyBtn);
-      modal.appendChild(note);
-      modal.onclick = (ev) => {
-        if (ev.target === modal) closeModal(modal);
-      };
-      document.body.appendChild(modal);
-    });
+  document.addEventListener("click", function(e){
+    const t = e.target.closest("img.zoom");
+    if (!t) return;
+    const box = document.createElement("div"); box.className = "lightbox";
+    const im = document.createElement("img"); im.src = t.src; im.alt = t.alt;
+    box.appendChild(im); box.onclick = function(){ box.remove(); };
+    document.body.appendChild(box);
   });
-  function closeModal(modal) {
-    modal.style.animation = 'fadeIn 0.5s reverse';
-    setTimeout(() => modal.remove(), 480);
-  }
-});
-document.addEventListener("click", e => {
-  const t = e.target.closest("img.zoomable");
-  if (!t) return;
-  const box = document.createElement("div"); box.className = "lightbox";
-  const im = document.createElement("img"); im.src = t.dataset.full || t.src; im.alt = t.alt;
-  box.appendChild(im); box.onclick = () => box.remove();
-  document.addEventListener("keydown", function esc(k){ if (k.key === "Escape") { box.remove(); document.removeEventListener("keydown", esc); } });
-  document.body.appendChild(box);
-});
+  document.addEventListener("keydown", function(e){ if (e.key === "Escape") document.querySelectorAll(".lightbox").forEach(function(b){ b.remove(); }); });
+})();
 </script>
 </body>
 </html>
