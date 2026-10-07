@@ -4,7 +4,7 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Rajeshkumar K | DevOps & Observability Engineer</title>
-<meta name="description" content="Associate DevOps Engineer focused on observability: OpenObserve, OpenTelemetry, Grafana, Prometheus, ELK, Kubernetes and Gen AI monitoring (LiveKit, NVIDIA H200 GPU, Langfuse).">
+<meta name="description" content="Associate DevOps Engineer focused on observability: OpenObserve, OpenTelemetry, Grafana, Prometheus, ELK, Kubernetes and Gen AI monitoring (LiveKit, NVIDIA GPU, Langfuse).">
 <meta property="og:type" content="website">
 <meta property="og:url" content="https://rajesh-raji-98.github.io/">
 <meta property="og:title" content="Rajeshkumar K &#8211; DevOps &amp; Observability Engineer">
@@ -81,9 +81,10 @@ nav .wrap{display:flex;align-items:center;justify-content:space-between;height:6
 /* metrics */
 .hero .wrap.mrow{display:block;margin-top:40px}
 .metrics{display:grid;grid-template-columns:repeat(4,1fr);gap:16px;margin-top:8px}
-.metric{background:var(--card);border:1px solid var(--line);border-radius:16px;padding:22px}
-.metric b{display:block;font-family:"Plus Jakarta Sans",sans-serif;font-size:2rem;color:var(--text)}
-.metric span{color:var(--muted);font-size:.95rem}
+.metric{position:relative;text-align:center;padding:28px 18px;border-radius:18px;background:linear-gradient(145deg,#0f1b33,#0b1222);border:1px solid rgba(56,189,248,.22);box-shadow:0 10px 30px rgba(15,23,42,.18);transition:transform .25s,box-shadow .25s}
+.metric:hover{transform:translateY(-4px);box-shadow:0 14px 36px rgba(56,189,248,.25)}
+.metric b{display:block;font-family:"Plus Jakarta Sans",sans-serif;font-size:2.7rem;font-weight:800;line-height:1.1;background:linear-gradient(90deg,#38bdf8,#64ffda);-webkit-background-clip:text;background-clip:text;color:transparent;text-shadow:0 0 22px rgba(56,189,248,.35)}
+.metric span{color:#9fb3cc;font-size:.95rem;display:block;margin-top:6px}
 
 /* pillars */
 .pillars{display:grid;grid-template-columns:repeat(3,1fr);gap:20px}
@@ -193,21 +194,19 @@ footer{padding:28px 0;color:var(--muted);font-size:.9rem;text-align:center}
         <a class="btn btn-ghost" href="Rajeshkumar-K-Resume.pdf" download><i class="fa-solid fa-file-arrow-down"></i> Download resume</a>
       </div>
       <div class="chips">
-        <span class="chip">OpenObserve</span><span class="chip">OpenTelemetry</span><span class="chip">Grafana</span><span class="chip">Prometheus</span><span class="chip">ELK</span><span class="chip">Kubernetes</span><span class="chip">Langfuse</span>
+        <span class="chip">OpenObserve</span><span class="chip">OpenTelemetry</span><span class="chip">Grafana</span><span class="chip">Prometheus</span><span class="chip">ELK</span><span class="chip">Kubernetes</span><span class="chip">Nginx</span>
       </div>
     </div>
     <div class="photo">
       <img src="photo.jpg" alt="Rajeshkumar K">
-      <div class="float f1"><b>50 / 50</b>end-to-end trace checks passed</div>
-      <div class="float f2"><b>83</b>real-time alerts designed</div>
     </div>
   </div>
   <div class="wrap mrow">
     <div class="metrics">
-      <div class="metric"><b>20–25</b><span>live projects I monitor</span></div>
-      <div class="metric"><b>14</b><span>Data Lake House dashboards built</span></div>
-      <div class="metric"><b>70 / 80 / 90%</b><span>warning · critical · disaster levels</span></div>
-      <div class="metric"><b>1.5+ yrs</b><span>production DevOps &amp; observability</span></div>
+      <div class="metric"><b class="count" data-to="20" data-suffix="+">0</b><span>live projects I monitor</span></div>
+      <div class="metric"><b class="count" data-to="14">0</b><span>Data Lake House dashboards built</span></div>
+      <div class="metric"><b class="count" data-to="83">0</b><span>real-time alerts designed</span></div>
+      <div class="metric"><b class="count" data-to="1.5" data-suffix="+ yrs">0</b><span>production DevOps &amp; observability</span></div>
     </div>
   </div>
 </header>
@@ -236,7 +235,7 @@ footer{padding:28px 0;color:var(--muted);font-size:.9rem;text-align:center}
         <i class="fa-solid fa-microchip"></i>
         <h3>Watch AI workloads too</h3>
         <p>Gen AI observability alongside the rest of the platform.</p>
-        <ul><li>LiveKit voice AI call quality</li><li>NVIDIA H200 GPU health</li><li>Langfuse, n8n and LiteLLM tracing</li></ul>
+        <ul><li>LiveKit voice AI call quality</li><li>NVIDIA GPU health</li><li>Langfuse, n8n and LiteLLM tracing</li></ul>
       </div>
     </div>
   </div>
@@ -272,17 +271,17 @@ footer{padding:28px 0;color:var(--muted);font-size:.9rem;text-align:center}
         <div class="head">
         <span class="tag">Grafana · Data Lake House</span>
         <h3>DLH service overview dashboards</h3>
-        <p class="strength">The health of a 13-service data platform, on a single screen.</p>
+        <p class="strength">The health of a 13-service data platform, with live alerts, on a single screen.</p>
         </div>
         <div class="pbr">
           <div><b>Problem</b><p>Airflow, Trino, Spark, Kafka, Druid, MinIO and the rest had no shared health view, and some dashboards had no data at all.</p></div>
-          <div><b>What I built</b><p>The OSS Engine Overview plus 13 per-service dashboards showing UP / DOWN / UNREACHABLE, latency, JVM and pod health; added the missing scrape jobs and fixed broken exporters (Kafka, Solr).</p></div>
+          <div><b>What I built</b><p>The OSS Engine Overview plus 13 per-service dashboards showing UP / DOWN / UNREACHABLE, latency, JVM and pod health, a service-health table and a live alerts panel filtered by severity; added the missing scrape jobs and fixed broken exporters (Kafka, Solr).</p></div>
           <div class="r"><b>Result</b><p>Every service's state is visible at a glance, from ingestion through storage and processing to query.</p></div>
         </div>
         <div class="chips"><span class="chip plain">Grafana</span><span class="chip plain">Prometheus</span><span class="chip plain">Kafka</span><span class="chip plain">Trino</span><span class="chip plain">Airflow</span></div>
       </div>
       <div class="visual">
-        <figure><img class="zoom" src="img/shot-dlh-overview.jpg" alt="OSS Engine Overview dashboard"><figcaption><span>OSS Engine Overview (live dashboard)</span><i class="fa-solid fa-magnifying-glass-plus"></i></figcaption></figure>
+        <figure><img class="zoom" src="img/hd-dlh.jpg" alt="OSS Engine Overview dashboard: topology, service health and alerts"><figcaption><span>OSS Engine Overview: topology, service health table and live alerts</span><i class="fa-solid fa-magnifying-glass-plus"></i></figcaption></figure>
       </div>
     </article>
 
@@ -307,19 +306,19 @@ footer{padding:28px 0;color:var(--muted);font-size:.9rem;text-align:center}
       <div class="text">
         <div class="head">
         <span class="tag">Gen AI observability</span>
-        <h3>LiveKit voice AI &amp; NVIDIA H200 GPUs</h3>
+        <h3>LiveKit voice AI &amp; NVIDIA GPUs</h3>
         <p class="strength">AI agents, voice calls and GPUs, monitored like any other production service.</p>
         </div>
         <div class="pbr">
           <div><b>Problem</b><p>The new Gen AI stack (voice AI, LLM gateway, agent workflows, GPU servers) had no monitoring.</p></div>
-          <div><b>What I built</b><p>A 28-panel LiveKit dashboard (rooms, SIP calls, call-setup latency, jitter, packet loss, RTT); NVIDIA H200 GPU monitoring (utilisation, memory, temperature, power, throttling); Langfuse, n8n and LiteLLM tracing with model, token and cost data.</p></div>
+          <div><b>What I built</b><p>A 28-panel LiveKit dashboard (rooms, SIP calls, call-setup latency, jitter, packet loss, RTT); NVIDIA GPU monitoring (utilisation, memory, temperature, power, throttling); Langfuse, n8n and LiteLLM tracing with model, token and cost data.</p></div>
           <div class="r"><b>Result</b><p>Call quality, GPU health and LLM cost visible next to the rest of the platform.</p></div>
         </div>
-        <div class="chips"><span class="chip plain">LiveKit</span><span class="chip plain">NVIDIA H200</span><span class="chip plain">Langfuse</span><span class="chip plain">n8n</span><span class="chip plain">LiteLLM</span></div>
+        <div class="chips"><span class="chip plain">LiveKit</span><span class="chip plain">NVIDIA</span><span class="chip plain">Langfuse</span><span class="chip plain">n8n</span><span class="chip plain">LiteLLM</span></div>
       </div>
       <div class="visual">
-        <figure><img class="zoom" src="img/shot-livekit.jpg" alt="LiveKit voice AI dashboard"><figcaption><span>LiveKit voice AI (live dashboard)</span><i class="fa-solid fa-magnifying-glass-plus"></i></figcaption></figure>
-        <figure><img class="zoom" src="img/shot-gpu.jpg" alt="NVIDIA H200 GPU dashboard"><figcaption><span>NVIDIA H200 NVL GPU (live dashboard)</span><i class="fa-solid fa-magnifying-glass-plus"></i></figcaption></figure>
+        <figure><img class="zoom" src="img/hd-livekit.jpg" alt="LiveKit voice AI dashboard"><figcaption><span>LiveKit voice AI: rooms, SIP calls, media quality, call-setup latency and jitter</span><i class="fa-solid fa-magnifying-glass-plus"></i></figcaption></figure>
+        <figure><img class="zoom" src="img/hd-gpu.jpg" alt="NVIDIA GPU monitoring dashboard"><figcaption><span>NVIDIA GPU monitoring: GenAI server, GPU gauges and power history</span><i class="fa-solid fa-magnifying-glass-plus"></i></figcaption></figure>
       </div>
     </article>
 
@@ -351,7 +350,7 @@ footer{padding:28px 0;color:var(--muted);font-size:.9rem;text-align:center}
         <li>Own logging and monitoring for 20–25 live smart-city and IoT projects in the Technical Assistance Center.</li>
         <li>Lead R&amp;D on a unified observability platform with OpenObserve and OpenTelemetry.</li>
         <li>Built the OSS Engine Overview and 13 Data Lake House service dashboards in Grafana.</li>
-        <li>Brought Gen AI workloads (LiveKit, NVIDIA H200 GPUs, Langfuse, n8n, LiteLLM) under monitoring.</li>
+        <li>Brought Gen AI workloads (LiveKit, NVIDIA GPUs, Langfuse, n8n, LiteLLM) under monitoring.</li>
         <li>Wrote 20+ study guides and runbooks the team uses for training and incidents.</li>
       </ul>
     </div>
@@ -420,6 +419,10 @@ footer{padding:28px 0;color:var(--muted);font-size:.9rem;text-align:center}
     document.body.appendChild(box);
   });
   document.addEventListener("keydown", function(e){ if (e.key === "Escape") document.querySelectorAll(".lightbox").forEach(function(b){ b.remove(); }); });
+})();
+(function(){
+  const els=document.querySelectorAll(".count"); const run=el=>{ const to=parseFloat(el.dataset.to), suf=el.dataset.suffix||"", dec=to%1?1:0, t0=performance.now(), d=1400; const step=n=>{ const p=Math.min((n-t0)/d,1), v=to*(1-Math.pow(1-p,3)); el.textContent=v.toFixed(dec)+(p===1?suf:""); if(p<1) requestAnimationFrame(step); }; requestAnimationFrame(step); };
+  if("IntersectionObserver" in window){ const io=new IntersectionObserver(es=>es.forEach(e=>{ if(e.isIntersecting){ run(e.target); io.unobserve(e.target); } }),{threshold:.4}); els.forEach(e=>io.observe(e)); } else els.forEach(run);
 })();
 </script>
 </body>
