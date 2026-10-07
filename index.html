@@ -88,6 +88,9 @@ nav .wrap{display:flex;align-items:center;justify-content:space-between;height:6
 
 /* pillars */
 .pillars{display:grid;grid-template-columns:repeat(3,1fr);gap:20px}
+.pillars.four{grid-template-columns:repeat(2,1fr)}
+.pillar.main{border:2px solid var(--accent);background:linear-gradient(180deg,var(--accent-soft),var(--card) 60%)}
+.pillar.main h3:after{content:"Core skill";margin-left:10px;font-size:.72rem;font-weight:600;letter-spacing:.06em;text-transform:uppercase;color:#fff;background:var(--accent);padding:3px 8px;border-radius:999px;vertical-align:middle}
 .pillar{background:var(--card);border:1px solid var(--line);border-radius:18px;padding:28px;box-shadow:var(--shadow)}
 .pillar i{font-size:1.4rem;color:var(--accent);background:var(--accent-soft);width:48px;height:48px;display:grid;place-items:center;border-radius:12px;margin-bottom:16px}
 .pillar h3{font-size:1.25rem;margin-bottom:8px}
@@ -133,6 +136,7 @@ nav .wrap{display:flex;align-items:center;justify-content:space-between;height:6
 .skill{background:var(--card);border:1px solid var(--line);border-radius:16px;padding:22px}
 .skill h3{font-size:1.02rem;margin-bottom:12px;display:flex;gap:10px;align-items:center}
 .skill h3 i{color:var(--accent)}
+.skill.main{border:2px solid var(--accent)}
 
 /* certs + contact */
 .certs{display:grid;grid-template-columns:repeat(3,1fr);gap:18px}
@@ -154,6 +158,7 @@ footer{padding:28px 0;color:var(--muted);font-size:.9rem;text-align:center}
 .lightbox img{max-width:96vw;max-height:94vh;border-radius:10px;background:#fff}
 
 @media (max-width:900px){
+  .pillars.four{grid-template-columns:1fr}
   .case.wide .text{grid-template-columns:1fr}
   .case.wide .text .pbr{grid-column:1;grid-row:auto}
   .links a.hide-m{display:none}
@@ -186,15 +191,15 @@ footer{padding:28px 0;color:var(--muted);font-size:.9rem;text-align:center}
 <header class="hero" id="top">
   <div class="wrap">
     <div>
-      <span class="eyebrow">Associate DevOps Engineer · Observability</span>
+      <span class="eyebrow">Associate DevOps Engineer · Kubernetes · Observability</span>
       <h1>I make production problems <em>visible before users feel them.</em></h1>
-      <p class="lead">I run logging and monitoring for <b>20–25 live smart-city and IoT projects</b> at Trinity Mobility, and I'm building the company's next observability platform on <b>OpenObserve</b> and <b>OpenTelemetry</b>, from Kubernetes to data-lake engines to Gen AI workloads.</p>
+      <p class="lead">I keep <b>Kubernetes-based production platforms</b> healthy for <b>20–25 live smart-city and IoT projects</b> at Trinity Mobility: deploying and validating releases, resolving client issues end to end, closing security gaps, and building observability with <b>OpenObserve</b> and <b>OpenTelemetry</b> so problems are caught early.</p>
       <div class="cta">
         <a class="btn btn-primary" href="#cases"><i class="fa-solid fa-layer-group"></i> See my work</a>
         <a class="btn btn-ghost" href="Rajeshkumar-K-Resume.pdf" download><i class="fa-solid fa-file-arrow-down"></i> Download resume</a>
       </div>
       <div class="chips">
-        <span class="chip">OpenObserve</span><span class="chip">OpenTelemetry</span><span class="chip">Grafana</span><span class="chip">Prometheus</span><span class="chip">ELK</span><span class="chip">Kubernetes</span><span class="chip">Nginx</span>
+        <span class="chip">Kubernetes</span><span class="chip">ArgoCD</span><span class="chip">Helm</span><span class="chip">Prometheus</span><span class="chip">Grafana</span><span class="chip">OpenObserve</span><span class="chip">ELK</span><span class="chip">Nginx</span>
       </div>
     </div>
     <div class="photo">
@@ -215,29 +220,35 @@ footer{padding:28px 0;color:var(--muted);font-size:.9rem;text-align:center}
   <div class="wrap">
     <div class="sec-head">
       <span class="eyebrow">What I do</span>
-      <h2>Three things I'm good at</h2>
-      <p>Keeping live platforms healthy, seeing every request end to end, and bringing new AI workloads under the same watch.</p>
+      <h2>What I am good at</h2>
+      <p>Running Kubernetes in production, owning client issues to the root cause, and making every problem visible early.</p>
     </div>
-    <div class="pillars">
-      <div class="pillar">
-        <i class="fa-solid fa-shield-heart"></i>
-        <h3>Keep production healthy</h3>
-        <p>Technical Assistance Center (TAC) for go-live projects.</p>
-        <ul><li>Alerts at 70 / 80 / 90% severity</li><li>Every alert becomes a Jira ticket, followed to closure</li><li>Root-cause fixes, not just restarts</li></ul>
-      </div>
-      <div class="pillar">
-        <i class="fa-solid fa-eye"></i>
-        <h3>See everything in one place</h3>
-        <p>OpenObserve + OpenTelemetry, built end to end.</p>
-        <ul><li>Logs, metrics and traces together</li><li>trace_id in every log line</li><li>Trace dashboards and real-time alerts</li></ul>
-      </div>
-      <div class="pillar">
-        <i class="fa-solid fa-microchip"></i>
-        <h3>Watch AI workloads too</h3>
-        <p>Gen AI observability alongside the rest of the platform.</p>
-        <ul><li>LiveKit voice AI call quality</li><li>NVIDIA GPU health</li><li>Langfuse, n8n and LiteLLM tracing</li></ul>
-      </div>
-    </div>
+    <div class="pillars four">
+          <div class="pillar main">
+            <i class="fa-solid fa-dharmachakra"></i>
+            <h3>Kubernetes in production</h3>
+            <p>My core skill, on-prem and Azure AKS.</p>
+            <ul><li>Deployments with ArgoCD and Helm</li><li>Full application-flow validation after every build, server or deployment change</li><li>Pods, networking (Calico), storage and ingress troubleshooting</li></ul>
+          </div>
+          <div class="pillar">
+            <i class="fa-solid fa-headset"></i>
+            <h3>Client issues, solved for good</h3>
+            <p>Technical Assistance Center (TAC) for go-live projects.</p>
+            <ul><li>Restore first, then find every root cause</li><li>Enhance: self-healing, automation, early warnings</li><li>Clear updates that build client trust</li></ul>
+          </div>
+          <div class="pillar">
+            <i class="fa-solid fa-shield-halved"></i>
+            <h3>Security fixes</h3>
+            <p>Closing exposures before they become incidents.</p>
+            <ul><li>Exposed domains and services secured</li><li>Nginx and server hardening</li><li>Certificate expiry automation</li></ul>
+          </div>
+          <div class="pillar">
+            <i class="fa-solid fa-eye"></i>
+            <h3>Observability</h3>
+            <p>Seeing problems before users feel them.</p>
+            <ul><li>Prometheus, Grafana, ELK, OpenObserve</li><li>Alerts at 70 / 80 / 90% raise Jira tickets</li><li>Distributed tracing with OpenTelemetry</li></ul>
+          </div>
+        </div>
   </div>
 </section>
 
@@ -248,6 +259,40 @@ footer{padding:28px 0;color:var(--muted);font-size:.9rem;text-align:center}
       <h2>Real problems, what I built, and what changed</h2>
       <p>Click any image to see it full size. Dashboards are real; server names and addresses are removed.</p>
     </div>
+
+    <article class="case">
+      <div class="text">
+        <span class="tag">Kubernetes · Deployments</span>
+        <h3>Production Kubernetes &amp; release validation</h3>
+        <p class="strength">Every release and every incident ends with the whole application flow verified.</p>
+        <div class="pbr">
+          <div><b>Problem</b><p>After a build, a server change or an outage, "pods are running" did not always mean the application actually worked end to end.</p></div>
+          <div><b>What I do</b><p>Deploy with ArgoCD and Helm, then validate the full flow: pods and probes, services, ingress and the real request path. Troubleshoot networking (Calico), storage and resource limits, and document fixes as reusable runbooks.</p></div>
+          <div class="r"><b>Result</b><p>Releases and recoveries are confirmed working for users, not just started, and repeat issues are fixed once for the whole team.</p></div>
+        </div>
+        <div class="chips"><span class="chip plain">Kubernetes</span><span class="chip plain">ArgoCD</span><span class="chip plain">Helm</span><span class="chip plain">Calico</span><span class="chip plain">Azure AKS</span><span class="chip plain">Nginx ingress</span></div>
+      </div>
+      <div class="visual">
+        <figure><img class="zoom" src="img/d-k8s.svg" alt="Build, deploy, validate, watch"><figcaption><span>Release and recovery flow</span><i class="fa-solid fa-magnifying-glass-plus"></i></figcaption></figure>
+      </div>
+    </article>
+
+    <article class="case flip">
+      <div class="text">
+        <span class="tag">Client issues · Security</span>
+        <h3>Client issues resolved and improved</h3>
+        <p class="strength">Fix it, find why, and make sure it does not come back.</p>
+        <div class="pbr">
+          <div><b>Problem</b><p>Production issues on client platforms (security exposures, storage filling up, services dropping) affect the SLO and client trust.</p></div>
+          <div><b>What I do</b><p>Restore service first with clear client updates, trace every root cause, then enhance: secured exposed domains, caught storage risks early, made services auto-recover, automated certificate-expiry and log-retention tasks, and added vendor endpoint checks.</p></div>
+          <div class="r"><b>Result</b><p>Fewer escalations, critical security gaps closed, and a trusted-advisor relationship with clients.</p></div>
+        </div>
+        <div class="chips"><span class="chip plain">RCA</span><span class="chip plain">Security hardening</span><span class="chip plain">Automation</span><span class="chip plain">Self-healing</span><span class="chip plain">Client communication</span></div>
+      </div>
+      <div class="visual">
+        <figure><img class="zoom" src="img/d-client.svg" alt="Client issue handling"><figcaption><span>How I handle a client issue</span><i class="fa-solid fa-magnifying-glass-plus"></i></figcaption></figure>
+      </div>
+    </article>
 
     <article class="case">
       <div class="text">
@@ -305,9 +350,9 @@ footer{padding:28px 0;color:var(--muted);font-size:.9rem;text-align:center}
     <article class="case wide">
       <div class="text">
         <div class="head">
-        <span class="tag">Gen AI observability</span>
-        <h3>LiveKit voice AI &amp; NVIDIA GPUs</h3>
-        <p class="strength">AI agents, voice calls and GPUs, monitored like any other production service.</p>
+        <span class="tag">Gen AI observability · early work</span>
+        <h3>Getting started with Gen AI monitoring</h3>
+        <p class="strength">First steps in bringing voice AI and GPU servers under the same monitoring.</p>
         </div>
         <div class="pbr">
           <div><b>Problem</b><p>The new Gen AI stack (voice AI, LLM gateway, agent workflows, GPU servers) had no monitoring.</p></div>
@@ -347,10 +392,12 @@ footer{padding:28px 0;color:var(--muted);font-size:.9rem;text-align:center}
     <div class="exp">
       <div class="when"><b>Trinity Mobility Pvt Ltd</b>Associate DevOps Engineer<br>Mar 2025 – Present · Bengaluru</div>
       <ul>
-        <li>Own logging and monitoring for 20–25 live smart-city and IoT projects in the Technical Assistance Center.</li>
+        <li>Support Kubernetes-based production platforms for 20–25 live smart-city and IoT projects in the Technical Assistance Center.</li>
+        <li>Deploy releases with ArgoCD and Helm and validate the full application flow after every build, server or deployment change.</li>
+        <li>Own client issues end to end: restore, root-cause, then enhance with automation and self-healing; closed critical security exposures.</li>
         <li>Lead R&amp;D on a unified observability platform with OpenObserve and OpenTelemetry.</li>
         <li>Built the OSS Engine Overview and 13 Data Lake House service dashboards in Grafana.</li>
-        <li>Brought Gen AI workloads (LiveKit, NVIDIA GPUs, Langfuse, n8n, LiteLLM) under monitoring.</li>
+        <li>Started Gen AI observability work (LiveKit, GPU monitoring).</li>
         <li>Wrote 20+ study guides and runbooks the team uses for training and incidents.</li>
       </ul>
     </div>
@@ -361,11 +408,11 @@ footer{padding:28px 0;color:var(--muted);font-size:.9rem;text-align:center}
   <div class="wrap">
     <div class="sec-head"><span class="eyebrow">Skills</span><h2>Tools I use every day</h2></div>
     <div class="skills">
+      <div class="skill main"><h3><i class="fa-solid fa-dharmachakra"></i>Kubernetes &amp; delivery</h3><div class="chips"><span class="chip">Kubernetes</span><span class="chip">kubectl</span><span class="chip">Azure AKS</span><span class="chip">ArgoCD</span><span class="chip">Helm</span><span class="chip">Calico</span><span class="chip">Docker</span><span class="chip">Nginx</span><span class="chip">Linux</span></div></div>
       <div class="skill"><h3><i class="fa-solid fa-chart-line"></i>Observability</h3><div class="chips"><span class="chip plain">OpenObserve</span><span class="chip plain">OpenTelemetry</span><span class="chip plain">Grafana</span><span class="chip plain">Prometheus</span><span class="chip plain">VictoriaMetrics</span><span class="chip plain">InfluxDB</span><span class="chip plain">Uptime Kuma</span></div></div>
       <div class="skill"><h3><i class="fa-solid fa-file-lines"></i>Logs &amp; alerting</h3><div class="chips"><span class="chip plain">ELK Stack</span><span class="chip plain">Alertmanager</span><span class="chip plain">Telegram / email</span><span class="chip plain">Jira</span><span class="chip plain">SLO-based alerting</span></div></div>
       <div class="skill"><h3><i class="fa-solid fa-route"></i>Tracing</h3><div class="chips"><span class="chip plain">Distributed tracing</span><span class="chip plain">trace–log correlation</span><span class="chip plain">OTLP</span><span class="chip plain">JMX / Actuator</span></div></div>
-      <div class="skill"><h3><i class="fa-solid fa-cubes"></i>Platform</h3><div class="chips"><span class="chip plain">Kubernetes</span><span class="chip plain">Azure AKS</span><span class="chip plain">ArgoCD</span><span class="chip plain">Helm</span><span class="chip plain">Docker</span><span class="chip plain">Nginx</span><span class="chip plain">Linux</span></div></div>
-      <div class="skill"><h3><i class="fa-solid fa-robot"></i>Gen AI</h3><div class="chips"><span class="chip plain">LiveKit</span><span class="chip plain">NVIDIA GPU</span><span class="chip plain">Langfuse</span><span class="chip plain">LiteLLM</span><span class="chip plain">n8n</span></div></div>
+      <div class="skill"><h3><i class="fa-solid fa-shield-halved"></i>Security &amp; support</h3><div class="chips"><span class="chip plain">Server hardening</span><span class="chip plain">Certificate automation</span><span class="chip plain">RCA</span><span class="chip plain">Jira</span><span class="chip plain">Gen AI monitoring (beginner)</span></div></div>
       <div class="skill"><h3><i class="fa-solid fa-terminal"></i>Scripting &amp; query</h3><div class="chips"><span class="chip plain">Bash</span><span class="chip plain">PowerShell</span><span class="chip plain">Python</span><span class="chip plain">SQL</span><span class="chip plain">PromQL</span></div></div>
     </div>
   </div>
@@ -389,7 +436,7 @@ footer{padding:28px 0;color:var(--muted);font-size:.9rem;text-align:center}
   <div class="wrap">
     <div class="contact">
       <h2>Let's talk observability</h2>
-      <p>Open to DevOps, SRE and observability roles across India.</p>
+      <p>Open to DevOps, Kubernetes, SRE and observability roles across India.</p>
       <div class="row">
         <a class="btn" href="mailto:rajeshkumar.k5445@gmail.com"><i class="fa-solid fa-envelope"></i> rajeshkumar.k5445@gmail.com</a>
         <a class="btn o" href="https://www.linkedin.com/in/rajeshkumark65" target="_blank" rel="noopener"><i class="fa-brands fa-linkedin"></i> LinkedIn</a>
