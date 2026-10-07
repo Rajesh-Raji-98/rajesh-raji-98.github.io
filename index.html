@@ -505,6 +505,14 @@ footer h2{
   to { text-shadow:0 0 80px var(--accent-glow); }
 }
 /* Added: photo, plain cert cards, mobile layout */
+img.zoomable{cursor:zoom-in;}
+.gal-note{text-align:center;color:var(--muted);margin:-2rem 0 2rem;}
+.gal{margin:0 0 2.2rem;padding:1rem;border-radius:18px;}
+.gal img{width:auto;max-width:100%;height:auto;display:block;margin:0 auto;border-radius:10px;}
+.gal figcaption{margin-top:.8rem;color:var(--muted);font-size:1rem;text-align:center;}
+.gal figcaption b{color:var(--accent);}
+.lightbox{position:fixed;inset:0;background:rgba(2,6,23,.94);display:flex;align-items:center;justify-content:center;z-index:2000;padding:2vh 2vw;cursor:zoom-out;}
+.lightbox img{max-width:96vw;max-height:94vh;border-radius:10px;box-shadow:0 0 60px rgba(56,189,248,.35);}
 #projects .grid{grid-template-columns:repeat(auto-fit,minmax(340px,1fr));}
 #projects .card{padding:1.6rem 1.4rem 2rem;}
 #projects .card:hover{transform:translateY(-10px) scale(1.03);}
@@ -541,6 +549,7 @@ body.light .card h3{color:var(--text-light);}
       <a href="#about">About</a>
       <a href="#services">Expertise</a>
       <a href="#projects">Projects</a>
+      <a href="#dashboards">Dashboards</a>
       <a href="#certs">Certifications</a>
       <a href="#contact">Contact</a>
       <i class="fas fa-sun theme-toggle" id="themeToggle" title="Toggle Light/Dark"></i>
@@ -649,7 +658,7 @@ body.light .card h3{color:var(--text-light);}
     </div>
 
     <div class="card glass glow">
-      <a href="img/shot-dlh-overview.jpg" target="_blank" rel="noopener"><img class="shot" src="img/shot-dlh-overview.jpg" alt="OSS Engine Overview dashboard in Grafana" loading="lazy"></a>
+      <img class="shot zoomable" src="img/thumb-dlh.jpg" data-full="img/shot-dlh-overview.jpg" alt="OSS Engine Overview dashboard in Grafana (click to enlarge)" loading="lazy">
       <h3>DLH Service Overview Dashboards</h3>
       <p>The OSS Engine Overview plus 13 per-service Grafana dashboards for the Data Lake House.</p>
       <ul>
@@ -673,8 +682,8 @@ body.light .card h3{color:var(--text-light);}
     </div>
 
     <div class="card glass glow">
-      <a href="img/shot-livekit.jpg" target="_blank" rel="noopener"><img class="shot" src="img/shot-livekit.jpg" alt="LiveKit voice AI monitoring dashboard" loading="lazy"></a>
-      <a href="img/shot-gpu.jpg" target="_blank" rel="noopener"><img class="shot" src="img/shot-gpu.jpg" alt="NVIDIA H200 GPU monitoring dashboard" loading="lazy"></a>
+      <img class="shot zoomable" src="img/thumb-livekit.jpg" data-full="img/shot-livekit.jpg" alt="LiveKit voice AI monitoring dashboard (click to enlarge)" loading="lazy">
+      <img class="shot zoomable" src="img/thumb-gpu.jpg" data-full="img/shot-gpu.jpg" alt="NVIDIA H200 GPU monitoring dashboard (click to enlarge)" loading="lazy">
       <h3>Gen AI Observability</h3>
       <p>Brought AI workloads into the same observability platform.</p>
       <ul>
@@ -700,6 +709,14 @@ body.light .card h3{color:var(--text-light);}
       <p class="impact">Impact: issues fixed at warning level, before they affect the SLO</p>
     </div>
   </div>
+</section>
+
+<section id="dashboards" class="container">
+  <h2>Dashboards <span>in Action</span></h2>
+  <p class="gal-note">Real Grafana dashboards I built (server names and addresses removed). Click any image to view it full size.</p>
+  <figure class="gal glass"><img class="zoomable" src="img/shot-dlh-overview.jpg" alt="OSS Engine Overview" loading="lazy"><figcaption><b>OSS Engine Overview</b> &middot; health of every Data Lake House service, from ingestion to query, on one screen</figcaption></figure>
+  <figure class="gal glass"><img class="zoomable" src="img/shot-livekit.jpg" alt="LiveKit voice AI monitoring" loading="lazy"><figcaption><b>LiveKit voice AI monitoring</b> &middot; rooms, SIP calls, media quality, call-setup latency and jitter</figcaption></figure>
+  <figure class="gal glass"><img class="zoomable" src="img/shot-gpu.jpg" alt="NVIDIA H200 GPU monitoring" loading="lazy"><figcaption><b>NVIDIA H200 NVL GPU monitoring</b> &middot; power, memory, temperature and clock history for the GenAI servers</figcaption></figure>
 </section>
 
 <section id="certs" class="container">
@@ -856,6 +873,15 @@ document.addEventListener("DOMContentLoaded", () => {
     modal.style.animation = 'fadeIn 0.5s reverse';
     setTimeout(() => modal.remove(), 480);
   }
+});
+document.addEventListener("click", e => {
+  const t = e.target.closest("img.zoomable");
+  if (!t) return;
+  const box = document.createElement("div"); box.className = "lightbox";
+  const im = document.createElement("img"); im.src = t.dataset.full || t.src; im.alt = t.alt;
+  box.appendChild(im); box.onclick = () => box.remove();
+  document.addEventListener("keydown", function esc(k){ if (k.key === "Escape") { box.remove(); document.removeEventListener("keydown", esc); } });
+  document.body.appendChild(box);
 });
 </script>
 </body>
