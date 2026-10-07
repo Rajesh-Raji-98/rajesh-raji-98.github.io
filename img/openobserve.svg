@@ -1,0 +1,49 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 600 340" font-family="Poppins,Segoe UI,Arial,sans-serif">
+  <defs>
+    <linearGradient id="bg" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#0b1222"/><stop offset="1" stop-color="#111c33"/></linearGradient>
+    <marker id="a" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto"><path d="M0 0L10 5L0 10z" fill="#38bdf8"/></marker>
+  </defs>
+  <rect width="600" height="340" rx="14" fill="url(#bg)"/>
+  <text x="24" y="34" fill="#e5e7eb" font-size="15" font-weight="600">Unified observability pipeline</text>
+  <text x="24" y="52" fill="#94a3b8" font-size="10.5">Logs, metrics and traces from every layer into one platform</text>
+
+  <g font-size="10.5" fill="#cbd5e1">
+    <rect x="24" y="74" width="120" height="34" rx="7" fill="#16213e" stroke="#334155"/><text x="84" y="95" text-anchor="middle">Kubernetes pods</text>
+    <rect x="24" y="116" width="120" height="34" rx="7" fill="#16213e" stroke="#334155"/><text x="84" y="137" text-anchor="middle">Java microservices</text>
+    <rect x="24" y="158" width="120" height="34" rx="7" fill="#16213e" stroke="#334155"/><text x="84" y="179" text-anchor="middle">WSO2 ESB / APIM</text>
+    <rect x="24" y="200" width="120" height="34" rx="7" fill="#16213e" stroke="#334155"/><text x="84" y="221" text-anchor="middle">Data-lake engines</text>
+    <rect x="24" y="242" width="120" height="34" rx="7" fill="#16213e" stroke="#334155"/><text x="84" y="263" text-anchor="middle">Gen AI workloads</text>
+  </g>
+
+  <g stroke="#38bdf8" stroke-width="1.6" fill="none" marker-end="url(#a)">
+    <path d="M144 91 C175 91 175 175 196 175"/><path d="M144 133 C170 133 175 175 196 175"/>
+    <path d="M144 175 L196 175"/><path d="M144 217 C170 217 175 175 196 175"/><path d="M144 259 C175 259 175 175 196 175"/>
+  </g>
+
+  <rect x="198" y="140" width="96" height="70" rx="10" fill="#0f2a44" stroke="#38bdf8"/>
+  <text x="246" y="168" text-anchor="middle" fill="#e5e7eb" font-size="11" font-weight="600">OTel Agent</text>
+  <text x="246" y="186" text-anchor="middle" fill="#94a3b8" font-size="9.5">+ Gateway</text>
+  <text x="246" y="200" text-anchor="middle" fill="#94a3b8" font-size="9">push &amp; pull</text>
+
+  <path d="M294 175 L330 175" stroke="#38bdf8" stroke-width="1.8" marker-end="url(#a)"/>
+
+  <rect x="332" y="96" width="132" height="158" rx="12" fill="#0f2a44" stroke="#64ffda" stroke-width="1.5"/>
+  <text x="398" y="122" text-anchor="middle" fill="#64ffda" font-size="13" font-weight="700">OpenObserve</text>
+  <g font-size="10.5" fill="#e5e7eb">
+    <rect x="348" y="136" width="100" height="28" rx="6" fill="#16213e"/><text x="398" y="154" text-anchor="middle">Logs</text>
+    <rect x="348" y="170" width="100" height="28" rx="6" fill="#16213e"/><text x="398" y="188" text-anchor="middle">Metrics</text>
+    <rect x="348" y="204" width="100" height="28" rx="6" fill="#16213e"/><text x="398" y="222" text-anchor="middle">Traces</text>
+  </g>
+
+  <g stroke="#38bdf8" stroke-width="1.6" fill="none" marker-end="url(#a)">
+    <path d="M464 150 C485 150 485 112 500 112"/><path d="M464 200 C485 200 485 238 500 238"/>
+  </g>
+  <rect x="502" y="90" width="80" height="44" rx="8" fill="#16213e" stroke="#334155"/>
+  <text x="542" y="109" text-anchor="middle" fill="#e5e7eb" font-size="10.5">Dashboards</text>
+  <text x="542" y="124" text-anchor="middle" fill="#94a3b8" font-size="9">trace drill-down</text>
+  <rect x="502" y="216" width="80" height="44" rx="8" fill="#16213e" stroke="#334155"/>
+  <text x="542" y="235" text-anchor="middle" fill="#e5e7eb" font-size="10.5">83 alerts</text>
+  <text x="542" y="250" text-anchor="middle" fill="#94a3b8" font-size="9">Telegram · Email</text>
+
+  <text x="300" y="316" text-anchor="middle" fill="#94a3b8" font-size="10">trace_id in every log line · one screen from alert to root cause</text>
+</svg>

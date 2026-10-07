@@ -1,0 +1,37 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 600 340" font-family="Poppins,Segoe UI,Arial,sans-serif">
+  <defs><linearGradient id="bg" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#0b1222"/><stop offset="1" stop-color="#111c33"/></linearGradient></defs>
+  <rect width="600" height="340" rx="14" fill="url(#bg)"/>
+  <text x="24" y="34" fill="#e5e7eb" font-size="15" font-weight="600">OSS Engine Overview</text>
+  <text x="24" y="52" fill="#94a3b8" font-size="10.5">Health of every Data Lake House service on one screen</text>
+  <g font-size="9.5">
+    <rect x="420" y="22" width="56" height="20" rx="10" fill="#064e3b"/><text x="448" y="36" text-anchor="middle" fill="#6ee7b7">UP</text>
+    <rect x="482" y="22" width="56" height="20" rx="10" fill="#7f1d1d"/><text x="510" y="36" text-anchor="middle" fill="#fca5a5">DOWN</text>
+    <rect x="544" y="22" width="40" height="20" rx="10" fill="#713f12"/><text x="564" y="36" text-anchor="middle" fill="#fcd34d">N/A</text>
+  </g>
+  <g font-size="11" fill="#e5e7eb">
+    <!-- row 1 -->
+    <rect x="24" y="70" width="104" height="54" rx="8" fill="#16213e" stroke="#334155"/><circle cx="40" cy="88" r="5" fill="#34d399"/><text x="52" y="92">Airflow</text><text x="40" y="114" fill="#94a3b8" font-size="9">DAGs · tasks</text>
+    <rect x="138" y="70" width="104" height="54" rx="8" fill="#16213e" stroke="#334155"/><circle cx="154" cy="88" r="5" fill="#34d399"/><text x="166" y="92">Trino</text><text x="154" y="114" fill="#94a3b8" font-size="9">queries · latency</text>
+    <rect x="252" y="70" width="104" height="54" rx="8" fill="#16213e" stroke="#334155"/><circle cx="268" cy="88" r="5" fill="#34d399"/><text x="280" y="92">Spark</text><text x="268" y="114" fill="#94a3b8" font-size="9">jobs · executors</text>
+    <rect x="366" y="70" width="104" height="54" rx="8" fill="#16213e" stroke="#334155"/><circle cx="382" cy="88" r="5" fill="#34d399"/><text x="394" y="92">Livy</text><text x="382" y="114" fill="#94a3b8" font-size="9">sessions</text>
+    <rect x="480" y="70" width="96" height="54" rx="8" fill="#16213e" stroke="#334155"/><circle cx="496" cy="88" r="5" fill="#34d399"/><text x="508" y="92">Kafka</text><text x="496" y="114" fill="#94a3b8" font-size="9">lag · brokers</text>
+    <!-- row 2 -->
+    <rect x="24" y="134" width="104" height="54" rx="8" fill="#16213e" stroke="#334155"/><circle cx="40" cy="152" r="5" fill="#34d399"/><text x="52" y="156">Druid</text><text x="40" y="178" fill="#94a3b8" font-size="9">segments</text>
+    <rect x="138" y="134" width="104" height="54" rx="8" fill="#16213e" stroke="#334155"/><circle cx="154" cy="152" r="5" fill="#34d399"/><text x="166" y="156">MinIO</text><text x="154" y="178" fill="#94a3b8" font-size="9">storage · requests</text>
+    <rect x="252" y="134" width="104" height="54" rx="8" fill="#16213e" stroke="#7f1d1d"/><circle cx="268" cy="152" r="5" fill="#f87171"/><text x="280" y="156">Ranger</text><text x="268" y="178" fill="#94a3b8" font-size="9">policies · Solr</text>
+    <rect x="366" y="134" width="104" height="54" rx="8" fill="#16213e" stroke="#334155"/><circle cx="382" cy="152" r="5" fill="#34d399"/><text x="394" y="156">OpenMetadata</text><text x="382" y="178" fill="#94a3b8" font-size="9">ingestion</text>
+    <rect x="480" y="134" width="96" height="54" rx="8" fill="#16213e" stroke="#334155"/><circle cx="496" cy="152" r="5" fill="#34d399"/><text x="508" y="156">Hasura</text><text x="496" y="178" fill="#94a3b8" font-size="9">GraphQL</text>
+    <!-- row 3 -->
+    <rect x="24" y="198" width="104" height="54" rx="8" fill="#16213e" stroke="#334155"/><circle cx="40" cy="216" r="5" fill="#34d399"/><text x="52" y="220">InfluxDB</text><text x="40" y="242" fill="#94a3b8" font-size="9">writes</text>
+    <rect x="138" y="198" width="104" height="54" rx="8" fill="#16213e" stroke="#334155"/><circle cx="154" cy="216" r="5" fill="#34d399"/><text x="166" y="220">MobilityDB</text><text x="154" y="242" fill="#94a3b8" font-size="9">connections</text>
+    <rect x="252" y="198" width="104" height="54" rx="8" fill="#16213e" stroke="#334155"/><circle cx="268" cy="216" r="5" fill="#fbbf24"/><text x="280" y="220">NiFi</text><text x="268" y="242" fill="#94a3b8" font-size="9">flow files</text>
+  </g>
+  <g font-size="10" fill="#cbd5e1">
+    <rect x="366" y="198" width="210" height="54" rx="8" fill="#0f2a44" stroke="#38bdf8"/>
+    <text x="380" y="218" fill="#e5e7eb" font-size="11" font-weight="600">Each service dashboard</text>
+    <text x="380" y="236">Health · latency · JVM · pod health</text>
+  </g>
+  <rect x="24" y="268" width="552" height="46" rx="8" fill="#16213e" stroke="#334155"/>
+  <polyline points="40,302 80,296 120,299 160,288 200,293 240,284 280,290 320,280 360,286 400,276 440,283 480,272 520,279 560,270" fill="none" stroke="#38bdf8" stroke-width="2"/>
+  <text x="40" y="282" fill="#94a3b8" font-size="9">Request latency (trend)</text>
+</svg>

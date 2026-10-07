@@ -1,0 +1,30 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 600 340" font-family="Poppins,Segoe UI,Arial,sans-serif">
+  <defs><linearGradient id="bg" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#0b1222"/><stop offset="1" stop-color="#111c33"/></linearGradient></defs>
+  <rect width="600" height="340" rx="14" fill="url(#bg)"/>
+  <text x="24" y="34" fill="#e5e7eb" font-size="15" font-weight="600">One incident call, one trace</text>
+  <text x="24" y="52" fill="#94a3b8" font-size="10.5">Every hop of the I999 vendor API with its own timing</text>
+  <!-- time axis -->
+  <g stroke="#1e293b"><line x1="170" y1="66" x2="170" y2="296"/><line x1="270" y1="66" x2="270" y2="296"/><line x1="370" y1="66" x2="370" y2="296"/><line x1="470" y1="66" x2="470" y2="296"/><line x1="570" y1="66" x2="570" y2="296"/></g>
+  <g font-size="10.5" fill="#cbd5e1">
+    <text x="24" y="84">API gateway</text>
+    <text x="36" y="110">WSO2 ESB</text>
+    <text x="48" y="136">Vault config</text>
+    <text x="48" y="162">IoT ops + Redis</text>
+    <text x="48" y="188">Command centre</text>
+    <text x="36" y="214" fill="#fcd34d">Reply to caller</text>
+    <text x="36" y="246" fill="#a78bfa">Recommendation</text>
+    <text x="48" y="272" fill="#a78bfa">GIS + workforce</text>
+  </g>
+  <g>
+    <rect x="170" y="73" width="400" height="15" rx="4" fill="#38bdf8"/>
+    <rect x="186" y="99" width="250" height="15" rx="4" fill="#7c9cf5"/>
+    <rect x="200" y="125" width="34" height="15" rx="4" fill="#34d399"/>
+    <rect x="236" y="151" width="46" height="15" rx="4" fill="#34d399"/>
+    <rect x="286" y="177" width="120" height="15" rx="4" fill="#34d399"/>
+    <rect x="410" y="203" width="22" height="15" rx="4" fill="#fbbf24"/>
+    <rect x="300" y="235" width="250" height="15" rx="4" fill="#a78bfa" opacity=".85"/>
+    <rect x="340" y="261" width="170" height="15" rx="4" fill="#a78bfa" opacity=".6"/>
+  </g>
+  <line x1="24" y1="226" x2="576" y2="226" stroke="#334155" stroke-dasharray="4 4"/>
+  <text x="300" y="316" text-anchor="middle" fill="#94a3b8" font-size="10">Caller's path on top · background recommendation below · same trace_id</text>
+</svg>

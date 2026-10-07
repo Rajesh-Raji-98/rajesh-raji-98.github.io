@@ -496,6 +496,10 @@ footer h2{
   to { text-shadow:0 0 80px var(--accent-glow); }
 }
 /* Added: photo, plain cert cards, mobile layout */
+#projects .grid{grid-template-columns:repeat(auto-fit,minmax(340px,1fr));}
+#projects .card{padding:1.6rem 1.4rem 2rem;}
+#projects .card:hover{transform:translateY(-10px) scale(1.03);}
+#projects .card img{aspect-ratio:600/340;object-fit:cover;background:#0b1222;}
 .hero img{aspect-ratio:4/5;object-fit:cover;max-width:420px;justify-self:center;}
 .cert-plain{padding:2.2rem 1.8rem;max-width:300px;width:100%;}
 .cert-plain i{font-size:4rem;margin-bottom:1.2rem;}
@@ -590,8 +594,8 @@ body.light .card h3{color:var(--text-light);}
     </div>
     <div class="card glass glow">
       <i class="fas fa-search"></i>
-      <h3>ELK Stack 9</h3>
-      <p>Filebeat → Logstash → Elasticsearch → Kibana. Upgraded production logging from 8.8 to 9.5.3.</p>
+      <h3>ELK Stack</h3>
+      <p>Filebeat → Logstash → Elasticsearch → Kibana. Centralised, searchable production logs with API and ESB analytics.</p>
     </div>
     <div class="card glass glow">
       <i class="fas fa-bell"></i>
@@ -620,7 +624,7 @@ body.light .card h3{color:var(--text-light);}
   <h2>Featured <span>Projects</span></h2>
   <div class="grid">
     <div class="card glass glow">
-      <i class="fas fa-layer-group"></i>
+      <img src="img/openobserve.svg" alt="OpenObserve unified observability pipeline" loading="lazy">
       <h3>OpenObserve Unified Observability Platform</h3>
       <p>An R&amp;D build of a complete OpenObserve stack, so every production issue can be investigated in one place.</p>
       <ul>
@@ -634,7 +638,7 @@ body.light .card h3{color:var(--text-light);}
     </div>
 
     <div class="card glass glow">
-      <i class="fas fa-database"></i>
+      <img src="img/dlh.svg" alt="OSS Engine Overview service health" loading="lazy">
       <h3>DLH Service Overview Dashboards</h3>
       <p>The OSS Engine Overview plus 13 per-service Grafana dashboards for the Data Lake House.</p>
       <ul>
@@ -646,7 +650,7 @@ body.light .card h3{color:var(--text-light);}
     </div>
 
     <div class="card glass glow">
-      <i class="fas fa-route"></i>
+      <img src="img/i999.svg" alt="I999 end-to-end trace timeline" loading="lazy">
       <h3>I999 Vendor API End-to-End Trace</h3>
       <p>Full distributed trace of the I999 emergency-incident API call.</p>
       <ul>
@@ -658,7 +662,7 @@ body.light .card h3{color:var(--text-light);}
     </div>
 
     <div class="card glass glow">
-      <i class="fas fa-brain"></i>
+      <img src="img/genai.svg" alt="Gen AI observability flow" loading="lazy">
       <h3>Gen AI Observability</h3>
       <p>Brought AI workloads into the same observability platform.</p>
       <ul>
@@ -671,13 +675,13 @@ body.light .card h3{color:var(--text-light);}
     </div>
 
     <div class="card glass glow">
-      <i class="fas fa-shield-alt"></i>
+      <img src="img/lnm.svg" alt="Production LnM Helm platform" loading="lazy">
       <h3>Production LnM Platform (TAC)</h3>
       <p>Logging and monitoring for 20–25 go-live smart-city and IoT projects.</p>
       <ul>
         <li>17-chart LnM Helm suite: Prometheus, VictoriaMetrics, Grafana, ELK, InfluxDB, Uptime Kuma, Alertmanager</li>
         <li>Alerts raise Jira tickets, which are resolved or assigned, followed up and closed</li>
-        <li>ELK upgraded from 8.8 to 9.5.3</li>
+        <li>Centralised logs in ELK, metrics in Prometheus and VictoriaMetrics</li>
       </ul>
       <p class="impact">Impact: issues fixed at warning level, before they affect the SLO</p>
     </div>
