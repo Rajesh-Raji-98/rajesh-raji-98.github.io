@@ -495,6 +495,27 @@ footer h2{
   from { text-shadow:0 0 40px var(--accent-glow); }
   to { text-shadow:0 0 80px var(--accent-glow); }
 }
+/* Added: photo, plain cert cards, mobile layout */
+.hero img{aspect-ratio:4/5;object-fit:cover;max-width:420px;justify-self:center;}
+.cert-plain{padding:2.2rem 1.8rem;max-width:300px;width:100%;}
+.cert-plain i{font-size:4rem;margin-bottom:1.2rem;}
+.cert-plain p{font-size:1.1rem;color:var(--accent);font-weight:600;}
+.cert-plain small{color:var(--muted);}
+body.light .card h3{color:var(--text-light);}
+@media (max-width:760px){
+  nav{flex-direction:column;gap:.8rem;padding:1rem;}
+  nav div{display:flex;flex-wrap:wrap;justify-content:center;gap:.4rem .9rem;}
+  nav a{margin-left:0;}
+  .container{padding:2rem 1rem;}
+  .hero{grid-template-columns:1fr;gap:1.5rem;text-align:center;}
+  .hero img{max-width:260px;}
+  .hero h1{font-size:2.1rem;}
+  .btn{margin:.4rem;}
+  .grid{grid-template-columns:1fr;}
+  .card:hover{transform:translateY(-6px);}
+  section h2{font-size:1.9rem;}
+  .contact-item{padding:.8rem 1.4rem;font-size:1rem;word-break:break-all;}
+}
 </style>
 </head>
 <body>
@@ -512,34 +533,34 @@ footer h2{
   </nav>
 
   <div class="hero" id="about">
-    <img src="https://thumbs.dreamstime.com/b/architect-portrait-indian-man-city-smile-experience-pride-urban-development-happy-career-site-planner-town-confidence-428920393.jpg" alt="DevOps Engineer">
+    <img src="photo.jpg" alt="Rajeshkumar K" onerror="this.onerror=null;this.src='avatar.svg'">
     <div>
       <p>Hello, I’m</p>
       <h1><span>Rajeshkumar K</span></h1>
-      <h3>Associate DevOps & Observability Engineer</h3>
+      <h3>Associate DevOps Engineer · Observability (Logging &amp; Monitoring)</h3>
       <p class="skills-line">Skills: <span id="typing"></span></p>
-      <p class="description">Passionate about building reliable, scalable systems with modern monitoring and automation tools. Experienced in Prometheus, Grafana, Azure AKS, Kubernetes, and more.</p>
-      <a class="btn" href="#">Download CV</a>
+      <p class="description">I work in the Technical Assistance Center at Trinity Mobility, where I own logging and monitoring for 20–25 live smart-city and IoT projects and fix problems at the warning stage, before they reach production users. I am currently leading R&amp;D to bring logs, metrics and traces for the whole platform into one place with OpenObserve and OpenTelemetry, including Gen AI workloads.</p>
+      <a class="btn" href="Rajeshkumar-K-Resume.pdf" download>Download CV</a>
       <a class="btn outline" href="#contact">Contact Me</a>
     </div>
   </div>
 
   <div class="stats">
     <div>
-      <span class="count" data-target="1.5">0</span>
-      <p>Years Of Experience</p>
+      <span class="count" data-target="1.5" data-suffix="+">0</span>
+      <p>Years in DevOps &amp; Observability</p>
     </div>
     <div>
-      <span class="count" data-target="75">0</span>
-      <p>Grafana/Kibana Dashboards Built</p>
+      <span class="count" data-target="20" data-suffix="+">0</span>
+      <p>Production Projects Monitored</p>
     </div>
     <div>
-      <span class="count" data-target="23">0</span>
-      <p>Prod Systems Monitored</p>
+      <span class="count" data-target="14">0</span>
+      <p>DLH Service Dashboards Built</p>
     </div>
     <div>
-      <span class="count" data-target="99.99">0</span>
-      <p>Uptime Focus (%)</p>
+      <span class="count" data-target="83">0</span>
+      <p>Real-time Alerts Designed</p>
     </div>
   </div>
 </div>
@@ -548,94 +569,140 @@ footer h2{
   <h2>My <span>Expertise</span></h2>
   <div class="grid">
     <div class="card glass glow">
-      <i class="fas fa-chart-line"></i>
-      <h3>Prometheus</h3>
-      <p>Node/Windows exporters, PromQL optimization, alerting for VMs & databases.</p>
+      <i class="fas fa-eye"></i>
+      <h3>OpenObserve</h3>
+      <p>End-to-end install and build on Kubernetes: logs, metrics and traces in one place, with alert pipelines and dashboards.</p>
+    </div>
+    <div class="card glass glow">
+      <i class="fas fa-project-diagram"></i>
+      <h3>OpenTelemetry</h3>
+      <p>Agent and gateway collectors, OTLP logs, distributed tracing and trace–log correlation for Java, WSO2 ESB/APIM, NiFi and data-lake services.</p>
     </div>
     <div class="card glass glow">
       <i class="fas fa-tachometer-alt"></i>
       <h3>Grafana</h3>
-      <p>Dashboards for alerts, microservices (Graphite), pods, VMs, DBs, performance, uptime & API/ESB.</p>
+      <p>Service-health dashboards for the Data Lake House, microservices (JVM, Python), Airflow, ports, pods, nodes and databases.</p>
     </div>
     <div class="card glass glow">
-      <i class="fas fa-window-restore"></i>
-      <h3>Azure AKS</h3>
-      <p>AKS management, VMs, networking, monitoring, IAM & technical support.</p>
-    </div>
-    <div class="card glass glow">
-      <i class="fas fa-code-branch"></i>
-      <h3>ArgoCD</h3>
-      <p>Automated deployments across environments.</p>
-    </div>
-    <div class="card glass glow">
-      <i class="fas fa-heartbeat"></i>
-      <h3>Uptime Kuma</h3>
-      <p>Uptime & service availability monitoring.</p>
+      <i class="fas fa-chart-line"></i>
+      <h3>Prometheus &amp; Exporters</h3>
+      <p>Prometheus, VictoriaMetrics, node, kube-state, JMX, Actuator, Kafka, Postgres, MSSQL and MQTT exporters.</p>
     </div>
     <div class="card glass glow">
       <i class="fas fa-search"></i>
-      <h3>ELK Stack</h3>
-      <p>Filebeat → Logstash → Elasticsearch → Kibana; API/ESB analytics dashboards.</p>
+      <h3>ELK Stack 9</h3>
+      <p>Filebeat → Logstash → Elasticsearch → Kibana. Upgraded production logging from 8.8 to 9.5.3.</p>
     </div>
     <div class="card glass glow">
       <i class="fas fa-bell"></i>
-      <h3>Alertmanager</h3>
-      <p>Alert routing to email & Telegram.</p>
+      <h3>Alerting &amp; Incidents</h3>
+      <p>Warning 70%, Critical 80% and Disaster 90%+ severities, routed to Telegram, email and Jira so issues are fixed before they hit the SLO.</p>
     </div>
     <div class="card glass glow">
       <i class="fas fa-cubes"></i>
-      <h3>Kubernetes</h3>
-      <p>Cluster management in on-prem & cloud.</p>
+      <h3>Kubernetes &amp; Helm</h3>
+      <p>On-prem and Azure AKS clusters. Maintain a 17-chart LnM Helm suite, deployed with ArgoCD (GitOps).</p>
+    </div>
+    <div class="card glass glow">
+      <i class="fas fa-robot"></i>
+      <h3>Gen AI Observability</h3>
+      <p>GPU monitoring, LiveKit, Langfuse, LiteLLM and n8n agent workflows: model, token and cost tracking.</p>
     </div>
     <div class="card glass glow">
       <i class="fas fa-server"></i>
-      <h3>Nginx</h3>
-      <p>Reverse proxy, load balancing & ingress controller.</p>
+      <h3>Nginx &amp; Linux</h3>
+      <p>Reverse proxy, load balancing, ingress and day-to-day Linux operations.</p>
     </div>
   </div>
 </section>
 
-<!-- ──────────────────────────────────────────────── -->
-<!--               NEW PROJECTS SECTION               -->
-<!-- ──────────────────────────────────────────────── -->
 <section id="projects" class="container">
   <h2>Featured <span>Projects</span></h2>
   <div class="grid">
     <div class="card glass glow">
-      <img src="https://via.placeholder.com/600x340/0f172a/38bdf8?text=LnM+Observability+Architecture" alt="LnM Monitoring Architecture Diagram">
-      <h3>Production LnM Observability Platform</h3>
-      <p>Centralized Logs + Metrics monitoring platform built for 20+ critical production systems on Azure AKS and Kubernetes clusters.</p>
+      <i class="fas fa-layer-group"></i>
+      <h3>OpenObserve Unified Observability Platform</h3>
+      <p>An R&amp;D build of a complete OpenObserve stack, so every production issue can be investigated in one place.</p>
       <ul>
-        <li>Prometheus + Node/Windows exporters collecting 1000+ metrics</li>
-        <li>ELK Stack (Filebeat → Logstash → Elasticsearch → Kibana) for centralized structured logs</li>
-        <li>75+ custom Grafana dashboards covering pods, nodes, DBs, APIs, ESB & business KPIs</li>
-        <li>Alertmanager integrated with Telegram & email routing</li>
-        <li>Deployments using ArgoCD for zero-downtime updates</li>
-        <li>Nginx ingress monitoring & reverse proxy observability</li>
+        <li>OpenTelemetry agent and gateway collectors (push and pull split)</li>
+        <li>Kubernetes events, node and container metrics, OTLP logs</li>
+        <li>Distributed tracing with trace_id in logs: 50/50 end-to-end trace checks passed</li>
+        <li>45 alert pipelines and 83 real-time alerts across 9 categories</li>
       </ul>
-      <p class="impact">Impact: 99.99%+ uptime visibility • Reduced MTTD from hours to minutes • Adopted by dev & ops teams</p>
-      <a href="https://github.com/your-username/lnm-observability" target="_blank" class="btn outline" style="margin-top:1.2rem;">View on GitHub</a>
+      <p class="impact">Impact: one screen for logs, metrics and traces across the platform</p>
     </div>
 
-    <!-- You can duplicate the above <div class="card glass glow"> block for more projects later -->
+    <div class="card glass glow">
+      <i class="fas fa-database"></i>
+      <h3>DLH Service Overview Dashboards</h3>
+      <p>The OSS Engine Overview plus 13 per-service Grafana dashboards for the Data Lake House.</p>
+      <ul>
+        <li>Airflow, Trino, Spark, Livy, Kafka, Druid, MinIO, Ranger, OpenMetadata, Hasura, InfluxDB, MobilityDB</li>
+        <li>UP / DOWN / UNREACHABLE health, latency, JVM and pod health</li>
+        <li>Added missing scrape jobs and exporter fixes to feed every panel</li>
+      </ul>
+      <p class="impact">Impact: health of the whole data platform on a single screen</p>
+    </div>
+
+    <div class="card glass glow">
+      <i class="fas fa-route"></i>
+      <h3>I999 Vendor API End-to-End Trace</h3>
+      <p>Full distributed trace of the I999 emergency-incident API call.</p>
+      <ul>
+        <li>API gateway → WSO2 ESB → Vault → IoT operations service and Redis → command-centre application</li>
+        <li>Background fire-station recommendation flow in the same trace</li>
+        <li>Per-hop timing used to find delays and validate an earlier caller reply</li>
+      </ul>
+      <p class="impact">Impact: every hop of a critical vendor call is visible and measurable</p>
+    </div>
+
+    <div class="card glass glow">
+      <i class="fas fa-brain"></i>
+      <h3>Gen AI Observability</h3>
+      <p>Brought AI workloads into the same observability platform.</p>
+      <ul>
+        <li>GPU monitoring</li>
+        <li>LiveKit, LiteLLM and Langfuse</li>
+        <li>n8n agent traces sent to both Langfuse and OpenObserve with model, token and cost details</li>
+      </ul>
+      <p class="impact">Impact: AI agents monitored like any other production service</p>
+    </div>
+
+    <div class="card glass glow">
+      <i class="fas fa-shield-alt"></i>
+      <h3>Production LnM Platform (TAC)</h3>
+      <p>Logging and monitoring for 20–25 go-live smart-city and IoT projects.</p>
+      <ul>
+        <li>17-chart LnM Helm suite: Prometheus, VictoriaMetrics, Grafana, ELK, InfluxDB, Uptime Kuma, Alertmanager</li>
+        <li>Alerts raise Jira tickets, which are resolved or assigned, followed up and closed</li>
+        <li>ELK upgraded from 8.8 to 9.5.3</li>
+      </ul>
+      <p class="impact">Impact: issues fixed at warning level, before they affect the SLO</p>
+    </div>
   </div>
 </section>
 
 <section id="certs" class="container">
-  <h2>Azure <span>Certifications</span></h2>
+  <h2><span>Certifications</span></h2>
   <div class="glass">
     <div class="certs-badges">
       <div class="badge-item card glass glow" data-verify="https://learn.microsoft.com/api/credentials/share/en-gb/RajeshKumarK-3290/5E8E02F430E698BE?sharingId=9D1D9ACCF6BE6917">
         <img src="https://images.credly.com/images/be8fcaeb-c769-4858-b567-ffaaa73ce8cf/linkedin_thumb_image.png" alt="AZ-900 Azure Fundamentals">
         <p>AZ-900 Azure Fundamentals</p>
       </div>
-      <div class="badge-item card glass glow" data-verify="#">
-        <img src="https://images.credly.com/images/336eebfc-0ac3-4553-9a67-b402f491f185/linkedin_thumb_azure-administrator-associate-600x600.png" alt="AZ-104 Azure Administrator Associate">
-        <p>AZ-104 Azure Administrator Associate</p>
+      <div class="card glass glow cert-plain">
+        <i class="fas fa-certificate"></i>
+        <p>DevOps Engineer Internship</p>
+        <small>IBM with StarAgile · 2024</small>
+      </div>
+      <div class="card glass glow cert-plain">
+        <i class="fas fa-medal"></i>
+        <p>NCC "C" Certificate</p>
+        <small>Cadet Under Officer · 2019</small>
       </div>
     </div>
   </div>
-  <p class="certs-note">Click any badge to view & verify certificate</p>
+  <p class="certs-note">Click the Azure badge to view and verify the certificate</p>
 </section>
 
 <footer id="contact">
@@ -651,7 +718,7 @@ footer h2{
       <i class="fab fa-linkedin-in"></i> LinkedIn Profile
     </a>
   </div>
-  <div class="copyright">© 2026 Rajeshkumar K · DevOps & Observability Engineer </div>
+  <div class="copyright">© 2026 Rajeshkumar K · DevOps &amp; Observability Engineer</div>
 </footer>
 
 <script>
@@ -667,17 +734,17 @@ document.addEventListener("DOMContentLoaded", () => {
     function update() {
       current += increment;
       if (current < target) {
-        counter.textContent = target % 1 !== 0 ? current.toFixed(2) : Math.floor(current);
+        counter.textContent = target % 1 !== 0 ? current.toFixed(1) : Math.floor(current);
         requestAnimationFrame(update);
       } else {
-        counter.textContent = target.toFixed(target % 1 ? 2 : 0) + (target % 1 ? '' : (target === 99.99 ? '%' : '+'));
+        counter.textContent = (target % 1 ? target.toFixed(1) : target) + (counter.dataset.suffix || '');
         counter.classList.add('complete');
       }
     }
     update();
   });
 
-  const skills = ["Prometheus", "Grafana", "Azure AKS", "ArgoCD", "Uptime Kuma", "ELK Stack", "Alertmanager", "Kubernetes", "Nginx"];
+  const skills = ["OpenObserve", "OpenTelemetry", "Grafana", "Prometheus", "ELK Stack", "Kubernetes", "Helm", "ArgoCD", "Langfuse", "Gen AI Observability"];
   const typing = document.getElementById("typing");
   let i = 0, j = 0;
   function typeSkill() {
