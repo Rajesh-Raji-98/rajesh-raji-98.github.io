@@ -606,7 +606,7 @@ body.light .card h3{color:var(--text-light);}
     <div class="card glass glow">
       <i class="fas fa-robot"></i>
       <h3>Gen AI Observability</h3>
-      <p>GPU monitoring, LiveKit, Langfuse, LiteLLM and n8n agent workflows: model, token and cost tracking.</p>
+      <p>Langfuse setup, n8n agent tracing, LiteLLM gateway, LiveKit voice AI and GPU monitoring, with model, token and cost tracking.</p>
     </div>
     <div class="card glass glow">
       <i class="fas fa-server"></i>
@@ -627,6 +627,7 @@ body.light .card h3{color:var(--text-light);}
         <li>OpenTelemetry agent and gateway collectors (push and pull split)</li>
         <li>Kubernetes events, node and container metrics, OTLP logs</li>
         <li>Distributed tracing with trace_id in logs: 50/50 end-to-end trace checks passed</li>
+        <li>Trace-level dashboards: rate, errors and latency per service, with drill-down to traces and logs</li>
         <li>45 alert pipelines and 83 real-time alerts across 9 categories</li>
       </ul>
       <p class="impact">Impact: one screen for logs, metrics and traces across the platform</p>
@@ -661,9 +662,10 @@ body.light .card h3{color:var(--text-light);}
       <h3>Gen AI Observability</h3>
       <p>Brought AI workloads into the same observability platform.</p>
       <ul>
-        <li>GPU monitoring</li>
-        <li>LiveKit, LiteLLM and Langfuse</li>
+        <li>Self-hosted Langfuse behind SSO for the agentic AI, voice AI and guardrails projects</li>
         <li>n8n agent traces sent to both Langfuse and OpenObserve with model, token and cost details</li>
+        <li>LiteLLM model gateway tracked by provider, model and error type</li>
+        <li>LiveKit voice AI stack and GPU usage monitored, with alerts</li>
       </ul>
       <p class="impact">Impact: AI agents monitored like any other production service</p>
     </div>
