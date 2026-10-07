@@ -153,11 +153,32 @@ nav .wrap{display:flex;align-items:center;justify-content:space-between;height:6
 .contact .btn.o{background:transparent;color:#fff;border-color:rgba(255,255,255,.6)}
 footer{padding:28px 0;color:var(--muted);font-size:.9rem;text-align:center}
 
+.kgrid{display:grid;grid-template-columns:repeat(3,1fr);gap:20px}
+.kcard{background:var(--card);border:1px solid var(--line);border-top:4px solid var(--accent);border-radius:16px;padding:24px;box-shadow:var(--shadow)}
+.khead{display:flex;align-items:center;gap:12px;margin-bottom:12px}
+.khead i{font-size:1.15rem;color:var(--accent);background:var(--accent-soft);width:42px;height:42px;display:grid;place-items:center;border-radius:10px}
+.khead h3{font-size:1.12rem}
+.kcard ul{display:grid;gap:8px;padding-left:18px;font-size:.96rem}
+.kcard li::marker{color:var(--accent)}
+.journey{list-style:none;display:grid;gap:16px;position:relative;margin-bottom:32px}
+.journey:before{content:"";position:absolute;left:23px;top:10px;bottom:10px;width:2px;background:linear-gradient(var(--accent),var(--accent-2))}
+.journey li{display:grid;grid-template-columns:48px 1fr;gap:18px;align-items:start;position:relative}
+.journey .step{width:48px;height:48px;border-radius:50%;display:grid;place-items:center;font-family:"Plus Jakarta Sans",sans-serif;font-weight:800;font-size:1.1rem;color:#fff;background:linear-gradient(135deg,var(--accent),var(--accent-2));box-shadow:0 0 0 6px var(--bg-soft)}
+.journey li>div{background:var(--card);border:1px solid var(--line);border-radius:14px;padding:18px 22px;box-shadow:var(--shadow)}
+.journey h3{font-size:1.12rem;margin-bottom:6px}
+.journey p{color:var(--muted)}
+.journey p b{color:var(--text)}
+.rstats{display:grid;grid-template-columns:repeat(5,1fr);gap:14px}
+.rstats div{text-align:center;padding:20px 10px;border-radius:16px;background:linear-gradient(145deg,#0f1b33,#0b1222);border:1px solid rgba(56,189,248,.22)}
+.rstats b{display:block;font-family:"Plus Jakarta Sans",sans-serif;font-size:2rem;font-weight:800;background:linear-gradient(90deg,#38bdf8,#64ffda);-webkit-background-clip:text;background-clip:text;color:transparent}
+.rstats span{color:#9fb3cc;font-size:.88rem}
 /* lightbox */
 .lightbox{position:fixed;inset:0;background:rgba(2,6,23,.92);display:flex;align-items:center;justify-content:center;z-index:200;padding:2vh 2vw;cursor:zoom-out}
 .lightbox img{max-width:96vw;max-height:94vh;border-radius:10px;background:#fff}
 
 @media (max-width:900px){
+  .kgrid{grid-template-columns:1fr}
+  .rstats{grid-template-columns:repeat(2,1fr)}
   .pillars.four{grid-template-columns:1fr}
   .case.wide .text{grid-template-columns:1fr}
   .case.wide .text .pbr{grid-column:1;grid-row:auto}
@@ -178,7 +199,8 @@ footer{padding:28px 0;color:var(--muted);font-size:.9rem;text-align:center}
   <div class="wrap">
     <a class="logo" href="#top">Rajeshkumar<span>.</span>K</a>
     <div class="links">
-      <a class="hide-m" href="#work">What I do</a>
+      <a class="hide-m" href="#kubernetes">Kubernetes</a>
+      <a class="hide-m" href="#rnd">OpenObserve R&amp;D</a>
       <a class="hide-s" href="#cases">Case studies</a>
       <a class="hide-m" href="#skills">Skills</a>
       <a class="hide-m" href="#contact">Contact</a>
@@ -249,6 +271,92 @@ footer{padding:28px 0;color:var(--muted);font-size:.9rem;text-align:center}
             <ul><li>Prometheus, Grafana, ELK, OpenObserve</li><li>Alerts at 70 / 80 / 90% raise Jira tickets</li><li>Distributed tracing with OpenTelemetry</li></ul>
           </div>
         </div>
+  </div>
+</section>
+
+<section id="kubernetes">
+  <div class="wrap">
+    <div class="sec-head">
+      <span class="eyebrow">Kubernetes · hands-on</span>
+      <h2>What I actually do on Kubernetes</h2>
+      <p>Day-to-day work on production and R&amp;D clusters: not just running pods, but keeping the platform healthy, secure and correctly deployed.</p>
+    </div>
+    <div class="kgrid">
+      <div class="kcard">
+        <div class="khead"><i class="fa-solid fa-rocket"></i><h3>Deploy &amp; release</h3></div>
+        <ul>
+          <li>Releases through <b>ArgoCD (GitOps)</b> and <b>Helm</b></li>
+          <li>Helm values reviewed with <b>kubectl diff</b> against the live cluster before every rollout</li>
+          <li>Restructured chart values into one clean file per chart, with shared defaults</li>
+          <li>Full application-flow validation after each deploy</li>
+        </ul>
+      </div>
+      <div class="kcard">
+        <div class="khead"><i class="fa-solid fa-stethoscope"></i><h3>Troubleshoot workloads</h3></div>
+        <ul>
+          <li>CrashLoopBackOff, <b>OOMKilled</b> and slow-start pods: right-sized CPU and memory limits</li>
+          <li>Fixed a <b>NodeAffinity</b> bug in a chart and a Service port mapped to the wrong container port</li>
+          <li>Pods losing scrape annotations after GitOps sync, found and fixed</li>
+        </ul>
+      </div>
+      <div class="kcard">
+        <div class="khead"><i class="fa-solid fa-network-wired"></i><h3>Networking</h3></div>
+        <ul>
+          <li><b>Calico</b> networking issues fixed and written up as a team runbook</li>
+          <li>Service DNS, ports and Nginx ingress / load-balancer paths</li>
+          <li>Collectors repointed to in-cluster service DNS instead of external addresses</li>
+        </ul>
+      </div>
+      <div class="kcard">
+        <div class="khead"><i class="fa-solid fa-hard-drive"></i><h3>Storage &amp; nodes</h3></div>
+        <ul>
+          <li>NFS-backed persistent volumes: diagnosed slow boots and bloated data directories</li>
+          <li>Node <b>DiskPressure</b> and log/storage growth caught and cleaned up</li>
+          <li>Node clock drift (NTP) found as the cause of wrong query results</li>
+        </ul>
+      </div>
+      <div class="kcard">
+        <div class="khead"><i class="fa-solid fa-user-shield"></i><h3>Access &amp; security</h3></div>
+        <ul>
+          <li><b>RBAC</b>: fixed service-account permissions behind a crash-looping exporter</li>
+          <li>Secrets and tokens rotated in collectors after auth changes</li>
+          <li>Exposed services and Nginx hardened; certificate expiry automated</li>
+        </ul>
+      </div>
+      <div class="kcard">
+        <div class="khead"><i class="fa-solid fa-gears"></i><h3>Operators &amp; observability on K8s</h3></div>
+        <ul>
+          <li>OpenTelemetry Operator custom resources, DaemonSet log agents, gateway Deployments</li>
+          <li>kube-state-metrics, cAdvisor, node exporter and Kubernetes events collected</li>
+          <li>Pod-annotation auto-discovery for application metrics</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="alt" id="rnd">
+  <div class="wrap">
+    <div class="sec-head">
+      <span class="eyebrow">OpenObserve R&amp;D · end to end</span>
+      <h2>Building a unified observability platform</h2>
+      <p>I own the R&amp;D to move the company's logs, metrics and traces into OpenObserve with OpenTelemetry. Here is the work, step by step.</p>
+    </div>
+    <ol class="journey">
+      <li><span class="step">1</span><div><h3>Install &amp; run OpenObserve on Kubernetes</h3><p>Deployed and hardened OpenObserve on the cluster, fixed boot hangs on NFS storage, tuned memory to stop OOM restarts, and kept it stable through a major release change.</p></div></li>
+      <li><span class="step">2</span><div><h3>Design the collection layer</h3><p>OpenTelemetry <b>agent + gateway</b> collectors with a clear split: applications <b>push</b> telemetry, the gateway <b>pulls</b> all scrape targets. Removed duplicate ingestion and noisy data.</p></div></li>
+      <li><span class="step">3</span><div><h3>Onboard services</h3><p>Java microservices, WSO2 ESB / API Manager, NiFi, CEP, LDAP, IDAM and 13 data-lake engines (Kafka, Trino, Spark, Airflow, Druid and more), including rebuilt images where instrumentation was missing.</p></div></li>
+      <li><span class="step">4</span><div><h3>Traces + logs together</h3><p>Distributed tracing with <b>trace_id in every log line</b> (log4j MDC) and a single OTLP logging standard, so one click goes from a slow request to its logs. <b>50 / 50</b> end-to-end trace checks passed.</p></div></li>
+      <li><span class="step">5</span><div><h3>Alerting that people trust</h3><p>Rebuilt alerting as <b>45 pipelines and 83 real-time alerts</b> over 47 health metrics, with stable alert keys, 9 categories and routing to Telegram, email and incident management.</p></div></li>
+      <li><span class="step">6</span><div><h3>Dashboards &amp; hand-over</h3><p>Trace-level dashboards, the DLH service overview, and OpenObserve dashboards migrated to Grafana; plus <b>20+ study guides and runbooks</b> so the team can run it without me.</p></div></li>
+    </ol>
+    <div class="rstats">
+      <div><b>50 / 50</b><span>trace checks passed</span></div>
+      <div><b>45</b><span>alert pipelines</span></div>
+      <div><b>83</b><span>real-time alerts</span></div>
+      <div><b>13</b><span>data-lake engines onboarded</span></div>
+      <div><b>20+</b><span>guides &amp; runbooks</span></div>
+    </div>
   </div>
 </section>
 
