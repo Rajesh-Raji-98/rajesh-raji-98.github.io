@@ -160,6 +160,8 @@ footer{padding:28px 0;color:var(--muted);font-size:.9rem;text-align:center}
 .khead h3{font-size:1.12rem}
 .kcard ul{display:grid;gap:8px;padding-left:18px;font-size:.96rem}
 .kcard li::marker{color:var(--accent)}
+.subhead{font-size:1.25rem;margin:8px 0 18px}
+.devgrid{margin-bottom:40px}
 .journey{list-style:none;display:grid;gap:16px;position:relative;margin-bottom:32px}
 .journey:before{content:"";position:absolute;left:23px;top:10px;bottom:10px;width:2px;background:linear-gradient(var(--accent),var(--accent-2))}
 .journey li{display:grid;grid-template-columns:48px 1fr;gap:18px;align-items:start;position:relative}
@@ -200,7 +202,7 @@ footer{padding:28px 0;color:var(--muted);font-size:.9rem;text-align:center}
     <a class="logo" href="#top">Rajeshkumar<span>.</span>K</a>
     <div class="links">
       <a class="hide-m" href="#kubernetes">Kubernetes</a>
-      <a class="hide-m" href="#rnd">OpenObserve R&amp;D</a>
+      <a class="hide-m" href="#rnd">OpenObserve</a>
       <a class="hide-s" href="#cases">Case studies</a>
       <a class="hide-m" href="#skills">Skills</a>
       <a class="hide-m" href="#contact">Contact</a>
@@ -215,13 +217,13 @@ footer{padding:28px 0;color:var(--muted);font-size:.9rem;text-align:center}
     <div>
       <span class="eyebrow">Associate DevOps Engineer · Kubernetes · Observability</span>
       <h1>I make production problems <em>visible before users feel them.</em></h1>
-      <p class="lead">I keep <b>Kubernetes-based production platforms</b> healthy for <b>20–25 live smart-city and IoT projects</b> at Trinity Mobility: deploying and validating releases, resolving client issues end to end, closing security gaps, and building observability with <b>OpenObserve</b> and <b>OpenTelemetry</b> so problems are caught early.</p>
+      <p class="lead">I run and monitor <b>Kubernetes-based production platforms</b> every day for <b>20–25 live smart-city and IoT projects</b> at Trinity Mobility: deploying and validating releases, resolving client issues end to end, closing security gaps, and building observability with <b>OpenObserve</b> and <b>OpenTelemetry</b> so problems are caught early.</p>
       <div class="cta">
         <a class="btn btn-primary" href="#cases"><i class="fa-solid fa-layer-group"></i> See my work</a>
         <a class="btn btn-ghost" href="Rajeshkumar-K-Resume.pdf" download><i class="fa-solid fa-file-arrow-down"></i> Download resume</a>
       </div>
       <div class="chips">
-        <span class="chip">Kubernetes</span><span class="chip">ArgoCD</span><span class="chip">Helm</span><span class="chip">Prometheus</span><span class="chip">Grafana</span><span class="chip">OpenObserve</span><span class="chip">ELK</span><span class="chip">Nginx</span>
+        <span class="chip">Kubernetes</span><span class="chip">OpenObserve</span><span class="chip">OpenTelemetry</span><span class="chip">ArgoCD</span><span class="chip">Helm</span><span class="chip">Prometheus</span><span class="chip">Grafana</span><span class="chip">ELK</span>
       </div>
     </div>
     <div class="photo">
@@ -243,14 +245,20 @@ footer{padding:28px 0;color:var(--muted);font-size:.9rem;text-align:center}
     <div class="sec-head">
       <span class="eyebrow">What I do</span>
       <h2>What I am good at</h2>
-      <p>Running Kubernetes in production, owning client issues to the root cause, and making every problem visible early.</p>
+      <p>Two core skills, Kubernetes and OpenObserve + OpenTelemetry, backed by hands-on client support and security work.</p>
     </div>
     <div class="pillars four">
           <div class="pillar main">
             <i class="fa-solid fa-dharmachakra"></i>
             <h3>Kubernetes in production</h3>
             <p>My core skill, on-prem and Azure AKS.</p>
-            <ul><li>Deployments with ArgoCD and Helm</li><li>Full application-flow validation after every build, server or deployment change</li><li>Pods, networking (Calico), storage and ingress troubleshooting</li></ul>
+            <ul><li>Deployments with ArgoCD and Helm</li><li>Full application-flow validation after every build, server or deployment change</li><li>Daily cluster health monitoring: nodes, pods, restarts, resources and storage</li></ul>
+          </div>
+          <div class="pillar main">
+            <i class="fa-solid fa-diagram-project"></i>
+            <h3>OpenObserve &amp; OpenTelemetry</h3>
+            <p>Where most of my development work happens today.</p>
+            <ul><li>Pipelines, VRL functions, alerts and dashboards built in OpenObserve</li><li>OpenTelemetry agent + gateway collectors, tracing and OTLP logs</li><li>Automation through the OpenObserve API</li></ul>
           </div>
           <div class="pillar">
             <i class="fa-solid fa-headset"></i>
@@ -264,12 +272,6 @@ footer{padding:28px 0;color:var(--muted);font-size:.9rem;text-align:center}
             <p>Closing exposures before they become incidents.</p>
             <ul><li>Exposed domains and services secured</li><li>Nginx and server hardening</li><li>Certificate expiry automation</li></ul>
           </div>
-          <div class="pillar">
-            <i class="fa-solid fa-eye"></i>
-            <h3>Observability</h3>
-            <p>Seeing problems before users feel them.</p>
-            <ul><li>Prometheus, Grafana, ELK, OpenObserve</li><li>Alerts at 70 / 80 / 90% raise Jira tickets</li><li>Distributed tracing with OpenTelemetry</li></ul>
-          </div>
         </div>
   </div>
 </section>
@@ -279,7 +281,7 @@ footer{padding:28px 0;color:var(--muted);font-size:.9rem;text-align:center}
     <div class="sec-head">
       <span class="eyebrow">Kubernetes · hands-on</span>
       <h2>What I actually do on Kubernetes</h2>
-      <p>Day-to-day work on production and R&amp;D clusters: not just running pods, but keeping the platform healthy, secure and correctly deployed.</p>
+      <p>My main skill. Day-to-day work on production and R&amp;D clusters: monitoring them every day, deploying correctly, and fixing what breaks.</p>
     </div>
     <div class="kgrid">
       <div class="kcard">
@@ -297,14 +299,15 @@ footer{padding:28px 0;color:var(--muted);font-size:.9rem;text-align:center}
           <li>CrashLoopBackOff, <b>OOMKilled</b> and slow-start pods: right-sized CPU and memory limits</li>
           <li>Fixed a <b>NodeAffinity</b> bug in a chart and a Service port mapped to the wrong container port</li>
           <li>Pods losing scrape annotations after GitOps sync, found and fixed</li>
+          <li><b>Calico</b> networking issues fixed and written up as a runbook</li>
         </ul>
       </div>
       <div class="kcard">
-        <div class="khead"><i class="fa-solid fa-network-wired"></i><h3>Networking</h3></div>
+        <div class="khead"><i class="fa-solid fa-heart-pulse"></i><h3>Daily cluster monitoring</h3></div>
         <ul>
-          <li><b>Calico</b> networking issues fixed and written up as a team runbook</li>
-          <li>Service DNS, ports and Nginx ingress / load-balancer paths</li>
-          <li>Collectors repointed to in-cluster service DNS instead of external addresses</li>
+          <li>Node and pod health, restarts, OOM kills and evictions watched across all live projects</li>
+          <li>CPU, memory, disk and PVC usage alerts at <b>70 / 80 / 90%</b>, each raising a Jira ticket</li>
+          <li>Kubernetes events and kube-state-metrics in OpenObserve and Grafana, checked every day</li>
         </ul>
       </div>
       <div class="kcard">
@@ -338,10 +341,20 @@ footer{padding:28px 0;color:var(--muted);font-size:.9rem;text-align:center}
 <section class="alt" id="rnd">
   <div class="wrap">
     <div class="sec-head">
-      <span class="eyebrow">OpenObserve R&amp;D · end to end</span>
+      <span class="eyebrow">OpenObserve &amp; OpenTelemetry · core skill</span>
       <h2>Building a unified observability platform</h2>
-      <p>I own the R&amp;D to move the company's logs, metrics and traces into OpenObserve with OpenTelemetry. Here is the work, step by step.</p>
+      <p>I own the R&amp;D to move the company's logs, metrics and traces into OpenObserve with OpenTelemetry. Most of my development work now happens inside OpenObserve.</p>
     </div>
+    <h3 class="subhead">What I build in OpenObserve</h3>
+    <div class="kgrid devgrid">
+      <div class="kcard"><div class="khead"><i class="fa-solid fa-code-branch"></i><h3>Pipelines &amp; VRL functions</h3></div><ul><li>Real-time and scheduled pipelines that filter, enrich and route data</li><li>VRL functions to clean and standardise fields across services</li></ul></div>
+      <div class="kcard"><div class="khead"><i class="fa-solid fa-bell"></i><h3>Alerts</h3></div><ul><li>Real-time and scheduled alert rules with stable keys and de-duplication</li><li>Routed to Telegram, email and incident management</li></ul></div>
+      <div class="kcard"><div class="khead"><i class="fa-solid fa-chart-column"></i><h3>Dashboards</h3></div><ul><li>Service, trace-level and platform dashboards with SQL and PromQL</li><li>Drill-down from a panel to the trace and its logs</li></ul></div>
+      <div class="kcard"><div class="khead"><i class="fa-solid fa-database"></i><h3>Streams &amp; ingestion</h3></div><ul><li>Stream schemas, retention and ingestion tuning</li><li>Noisy and duplicate data dropped at the collector gateway</li></ul></div>
+      <div class="kcard"><div class="khead"><i class="fa-solid fa-route"></i><h3>Traces &amp; logs</h3></div><ul><li>trace_id in every log line, one OTLP logging standard</li><li>Span metrics for rate, errors and latency per service</li></ul></div>
+      <div class="kcard"><div class="khead"><i class="fa-solid fa-robot"></i><h3>Automation via API</h3></div><ul><li>Scripts that create and update dashboards, alerts and pipelines through the OpenObserve API</li><li>Backups and repeatable rollouts across environments</li></ul></div>
+    </div>
+    <h3 class="subhead">How the platform was built</h3>
     <ol class="journey">
       <li><span class="step">1</span><div><h3>Install &amp; run OpenObserve on Kubernetes</h3><p>Deployed and hardened OpenObserve on the cluster, fixed boot hangs on NFS storage, tuned memory to stop OOM restarts, and kept it stable through a major release change.</p></div></li>
       <li><span class="step">2</span><div><h3>Design the collection layer</h3><p>OpenTelemetry <b>agent + gateway</b> collectors with a clear split: applications <b>push</b> telemetry, the gateway <b>pulls</b> all scrape targets. Removed duplicate ingestion and noisy data.</p></div></li>
@@ -517,7 +530,8 @@ footer{padding:28px 0;color:var(--muted);font-size:.9rem;text-align:center}
     <div class="sec-head"><span class="eyebrow">Skills</span><h2>Tools I use every day</h2></div>
     <div class="skills">
       <div class="skill main"><h3><i class="fa-solid fa-dharmachakra"></i>Kubernetes &amp; delivery</h3><div class="chips"><span class="chip">Kubernetes</span><span class="chip">kubectl</span><span class="chip">Azure AKS</span><span class="chip">ArgoCD</span><span class="chip">Helm</span><span class="chip">Calico</span><span class="chip">Docker</span><span class="chip">Nginx</span><span class="chip">Linux</span></div></div>
-      <div class="skill"><h3><i class="fa-solid fa-chart-line"></i>Observability</h3><div class="chips"><span class="chip plain">OpenObserve</span><span class="chip plain">OpenTelemetry</span><span class="chip plain">Grafana</span><span class="chip plain">Prometheus</span><span class="chip plain">VictoriaMetrics</span><span class="chip plain">InfluxDB</span><span class="chip plain">Uptime Kuma</span></div></div>
+      <div class="skill main"><h3><i class="fa-solid fa-diagram-project"></i>OpenObserve &amp; OpenTelemetry</h3><div class="chips"><span class="chip">OpenObserve</span><span class="chip">OpenTelemetry</span><span class="chip">OTel Collector</span><span class="chip">OTel Operator</span><span class="chip">Pipelines</span><span class="chip">VRL functions</span><span class="chip">OpenObserve API</span></div></div>
+      <div class="skill"><h3><i class="fa-solid fa-chart-line"></i>Monitoring</h3><div class="chips"><span class="chip plain">Prometheus</span><span class="chip plain">Grafana</span><span class="chip plain">VictoriaMetrics</span><span class="chip plain">InfluxDB</span><span class="chip plain">Uptime Kuma</span><span class="chip plain">kube-state-metrics</span></div></div>
       <div class="skill"><h3><i class="fa-solid fa-file-lines"></i>Logs &amp; alerting</h3><div class="chips"><span class="chip plain">ELK Stack</span><span class="chip plain">Alertmanager</span><span class="chip plain">Telegram / email</span><span class="chip plain">Jira</span><span class="chip plain">SLO-based alerting</span></div></div>
       <div class="skill"><h3><i class="fa-solid fa-route"></i>Tracing</h3><div class="chips"><span class="chip plain">Distributed tracing</span><span class="chip plain">trace–log correlation</span><span class="chip plain">OTLP</span><span class="chip plain">JMX / Actuator</span></div></div>
       <div class="skill"><h3><i class="fa-solid fa-shield-halved"></i>Security &amp; support</h3><div class="chips"><span class="chip plain">Server hardening</span><span class="chip plain">Certificate automation</span><span class="chip plain">RCA</span><span class="chip plain">Jira</span><span class="chip plain">Gen AI monitoring (beginner)</span></div></div>
