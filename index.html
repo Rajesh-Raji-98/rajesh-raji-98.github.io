@@ -280,57 +280,55 @@ footer{padding:28px 0;color:var(--muted);font-size:.9rem;text-align:center}
   <div class="wrap">
     <div class="sec-head">
       <span class="eyebrow">Kubernetes · hands-on</span>
-      <h2>What I actually do on Kubernetes</h2>
-      <p>My main skill. Day-to-day work on production and R&amp;D clusters: monitoring them every day, deploying correctly, and fixing what breaks.</p>
+      <h2>Kubernetes in production</h2>
+      <p>My main skill. I operate multi-cluster Kubernetes for 20&ndash;25 live projects: GitOps releases, workload reliability, stateful storage, security and cluster-wide observability.</p>
     </div>
     <div class="kgrid">
       <div class="kcard">
-        <div class="khead"><i class="fa-solid fa-rocket"></i><h3>Deploy &amp; release</h3></div>
+        <div class="khead"><i class="fa-solid fa-network-wired"></i><h3>Multi-cluster operations</h3></div>
         <ul>
-          <li>Releases through <b>ArgoCD (GitOps)</b> and <b>Helm</b></li>
-          <li>Helm values reviewed with <b>kubectl diff</b> against the live cluster before every rollout</li>
-          <li>Restructured chart values into one clean file per chart, with shared defaults</li>
-          <li>Full application-flow validation after each deploy</li>
+          <li>On-prem and <b>Azure AKS</b> clusters across production, integration and R&amp;D</li>
+          <li>Hosting <b>20&ndash;25 live projects</b>, with node, pod and capacity health reviewed daily</li>
+          <li>Capacity alerts at <b>70 / 80 / 90%</b> that open Jira tickets before users are affected</li>
         </ul>
       </div>
       <div class="kcard">
-        <div class="khead"><i class="fa-solid fa-stethoscope"></i><h3>Troubleshoot workloads</h3></div>
+        <div class="khead"><i class="fa-solid fa-code-branch"></i><h3>GitOps release engineering</h3></div>
         <ul>
-          <li>CrashLoopBackOff, <b>OOMKilled</b> and slow-start pods: right-sized CPU and memory limits</li>
-          <li>Fixed a <b>NodeAffinity</b> bug in a chart and a Service port mapped to the wrong container port</li>
-          <li>Pods losing scrape annotations after GitOps sync, found and fixed</li>
-          <li><b>Calico</b> networking issues fixed and written up as a runbook</li>
+          <li>Releases through <b>ArgoCD</b> sync and <b>Helm</b> charts</li>
+          <li>Refactored chart values to one file per environment with shared defaults</li>
+          <li>Every change verified with <b>kubectl diff</b> against live state; full application-flow validation after each release</li>
         </ul>
       </div>
       <div class="kcard">
-        <div class="khead"><i class="fa-solid fa-heart-pulse"></i><h3>Daily cluster monitoring</h3></div>
+        <div class="khead"><i class="fa-solid fa-stethoscope"></i><h3>Workload reliability &amp; RCA</h3></div>
         <ul>
-          <li>Node and pod health, restarts, OOM kills and evictions watched across all live projects</li>
-          <li>CPU, memory, disk and PVC usage alerts at <b>70 / 80 / 90%</b>, each raising a Jira ticket</li>
-          <li>Kubernetes events and kube-state-metrics in OpenObserve and Grafana, checked every day</li>
+          <li>Right-sized <b>requests and limits</b> to end OOMKilled and CrashLoopBackOff loops</li>
+          <li>Fixed <b>NodeAffinity</b> scheduling and Service-to-container port bugs in Helm charts</li>
+          <li>Found GitOps drift that silently dropped pod annotations, and fixed it at the source</li>
         </ul>
       </div>
       <div class="kcard">
-        <div class="khead"><i class="fa-solid fa-hard-drive"></i><h3>Storage &amp; nodes</h3></div>
+        <div class="khead"><i class="fa-solid fa-hard-drive"></i><h3>Stateful workloads &amp; storage</h3></div>
         <ul>
-          <li>NFS-backed persistent volumes: diagnosed slow boots and bloated data directories</li>
-          <li>Node <b>DiskPressure</b> and log/storage growth caught and cleaned up</li>
-          <li>Node clock drift (NTP) found as the cause of wrong query results</li>
+          <li><b>NFS-backed PV/PVC</b>: diagnosed boot hangs caused by bloated data directories</li>
+          <li>Node <b>DiskPressure</b> and storage growth caught and resolved</li>
+          <li>Node <b>NTP clock drift</b> traced as the root cause of wrong query results</li>
         </ul>
       </div>
       <div class="kcard">
-        <div class="khead"><i class="fa-solid fa-user-shield"></i><h3>Access &amp; security</h3></div>
+        <div class="khead"><i class="fa-solid fa-user-shield"></i><h3>Cluster security</h3></div>
         <ul>
-          <li><b>RBAC</b>: fixed service-account permissions behind a crash-looping exporter</li>
-          <li>Secrets and tokens rotated in collectors after auth changes</li>
-          <li>Exposed services and Nginx hardened; certificate expiry automated</li>
+          <li>Least-privilege <b>service accounts</b> for cluster exporters</li>
+          <li><b>Secrets and tokens</b> rotated across collectors after auth changes</li>
+          <li>Exposed services closed, <b>Nginx ingress</b> hardened, certificate expiry automated</li>
         </ul>
       </div>
       <div class="kcard">
-        <div class="khead"><i class="fa-solid fa-gears"></i><h3>Operators &amp; observability on K8s</h3></div>
+        <div class="khead"><i class="fa-solid fa-gears"></i><h3>Operators &amp; cluster observability</h3></div>
         <ul>
-          <li>OpenTelemetry Operator custom resources, DaemonSet log agents, gateway Deployments</li>
-          <li>kube-state-metrics, cAdvisor, node exporter and Kubernetes events collected</li>
+          <li><b>OpenTelemetry Operator</b> custom resources, DaemonSet agents and gateway Deployments</li>
+          <li>kube-state-metrics, cAdvisor, node exporter and Kubernetes events</li>
           <li>Pod-annotation auto-discovery for application metrics</li>
         </ul>
       </div>
@@ -388,10 +386,10 @@ footer{padding:28px 0;color:var(--muted);font-size:.9rem;text-align:center}
         <p class="strength">Every release and every incident ends with the whole application flow verified.</p>
         <div class="pbr">
           <div><b>Problem</b><p>After a build, a server change or an outage, "pods are running" did not always mean the application actually worked end to end.</p></div>
-          <div><b>What I do</b><p>Deploy with ArgoCD and Helm, then validate the full flow: pods and probes, services, ingress and the real request path. Troubleshoot networking (Calico), storage and resource limits, and document fixes as reusable runbooks.</p></div>
+          <div><b>What I do</b><p>Deploy with ArgoCD and Helm, then validate the full flow: pods and probes, services, ingress and the real request path. Root-cause OOMKilled and CrashLoopBackOff workloads, scheduling and storage issues, and right-size requests and limits.</p></div>
           <div class="r"><b>Result</b><p>Releases and recoveries are confirmed working for users, not just started, and repeat issues are fixed once for the whole team.</p></div>
         </div>
-        <div class="chips"><span class="chip plain">Kubernetes</span><span class="chip plain">ArgoCD</span><span class="chip plain">Helm</span><span class="chip plain">Calico</span><span class="chip plain">Azure AKS</span><span class="chip plain">Nginx ingress</span></div>
+        <div class="chips"><span class="chip plain">Kubernetes</span><span class="chip plain">ArgoCD</span><span class="chip plain">Helm</span><span class="chip plain">Azure AKS</span><span class="chip plain">Nginx ingress</span></div>
       </div>
       <div class="visual">
         <figure><img class="zoom" src="img/d-k8s.svg" alt="Build, deploy, validate, watch"><figcaption><span>Release and recovery flow</span><i class="fa-solid fa-magnifying-glass-plus"></i></figcaption></figure>
@@ -529,7 +527,7 @@ footer{padding:28px 0;color:var(--muted);font-size:.9rem;text-align:center}
   <div class="wrap">
     <div class="sec-head"><span class="eyebrow">Skills</span><h2>Tools I use every day</h2></div>
     <div class="skills">
-      <div class="skill main"><h3><i class="fa-solid fa-dharmachakra"></i>Kubernetes &amp; delivery</h3><div class="chips"><span class="chip">Kubernetes</span><span class="chip">kubectl</span><span class="chip">Azure AKS</span><span class="chip">ArgoCD</span><span class="chip">Helm</span><span class="chip">Calico</span><span class="chip">Docker</span><span class="chip">Nginx</span><span class="chip">Linux</span></div></div>
+      <div class="skill main"><h3><i class="fa-solid fa-dharmachakra"></i>Kubernetes &amp; delivery</h3><div class="chips"><span class="chip">Kubernetes</span><span class="chip">kubectl</span><span class="chip">Azure AKS</span><span class="chip">ArgoCD</span><span class="chip">Helm</span><span class="chip">Docker</span><span class="chip">Nginx</span><span class="chip">Linux</span></div></div>
       <div class="skill main"><h3><i class="fa-solid fa-diagram-project"></i>OpenObserve &amp; OpenTelemetry</h3><div class="chips"><span class="chip">OpenObserve</span><span class="chip">OpenTelemetry</span><span class="chip">OTel Collector</span><span class="chip">OTel Operator</span><span class="chip">Pipelines</span><span class="chip">VRL functions</span><span class="chip">OpenObserve API</span></div></div>
       <div class="skill"><h3><i class="fa-solid fa-chart-line"></i>Monitoring</h3><div class="chips"><span class="chip plain">Prometheus</span><span class="chip plain">Grafana</span><span class="chip plain">VictoriaMetrics</span><span class="chip plain">InfluxDB</span><span class="chip plain">Uptime Kuma</span><span class="chip plain">kube-state-metrics</span></div></div>
       <div class="skill"><h3><i class="fa-solid fa-file-lines"></i>Logs &amp; alerting</h3><div class="chips"><span class="chip plain">ELK Stack</span><span class="chip plain">Alertmanager</span><span class="chip plain">Telegram / email</span><span class="chip plain">Jira</span><span class="chip plain">SLO-based alerting</span></div></div>
