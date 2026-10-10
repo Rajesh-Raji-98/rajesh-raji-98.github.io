@@ -4,9 +4,9 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>Rajeshkumar K · DevOps Engineer</title>
-<meta name="description" content="Rajeshkumar K, DevOps Engineer: Kubernetes in production from cluster build to SLA, and OpenObserve + OpenTelemetry observability R&amp;D lead.">
+<meta name="description" content="Rajeshkumar K, DevOps Engineer: OpenObserve + OpenTelemetry observability R&amp;D lead and production SLA owner for 20+ live Kubernetes projects.">
 <meta property="og:title" content="Rajeshkumar K · DevOps Engineer">
-<meta property="og:description" content="Kubernetes in production, from cluster build to SLA. OpenObserve &amp; OpenTelemetry R&amp;D lead.">
+<meta property="og:description" content="50% OpenObserve &amp; OpenTelemetry R&amp;D lead, 50% production SLA owner for 20+ live projects.">
 <meta property="og:url" content="https://rajeshkumark65.github.io/">
 <meta property="og:image" content="https://rajeshkumark65.github.io/og-card.png">
 <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -109,6 +109,37 @@ section{padding:120px 0;position:relative}
 .facts dt{color:var(--mute)}
 .facts dd{text-align:right;font-weight:500}
 .facts blockquote{font-family:var(--serif);font-style:italic;font-size:26px;line-height:1.2;margin-top:28px;color:var(--ink2)}
+
+/* ---------- how I work ---------- */
+.split{display:grid;grid-template-columns:1fr 1fr;gap:16px}
+.half{background:var(--card);border:1px solid var(--line);border-radius:24px;padding:34px;box-shadow:var(--shadow)}
+.half.dark{background:var(--navy);color:#fff;border-color:var(--navy)}
+.half .pct{font-size:86px;font-weight:700;letter-spacing:-.06em;line-height:.9}
+.half .pct span{font-size:inherit}
+.half .k{font-family:var(--mono);font-size:11px;letter-spacing:.2em;text-transform:uppercase;color:var(--mute);margin-top:14px}
+.half.dark .k{color:#b6b8dc}
+.half h3{font-size:26px;letter-spacing:-.02em;margin:6px 0 10px}
+.half p{color:var(--ink2);font-size:15.5px}
+.half.dark p{color:#c6c8e6}.half.dark b{color:#fff}
+.half ul{list-style:none;margin-top:16px;display:grid;gap:8px}
+.half li{font-size:14.5px;padding-left:18px;position:relative}
+.half li:before{content:"";position:absolute;left:0;top:9px;width:7px;height:7px;border-radius:2px;background:var(--navy2)}
+.half.dark li:before{background:#9ea2ff}
+.meter{height:6px;border-radius:4px;background:var(--bg2);margin-top:24px;overflow:hidden}
+.half.dark .meter{background:rgba(255,255,255,.15)}
+.meter b{display:block;height:100%;background:var(--gold);border-radius:4px}
+.subhead{font-size:20px;letter-spacing:-.01em;margin:56px 0 18px}
+.pipe{list-style:none;display:grid;grid-template-columns:repeat(6,1fr);gap:10px;counter-reset:p}
+.pipe li{position:relative;background:var(--card);border:1px solid var(--line);border-radius:16px;padding:18px 16px;box-shadow:var(--shadow);overflow:hidden}
+.pipe li:not(:last-child):after{content:"→";position:absolute;right:-9px;top:50%;transform:translateY(-50%);z-index:2;width:18px;height:18px;border-radius:50%;background:var(--navy);color:#fff;font-size:11px;display:grid;place-items:center}
+.pipe li:before{content:"";position:absolute;left:0;top:0;height:3px;width:0;background:var(--navy2);animation:flow 6s infinite}
+.pipe li:nth-child(2):before{animation-delay:1s}.pipe li:nth-child(3):before{animation-delay:2s}.pipe li:nth-child(4):before{animation-delay:3s}.pipe li:nth-child(5):before{animation-delay:4s}.pipe li:nth-child(6):before{animation-delay:5s;background:var(--ok)}
+@keyframes flow{0%{width:0}15%{width:100%}100%{width:100%;opacity:0}}
+.pipe .ic{font-family:var(--mono);font-size:11px;color:var(--mute)}
+.pipe b{display:block;font-size:18px;letter-spacing:-.01em;margin-top:8px}
+.pipe small{display:block;color:var(--ink2);font-size:12.5px;margin-top:4px;line-height:1.35}
+.pipe li.ok{border-color:var(--ok)}
+.pipe li.ok b{color:var(--ok)}
 
 /* ---------- skills ---------- */
 .fam{display:flex;gap:8px;flex-wrap:wrap;margin-bottom:22px}
@@ -234,7 +265,7 @@ section{padding:120px 0;position:relative}
 @media (max-width:1080px){
   .about-grid{grid-template-columns:1fr 1fr}.lanyard{grid-row:span 2;margin-top:0}
   .ptable{grid-template-columns:1fr}.detail{position:static;min-height:0}
-  .moments{grid-template-columns:repeat(2,1fr)}
+  .moments{grid-template-columns:repeat(2,1fr)}.pipe{grid-template-columns:repeat(3,1fr)}.pipe li:nth-child(3):after{display:none}
   .acc{flex-direction:column;height:auto}.panel{flex:none;min-height:64px}
   .panel .vt{flex-direction:row;padding:0 22px}.panel .vt h3{writing-mode:horizontal-tb;transform:none;font-size:17px}
   .panel.open .vt{display:none}.pc{position:relative;min-width:0;grid-template-columns:1fr;display:none;padding:26px}.panel.open .pc{display:grid}
@@ -252,7 +283,7 @@ section{padding:120px 0;position:relative}
   .tl .rail{left:12px}.step{grid-template-columns:28px 1fr;gap:10px 14px;margin-bottom:40px}
   .step .pin{order:1!important;justify-self:start;margin-left:4px}.step .yr{order:2!important;text-align:left!important;font-size:42px}
   .step .card{order:3!important;grid-column:2}
-  .moments{grid-template-columns:1fr}
+  .moments{grid-template-columns:1fr}.split{grid-template-columns:1fr}.half{padding:26px}.half .pct{font-size:64px}.pipe{grid-template-columns:1fr 1fr}.pipe li:after{display:none}
   .contact{margin:0 8px 8px;border-radius:22px}
 }
 @media (prefers-reduced-motion:reduce){*{animation:none!important;transition:none!important}.reveal{opacity:1;transform:none}}
@@ -262,7 +293,7 @@ section{padding:120px 0;position:relative}
 
 <a class="brand" href="#top">Rajeshkumar <i>K.</i></a>
 <nav class="nav" id="nav">
-  <a href="#about">About</a><a href="#skills">Skills</a><a href="#work">Work</a><a href="#experience">Experience</a><a href="#moments">Highlights</a><a href="#contact">Contact</a>
+  <a href="#about">About</a><a href="#how">Role</a><a href="#skills">Skills</a><a href="#work">Work</a><a href="#experience">Experience</a><a href="#moments">Highlights</a><a href="#contact">Contact</a>
 </nav>
 
 <!-- HERO -->
@@ -271,8 +302,8 @@ section{padding:120px 0;position:relative}
     <div class="ghost">RAJESH</div>
     <div class="hero-l reveal">
       <div class="who">Rajeshkumar K</div>
-      <h1>DevOps<br>Engineer.<span class="serif">Kubernetes &amp; observability</span></h1>
-      <p class="sub">I keep production Kubernetes inside its SLA, from cluster build to go-live and every day after, for 20+ live smart-city and IoT projects.</p>
+      <h1>DevOps<br>Engineer.<span class="serif">Observability &amp; production</span></h1>
+      <p class="sub">Half my work is leading observability R&amp;D on OpenObserve. The other half is keeping 20+ live smart-city and IoT projects inside their SLA.</p>
     </div>
     <div class="figure">
       <div class="halo"></div>
@@ -280,7 +311,7 @@ section{padding:120px 0;position:relative}
       <div class="live"><span class="dot"></span> Open to DevOps &amp; SRE roles</div>
     </div>
     <div class="hero-r reveal">
-      <div class="tags"><span>Kubernetes · GitOps</span><span>OpenObserve · OpenTelemetry</span><span>Bengaluru, India</span></div>
+      <div class="tags"><span>50% OpenObserve R&amp;D</span><span>50% Production · SLA</span><span>Bengaluru, India</span></div>
       <a class="btn dark" href="#work">Explore my work <svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M3 8h10M9 4l4 4-4 4"/></svg></a>
       <a class="btn ghostb" href="../Rajeshkumar-K-Resume.pdf" target="_blank">Résumé <svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M8 2v9M4 7l4 4 4-4M3 14h10"/></svg></a>
     </div>
@@ -294,8 +325,9 @@ section{padding:120px 0;position:relative}
     <div class="about-l reveal">
       <div class="eyebrow"><b>01</b> About</div>
       <h2 class="big">Hi, I'm <span class="serif">Rajesh.</span></h2>
-      <p>DevOps engineer at Trinity Mobility, where I run production Kubernetes for 20+ live smart-city and IoT projects. I build clusters, ship releases through GitOps, validate the whole application flow, and keep every platform inside its SLA after go-live.</p>
-      <p>I also lead the company's observability R&amp;D on <b>OpenObserve</b> and <b>OpenTelemetry</b>: one platform for logs, metrics and traces, so problems are caught before clients feel them.</p>
+      <p>DevOps engineer at Trinity Mobility. My role is split evenly between two jobs.</p>
+      <p><b>50% R&amp;D lead:</b> I lead the company's move to <b>OpenObserve</b> and <b>OpenTelemetry</b>, bringing every service's logs, traces and metrics into one platform.</p>
+      <p><b>50% production:</b> I own daily production issues for 20+ live projects through LnM monitoring and Jira tickets, keep every platform inside its SLA, and install new clusters when a project needs one.</p>
       <div class="row">
         <a class="btn dark" href="../Rajeshkumar-K-Resume.pdf" target="_blank">Résumé ↓</a>
         <a class="btn ghostb" href="https://www.linkedin.com/in/rajeshkumark65/" target="_blank">LinkedIn ↗</a>
@@ -311,16 +343,16 @@ section{padding:120px 0;position:relative}
             <div class="ph"><img src="../photo.jpg" alt=""></div>
             <h4>RAJESHKUMAR K</h4>
             <div class="rl">DevOps Engineer</div>
-            <div class="meta"><div><i>ID</i>RK-0065</div><div><i>FOCUS</i>Kubernetes</div><div><i>SINCE</i>2025</div></div>
+            <div class="meta"><div><i>ID</i>RK-0065</div><div><i>FOCUS</i>Observability</div><div><i>SINCE</i>2025</div></div>
             <div class="barcode"></div>
           </div>
           <div class="face back">
             <h4>What I am</h4>
             <ul>
-              <li><div>Kubernetes engineer<small>Cluster build, GitOps, SLA</small></div></li>
-              <li><div>Observability R&amp;D lead<small>OpenObserve · OpenTelemetry</small></div></li>
-              <li><div>Production problem solver<small>Restore, root cause, prevent</small></div></li>
-              <li><div>Release validator<small>Device to dashboard, every time</small></div></li>
+              <li><div>Observability R&amp;D lead<small>OpenObserve · logs, traces, metrics</small></div></li>
+              <li><div>Production SLA owner<small>LnM alerts · Jira · root cause</small></div></li>
+              <li><div>Release engineer<small>GitLab · Jenkins · Nexus · ArgoCD</small></div></li>
+              <li><div>Cluster installer<small>New Kubernetes clusters on demand</small></div></li>
               <li><div>Security fixer<small>Exposures closed, Nginx hardened</small></div></li>
             </ul>
             <div class="sig">Rajeshkumar</div>
@@ -336,7 +368,7 @@ section{padding:120px 0;position:relative}
         <dt>Role</dt><dd>Associate DevOps Engineer</dd>
         <dt>Company</dt><dd>Trinity Mobility</dd>
         <dt>Since</dt><dd>March 2025</dd>
-        <dt>Focus</dt><dd>Kubernetes · Observability</dd>
+        <dt>Split</dt><dd>50% R&amp;D · 50% Production</dd>
         <dt>Languages</dt><dd>English, Tamil</dd>
       </dl>
       <blockquote>“From the cluster to the last log line.”</blockquote>
@@ -344,12 +376,49 @@ section{padding:120px 0;position:relative}
   </div>
 </section>
 
+<!-- HOW I WORK -->
+<section id="how" style="padding-top:40px">
+  <div class="wrap">
+    <div class="sec-top reveal">
+      <div><div class="eyebrow"><b>02</b> How I work</div><h2 class="big">Two jobs, <span class="serif">one engineer.</span></h2></div>
+      <p>My week is split evenly: building the observability platform, and keeping production healthy today.</p>
+    </div>
+    <div class="split reveal">
+      <div class="half">
+        <div class="pct"><span>50</span>%</div>
+        <div class="k">R&amp;D lead</div>
+        <h3>OpenObserve &amp; OpenTelemetry</h3>
+        <p>I lead the work to bring every service's <b>logs, traces and metrics</b> into one platform.</p>
+        <ul><li>Onboard services with OpenTelemetry collectors</li><li>Pipelines, VRL functions, alerts and dashboards</li><li>End-to-end tracing with trace&ndash;log correlation</li></ul>
+        <div class="meter"><b style="width:50%"></b></div>
+      </div>
+      <div class="half dark">
+        <div class="pct"><span>50</span>%</div>
+        <div class="k">Production owner</div>
+        <h3>Daily issues &amp; SLA</h3>
+        <p>I own production issues for <b>20+ live projects</b> and keep each one inside its SLA.</p>
+        <ul><li>LnM monitoring alerts tracked as Jira tickets to closure</li><li>Root cause found and fixed so issues do not repeat</li><li>New Kubernetes clusters installed when a project needs one</li></ul>
+        <div class="meter"><b style="width:50%"></b></div>
+      </div>
+    </div>
+    <h3 class="subhead reveal">How a change reaches production</h3>
+    <ol class="pipe reveal">
+      <li><span class="ic">01</span><b>Develop</b><small>OpenObserve config &amp; code in Git</small></li>
+      <li><span class="ic">02</span><b>GitLab</b><small>git push, reviewed history</small></li>
+      <li><span class="ic">03</span><b>Jenkins</b><small>builds the latest version</small></li>
+      <li><span class="ic">04</span><b>Nexus</b><small>stores the build artifact</small></li>
+      <li><span class="ic">05</span><b>ArgoCD</b><small>syncs it to the cluster</small></li>
+      <li class="ok"><span class="ic">06</span><b>Validate</b><small>full app flow checked end to end</small></li>
+    </ol>
+  </div>
+</section>
+
 <!-- SKILLS -->
 <section id="skills" style="background:var(--bg2)">
   <div class="wrap">
     <div class="sec-top reveal">
-      <div><div class="eyebrow"><b>02</b> Skills</div><h2 class="big">The periodic table <span class="serif">of my stack.</span></h2></div>
-      <p>Elements in six families. Hover a tile to see how I use it, or pick a family to light it up.</p>
+      <div><div class="eyebrow"><b>03</b> Skills</div><h2 class="big">The periodic table <span class="serif">of my stack.</span></h2></div>
+      <p>Elements in five families. Hover a tile to see how I use it, or pick a family to light it up.</p>
     </div>
     <div class="fam reveal" id="fam"></div>
     <div class="ptable reveal">
@@ -363,25 +432,25 @@ section{padding:120px 0;position:relative}
 <section id="work">
   <div class="wrap">
     <div class="sec-top reveal">
-      <div><div class="eyebrow"><b>03</b> Selected work</div><h2 class="big">Things I've <span class="serif">built.</span></h2></div>
+      <div><div class="eyebrow"><b>04</b> Selected work</div><h2 class="big">Things I've <span class="serif">built.</span></h2></div>
       <p>Production platforms and observability systems running today. Hover or tap a panel to open it. Click any image to see it full size.</p>
     </div>
     <div class="acc reveal" id="acc">
 
       <div class="panel open">
-        <div class="vt"><span class="no">01</span><h3>Kubernetes in Production</h3><span class="plus">+</span></div>
+        <div class="vt"><span class="no">01</span><h3>Production &amp; SLA</h3><span class="plus">+</span></div>
         <div class="pc">
           <div>
-            <div class="cat">01 · Kubernetes · GitOps · SLA</div>
-            <h3>Kubernetes in Production: cluster build to SLA</h3>
-            <p class="lead">End-to-end ownership of production Kubernetes for 20+ live projects: build the cluster, release through GitOps, prove the whole application works, then keep it inside its SLA.</p>
+            <div class="cat">01 · 50% of my role · Production</div>
+            <h3>Daily production issues, kept inside SLA</h3>
+            <p class="lead">I own production issues for 20+ live smart-city and IoT projects running on Kubernetes, from the first alert to the permanent fix.</p>
             <ul>
-              <li><b>Cluster build to go-live:</b> on-prem clusters with control plane, workers, networking, ingress and storage</li>
-              <li><b>Release with end-to-end validation:</b> GitLab CI/CD and ArgoCD/Helm, then the full flow checked from device to dashboard</li>
-              <li><b>Post go-live ownership:</b> node, storage and workload failures fixed at the root cause</li>
-              <li><b>SLA-driven monitoring:</b> early-warning alerts raise Jira tickets before a breach</li>
+              <li><b>LnM monitoring to Jira:</b> every alert becomes a ticket that is fixed or assigned, followed up and closed</li>
+              <li><b>SLA-driven early warnings:</b> 70 / 80 / 90% thresholds flag problems before a breach</li>
+              <li><b>Root cause, not just restart:</b> node, storage and workload failures fixed so they do not repeat</li>
+              <li><b>Cluster installation:</b> new on-prem Kubernetes clusters set up when a project needs one</li>
             </ul>
-            <div class="chips"><span><i></i>Kubernetes</span><span>Helm</span><span>ArgoCD</span><span>GitLab CI/CD</span><span>Nginx ingress</span></div>
+            <div class="chips"><span><i></i>Kubernetes</span><span>Prometheus</span><span>Grafana</span><span>ELK</span><span>Jira</span></div>
           </div>
           <div class="cluster" id="cluster">
             <div class="hd"><span>cluster · production</span><b>● all nodes ready</b></div>
@@ -398,9 +467,9 @@ section{padding:120px 0;position:relative}
         <div class="vt"><span class="no">02</span><h3>OpenObserve Platform</h3><span class="plus">+</span></div>
         <div class="pc">
           <div>
-            <div class="cat">02 · Observability R&amp;D lead</div>
+            <div class="cat">02 · 50% of my role · R&amp;D lead</div>
             <h3>Unified observability on OpenObserve</h3>
-            <p class="lead">I lead the R&amp;D to move the company's logs, metrics and traces into one platform on Kubernetes.</p>
+            <p class="lead">I lead the R&amp;D that brings every service's logs, traces and metrics into one platform on Kubernetes.</p>
             <ul>
               <li>OpenObserve installed, hardened and tuned on Kubernetes</li>
               <li>OpenTelemetry agent + gateway collectors: apps push, the gateway pulls</li>
@@ -432,20 +501,32 @@ section{padding:120px 0;position:relative}
       </div>
 
       <div class="panel">
-        <div class="vt"><span class="no">04</span><h3>Production Monitoring (TAC)</h3><span class="plus">+</span></div>
+        <div class="vt"><span class="no">04</span><h3>Release Pipeline</h3><span class="plus">+</span></div>
         <div class="pc">
           <div>
-            <div class="cat">04 · Technical Assistance Center</div>
-            <h3>Logging &amp; monitoring for go-live projects</h3>
-            <p class="lead">The monitoring services every live project depends on, run and supported daily.</p>
+            <div class="cat">04 · CI/CD · GitOps</div>
+            <h3>From git push to a validated release</h3>
+            <p class="lead">Every OpenObserve and observability change follows the same repeatable path to production.</p>
             <ul>
-              <li>Prometheus, VictoriaMetrics, Grafana, ELK and Alertmanager</li>
-              <li>Severity-based alerting: warning 70%, critical 80%, disaster 90%+</li>
-              <li>Every alert becomes a Jira ticket that is followed up and closed</li>
+              <li>Work developed in Git and pushed to <b>GitLab</b></li>
+              <li><b>Jenkins</b> builds the latest version and stores the artifact in <b>Nexus</b></li>
+              <li><b>ArgoCD</b> syncs the new build to the cluster with Helm</li>
+              <li>The full application flow is validated before sign-off</li>
             </ul>
-            <div class="chips"><span><i></i>Prometheus</span><span>Grafana</span><span>ELK</span><span>Alertmanager</span><span>Jira</span></div>
+            <div class="chips"><span><i></i>GitLab</span><span>Jenkins</span><span>Nexus</span><span>ArgoCD</span><span>Helm</span></div>
           </div>
-          <div class="vis"><img class="zoom" src="../img/d-lnm.svg" alt="Logging and monitoring architecture"></div>
+          <div class="cluster">
+            <div class="hd"><span>release · openobserve-config</span><b>● synced &amp; healthy</b></div>
+            <div style="display:grid;gap:9px;line-height:1.5">
+              <div><span style="color:#7d80ad">$</span> git push origin main <span style="color:#7ee2a8">→ GitLab</span></div>
+              <div><span style="color:#7d80ad">jenkins</span> build #latest ......... <span style="color:#7ee2a8">SUCCESS</span></div>
+              <div><span style="color:#7d80ad">nexus</span> artifact stored ........ <span style="color:#7ee2a8">OK</span></div>
+              <div><span style="color:#7d80ad">argocd</span> app sync .............. <span style="color:#7ee2a8">Synced</span></div>
+              <div><span style="color:#7d80ad">argocd</span> health ................ <span style="color:#7ee2a8">Healthy</span></div>
+              <div><span style="color:#7d80ad">validate</span> logs · traces · metrics <span style="color:#7ee2a8">✓ flowing</span></div>
+            </div>
+            <div class="alert" style="border-color:#7ee2a8;color:#c9f3da">✓ Release verified end to end: data flowing, dashboards live</div>
+          </div>
         </div>
       </div>
 
@@ -492,7 +573,7 @@ section{padding:120px 0;position:relative}
 <section id="certs" style="padding-top:40px">
   <div class="wrap certs">
     <div class="l reveal">
-      <div class="eyebrow"><b>04</b> Certifications</div>
+      <div class="eyebrow"><b>05</b> Certifications</div>
       <h2 class="big">Always <span class="serif">learning.</span></h2>
       <p>Cloud and DevOps foundations, backed every day by production work.</p>
     </div>
@@ -509,15 +590,15 @@ section{padding:120px 0;position:relative}
 <section id="experience" style="background:var(--bg2)">
   <div class="wrap">
     <div class="sec-top reveal">
-      <div><div class="eyebrow"><b>05</b> Experience</div><h2 class="big">Education &amp; <span class="serif">experience.</span></h2></div>
+      <div><div class="eyebrow"><b>06</b> Experience</div><h2 class="big">Education &amp; <span class="serif">experience.</span></h2></div>
       <p>From mechanical engineering to running production Kubernetes. Scroll to follow the path.</p>
     </div>
     <div class="tl" id="tl">
       <div class="rail"><div class="fill" id="fill"></div></div>
       <div class="step"><div class="card"><div class="k">Education</div><h4>B.E. Mechanical Engineering</h4><div class="w">Kongu Engineering College</div><p>Graduated with a strong academic record, then moved into IT systems and DevOps.</p><span class="pill">CGPA 9.01 / 10</span></div><div class="pin"></div><div class="yr">2019</div></div>
       <div class="step"><div class="card"><div class="k">Internship</div><h4>DevOps Engineer Intern</h4><div class="w">StarAgile, with IBM · Apr – Aug 2024</div><p>CI/CD with Jenkins, AWS with Terraform, containers with Docker and Kubernetes.</p><span class="pill">Foundations</span></div><div class="pin"></div><div class="yr">2024</div></div>
-      <div class="step"><div class="card"><div class="k">Full-time</div><h4>Associate DevOps Engineer</h4><div class="w">Trinity Mobility · Technical Assistance Center</div><p>Production Kubernetes for 20+ live smart-city and IoT projects: cluster build, GitOps releases, end-to-end validation and SLA-driven monitoring.</p><span class="pill">Mar 2025 – Present</span></div><div class="pin"></div><div class="yr">2025</div></div>
-      <div class="step"><div class="card"><div class="k">Lead role</div><h4>Observability R&amp;D Lead</h4><div class="w">OpenObserve &amp; OpenTelemetry</div><p>Leading the move to one platform for logs, metrics and traces, with end-to-end tracing and trusted alerting.</p><span class="pill">2026 – Present</span></div><div class="pin"></div><div class="yr">2026</div></div>
+      <div class="step"><div class="card"><div class="k">Full-time</div><h4>Associate DevOps Engineer</h4><div class="w">Trinity Mobility · Technical Assistance Center</div><p>Daily production issues for 20+ live smart-city and IoT projects through LnM and Jira, SLA ownership, releases via GitLab, Jenkins, Nexus and ArgoCD, and cluster installation when needed.</p><span class="pill">Mar 2025 – Present</span></div><div class="pin"></div><div class="yr">2025</div></div>
+      <div class="step"><div class="card"><div class="k">Lead role · 50% of my work</div><h4>Observability R&amp;D Lead</h4><div class="w">OpenObserve &amp; OpenTelemetry</div><p>Leading the work to bring logs, traces and metrics into OpenObserve with OpenTelemetry, with end-to-end tracing and trusted alerting.</p><span class="pill">2026 – Present</span></div><div class="pin"></div><div class="yr">2026</div></div>
     </div>
   </div>
 </section>
@@ -526,13 +607,13 @@ section{padding:120px 0;position:relative}
 <section id="moments">
   <div class="wrap">
     <div class="sec-top reveal">
-      <div><div class="eyebrow"><b>06</b> Highlights</div><h2 class="big">Proud <span class="serif">moments.</span></h2></div>
+      <div><div class="eyebrow"><b>07</b> Highlights</div><h2 class="big">Proud <span class="serif">moments.</span></h2></div>
       <p>What changed because of the work, <span class="serif" style="font-size:20px">and counting.</span></p>
     </div>
     <div class="moments reveal">
       <div class="mo"><div class="top"><div class="ic"><svg viewBox="0 0 24 24"><path d="M12 2l8.5 5v10L12 22 3.5 17V7z"/><path d="M12 22V12M20.5 7 12 12 3.5 7"/></svg></div><span class="ix">01 / 04</span></div><div><div class="big">20<small>+</small></div><h4>Live projects in production</h4><div class="k">Kubernetes · daily ops</div><p>Monitored and troubleshot every day.</p></div></div>
       <div class="mo"><div class="top"><div class="ic"><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 3"/></svg></div><span class="ix">02 / 04</span></div><div><div class="big">SLA</div><h4>Red alerts sharply reduced</h4><div class="k">Proactive monitoring</div><p>Early warnings raise tickets before a breach.</p></div></div>
-      <div class="mo"><div class="top"><div class="ic"><svg viewBox="0 0 24 24"><path d="M4 19h16M6 15l4-4 3 3 5-6"/></svg></div><span class="ix">03 / 04</span></div><div><div class="big">R&amp;D</div><h4>Observability lead</h4><div class="k">OpenObserve · OpenTelemetry</div><p>One platform for logs, metrics and traces.</p></div></div>
+      <div class="mo"><div class="top"><div class="ic"><svg viewBox="0 0 24 24"><path d="M4 19h16M6 15l4-4 3 3 5-6"/></svg></div><span class="ix">03 / 04</span></div><div><div class="big">50<small>/50</small></div><h4>R&amp;D lead and production owner</h4><div class="k">OpenObserve · SLA</div><p>Building the platform while keeping production healthy.</p></div></div>
       <div class="mo"><div class="top"><div class="ic"><svg viewBox="0 0 24 24"><path d="M3 12h4l3-7 4 14 3-7h4"/></svg></div><span class="ix">04 / 04</span></div><div><div class="big">E2E</div><h4>Tracing with log correlation</h4><div class="k">Faster root cause</div><p>From a slow request to its logs in one click.</p></div></div>
     </div>
   </div>
@@ -541,7 +622,7 @@ section{padding:120px 0;position:relative}
 <!-- CONTACT -->
 <section class="contact" id="contact">
   <div class="wrap">
-    <div class="eyebrow"><b style="color:#fff">07</b> Contact</div>
+    <div class="eyebrow"><b style="color:#fff">08</b> Contact</div>
     <h2 class="big">Let's <span class="serif">talk.</span></h2>
     <p>Open to DevOps, Kubernetes, SRE and observability roles across India.</p>
     <div class="crow">
@@ -570,8 +651,7 @@ section{padding:120px 0;position:relative}
   function onScroll(){
     var y=window.scrollY+window.innerHeight*.35, cur=-1;
     secs.forEach(function(s,i){if(s&&s.offsetTop<=y)cur=i});
-    if(document.getElementById('certs').offsetTop<=y && document.getElementById('experience').offsetTop>y) cur=1.5;
-    links.forEach(function(a,i){a.classList.toggle('on',i===cur||(cur===1.5&&i===2))});
+    links.forEach(function(a,i){a.classList.toggle('on',i===cur)});
     /* timeline fill */
     var tl=document.getElementById('tl'), r=tl.getBoundingClientRect(), h=window.innerHeight;
     var p=Math.min(1,Math.max(0,(h*.6-r.top)/r.height)); document.getElementById('fill').style.height=(p*100)+'%';
@@ -585,14 +665,16 @@ section{padding:120px 0;position:relative}
 
   /* periodic table */
   var D='https://cdn.jsdelivr.net/gh/devicons/devicon@v2.16.0/icons/';
-  var fams=[['k8s','Kubernetes & delivery','#24264a'],['obs','Observability','#2f6f73'],['mon','Monitoring & logs','#8a5a2b'],['data','Data platform','#5b4b8a'],['code','Scripting & OS','#3f6b3a'],['found','Foundations','#7a6f5a']];
+  var fams=[['k8s','Delivery & Kubernetes','#24264a'],['obs','Observability','#2f6f73'],['mon','Monitoring & logs','#8a5a2b'],['data','Data platform','#5b4b8a'],['code','Scripting & OS','#3f6b3a']];
   var E=[
-   ['Ks','Kubernetes','k8s','kubernetes/kubernetes-original','Production clusters for 20+ live projects: build, operate, troubleshoot.'],
+   ['Ks','Kubernetes','k8s','kubernetes/kubernetes-original','Production clusters for 20+ live projects: operate, troubleshoot, install new ones.'],
    ['Hm','Helm','k8s','helm/helm-original','Charts and per-environment values; chart bugs fixed at the source.'],
-   ['Ac','ArgoCD','k8s','argocd/argocd-original','GitOps releases with drift checked before every sync.'],
-   ['Gl','GitLab CI/CD','k8s','gitlab/gitlab-original','Build pipelines that feed GitOps deployments.'],
+   ['Ac','ArgoCD','k8s','argocd/argocd-original','Syncs each new build from Nexus to the cluster, then I validate.'],
+   ['Gl','GitLab','k8s','gitlab/gitlab-original','Source of truth: every OpenObserve and config change is pushed here.'],
+   ['Jk','Jenkins','k8s','jenkins/jenkins-original','Builds the latest version of every change.'],
+   ['Nx','Nexus','k8s','','Artifact repository where each build is stored before release.'],
    ['Dk','Docker','k8s','docker/docker-original','Images built, rebuilt and instrumented for production.'],
-   ['Nx','Nginx','k8s','nginx/nginx-original','Ingress and reverse proxy, hardened against exposure.'],
+   ['Ng','Nginx','k8s','nginx/nginx-original','Ingress and reverse proxy, hardened against exposure.'],
    ['Oo','OpenObserve','obs','','The unified platform I lead: pipelines, VRL, alerts, dashboards.'],
    ['Ot','OpenTelemetry','obs','opentelemetry/opentelemetry-original','Agent + gateway collectors, traces and OTLP logs.'],
    ['Tr','Tracing','obs','','End-to-end traces with trace_id in every log line.'],
@@ -616,9 +698,7 @@ section{padding:120px 0;position:relative}
    ['Py','Python','code','python/python-original','Exporters and API automation.'],
    ['Sq','SQL','code','','Observability queries, dashboards and alert logic.'],
    ['Pq','PromQL','code','','Metric queries and alert expressions.'],
-   ['Gt','Git','found','git/git-original','Version control for charts, values and configuration.'],
-   ['Jk','Jenkins','found','jenkins/jenkins-original','CI/CD pipelines from my DevOps internship.'],
-   ['Tf','Terraform','found','terraform/terraform-original','Infrastructure as code from my DevOps internship.']
+   ['Gt','Git','code','git/git-original','Version control for charts, values and configuration.']
   ];
   var fc={}; fams.forEach(function(f){fc[f[0]]=f});
   var grid=document.getElementById('grid'), det=document.getElementById('detail'), fam=document.getElementById('fam');
