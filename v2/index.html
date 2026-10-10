@@ -1,0 +1,667 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Rajeshkumar K · DevOps Engineer</title>
+<meta name="description" content="Rajeshkumar K, DevOps Engineer: Kubernetes in production from cluster build to SLA, and OpenObserve + OpenTelemetry observability R&amp;D lead.">
+<meta property="og:title" content="Rajeshkumar K · DevOps Engineer">
+<meta property="og:description" content="Kubernetes in production, from cluster build to SLA. OpenObserve &amp; OpenTelemetry R&amp;D lead.">
+<meta property="og:url" content="https://rajeshkumark65.github.io/">
+<meta property="og:image" content="https://rajeshkumark65.github.io/og-card.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter+Tight:wght@400;500;600;700;800&family=Instrument+Serif:ital@0;1&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+<style>
+:root{
+  --bg:#f3efe4; --bg2:#ebe5d6; --card:#fbf9f3; --ink:#15151c; --ink2:#4a4a55; --mute:#8a8676;
+  --line:#ddd6c4; --navy:#24264a; --navy2:#3b3e73; --gold:#c9a24b; --ok:#2f8f5b;
+  --shadow:0 1px 2px rgba(40,34,20,.06),0 12px 32px -12px rgba(40,34,20,.18);
+  --sans:"Inter Tight",system-ui,"Segoe UI",Arial,sans-serif; --serif:"Instrument Serif",Georgia,serif; --mono:"JetBrains Mono",ui-monospace,Consolas,monospace;
+}
+*{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth}
+body{background:var(--bg);color:var(--ink);font-family:var(--sans);font-size:17px;line-height:1.55;-webkit-font-smoothing:antialiased;overflow-x:hidden}
+a{color:inherit;text-decoration:none}
+img{max-width:100%;display:block}
+.wrap{max-width:1240px;margin:0 auto;padding:0 32px}
+.eyebrow{font-family:var(--mono);font-size:12px;letter-spacing:.22em;text-transform:uppercase;color:var(--mute);display:flex;align-items:center;gap:12px}
+.eyebrow:before{content:"";width:34px;height:1px;background:var(--mute)}
+.eyebrow b{font-weight:500;color:var(--ink2)}
+h2.big{font-size:clamp(44px,6.4vw,92px);line-height:.95;letter-spacing:-.035em;font-weight:700;margin:18px 0 0}
+.serif{font-family:var(--serif);font-weight:400;font-style:italic;letter-spacing:-.01em;color:var(--ink2)}
+section{padding:120px 0;position:relative}
+.sec-top{display:flex;justify-content:space-between;align-items:flex-end;gap:40px;margin-bottom:56px;flex-wrap:wrap}
+.sec-top p{max-width:340px;color:var(--ink2);font-size:15px}
+.reveal{opacity:0;transform:translateY(28px);transition:opacity .9s cubic-bezier(.2,.7,.2,1),transform .9s cubic-bezier(.2,.7,.2,1)}
+.reveal.in{opacity:1;transform:none}
+
+/* ---------- nav ---------- */
+.nav{position:fixed;top:18px;left:50%;transform:translateX(-50%);z-index:50;display:flex;gap:2px;padding:6px;background:rgba(251,249,243,.78);backdrop-filter:blur(14px);-webkit-backdrop-filter:blur(14px);border:1px solid var(--line);border-radius:999px;box-shadow:var(--shadow)}
+.nav a{font-size:14px;font-weight:500;padding:8px 16px;border-radius:999px;color:var(--ink2);transition:background .35s,color .35s;white-space:nowrap}
+.nav a:hover{color:var(--ink)}
+.nav a.on{background:var(--navy);color:#fff}
+.brand{position:fixed;top:30px;left:32px;z-index:49;font-weight:700;font-size:15px;letter-spacing:-.01em}
+.brand i{font-family:var(--serif);font-weight:400;font-size:19px}
+
+/* ---------- hero ---------- */
+.hero{min-height:min(100vh,880px);margin-bottom:60px;padding:0;display:flex;align-items:stretch;overflow:hidden}
+.hero .wrap{position:relative;width:100%;display:grid;grid-template-columns:1fr auto 1fr;align-items:end;min-height:min(100vh,880px);padding-top:96px;padding-bottom:70px;gap:28px}
+.ghost{position:absolute;inset:0;display:flex;align-items:center;justify-content:center;pointer-events:none;font-weight:800;font-size:clamp(140px,24vw,380px);letter-spacing:-.06em;color:var(--ink);opacity:.045;line-height:1;user-select:none;white-space:nowrap}
+.hero-l{align-self:end;z-index:2}
+.hero-l .who{font-family:var(--mono);font-size:12px;letter-spacing:.24em;color:var(--mute);text-transform:uppercase}
+.hero-l h1{font-size:clamp(50px,6vw,88px);line-height:.9;letter-spacing:-.045em;font-weight:700;margin-top:14px}
+.hero-l h1 .serif{display:block;font-size:.62em;margin-top:10px;color:var(--navy2)}
+.hero-l .sub{margin-top:22px;color:var(--ink2);max-width:420px;font-size:16px}
+.figure{position:relative;z-index:1;align-self:end;justify-self:center;width:min(420px,30vw);aspect-ratio:4/5.1;border-radius:999px 999px 28px 28px;overflow:hidden;background:linear-gradient(180deg,#e4dfd2,#d9d3c3);box-shadow:0 0 0 10px rgba(251,249,243,.7),0 40px 80px -30px rgba(40,34,20,.45)}
+.figure .halo{position:absolute;inset:8% 4% 0;background:radial-gradient(closest-side,rgba(255,255,255,.9),rgba(255,255,255,0));filter:blur(8px)}
+.figure img,.figure video{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:50% 20%;
+  animation:breathe 7s ease-in-out infinite}
+@keyframes breathe{0%,100%{transform:translateY(0) scale(1)}50%{transform:translateY(-6px) scale(1.012)}}
+.live{position:absolute;left:50%;bottom:22px;transform:translateX(-50%);display:flex;align-items:center;gap:8px;background:var(--card);border:1px solid var(--line);border-radius:999px;padding:7px 14px;font-size:13px;font-weight:500;box-shadow:var(--shadow);white-space:nowrap}
+.dot{width:8px;height:8px;border-radius:50%;background:var(--ok);box-shadow:0 0 0 0 rgba(47,143,91,.5);animation:ping 2s infinite}
+@keyframes ping{0%{box-shadow:0 0 0 0 rgba(47,143,91,.5)}80%,100%{box-shadow:0 0 0 10px rgba(47,143,91,0)}}
+.hero-r{align-self:end;justify-self:end;z-index:2;text-align:right;display:flex;flex-direction:column;align-items:flex-end;gap:16px}
+.hero-r .tags{display:flex;flex-direction:column;gap:6px;font-family:var(--mono);font-size:12px;color:var(--ink2);letter-spacing:.06em}
+.btn{display:inline-flex;align-items:center;gap:10px;padding:13px 22px;border-radius:999px;font-size:15px;font-weight:600;transition:transform .25s,background .25s,box-shadow .25s;border:1px solid transparent}
+.btn.dark{background:var(--navy);color:#fff;box-shadow:0 10px 24px -10px rgba(36,38,74,.6)}
+.btn.dark:hover{transform:translateY(-2px);background:var(--navy2)}
+.btn.ghostb{border-color:var(--line);background:var(--card)}
+.btn.ghostb:hover{transform:translateY(-2px);border-color:var(--ink2)}
+.btn svg{width:16px;height:16px}
+.cue{position:absolute;right:32px;bottom:24px;transform:translateX(-50%);font-family:var(--mono);font-size:11px;letter-spacing:.2em;color:var(--mute);z-index:3}
+
+/* ---------- about ---------- */
+.about-grid{display:grid;grid-template-columns:1.15fr .9fr 1fr;gap:48px;align-items:start}
+.about-l p{color:var(--ink2);margin-top:22px;max-width:440px}
+.about-l .row{display:flex;gap:10px;flex-wrap:wrap;margin-top:28px}
+.lanyard{position:relative;display:flex;flex-direction:column;align-items:center;margin-top:-150px;perspective:1200px}
+.strap{width:26px;height:150px;background:repeating-linear-gradient(180deg,var(--navy) 0 14px,var(--navy2) 14px 15px);border-radius:0 0 4px 4px;position:relative}
+.strap:after{content:"RAJESHKUMAR K · DEVOPS · ";position:absolute;left:50%;top:10px;writing-mode:vertical-rl;transform:translateX(-50%);font-family:var(--mono);font-size:8px;letter-spacing:.2em;color:rgba(255,255,255,.65);white-space:nowrap;overflow:hidden;height:130px}
+.clip{width:40px;height:22px;border-radius:6px;background:linear-gradient(#d7d2c4,#b7b09d);margin-top:-2px;box-shadow:inset 0 -2px 0 rgba(0,0,0,.15)}
+.swing{transform-origin:50% -170px;animation:swing 6s ease-in-out infinite}
+@keyframes swing{0%,100%{transform:rotate(2.2deg)}50%{transform:rotate(-2.2deg)}}
+.idcard{width:270px;height:390px;position:relative;transform-style:preserve-3d;transition:transform .9s cubic-bezier(.3,.7,.2,1);cursor:pointer;margin-top:6px}
+.idcard.flip{transform:rotateY(180deg)}
+.face{position:absolute;inset:0;border-radius:18px;background:var(--card);border:1px solid var(--line);box-shadow:0 30px 60px -24px rgba(40,34,20,.45);backface-visibility:hidden;-webkit-backface-visibility:hidden;overflow:hidden}
+.face.front .band{background:var(--navy);color:#fff;padding:14px 18px;display:flex;align-items:center;gap:10px}
+.face.front .band .lg{width:30px;height:30px;border-radius:50%;background:#fff;color:var(--navy);display:grid;place-items:center;font-weight:800;font-size:12px}
+.face.front .band b{display:block;font-size:13px;letter-spacing:.14em}
+.face.front .band span{font-size:10px;opacity:.7;letter-spacing:.08em}
+.face.front .ph{width:140px;height:164px;margin:22px auto 0;border-radius:12px;overflow:hidden;border:3px solid #fff;box-shadow:0 6px 18px -8px rgba(0,0,0,.35)}
+.face.front .ph img{width:100%;height:100%;object-fit:cover;object-position:50% 18%}
+.face.front h4{text-align:center;margin-top:14px;font-size:17px;letter-spacing:.04em}
+.face.front .rl{text-align:center;font-size:12px;color:var(--mute)}
+.face.front .meta{display:grid;grid-template-columns:repeat(3,1fr);gap:4px;margin:14px 18px 0;font-size:10px;text-align:center;color:var(--ink2)}
+.face.front .meta i{display:block;font-style:normal;font-family:var(--mono);font-size:8px;color:var(--mute);letter-spacing:.12em}
+.barcode{height:26px;margin:12px 34px 0;background:repeating-linear-gradient(90deg,var(--ink) 0 2px,transparent 2px 4px,var(--ink) 4px 5px,transparent 5px 8px,var(--ink) 8px 11px,transparent 11px 12px)}
+.face.back{transform:rotateY(180deg);padding:22px 20px}
+.face.back h4{font-size:18px}
+.face.back ul{list-style:none;margin-top:14px}
+.face.back li{display:flex;gap:10px;padding:9px 0;border-bottom:1px dashed var(--line);font-size:13.5px;font-weight:600}
+.face.back li small{display:block;font-weight:400;color:var(--mute);font-size:11.5px}
+.face.back li:before{content:"✓";flex:0 0 20px;height:20px;border-radius:50%;background:var(--navy);color:#fff;font-size:11px;display:grid;place-items:center;margin-top:1px}
+.face.back .sig{font-family:var(--serif);font-style:italic;font-size:26px;margin-top:12px;color:var(--navy2)}
+.flip-hint{margin-top:16px;font-family:var(--mono);font-size:11px;color:var(--mute);letter-spacing:.14em}
+.facts h5{font-family:var(--mono);font-size:11px;letter-spacing:.2em;color:var(--mute);font-weight:500;margin-bottom:10px}
+.facts dl{display:grid;grid-template-columns:auto 1fr;gap:0}
+.facts dt,.facts dd{padding:13px 0;border-bottom:1px solid var(--line);font-size:14.5px}
+.facts dt{color:var(--mute)}
+.facts dd{text-align:right;font-weight:500}
+.facts blockquote{font-family:var(--serif);font-style:italic;font-size:26px;line-height:1.2;margin-top:28px;color:var(--ink2)}
+
+/* ---------- skills ---------- */
+.fam{display:flex;gap:8px;flex-wrap:wrap;margin-bottom:22px}
+.fam button{font:500 13px var(--sans);padding:7px 14px;border-radius:999px;border:1px solid var(--line);background:var(--card);color:var(--ink2);cursor:pointer;display:flex;align-items:center;gap:8px;transition:all .25s}
+.fam button i{width:9px;height:9px;border-radius:2px}
+.fam button.on{background:var(--navy);color:#fff;border-color:var(--navy)}
+.ptable{display:grid;grid-template-columns:1fr 300px;gap:28px;align-items:start}
+.grid-el{display:grid;grid-template-columns:repeat(8,1fr);gap:8px}
+.el{aspect-ratio:1;border-radius:10px;padding:8px 9px;position:relative;cursor:pointer;background:var(--card);border:1px solid var(--line);transition:transform .25s,opacity .35s,background .35s,color .35s,box-shadow .25s;display:flex;flex-direction:column;justify-content:space-between}
+.el .n{font-family:var(--mono);font-size:9.5px;color:var(--mute)}
+.el .s{font-size:clamp(18px,2vw,26px);font-weight:700;letter-spacing:-.03em;line-height:1}
+.el .nm{font-size:9.5px;color:var(--mute);white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.el:hover{transform:translateY(-4px);box-shadow:var(--shadow)}
+.el.lit{color:#fff;border-color:transparent}
+.el.lit .n,.el.lit .nm{color:rgba(255,255,255,.7)}
+.el.dim{opacity:.28}
+.detail{position:sticky;top:110px;background:var(--card);border:1px solid var(--line);border-radius:18px;padding:26px;min-height:330px;box-shadow:var(--shadow);text-align:center}
+.detail .logo{width:110px;height:110px;margin:8px auto 14px;display:grid;place-items:center}
+.detail .logo img{width:96px;height:96px;object-fit:contain}
+.detail .logo .sym{font-size:54px;font-weight:800;letter-spacing:-.04em;color:var(--navy)}
+.detail h4{font-size:22px;letter-spacing:-.02em}
+.detail .fm{font-family:var(--mono);font-size:11px;letter-spacing:.16em;color:var(--mute);margin-top:4px;text-transform:uppercase}
+.detail p{color:var(--ink2);font-size:14.5px;margin-top:14px}
+
+/* ---------- work ---------- */
+.acc{display:flex;gap:12px;height:620px}
+.panel{flex:0 0 66px;min-width:66px;border-radius:20px;background:var(--card);border:1px solid var(--line);position:relative;overflow:hidden;cursor:pointer;transition:flex-grow .7s cubic-bezier(.3,.7,.2,1),box-shadow .4s;box-shadow:var(--shadow)}
+.panel.open{flex:1 1 auto;cursor:default}
+.panel .vt{position:absolute;inset:0;display:flex;flex-direction:column;align-items:center;justify-content:space-between;padding:22px 0;transition:opacity .3s}
+.panel .vt .no{font-family:var(--mono);font-size:12px;color:var(--mute)}
+.panel .vt h3{writing-mode:vertical-rl;transform:rotate(180deg);font-size:19px;font-weight:600;letter-spacing:-.01em;white-space:nowrap}
+.panel .vt .plus{width:30px;height:30px;border-radius:50%;background:var(--navy);color:#fff;display:grid;place-items:center;font-size:18px}
+.panel.open .vt{opacity:0;pointer-events:none}
+.pc{position:absolute;inset:0;padding:34px;display:grid;grid-template-columns:1fr 1fr;gap:30px;opacity:0;transition:opacity .35s;pointer-events:none;min-width:760px}
+.panel.open .pc{opacity:1;pointer-events:auto;transition-delay:.3s}
+.pc .cat{font-family:var(--mono);font-size:11px;letter-spacing:.18em;color:var(--mute);text-transform:uppercase}
+.pc h3{font-size:28px;line-height:1.02;letter-spacing:-.03em;margin:12px 0 14px}
+.pc p.lead{color:var(--ink2);font-size:15.5px}
+.pc ul{list-style:none;margin-top:16px;display:grid;gap:9px}
+.pc li{font-size:14.5px;padding-left:18px;position:relative;color:var(--ink)}
+.pc li:before{content:"";position:absolute;left:0;top:9px;width:7px;height:7px;border-radius:2px;background:var(--navy2)}
+.chips{display:flex;flex-wrap:wrap;gap:6px;margin-top:18px}
+.chips span{font-size:12px;padding:4px 10px;border-radius:999px;background:var(--bg2);color:var(--ink2);display:flex;align-items:center;gap:6px}
+.chips span i{width:7px;height:7px;border-radius:50%;background:var(--ok)}
+.vis{border-radius:14px;overflow:hidden;background:var(--bg2);border:1px solid var(--line);align-self:center;cursor:zoom-in}
+.vis img{width:100%;height:auto}
+.vis.pad{padding:0}
+.cluster{background:#1b1c33;border-radius:14px;padding:20px;color:#d8daf0;font-family:var(--mono);font-size:11.5px;align-self:center}
+.cluster .hd{display:flex;justify-content:space-between;margin-bottom:14px;color:#9a9dc6}
+.cluster .hd b{color:#7ee2a8;font-weight:500}
+.node{margin-bottom:12px}
+.node .t{display:flex;justify-content:space-between;margin-bottom:6px}
+.pods{display:flex;gap:4px;flex-wrap:wrap;margin-bottom:6px}
+.pods i{width:14px;height:14px;border-radius:3px;background:#3d5af1;animation:pod 3.2s ease-in-out infinite}
+.pods i.w{background:#e6b54a}
+@keyframes pod{0%,100%{opacity:1}50%{opacity:.55}}
+.bar{height:7px;border-radius:4px;background:#2c2e52;position:relative;overflow:hidden}
+.bar b{position:absolute;inset:0 auto 0 0;border-radius:4px;background:linear-gradient(90deg,#3d5af1,#7ee2a8);transition:width 1.6s cubic-bezier(.3,.7,.2,1)}
+.th{position:relative;height:16px;margin-top:4px;color:#7d80ad;font-size:9.5px}
+.th span{position:absolute;transform:translateX(-50%)}
+.alert{margin-top:12px;border:1px dashed #e6b54a;border-radius:8px;padding:9px 10px;color:#f1d9a0;display:flex;gap:8px;align-items:center}
+
+/* ---------- certs ---------- */
+.certs{display:grid;grid-template-columns:.9fr 1.3fr;gap:56px;align-items:start}
+.certs .l p{color:var(--ink2);margin-top:18px;max-width:330px;font-size:15px}
+.clist{list-style:none;border-top:1px solid var(--line)}
+.clist li{display:grid;grid-template-columns:50px 1fr auto;align-items:center;gap:12px;padding:22px 18px;border-bottom:1px solid var(--line);transition:background .35s,color .35s,padding .35s;border-radius:4px}
+.clist li .i{font-family:var(--mono);font-size:12px;color:var(--mute)}
+.clist li b{font-size:19px;font-weight:600;letter-spacing:-.01em;display:block}
+.clist li small{color:var(--mute);font-size:13px}
+.clist li .ar{opacity:0;transition:opacity .3s,transform .3s;transform:translateX(-8px)}
+.clist li:hover{background:var(--navy);color:#fff;padding-left:26px}
+.clist li:hover small,.clist li:hover .i{color:rgba(255,255,255,.65)}
+.clist li:hover .ar{opacity:1;transform:none}
+
+/* ---------- timeline ---------- */
+.tl{position:relative;max-width:980px;margin:0 auto}
+.tl .rail{position:absolute;left:50%;top:0;bottom:0;width:2px;background:var(--line);transform:translateX(-50%)}
+.tl .fill{position:absolute;left:0;top:0;width:100%;background:var(--navy);height:0;transition:height .15s linear}
+.step{display:grid;grid-template-columns:1fr 80px 1fr;align-items:center;margin-bottom:70px}
+.step .yr{font-size:clamp(46px,5.4vw,78px);font-weight:700;letter-spacing:-.05em;color:var(--line);transition:color .6s}
+.step.in .yr{color:var(--ink)}
+.step .pin{width:16px;height:16px;border-radius:50%;background:var(--bg);border:3px solid var(--line);justify-self:center;transition:all .6s;position:relative;z-index:1}
+.step.in .pin{border-color:var(--navy);background:var(--navy);box-shadow:0 0 0 6px rgba(36,38,74,.12)}
+.step .card{background:var(--card);border:1px solid var(--line);border-radius:16px;padding:22px 24px;box-shadow:var(--shadow)}
+.step .card .k{font-family:var(--mono);font-size:10.5px;letter-spacing:.18em;color:var(--mute);text-transform:uppercase}
+.step .card h4{font-size:20px;letter-spacing:-.02em;margin:6px 0 2px}
+.step .card .w{color:var(--mute);font-size:13.5px}
+.step .card p{color:var(--ink2);font-size:14.5px;margin-top:10px}
+.step .card .pill{display:inline-block;margin-top:12px;font-size:12px;padding:4px 10px;border-radius:999px;background:var(--bg2);color:var(--ink2)}
+.step:nth-child(odd) .yr{order:3;text-align:left}
+.step:nth-child(odd) .card{order:1}
+.step:nth-child(odd) .pin{order:2}
+.step:nth-child(even) .yr{order:1;text-align:right}.step:nth-child(even) .pin{order:2}.step:nth-child(even) .card{order:3}
+
+/* ---------- moments ---------- */
+.moments{display:grid;grid-template-columns:repeat(4,1fr);gap:16px}
+.mo{background:var(--card);border:1px solid var(--line);border-radius:20px;padding:24px;min-height:250px;display:flex;flex-direction:column;justify-content:space-between;box-shadow:var(--shadow);transition:transform .35s}
+.mo:hover{transform:translateY(-6px)}
+.mo .top{display:flex;justify-content:space-between;align-items:flex-start}
+.mo .ic{width:46px;height:46px;border-radius:12px;background:var(--bg2);display:grid;place-items:center}
+.mo .ic svg{width:22px;height:22px;stroke:var(--navy);fill:none;stroke-width:1.8}
+.mo .ix{font-family:var(--mono);font-size:11px;color:var(--mute)}
+.mo .big{font-size:52px;font-weight:700;letter-spacing:-.05em;line-height:1}
+.mo .big small{font-size:.5em;color:var(--mute);font-weight:600}
+.mo h4{font-size:16px;margin-top:10px;letter-spacing:-.01em}
+.mo .k{font-family:var(--mono);font-size:10px;letter-spacing:.16em;color:var(--mute);text-transform:uppercase;margin-top:3px}
+.mo p{font-size:13.5px;color:var(--ink2);margin-top:8px}
+
+/* ---------- contact ---------- */
+.contact{background:var(--navy);color:#fff;border-radius:32px;margin:0 20px 20px;padding:110px 0 40px}
+.contact .eyebrow{color:#b6b8dc}.contact .eyebrow:before{background:#b6b8dc}
+.contact h2.big .serif{color:#c9cbf0}
+.contact p{color:#c6c8e6;max-width:520px;margin-top:20px}
+.crow{display:flex;gap:12px;flex-wrap:wrap;margin-top:34px}
+.contact .btn.ghostb{background:transparent;border-color:rgba(255,255,255,.3);color:#fff}
+.contact .btn.light{background:#fff;color:var(--navy)}
+.foot{display:flex;justify-content:space-between;margin-top:90px;padding-top:24px;border-top:1px solid rgba(255,255,255,.15);font-size:13px;color:#a9abd2;flex-wrap:wrap;gap:10px}
+.lightbox{position:fixed;inset:0;background:rgba(15,15,28,.88);z-index:100;display:grid;place-items:center;padding:24px;cursor:zoom-out}
+.lightbox img{max-width:100%;max-height:100%;border-radius:10px}
+
+/* ---------- responsive ---------- */
+@media (max-width:1080px){
+  .about-grid{grid-template-columns:1fr 1fr}.lanyard{grid-row:span 2;margin-top:0}
+  .ptable{grid-template-columns:1fr}.detail{position:static;min-height:0}
+  .moments{grid-template-columns:repeat(2,1fr)}
+  .acc{flex-direction:column;height:auto}.panel{flex:none;min-height:64px}
+  .panel .vt{flex-direction:row;padding:0 22px}.panel .vt h3{writing-mode:horizontal-tb;transform:none;font-size:17px}
+  .panel.open .vt{display:none}.pc{position:relative;min-width:0;grid-template-columns:1fr;display:none;padding:26px}.panel.open .pc{display:grid}
+}
+@media (max-width:820px){
+  .nav{top:auto;bottom:14px;max-width:calc(100vw - 24px);overflow-x:auto}.nav a{padding:8px 12px;font-size:13px}
+  .brand{top:18px;left:16px}
+  .wrap{padding:0 16px}
+  section{padding:84px 0}
+  .hero,.hero .wrap{min-height:0}.hero{margin-bottom:0}.hero .wrap{grid-template-columns:1fr;align-items:start;padding-top:70px;padding-bottom:40px;gap:10px}.cue{display:none}
+  .figure{width:min(320px,78vw);grid-row:1;justify-self:center}
+  .hero-r{align-items:flex-start;text-align:left;justify-self:start}.hero-r .tags{display:none}
+  .about-grid,.certs{grid-template-columns:1fr}.lanyard{grid-row:auto}
+  .grid-el{grid-template-columns:repeat(4,1fr)}
+  .tl .rail{left:12px}.step{grid-template-columns:28px 1fr;gap:10px 14px;margin-bottom:40px}
+  .step .pin{order:1!important;justify-self:start;margin-left:4px}.step .yr{order:2!important;text-align:left!important;font-size:42px}
+  .step .card{order:3!important;grid-column:2}
+  .moments{grid-template-columns:1fr}
+  .contact{margin:0 8px 8px;border-radius:22px}
+}
+@media (prefers-reduced-motion:reduce){*{animation:none!important;transition:none!important}.reveal{opacity:1;transform:none}}
+</style>
+</head>
+<body>
+
+<a class="brand" href="#top">Rajeshkumar <i>K.</i></a>
+<nav class="nav" id="nav">
+  <a href="#about">About</a><a href="#skills">Skills</a><a href="#work">Work</a><a href="#experience">Experience</a><a href="#moments">Highlights</a><a href="#contact">Contact</a>
+</nav>
+
+<!-- HERO -->
+<header class="hero" id="top">
+  <div class="wrap">
+    <div class="ghost">RAJESH</div>
+    <div class="hero-l reveal">
+      <div class="who">Rajeshkumar K</div>
+      <h1>DevOps<br>Engineer.<span class="serif">Kubernetes &amp; observability</span></h1>
+      <p class="sub">I keep production Kubernetes inside its SLA, from cluster build to go-live and every day after, for 20+ live smart-city and IoT projects.</p>
+    </div>
+    <div class="figure">
+      <div class="halo"></div>
+      <img id="heroImg" src="../photo.jpg" alt="Rajeshkumar K">
+      <div class="live"><span class="dot"></span> Open to DevOps &amp; SRE roles</div>
+    </div>
+    <div class="hero-r reveal">
+      <div class="tags"><span>Kubernetes · GitOps</span><span>OpenObserve · OpenTelemetry</span><span>Bengaluru, India</span></div>
+      <a class="btn dark" href="#work">Explore my work <svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M3 8h10M9 4l4 4-4 4"/></svg></a>
+      <a class="btn ghostb" href="../Rajeshkumar-K-Resume.pdf" target="_blank">Résumé <svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M8 2v9M4 7l4 4 4-4M3 14h10"/></svg></a>
+    </div>
+    <div class="cue">SCROLL ↓</div>
+  </div>
+</header>
+
+<!-- ABOUT -->
+<section id="about">
+  <div class="wrap about-grid">
+    <div class="about-l reveal">
+      <div class="eyebrow"><b>01</b> About</div>
+      <h2 class="big">Hi, I'm <span class="serif">Rajesh.</span></h2>
+      <p>DevOps engineer at Trinity Mobility, where I run production Kubernetes for 20+ live smart-city and IoT projects. I build clusters, ship releases through GitOps, validate the whole application flow, and keep every platform inside its SLA after go-live.</p>
+      <p>I also lead the company's observability R&amp;D on <b>OpenObserve</b> and <b>OpenTelemetry</b>: one platform for logs, metrics and traces, so problems are caught before clients feel them.</p>
+      <div class="row">
+        <a class="btn dark" href="../Rajeshkumar-K-Resume.pdf" target="_blank">Résumé ↓</a>
+        <a class="btn ghostb" href="https://www.linkedin.com/in/rajeshkumark65/" target="_blank">LinkedIn ↗</a>
+        <a class="btn ghostb" href="https://github.com/rajeshkumark65" target="_blank">GitHub ↗</a>
+      </div>
+    </div>
+    <div class="lanyard reveal">
+      <div class="swing">
+        <div style="display:flex;flex-direction:column;align-items:center"><div class="strap"></div><div class="clip"></div></div>
+        <div class="idcard" id="idcard" title="Click to flip">
+          <div class="face front">
+            <div class="band"><div class="lg">RK</div><div><b>DEVELOPER ID</b><span>PORTFOLIO · 2026</span></div></div>
+            <div class="ph"><img src="../photo.jpg" alt=""></div>
+            <h4>RAJESHKUMAR K</h4>
+            <div class="rl">DevOps Engineer</div>
+            <div class="meta"><div><i>ID</i>RK-0065</div><div><i>FOCUS</i>Kubernetes</div><div><i>SINCE</i>2025</div></div>
+            <div class="barcode"></div>
+          </div>
+          <div class="face back">
+            <h4>What I am</h4>
+            <ul>
+              <li><div>Kubernetes engineer<small>Cluster build, GitOps, SLA</small></div></li>
+              <li><div>Observability R&amp;D lead<small>OpenObserve · OpenTelemetry</small></div></li>
+              <li><div>Production problem solver<small>Restore, root cause, prevent</small></div></li>
+              <li><div>Release validator<small>Device to dashboard, every time</small></div></li>
+              <li><div>Security fixer<small>Exposures closed, Nginx hardened</small></div></li>
+            </ul>
+            <div class="sig">Rajeshkumar</div>
+          </div>
+        </div>
+      </div>
+      <div class="flip-hint">CLICK THE CARD TO FLIP</div>
+    </div>
+    <div class="facts reveal">
+      <h5>QUICK FACTS</h5>
+      <dl>
+        <dt>Based in</dt><dd>Bengaluru, India</dd>
+        <dt>Role</dt><dd>Associate DevOps Engineer</dd>
+        <dt>Company</dt><dd>Trinity Mobility</dd>
+        <dt>Since</dt><dd>March 2025</dd>
+        <dt>Focus</dt><dd>Kubernetes · Observability</dd>
+        <dt>Languages</dt><dd>English, Tamil</dd>
+      </dl>
+      <blockquote>“From the cluster to the last log line.”</blockquote>
+    </div>
+  </div>
+</section>
+
+<!-- SKILLS -->
+<section id="skills" style="background:var(--bg2)">
+  <div class="wrap">
+    <div class="sec-top reveal">
+      <div><div class="eyebrow"><b>02</b> Skills</div><h2 class="big">The periodic table <span class="serif">of my stack.</span></h2></div>
+      <p>Elements in six families. Hover a tile to see how I use it, or pick a family to light it up.</p>
+    </div>
+    <div class="fam reveal" id="fam"></div>
+    <div class="ptable reveal">
+      <div class="grid-el" id="grid"></div>
+      <aside class="detail" id="detail"></aside>
+    </div>
+  </div>
+</section>
+
+<!-- WORK -->
+<section id="work">
+  <div class="wrap">
+    <div class="sec-top reveal">
+      <div><div class="eyebrow"><b>03</b> Selected work</div><h2 class="big">Things I've <span class="serif">built.</span></h2></div>
+      <p>Production platforms and observability systems running today. Hover or tap a panel to open it. Click any image to see it full size.</p>
+    </div>
+    <div class="acc reveal" id="acc">
+
+      <div class="panel open">
+        <div class="vt"><span class="no">01</span><h3>Kubernetes in Production</h3><span class="plus">+</span></div>
+        <div class="pc">
+          <div>
+            <div class="cat">01 · Kubernetes · GitOps · SLA</div>
+            <h3>Kubernetes in Production: cluster build to SLA</h3>
+            <p class="lead">End-to-end ownership of production Kubernetes for 20+ live projects: build the cluster, release through GitOps, prove the whole application works, then keep it inside its SLA.</p>
+            <ul>
+              <li><b>Cluster build to go-live:</b> on-prem clusters with control plane, workers, networking, ingress and storage</li>
+              <li><b>Release with end-to-end validation:</b> GitLab CI/CD and ArgoCD/Helm, then the full flow checked from device to dashboard</li>
+              <li><b>Post go-live ownership:</b> node, storage and workload failures fixed at the root cause</li>
+              <li><b>SLA-driven monitoring:</b> early-warning alerts raise Jira tickets before a breach</li>
+            </ul>
+            <div class="chips"><span><i></i>Kubernetes</span><span>Helm</span><span>ArgoCD</span><span>GitLab CI/CD</span><span>Nginx ingress</span></div>
+          </div>
+          <div class="cluster" id="cluster">
+            <div class="hd"><span>cluster · production</span><b>● all nodes ready</b></div>
+            <div class="node"><div class="t"><span>worker-01</span><span>cpu</span></div><div class="pods"><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i></div><div class="bar"><b data-w="58%"></b></div></div>
+            <div class="node"><div class="t"><span>worker-02</span><span>memory</span></div><div class="pods"><i></i><i></i><i></i><i></i><i></i><i></i><i class="w"></i><i></i></div><div class="bar"><b data-w="74%"></b></div></div>
+            <div class="node"><div class="t"><span>worker-03</span><span>disk</span></div><div class="pods"><i></i><i></i><i></i><i></i><i></i><i></i><i></i></div><div class="bar"><b data-w="46%"></b></div></div>
+            <div class="th"><span style="left:70%">70%</span><span style="left:80%">80%</span><span style="left:90%">90%</span></div>
+            <div class="alert">⚠ worker-02 memory above 70%: Jira ticket raised before SLA impact</div>
+          </div>
+        </div>
+      </div>
+
+      <div class="panel">
+        <div class="vt"><span class="no">02</span><h3>OpenObserve Platform</h3><span class="plus">+</span></div>
+        <div class="pc">
+          <div>
+            <div class="cat">02 · Observability R&amp;D lead</div>
+            <h3>Unified observability on OpenObserve</h3>
+            <p class="lead">I lead the R&amp;D to move the company's logs, metrics and traces into one platform on Kubernetes.</p>
+            <ul>
+              <li>OpenObserve installed, hardened and tuned on Kubernetes</li>
+              <li>OpenTelemetry agent + gateway collectors: apps push, the gateway pulls</li>
+              <li>Real-time and scheduled pipelines, VRL functions and alerts</li>
+              <li>Automation of dashboards, alerts and pipelines through the API</li>
+            </ul>
+            <div class="chips"><span><i></i>OpenObserve</span><span>OpenTelemetry</span><span>VRL</span><span>SQL</span><span>PromQL</span></div>
+          </div>
+          <div class="vis"><img class="zoom" src="../img/d-openobserve.svg" alt="OpenObserve platform architecture"></div>
+        </div>
+      </div>
+
+      <div class="panel">
+        <div class="vt"><span class="no">03</span><h3>Data Lake House Monitoring</h3><span class="plus">+</span></div>
+        <div class="pc">
+          <div>
+            <div class="cat">03 · Data platform</div>
+            <h3>Data Lake House service health</h3>
+            <p class="lead">Health, performance and alerting for the data-lake engines in one overview, from service status down to each engine.</p>
+            <ul>
+              <li>Service health tree across ingestion, processing and storage</li>
+              <li>Per-engine dashboards for Spark, Trino, Airflow, Kafka and MinIO</li>
+              <li>Alerts that separate real outages from noise</li>
+            </ul>
+            <div class="chips"><span><i></i>Grafana</span><span>Kafka</span><span>Spark</span><span>Trino</span><span>Airflow</span><span>MinIO</span></div>
+          </div>
+          <div class="vis"><img class="zoom" src="../img/hd-dlh.jpg" alt="Data Lake House overview dashboard"></div>
+        </div>
+      </div>
+
+      <div class="panel">
+        <div class="vt"><span class="no">04</span><h3>Production Monitoring (TAC)</h3><span class="plus">+</span></div>
+        <div class="pc">
+          <div>
+            <div class="cat">04 · Technical Assistance Center</div>
+            <h3>Logging &amp; monitoring for go-live projects</h3>
+            <p class="lead">The monitoring services every live project depends on, run and supported daily.</p>
+            <ul>
+              <li>Prometheus, VictoriaMetrics, Grafana, ELK and Alertmanager</li>
+              <li>Severity-based alerting: warning 70%, critical 80%, disaster 90%+</li>
+              <li>Every alert becomes a Jira ticket that is followed up and closed</li>
+            </ul>
+            <div class="chips"><span><i></i>Prometheus</span><span>Grafana</span><span>ELK</span><span>Alertmanager</span><span>Jira</span></div>
+          </div>
+          <div class="vis"><img class="zoom" src="../img/d-lnm.svg" alt="Logging and monitoring architecture"></div>
+        </div>
+      </div>
+
+      <div class="panel">
+        <div class="vt"><span class="no">05</span><h3>End-to-end Tracing</h3><span class="plus">+</span></div>
+        <div class="pc">
+          <div>
+            <div class="cat">05 · Distributed tracing</div>
+            <h3>Vendor API: one request, end to end</h3>
+            <p class="lead">A single trace across every hop of a critical incident workflow, with its logs one click away.</p>
+            <ul>
+              <li>trace_id in every log line with one OTLP logging standard</li>
+              <li>Automatic vs manual dispatch paths shown step by step</li>
+              <li>Root-cause analysis from a slow request straight to its logs</li>
+            </ul>
+            <div class="chips"><span><i></i>OpenTelemetry</span><span>Traces</span><span>OTLP logs</span><span>Java</span></div>
+          </div>
+          <div class="vis"><img class="zoom" src="../img/d-i999.svg" alt="End-to-end trace flow"></div>
+        </div>
+      </div>
+
+      <div class="panel">
+        <div class="vt"><span class="no">06</span><h3>Gen AI Monitoring</h3><span class="plus">+</span></div>
+        <div class="pc">
+          <div>
+            <div class="cat">06 · Beginner · learning</div>
+            <h3>Gen AI platform monitoring</h3>
+            <p class="lead">Early hands-on work: extending production monitoring to the company's voice-AI and GPU servers.</p>
+            <ul>
+              <li>Voice-AI production dashboard: call quality, latency, packet loss, SIP trunk health</li>
+              <li>NVIDIA GPU monitoring with Prometheus: utilisation, memory, temperature, power</li>
+            </ul>
+            <div class="chips"><span><i></i>Prometheus</span><span>Grafana</span><span>NVIDIA GPU</span></div>
+          </div>
+          <div class="vis"><img class="zoom" src="../img/hd-livekit.jpg" alt="Voice AI monitoring dashboard"></div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- CERTIFICATIONS -->
+<section id="certs" style="padding-top:40px">
+  <div class="wrap certs">
+    <div class="l reveal">
+      <div class="eyebrow"><b>04</b> Certifications</div>
+      <h2 class="big">Always <span class="serif">learning.</span></h2>
+      <p>Cloud and DevOps foundations, backed every day by production work.</p>
+    </div>
+    <ul class="clist reveal">
+      <li><span class="i">01</span><div><b>Microsoft Azure Fundamentals (AZ-900)</b><small>Microsoft</small></div><span class="ar">↗</span></li>
+      <li><span class="i">02</span><div><b>DevOps Fundamentals</b><small>IBM</small></div><span class="ar">↗</span></li>
+      <li><span class="i">03</span><div><b>DevOps Engineer Internship</b><small>StarAgile, with IBM</small></div><span class="ar">↗</span></li>
+      <li><span class="i">04</span><div><b>NCC "C" Certificate</b><small>National Cadet Corps</small></div><span class="ar">↗</span></li>
+    </ul>
+  </div>
+</section>
+
+<!-- EXPERIENCE -->
+<section id="experience" style="background:var(--bg2)">
+  <div class="wrap">
+    <div class="sec-top reveal">
+      <div><div class="eyebrow"><b>05</b> Experience</div><h2 class="big">Education &amp; <span class="serif">experience.</span></h2></div>
+      <p>From mechanical engineering to running production Kubernetes. Scroll to follow the path.</p>
+    </div>
+    <div class="tl" id="tl">
+      <div class="rail"><div class="fill" id="fill"></div></div>
+      <div class="step"><div class="card"><div class="k">Education</div><h4>B.E. Mechanical Engineering</h4><div class="w">Kongu Engineering College</div><p>Graduated with a strong academic record, then moved into IT systems and DevOps.</p><span class="pill">CGPA 9.01 / 10</span></div><div class="pin"></div><div class="yr">2019</div></div>
+      <div class="step"><div class="card"><div class="k">Internship</div><h4>DevOps Engineer Intern</h4><div class="w">StarAgile, with IBM · Apr – Aug 2024</div><p>CI/CD with Jenkins, AWS with Terraform, containers with Docker and Kubernetes.</p><span class="pill">Foundations</span></div><div class="pin"></div><div class="yr">2024</div></div>
+      <div class="step"><div class="card"><div class="k">Full-time</div><h4>Associate DevOps Engineer</h4><div class="w">Trinity Mobility · Technical Assistance Center</div><p>Production Kubernetes for 20+ live smart-city and IoT projects: cluster build, GitOps releases, end-to-end validation and SLA-driven monitoring.</p><span class="pill">Mar 2025 – Present</span></div><div class="pin"></div><div class="yr">2025</div></div>
+      <div class="step"><div class="card"><div class="k">Lead role</div><h4>Observability R&amp;D Lead</h4><div class="w">OpenObserve &amp; OpenTelemetry</div><p>Leading the move to one platform for logs, metrics and traces, with end-to-end tracing and trusted alerting.</p><span class="pill">2026 – Present</span></div><div class="pin"></div><div class="yr">2026</div></div>
+    </div>
+  </div>
+</section>
+
+<!-- MOMENTS -->
+<section id="moments">
+  <div class="wrap">
+    <div class="sec-top reveal">
+      <div><div class="eyebrow"><b>06</b> Highlights</div><h2 class="big">Proud <span class="serif">moments.</span></h2></div>
+      <p>What changed because of the work, <span class="serif" style="font-size:20px">and counting.</span></p>
+    </div>
+    <div class="moments reveal">
+      <div class="mo"><div class="top"><div class="ic"><svg viewBox="0 0 24 24"><path d="M12 2l8.5 5v10L12 22 3.5 17V7z"/><path d="M12 22V12M20.5 7 12 12 3.5 7"/></svg></div><span class="ix">01 / 04</span></div><div><div class="big">20<small>+</small></div><h4>Live projects in production</h4><div class="k">Kubernetes · daily ops</div><p>Monitored and troubleshot every day.</p></div></div>
+      <div class="mo"><div class="top"><div class="ic"><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 3"/></svg></div><span class="ix">02 / 04</span></div><div><div class="big">SLA</div><h4>Red alerts sharply reduced</h4><div class="k">Proactive monitoring</div><p>Early warnings raise tickets before a breach.</p></div></div>
+      <div class="mo"><div class="top"><div class="ic"><svg viewBox="0 0 24 24"><path d="M4 19h16M6 15l4-4 3 3 5-6"/></svg></div><span class="ix">03 / 04</span></div><div><div class="big">R&amp;D</div><h4>Observability lead</h4><div class="k">OpenObserve · OpenTelemetry</div><p>One platform for logs, metrics and traces.</p></div></div>
+      <div class="mo"><div class="top"><div class="ic"><svg viewBox="0 0 24 24"><path d="M3 12h4l3-7 4 14 3-7h4"/></svg></div><span class="ix">04 / 04</span></div><div><div class="big">E2E</div><h4>Tracing with log correlation</h4><div class="k">Faster root cause</div><p>From a slow request to its logs in one click.</p></div></div>
+    </div>
+  </div>
+</section>
+
+<!-- CONTACT -->
+<section class="contact" id="contact">
+  <div class="wrap">
+    <div class="eyebrow"><b style="color:#fff">07</b> Contact</div>
+    <h2 class="big">Let's <span class="serif">talk.</span></h2>
+    <p>Open to DevOps, Kubernetes, SRE and observability roles across India.</p>
+    <div class="crow">
+      <a class="btn light" href="mailto:rajeshkumar.k5445@gmail.com">rajeshkumar.k5445@gmail.com</a>
+      <a class="btn ghostb" href="https://www.linkedin.com/in/rajeshkumark65/" target="_blank">LinkedIn ↗</a>
+      <a class="btn ghostb" href="tel:+919894648632">+91 98946 48632</a>
+      <a class="btn ghostb" href="../Rajeshkumar-K-Resume.pdf" target="_blank">Résumé ↓</a>
+    </div>
+    <div class="foot"><span>© 2026 Rajeshkumar K · DevOps Engineer</span><span>Kubernetes · OpenObserve · OpenTelemetry</span></div>
+  </div>
+</section>
+
+<script>
+(function(){
+  /* talking intro video: drop intro.mp4 next to this page and it replaces the photo */
+  var v=document.createElement('video'); v.src='intro.mp4'; v.muted=true; v.autoplay=true; v.loop=true; v.playsInline=true; v.setAttribute('playsinline','');
+  v.addEventListener('loadeddata',function(){var im=document.getElementById('heroImg'); im.replaceWith(v); v.play().catch(function(){});});
+
+  /* reveal on scroll */
+  var io=new IntersectionObserver(function(es){es.forEach(function(e){if(e.isIntersecting){e.target.classList.add('in');io.unobserve(e.target);}})},{threshold:.12});
+  document.querySelectorAll('.reveal').forEach(function(el){io.observe(el)});
+
+  /* nav active section */
+  var links=[].slice.call(document.querySelectorAll('#nav a'));
+  var secs=links.map(function(a){return document.querySelector(a.getAttribute('href'))});
+  function onScroll(){
+    var y=window.scrollY+window.innerHeight*.35, cur=-1;
+    secs.forEach(function(s,i){if(s&&s.offsetTop<=y)cur=i});
+    if(document.getElementById('certs').offsetTop<=y && document.getElementById('experience').offsetTop>y) cur=1.5;
+    links.forEach(function(a,i){a.classList.toggle('on',i===cur||(cur===1.5&&i===2))});
+    /* timeline fill */
+    var tl=document.getElementById('tl'), r=tl.getBoundingClientRect(), h=window.innerHeight;
+    var p=Math.min(1,Math.max(0,(h*.6-r.top)/r.height)); document.getElementById('fill').style.height=(p*100)+'%';
+    document.querySelectorAll('.step').forEach(function(s){ if(s.getBoundingClientRect().top<h*.62) s.classList.add('in'); });
+  }
+  window.addEventListener('scroll',onScroll,{passive:true}); onScroll();
+
+  /* ID card flip + pointer tilt */
+  var card=document.getElementById('idcard');
+  card.addEventListener('click',function(){card.classList.toggle('flip')});
+
+  /* periodic table */
+  var D='https://cdn.jsdelivr.net/gh/devicons/devicon@v2.16.0/icons/';
+  var fams=[['k8s','Kubernetes & delivery','#24264a'],['obs','Observability','#2f6f73'],['mon','Monitoring & logs','#8a5a2b'],['data','Data platform','#5b4b8a'],['code','Scripting & OS','#3f6b3a'],['found','Foundations','#7a6f5a']];
+  var E=[
+   ['Ks','Kubernetes','k8s','kubernetes/kubernetes-original','Production clusters for 20+ live projects: build, operate, troubleshoot.'],
+   ['Hm','Helm','k8s','helm/helm-original','Charts and per-environment values; chart bugs fixed at the source.'],
+   ['Ac','ArgoCD','k8s','argocd/argocd-original','GitOps releases with drift checked before every sync.'],
+   ['Gl','GitLab CI/CD','k8s','gitlab/gitlab-original','Build pipelines that feed GitOps deployments.'],
+   ['Dk','Docker','k8s','docker/docker-original','Images built, rebuilt and instrumented for production.'],
+   ['Nx','Nginx','k8s','nginx/nginx-original','Ingress and reverse proxy, hardened against exposure.'],
+   ['Oo','OpenObserve','obs','','The unified platform I lead: pipelines, VRL, alerts, dashboards.'],
+   ['Ot','OpenTelemetry','obs','opentelemetry/opentelemetry-original','Agent + gateway collectors, traces and OTLP logs.'],
+   ['Tr','Tracing','obs','','End-to-end traces with trace_id in every log line.'],
+   ['Vr','VRL','obs','','Functions that clean, enrich and standardise data in flight.'],
+   ['Pr','Prometheus','mon','prometheus/prometheus-original','Metrics, exporters and severity-based alert rules.'],
+   ['Gf','Grafana','mon','grafana/grafana-original','Service, platform and data-lake dashboards.'],
+   ['Vm','VictoriaMetrics','mon','','Long-term metrics storage for live projects.'],
+   ['Es','Elasticsearch','mon','elasticsearch/elasticsearch-original','ELK stack for production logs.'],
+   ['Kb','Kibana','mon','kibana/kibana-original','Log search and investigation for client issues.'],
+   ['Ls','Logstash','mon','logstash/logstash-original','Log parsing and pipelines.'],
+   ['Am','Alertmanager','mon','','Routing alerts to email and Telegram by severity.'],
+   ['Ji','Jira','mon','jira/jira-original','Every alert becomes a ticket that is followed up and closed.'],
+   ['Kf','Kafka','data','apachekafka/apachekafka-original','Broker and topic health for the data platform.'],
+   ['Sp','Spark','data','apachespark/apachespark-original','Job and executor monitoring in the data lake house.'],
+   ['Af','Airflow','data','apacheairflow/apacheairflow-original','DAG and task health with clear failure signals.'],
+   ['Tn','Trino','data','','Query engine health and performance.'],
+   ['Pg','PostgreSQL','data','postgresql/postgresql-original','Database exporters and health checks.'],
+   ['If','InfluxDB','data','influxdb/influxdb-original','Time-series storage for application metrics.'],
+   ['Lx','Linux','code','linux/linux-original','Daily server work: storage, clock drift, disk pressure.'],
+   ['Sh','Bash','code','bash/bash-original','Automation and operational scripts.'],
+   ['Py','Python','code','python/python-original','Exporters and API automation.'],
+   ['Sq','SQL','code','','Observability queries, dashboards and alert logic.'],
+   ['Pq','PromQL','code','','Metric queries and alert expressions.'],
+   ['Gt','Git','found','git/git-original','Version control for charts, values and configuration.'],
+   ['Jk','Jenkins','found','jenkins/jenkins-original','CI/CD pipelines from my DevOps internship.'],
+   ['Tf','Terraform','found','terraform/terraform-original','Infrastructure as code from my DevOps internship.']
+  ];
+  var fc={}; fams.forEach(function(f){fc[f[0]]=f});
+  var grid=document.getElementById('grid'), det=document.getElementById('detail'), fam=document.getElementById('fam');
+  function show(e){
+    det.innerHTML='<div class="logo">'+(e[3]?'<img src="'+D+e[3]+'.svg" alt="" onerror="this.outerHTML=\'<span class=sym>'+e[0]+'</span>\'">':'<span class="sym">'+e[0]+'</span>')+'</div><h4>'+e[1]+'</h4><div class="fm" style="color:'+fc[e[2]][2]+'">'+fc[e[2]][1]+'</div><p>'+e[4]+'</p>';
+  }
+  E.forEach(function(e,i){
+    var d=document.createElement('div'); d.className='el'; d.dataset.f=e[2];
+    d.innerHTML='<span class="n">'+String(i+1).padStart(2,'0')+'</span><span class="s">'+e[0]+'</span><span class="nm">'+e[1]+'</span>';
+    d.addEventListener('mouseenter',function(){show(e)}); d.addEventListener('click',function(){show(e)});
+    grid.appendChild(d);
+  });
+  var active=null;
+  function light(f){
+    active=(active===f)?null:f;
+    [].forEach.call(fam.children,function(b){b.classList.toggle('on',b.dataset.f===active)});
+    [].forEach.call(grid.children,function(el){
+      var on=active&&el.dataset.f===active;
+      el.classList.toggle('lit',!!on); el.classList.toggle('dim',!!active&&!on);
+      el.style.background=on?fc[el.dataset.f][2]:'';
+    });
+    if(active){var first=E.filter(function(e){return e[2]===active})[0]; show(first);}
+  }
+  fams.forEach(function(f){var b=document.createElement('button'); b.dataset.f=f[0]; b.innerHTML='<i style="background:'+f[2]+'"></i>'+f[1]; b.onclick=function(){light(f[0])}; fam.appendChild(b);});
+  show(E[0]); light('k8s');
+
+  /* work accordion */
+  var panels=[].slice.call(document.querySelectorAll('.panel'));
+  function open(p){panels.forEach(function(x){x.classList.toggle('open',x===p)}); if(p.querySelector('#cluster'))bars();}
+  panels.forEach(function(p){
+    p.addEventListener('mouseenter',function(){if(matchMedia('(min-width:1081px)').matches)open(p)});
+    p.addEventListener('click',function(){open(p)});
+  });
+  function bars(){document.querySelectorAll('#cluster .bar b').forEach(function(b){b.style.width='0';setTimeout(function(){b.style.width=b.dataset.w},60)})}
+  new IntersectionObserver(function(es,o){if(es[0].isIntersecting){bars();o.disconnect()}}).observe(document.getElementById('cluster'));
+
+  /* lightbox */
+  document.addEventListener('click',function(e){
+    var t=e.target.closest('img.zoom'); if(!t)return;
+    var box=document.createElement('div'); box.className='lightbox'; var im=document.createElement('img'); im.src=t.src; im.alt=t.alt;
+    box.appendChild(im); box.onclick=function(){box.remove()}; document.body.appendChild(box);
+  });
+})();
+</script>
+</body>
+</html>
